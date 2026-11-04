@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://birdy-agent.netlify.app/sitemap.xml
