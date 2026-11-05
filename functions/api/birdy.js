@@ -1,6 +1,9 @@
 // Assistant IA Birdy : POST /api/birdy  {messages: [{role: "user"|"assistant", content: "..."}]}
 // Répond en flux (text/event-stream) : lignes `data: {"t": "..."}` puis `data: {"fin": true}`.
-// Sans clé ANTHROPIC_API_KEY (secret Cloudflare), répond 503 et le site garde l'agent simple.
+// Deux moteurs possibles :
+//  - gratuit : l'IA de Cloudflare (liaison « Workers AI » nommée AI dans les réglages Cloudflare Pages) ;
+//  - payant : Claude, si le secret ANTHROPIC_API_KEY existe (prioritaire).
+// Sans aucun des deux, ou si le quota gratuit du jour est épuisé, le site garde l'agent simple.
 import { SYSTEM } from "../../lib/birdy-ctx.js";
 
 const MAX_MSG = 16, MAX_LEN = 1200, MAX_TOTAL = 9000;
@@ -29,8 +32,59 @@ function nettoie(body) {
   return garde.length ? garde : null;
 }
 
+const enc = new TextEncoder();
+const sse = (o) => enc.encode("data: " + JSON.stringify(o) + "\n\n");
+const FLUX = { "content-type": "text/event-stream; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" };
+
+// Lit un flux SSE ligne à ligne et appelle chaque(objet) pour chaque « data: {...} »
+async function litSSE(corps, chaque) {
+  const lecteur = corps.getReader(), dec = new TextDecoder();
+  let tampon = "";
+  for (;;) {
+    const { done, value } = await lecteur.read();
+    if (done) break;
+    tampon += dec.decode(value, { stream: true });
+    let k;
+    while ((k = tampon.indexOf("\n")) > -1) {
+      const l = tampon.slice(0, k).trim(); tampon = tampon.slice(k + 1);
+      if (!l.startsWith("data:")) continue;
+      const d = l.slice(5).trim();
+      if (d === "[DONE]") continue;
+      let ev; try { ev = JSON.parse(d); } catch { continue; }
+      await chaque(ev);
+    }
+  }
+}
+
+async function cloudflareIA(env, messages) {
+  const model = env.CF_AI_MODEL || "@cf/mistralai/mistral-small-3.1-24b-instruct";
+  let flux;
+  try {
+    flux = await env.AI.run(model, { messages: [{ role: "system", content: SYSTEM }, ...messages], stream: true, max_tokens: 700, temperature: 0.4 });
+  } catch (e) {
+    console.log("Workers AI", String(e).slice(0, 300)); // quota du jour épuisé, modèle indisponible…
+    return json({ erreur: "occupe" }, 429);
+  }
+  const { readable, writable } = new TransformStream();
+  const w = writable.getWriter();
+  (async () => {
+    try {
+      await litSSE(flux, async (ev) => {
+        const t = ev.response ?? (ev.choices && ev.choices[0] && ev.choices[0].delta && ev.choices[0].delta.content);
+        if (t) await w.write(sse({ t }));
+      });
+      await w.write(sse({ fin: true }));
+    } catch {
+      try { await w.write(sse({ erreur: "reseau" })); } catch {}
+    } finally {
+      try { await w.close(); } catch {}
+    }
+  })();
+  return new Response(readable, { headers: FLUX });
+}
+
 export async function onRequestPost({ request, env }) {
-  if (!env.ANTHROPIC_API_KEY) return json({ erreur: "indisponible" }, 503);
+  if (!env.ANTHROPIC_API_KEY && !env.AI) return json({ erreur: "indisponible" }, 503);
   const origin = request.headers.get("origin");
   if (origin && new URL(origin).host !== new URL(request.url).host) return json({ erreur: "origine" }, 403);
 
@@ -38,6 +92,7 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); } catch { return json({ erreur: "format" }, 400); }
   const messages = nettoie(body);
   if (!messages) return json({ erreur: "format" }, 400);
+  if (!env.ANTHROPIC_API_KEY) return cloudflareIA(env, messages);
 
   const model = env.CLAUDE_MODEL || "claude-opus-5-5";
   const req = {
@@ -69,38 +124,24 @@ export async function onRequestPost({ request, env }) {
     return json({ erreur: up.status === 429 ? "occupe" : "api" }, up.status === 429 ? 429 : 502);
   }
 
-  const enc = new TextEncoder(), dec = new TextDecoder();
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
-  const envoie = (o) => w.write(enc.encode("data: " + JSON.stringify(o) + "\n\n"));
-
   (async () => {
-    const lecteur = up.body.getReader();
-    let tampon = "", refus = false;
+    let refus = false;
     try {
-      for (;;) {
-        const { done, value } = await lecteur.read();
-        if (done) break;
-        tampon += dec.decode(value, { stream: true });
-        let k;
-        while ((k = tampon.indexOf("\n\n")) > -1) {
-          const bloc = tampon.slice(0, k); tampon = tampon.slice(k + 2);
-          const ligne = bloc.split("\n").find((l) => l.startsWith("data:"));
-          if (!ligne) continue;
-          let ev; try { ev = JSON.parse(ligne.slice(5)); } catch { continue; }
-          if (ev.type === "content_block_start" && ev.content_block && ev.content_block.type === "fallback") await envoie({ reset: true });
-          else if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") await envoie({ t: ev.delta.text });
-          else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason === "refusal") refus = true;
-          else if (ev.type === "error") { await envoie({ erreur: "api" }); }
-        }
-      }
-      await envoie(refus ? { erreur: "refus" } : { fin: true });
+      await litSSE(up.body, async (ev) => {
+        if (ev.type === "content_block_start" && ev.content_block && ev.content_block.type === "fallback") await w.write(sse({ reset: true }));
+        else if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") await w.write(sse({ t: ev.delta.text }));
+        else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason === "refusal") refus = true;
+        else if (ev.type === "error") await w.write(sse({ erreur: "api" }));
+      });
+      await w.write(sse(refus ? { erreur: "refus" } : { fin: true }));
     } catch {
-      try { await envoie({ erreur: "reseau" }); } catch {}
+      try { await w.write(sse({ erreur: "reseau" })); } catch {}
     } finally {
       try { await w.close(); } catch {}
     }
   })();
 
-  return new Response(readable, { headers: { "content-type": "text/event-stream; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" } });
+  return new Response(readable, { headers: FLUX });
 }
