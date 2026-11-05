@@ -950,6 +950,37 @@ footer{background:var(--night)}
 .gs{overflow:clip}
 .gs-bg{overflow:hidden}
 @media (max-width:900px){.gs-art{max-width:340px}.gs-steps{padding-bottom:40vh}}
+
+/* ===== Logo plus présent, Birdy prédominant ===== */
+.top .in{padding-block:8px;min-height:74px}
+.top .logo{gap:16px;position:relative;z-index:2}
+.top .logo img{width:84px;height:84px;margin:0 0 -30px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.85),0 14px 30px rgba(0,0,0,.45);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.top .logo:hover img{transform:scale(1.05) rotate(-3deg)}
+.top .logo span{font-size:19px;letter-spacing:.2em}
+.hx{padding-top:clamp(52px,5vw,70px)}
+@media (min-width:901px){.hx-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:center}}
+@media (max-width:900px){.hx-grid{grid-template-columns:minmax(0,1fr)}.hx{padding-top:44px}}
+.hx-title{font-size:clamp(44px,5.4vw,78px);margin:10px 0 8px}
+.hx-lead{font-size:16.5px}
+.agent{margin-top:22px;border-radius:28px;border:1px solid rgba(163,201,184,.35);box-shadow:0 0 0 6px rgba(163,201,184,.06),0 40px 90px rgba(0,0,0,.5),0 0 80px rgba(163,201,184,.14)}
+.agent-head{padding:18px 22px}
+.agent-head img{width:52px;height:52px;box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+.agent-head b{font-size:19px}
+.agent-head small{font-size:13.5px}
+.agent-log{min-height:190px;max-height:380px;padding:20px 22px;gap:12px}
+.msg-b,.msg-u{font-size:16.5px;padding:13px 17px;max-width:92%}
+.composer{margin:0 16px 16px;padding:14px;border-radius:20px;border-color:rgba(163,201,184,.3);background:rgba(255,255,255,.05)}
+.composer .agent-sugg button{font-size:13.5px;padding:9px 13px}
+.composer .agent-form input{height:58px;font-size:17px}
+.composer .agent-form button{width:54px;height:54px;border-radius:16px}
+.recos{gap:10px}.reco .p{height:80px}.reco b{font-size:14.5px}
+@media (max-width:900px){
+  .top .logo img{width:62px;height:62px;margin-bottom:-18px}
+  .top .logo span{display:inline;font-size:15px}
+  .agent-log{min-height:150px;max-height:340px}
+}
+@media (max-width:420px){.top .logo span{display:none}}
+@media (max-width:900px){.hx-right{order:0;margin-top:26px}}
 </style>
 </head>
 <body>
@@ -957,7 +988,7 @@ footer{background:var(--night)}
 
 <header class="top"><div class="in">
   <a class="logo" href="#accueil"><img src="logo.webp" alt="Birdy Agent"><span>BIRDY AGENT</span></a>
-  <nav class="links"><a href="#carte">La carte</a><a href="#birdy">Comment ça marche</a><a href="#pourqui">Pour qui</a><a href="/guides/">Idées de séjours</a></nav><a class="btn gold sm" href="#organiser">Organiser mon séjour</a>
+  <nav class="links"><a href="#accueil">La carte</a><a href="#birdy">Comment ça marche</a><a href="#pourqui">Pour qui</a><a href="/guides/">Idées de séjours</a></nav><a class="btn gold sm" href="#organiser">Organiser mon séjour</a>
 </div></header>
 
 <main>
@@ -1000,14 +1031,7 @@ footer{background:var(--night)}
       </article>
     </div>
   </div>
-  <div class="in explore" id="carte">
-    <div class="explore-bar">
-      <label class="search"><span class="sr">Rechercher une destination</span><input id="ex-q" type="search" placeholder="Rechercher : Algarve, Maroc, Écosse…" autocomplete="off"></label>
-      <div class="explore-regions" id="ex-regions" role="group" aria-label="Filtrer par région"><button type="button" data-r="france" aria-pressed="false">France</button><button type="button" data-r="europe" aria-pressed="false">Europe</button><button type="button" data-r="afrique" aria-pressed="false">Afrique</button><button type="button" data-r="indien" aria-pressed="false">Océan Indien</button><button type="button" data-r="asie" aria-pressed="false">Moyen-Orient et Asie</button><button type="button" data-r="ameriques" aria-pressed="false">Amérique du Nord</button><button type="button" data-r="caraibes" aria-pressed="false">Caraïbes</button><button type="button" data-r="oceanie" aria-pressed="false">Océanie</button></div>
-    </div>
-    <div class="explore-list" id="ex-list" role="list" aria-label="Destinations"></div>
-  </div>
-</section>
+  </section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span></div></div>
 
