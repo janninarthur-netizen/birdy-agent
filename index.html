@@ -1006,6 +1006,7 @@ footer{background:var(--night)}
 
 /* Fluidité : les sections hors écran ne sont calculées qu'à l'approche */
 .une,.who,.alld,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.msg-b a{color:#D0E4DC;text-decoration:underline;text-underline-offset:2px;font-weight:600}.msg-b a:hover{color:#fff}.msg-b b{color:#fff}
 </style>
 </head>
 <body>
@@ -1032,7 +1033,7 @@ footer{background:var(--night)}
           <div class="agent-sugg" id="agent-sugg" role="group" aria-label="Suggestions"><button type="button">8 potes en mars au soleil</button><button type="button">EVG golf en Espagne</button><button type="button">Séminaire pour 20 personnes</button><button type="button">Golf au chaud cet hiver</button><button type="button">Links mythiques en Écosse</button></div>
           <form class="agent-form" id="agent-form" autocomplete="off">
             <label class="sr" for="agent-in">Votre message à Birdy</label>
-            <input id="agent-in" maxlength="240" placeholder="Décrivez votre séjour : 6 amis, Portugal, avril…">
+            <input id="agent-in" maxlength="600" autocomplete="off" placeholder="Votre séjour, une question golf… 6 amis, Portugal, avril ?">
             <button type="submit" aria-label="Envoyer à Birdy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
           </form>
         </div>

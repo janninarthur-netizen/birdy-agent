@@ -374,7 +374,75 @@
         c.appendChild(go); c.appendChild(plus);
         setTimeout(function () { var cb = bulle("msg-b", c); cb.style.background = "transparent"; cb.style.border = "0"; }, calme ? 0 : 520);
     }
-    function envoie(txt) { txt = txt.trim(); if (!txt) return; bulle("msg-u", txt); repond(txt); }
+    /* --- Vraie IA (functions/api/birdy.js) ; l'agent simple ci-dessus prend le relais si elle ne répond pas --- */
+    var histo = [], ia = !!window.fetch && !!window.TextDecoder, occupe = false;
+    function md(t) {
+      var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
+      h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, txt, u) {
+        return /^\/(golf|guides)\/[\w\/-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
+      });
+      return h.replace(/^[-•] /gm, "• ").replace(/\n/g, "<br>");
+    }
+    function apres(rep) {
+      var vus = [], re = /\]\(\/golf\/([\w-]+)\)/g, m;
+      while ((m = re.exec(rep)) && vus.length < 3) {
+        var i = -1; D.forEach(function (d, k) { if (d.s === m[1]) i = k; });
+        if (i > -1 && vus.indexOf(i) < 0) vus.push(i);
+      }
+      if (!vus.length) return;
+      var r = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
+      suite(r, vus.map(function (i) { return { i: i }; }));
+    }
+    function demandeIA(txt) {
+      occupe = true;
+      var b = bulle("msg-b", ""); b.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
+      var rep = "", err = null;
+      fetch("/api/birdy", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: histo }) })
+        .then(function (res) {
+          if (!res.ok || !res.body) throw new Error(String(res.status));
+          var rd = res.body.getReader(), dec = new TextDecoder(), buf = "";
+          function lit() {
+            return rd.read().then(function (x) {
+              if (x.done) return;
+              buf += dec.decode(x.value, { stream: true });
+              var k;
+              while ((k = buf.indexOf("\n\n")) > -1) {
+                var l = buf.slice(0, k); buf = buf.slice(k + 2);
+                if (l.indexOf("data: ") !== 0) continue;
+                var o; try { o = JSON.parse(l.slice(6)); } catch (e) { continue; }
+                if (o.reset) rep = "";
+                if (o.t) rep += o.t;
+                if (o.erreur) err = o.erreur;
+                if (rep) { b.innerHTML = md(rep) + '<span class="caret"></span>'; log.scrollTop = log.scrollHeight; }
+              }
+              return lit();
+            });
+          }
+          return lit();
+        })
+        .then(function () {
+          if (err || !rep.trim()) throw new Error(err || "vide");
+          b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false; apres(rep);
+        })
+        .catch(function (e) {
+          b.remove(); histo.pop(); occupe = false;
+          if (e.message === "503" || e.message === "404") ia = false;
+          repond(txt);
+        });
+    }
+    log.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href="/#organiser"]');
+      if (!a || !W) return;
+      e.preventDefault();
+      var r = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
+      W.prefill({ groupe: r.groupe, destination: dernier && dernier.d, periode: r.periode, budget: r.budget });
+    });
+    function envoie(txt) {
+      txt = txt.trim(); if (!txt || occupe) return;
+      bulle("msg-u", txt);
+      if (ia) { histo.push({ role: "user", content: txt }); demandeIA(txt); } else repond(txt);
+    }
     form.addEventListener("submit", function (e) { e.preventDefault(); envoie(inp.value); inp.value = ""; });
     each(sugg.children, function (b) { b.addEventListener("click", function () { envoie(b.textContent); }); });
     setTimeout(function () {
