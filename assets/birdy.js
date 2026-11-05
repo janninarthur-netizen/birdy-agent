@@ -370,18 +370,15 @@
     }, calme ? 0 : 900);
   })();
 
-  /* ---------- Récit au défilement ---------- */
+  /* ---------- Frise « Comment Birdy vous accompagne » ---------- */
   (function () {
-    var path = $("st-path"), ball = $("st-ball"), steps = document.querySelectorAll(".st"), sec = $("birdy");
-    if (!path || !sec) return;
-    var L = path.getTotalLength(); path.style.strokeDasharray = L; path.style.strokeDashoffset = L;
+    var tl = $("tl"), fill = $("tl-fill"), ball = $("tl-ball"), steps = document.querySelectorAll(".tl-step");
+    if (!tl) return;
     function maj() {
-      var r = sec.getBoundingClientRect(), h = innerHeight;
-      var p = Math.max(0, Math.min(1, (h * 0.55 - r.top) / (r.height - h * 0.4)));
-      if (calme) p = Math.max(p, 0);
-      path.style.strokeDashoffset = L * (1 - p);
-      var pt = path.getPointAtLength(L * p); ball.setAttribute("cx", pt.x); ball.setAttribute("cy", pt.y);
-      each(steps, function (s) { var b = s.getBoundingClientRect(); s.classList.toggle("on", b.top < h * 0.68 && b.bottom > h * 0.2); });
+      var r = tl.getBoundingClientRect(), h = innerHeight, ligne = h * 0.62;
+      var p = Math.max(0, Math.min(1, (ligne - r.top - 28) / Math.max(1, r.height - 56)));
+      fill.style.height = (p * 100) + "%"; ball.style.top = (p * 100) + "%";
+      each(steps, function (st) { var n = st.querySelector(".tl-node").getBoundingClientRect(); st.classList.toggle("on", n.top + 28 < ligne); });
     }
     addEventListener("scroll", maj, { passive: true }); addEventListener("resize", maj); maj();
   })();

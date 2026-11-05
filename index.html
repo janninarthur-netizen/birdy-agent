@@ -649,6 +649,59 @@ footer{background:var(--night)}
 .reassure-line{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:10px;font:500 13px/1.3 var(--body);color:#6B7E73}
 .reassure-line span{display:inline-flex;align-items:center;gap:7px}
 .reassure-line span::before{content:"";width:6px;height:6px;border-radius:50%;background:#C6A052}
+
+/* ===== Comment Birdy vous accompagne : frise dorée IA → conseiller ===== */
+.story{background:#F9F8F3;color:#091A14}
+.tl-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:start}
+.tl-intro{position:sticky;top:110px}
+.tl-intro h2{font-family:"Instrument Serif","Cormorant Garamond",Georgia,serif;font-weight:400;font-size:clamp(38px,4.6vw,60px);line-height:1.02;color:#091A14;margin-bottom:16px}
+.tl-intro h2 em{font-style:italic;background:linear-gradient(100deg,#B8913E,#C6A052 40%,#9C7A2E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tl-lead{color:#4E6157;font-size:17px;max-width:46ch}
+.tl-legend{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.tl-legend li{display:flex;align-items:center;gap:10px;color:#4E6157;font-size:14.5px}
+.tl-who{display:inline-flex;align-items:center;gap:7px;font:600 11px/1 var(--body);letter-spacing:.13em;text-transform:uppercase;padding:7px 11px 7px 9px;border-radius:99px;white-space:nowrap}
+.tl-who svg{width:15px;height:15px}
+.tl-who.ia{background:#091A14;color:#E2C085}
+.tl-who.hum{background:#F1E7CC;color:#0E3A31}
+.tl{position:relative;list-style:none;margin:0;padding:6px 0 6px 76px}
+.tl-rail{position:absolute;left:27px;top:28px;bottom:28px;width:2px;background:repeating-linear-gradient(to bottom,#DED7C4 0 6px,transparent 6px 12px)}
+.tl-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(#F3E0A9,#C6A052);box-shadow:0 0 12px rgba(226,192,133,.75);border-radius:2px}
+.tl-ball{position:absolute;left:50%;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFFFFF,#E9ECEA 70%);box-shadow:0 0 0 3px #C6A052,0 6px 14px rgba(9,26,20,.25)}
+.tl-step{position:relative;margin-bottom:22px;transition-delay:calc(var(--d,0) * 90ms)}
+.tl-node{position:absolute;left:-76px;top:16px;width:56px;height:56px;border-radius:50%;background:#FFFFFF;border:1.5px solid #E6E1D3;display:grid;place-items:center;color:#0E3A31;transition:background .5s,border-color .5s,color .5s,box-shadow .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.tl-node svg{width:24px;height:24px}
+.tl-node em{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;background:#091A14;color:#E2C085;font:700 12px/22px var(--body);font-style:normal;text-align:center}
+.tl-step.on .tl-node{background:linear-gradient(135deg,#F3E0A9,#C6A052);border-color:transparent;color:#091A14;box-shadow:0 10px 24px rgba(198,160,82,.4);transform:scale(1.06)}
+.tl-card{background:#FFFFFF;border:1px solid #E6E1D3;border-radius:20px;padding:20px 22px 22px;box-shadow:0 2px 0 rgba(9,26,20,.03);transition:border-color .5s,box-shadow .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.tl-step.on .tl-card{border-color:#E2C085;box-shadow:0 22px 46px rgba(9,26,20,.10);transform:translateX(4px)}
+.tl-card h3{font:600 20px/1.25 var(--body);color:#091A14;margin:12px 0 6px}
+.tl-card p{color:#4E6157}
+.tl-relay{position:relative;margin:4px 0 26px;list-style:none}
+.tl-relay span{position:relative;left:-76px;display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#9C7A2E;background:#F9F8F3;padding:8px 14px 8px 12px;border:1px solid #E2C085;border-radius:99px;margin-left:2px}
+.tl-relay span::before{content:"";width:8px;height:8px;border-radius:50%;background:#C6A052;box-shadow:0 0 0 4px rgba(198,160,82,.2)}
+.adv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px 28px;margin-top:clamp(30px,5vw,56px);padding:26px 30px;border-radius:26px;background:radial-gradient(120% 140% at 0% 0%,#163A2D 0%,#091A14 60%);color:#F4F6F5;box-shadow:0 30px 70px rgba(9,26,20,.28);border:1px solid rgba(226,192,133,.18)}
+.adv-av{position:relative;width:76px;height:76px}
+.adv-av img{width:76px;height:76px;border-radius:50%;display:block;box-shadow:0 0 0 3px #C6A052,0 10px 24px rgba(0,0,0,.35)}
+.adv-check{position:absolute;right:-4px;bottom:-2px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#F3E0A9,#C6A052);color:#091A14;border:2px solid #091A14}
+.adv-check svg{width:15px;height:15px}
+.adv-name{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:600 16px/1.2 var(--body);color:#F4F6F5;margin-bottom:8px}
+.adv-badge{display:inline-flex;align-items:center;gap:5px;font:600 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#E2C085;background:rgba(226,192,133,.12);border:1px solid rgba(226,192,133,.35);padding:5px 9px;border-radius:99px}
+.adv-badge svg{width:14px;height:14px}
+.adv-quote{font-family:"Instrument Serif","Cormorant Garamond",Georgia,serif;font-style:italic;font-size:clamp(20px,2vw,24px);line-height:1.3;color:#E8EDEA}
+.adv-cta{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.adv-tel{font-size:13.5px;color:#A0B2A6}
+.adv-tel b{color:#F4F6F5;font-weight:600;white-space:nowrap}
+.rv.pre{opacity:0;transform:translateY(28px);filter:blur(4px)}
+@media (max-width:900px){
+  .tl-grid{grid-template-columns:1fr}
+  .tl-intro{position:static}
+  .adv{grid-template-columns:auto minmax(0,1fr);padding:22px}
+  .adv-cta{grid-column:1/-1;align-items:stretch}
+  .adv-cta .btn{width:100%;min-height:54px}
+  .adv-tel{text-align:center}
+}
+@media (max-width:480px){.tl{padding-left:64px}.tl-node{left:-64px;width:48px;height:48px}.tl-rail{left:23px}.tl-relay span{left:-64px;font-size:11px}}
+@media (prefers-reduced-motion:reduce){.tl-node,.tl-card{transition:none}}
 </style>
 </head>
 <body>
@@ -714,34 +767,29 @@ footer{background:var(--night)}
 <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span></div></div>
 
 <section class="story" id="birdy">
-  <div class="in">
-    <div class="sec-head rv"><p class="eyebrow">Comment Birdy vous accompagne</p><h2>Du premier message au premier départ</h2></div>
-    <div class="story-grid">
-      <div class="story-art" aria-hidden="true">
-        <svg viewBox="0 0 600 640" id="story-svg">
-          <defs><linearGradient id="st-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E3A31"/><stop offset="1" stop-color="#1F5A44"/></linearGradient></defs>
-          <rect width="600" height="640" rx="28" fill="url(#st-sky)"/>
-          <circle cx="470" cy="120" r="46" fill="#E8C870" opacity=".18"/><circle cx="470" cy="120" r="28" fill="#E8C870" opacity=".55"/>
-          <path d="M0 520 C120 470 240 500 360 488 C460 478 540 450 600 460 V640 H0Z" fill="#2F7A55"/>
-          <path d="M0 560 C160 530 320 556 600 530 V640 H0Z" fill="#245F44"/>
-          <ellipse cx="520" cy="474" rx="58" ry="11" fill="#8ED07A"/>
-          <path d="M524 474 V392" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M526 393 C540 398 552 394 566 402 C552 408 540 406 526 414Z" fill="#C9A24B"/>
-          <ellipse cx="524" cy="475" rx="6" ry="2.4" fill="#0E3A31"/>
-          <rect x="66" y="560" width="6" height="22" rx="2" fill="#F3EEE4"/>
-          <path id="st-track" d="M70 556 C150 120 430 60 522 470" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="3" stroke-dasharray="4 10" stroke-linecap="round"/>
-          <path id="st-path" d="M70 556 C150 120 430 60 522 470" fill="none" stroke="#E2B85C" stroke-width="4" stroke-linecap="round"/>
-          <circle id="st-ball" cx="70" cy="556" r="11" fill="#FFFFFF"/>
-          <g id="st-marks" fill="#E8D9A8" font-family="Instrument Sans, sans-serif" font-size="15" font-weight="600"></g>
-        </svg>
-      </div>
-      <div class="story-steps">
-        <article class="st"><span class="st-n">1</span><h3>Vous parlez à Birdy</h3><p>Une phrase suffit : combien vous êtes, quand vous voulez partir, plutôt soleil ou links mythiques, et votre budget.</p></article>
-        <article class="st"><span class="st-n">2</span><h3>Birdy trouve la destination</h3><p>Parmi nos 55 destinations, il vous propose celles qui vous ressemblent, vous les montre sur la carte du monde et prépare votre demande.</p></article>
-        <article class="st"><span class="st-n">3</span><h3>Un conseiller obtient les vrais tarifs</h3><p>Hôtel, green-fees, cours pour les débutants, transferts, dîners : un conseiller demande les prix réels et vous envoie une proposition, sans engagement.</p></article>
-        <article class="st"><span class="st-n">4</span><h3>Vous partez jouer</h3><p>Votre conseiller reste votre contact jusqu’au départ. Vous n’avez plus qu’à profiter du parcours, entre amis, collègues ou membres du club.</p></article>
-      </div>
+  <div class="in tl-grid">
+    <div class="tl-intro">
+      <p class="eyebrow">Comment Birdy vous accompagne</p>
+      <h2>L’intelligence de Birdy, <em>l’exigence d’un conseiller</em></h2>
+      <p class="tl-lead">Birdy, notre agent IA, trouve en quelques secondes les destinations qui vous ressemblent. Ensuite, un conseiller passionné de golf prend le relais : il vérifie chaque tarif et construit votre séjour avec vous.</p>
+      <ul class="tl-legend"><li><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span>trouve et prépare</li><li><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span>vérifie et personnalise</li></ul>
     </div>
+    <div class="tl-col">
+      <ol class="tl" id="tl">
+        <li class="tl-rail" aria-hidden="true"><span class="tl-fill" id="tl-fill"></span><span class="tl-ball" id="tl-ball"></span></li>
+        <li class="tl-step rv" style="--d:0"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H9l-5 4Z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg><em>1</em></span><div class="tl-card"><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span><h3>Racontez-nous votre envie</h3><p>Une phrase suffit : combien vous êtes, quand vous voulez partir, plutôt soleil ou links mythiques. Birdy comprend et prend note.</p></div></li><li class="tl-step rv" style="--d:1"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5S9.6 5.9 12 3.5Z"/></svg><em>2</em></span><div class="tl-card"><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span><h3>Birdy trouve vos destinations</h3><p>En quelques secondes, il sélectionne parmi nos 55 destinations celles qui vous ressemblent, vous les montre sur la carte et prépare votre demande.</p></div></li><li class="tl-relay rv"><span>Birdy passe le relais à votre conseiller</span></li><li class="tl-step rv" style="--d:2"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h14v15H5Z"/><path d="M8.5 9h7M8.5 12.5h7M8.5 16h4"/><path d="m15 15.5 1.5 1.5 3-3.5" stroke="#C6A052"/></svg><em>3</em></span><div class="tl-card"><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span><h3>Un conseiller vérifie les vrais tarifs</h3><p>Un conseiller passionné de golf reprend votre demande, interroge les hôtels et les golfs et obtient les prix réels. Jamais de prix inventé.</p></div></li><li class="tl-step rv" style="--d:3"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21V4"/><path d="M7 4.5 16 7 7 9.5"/><ellipse cx="12" cy="20" rx="8" ry="1.6"/></svg><em>4</em></span><div class="tl-card"><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span><h3>Votre séjour, sur mesure</h3><p>Il ajuste chaque détail avec vous : chambres, horaires de départ, cours pour les débutants, dîners de groupe. Vous n’avez plus qu’à jouer.</p></div></li>
+      </ol>
+    </div>
+  </div>
+  <div class="in">
+    <aside class="adv rv" aria-label="Votre conseiller dédié">
+      <div class="adv-av"><img src="logo.webp" alt="" width="76" height="76"><span class="adv-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6.5 12.5 3.5 3.5 7.5-8" stroke-width="2.6"/></svg></span></div>
+      <div class="adv-txt">
+        <p class="adv-name">Votre conseiller Birdy Agent <span class="adv-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>Vérifié</span></p>
+        <p class="adv-quote">« Un doute ? Un conseiller passionné de golf valide chaque tarif directement auprès des club-houses partenaires. »</p>
+      </div>
+      <div class="adv-cta"><a class="btn gold" href="https://wa.me/33616213447?text=Bonjour%20Birdy%20Agent%2C%20j%E2%80%99aimerais%20parler%20%C3%A0%20un%20conseiller." target="_blank" rel="noopener">Écrire à un conseiller</a><span class="adv-tel">ou appelez le <b>06 16 21 34 47</b></span></div>
+    </aside>
   </div>
 </section>
 
