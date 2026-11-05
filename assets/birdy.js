@@ -412,7 +412,7 @@
                 if (l.indexOf("data: ") !== 0) continue;
                 var o; try { o = JSON.parse(l.slice(6)); } catch (e) { continue; }
                 if (o.reset) rep = "";
-                if (o.t) rep += o.t;
+                if (o.t != null) rep += String(o.t);
                 if (o.erreur) err = o.erreur;
                 if (rep) { b.innerHTML = md(rep) + '<span class="caret"></span>'; log.scrollTop = log.scrollHeight; }
               }

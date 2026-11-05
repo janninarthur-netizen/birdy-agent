@@ -71,7 +71,7 @@ async function cloudflareIA(env, messages) {
     try {
       await litSSE(flux, async (ev) => {
         const t = ev.response ?? (ev.choices && ev.choices[0] && ev.choices[0].delta && ev.choices[0].delta.content);
-        if (t) await w.write(sse({ t }));
+        if (t !== undefined && t !== null && t !== "") await w.write(sse({ t: String(t) }));
       });
       await w.write(sse({ fin: true }));
     } catch {
