@@ -63,7 +63,7 @@ def head(title, desc, path, image, extra=""):
 <meta property="og:image" content="{image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/logo.webp">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/golf/style.css">
 {extra}</head>
 <body>

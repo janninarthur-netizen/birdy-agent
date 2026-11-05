@@ -138,7 +138,7 @@
     for (var k = 0; k < P.length; k += 2) { var v = ll(P[k + 1], P[k], 1.0); pos[k / 2 * 3] = v.x; pos[k / 2 * 3 + 1] = v.y; pos[k / 2 * 3 + 2] = v.z; }
     var geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     G.add(new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.026, map: disc("rgba(170,232,196,1)"), transparent: true, depthWrite: false, opacity: 1 })));
-    var or = disc("rgba(236,204,140,1)", true), blanc = disc("rgba(255,255,255,1)", true), pins = [];
+    var or = disc("rgba(225,245,236,1)", true), blanc = disc("rgba(255,255,255,1)", true), pins = [];
     D.forEach(function (d, i) {
       var s = new THREE.Sprite(new THREE.SpriteMaterial({ map: or, transparent: true, depthWrite: false }));
       s.position.copy(ll(d.lat, d.lon, 1.008)); s.scale.set(0.05, 0.05, 1); G.add(s); pins.push(s);
@@ -152,7 +152,7 @@
       mid.normalize().multiplyScalar(1 + dist * 0.42);
       var curve = new THREE.QuadraticBezierCurve3(paris.clone(), mid, b);
       var g = new THREE.BufferGeometry().setFromPoints(curve.getPoints(90)); g.setDrawRange(0, 0);
-      var line = new THREE.Line(g, new THREE.LineBasicMaterial({ color: 0xe2b85c, transparent: true, opacity: garde ? 1 : 0.55 }));
+      var line = new THREE.Line(g, new THREE.LineBasicMaterial({ color: 0xa3c9b8, transparent: true, opacity: garde ? 1 : 0.55 }));
       var avion = new THREE.Sprite(new THREE.SpriteMaterial({ map: blanc, transparent: true, depthWrite: false }));
       avion.scale.set(garde ? 0.045 : 0.03, garde ? 0.045 : 0.03, 1);
       G.add(line); G.add(avion);
