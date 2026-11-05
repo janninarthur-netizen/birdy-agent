@@ -702,6 +702,17 @@ footer{background:var(--night)}
 }
 @media (max-width:480px){.tl{padding-left:64px}.tl-node{left:-64px;width:48px;height:48px}.tl-rail{left:23px}.tl-relay span{left:-64px;font-size:11px}}
 @media (prefers-reduced-motion:reduce){.tl-node,.tl-card{transition:none}}
+
+/* Fiche destination sortie du globe : sous la Terre, à droite, compacte */
+.gcard{position:relative;right:auto;bottom:auto;width:min(430px,100%);margin:10px 0 0 auto;padding:10px;gap:14px;align-items:center}
+.gcard-pic{width:78px;height:78px;border-radius:14px}
+.gcard-name{font-size:22px}
+.gcard-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gcard-btns{flex-wrap:nowrap}
+.globe{max-height:560px}
+.globe-hint{bottom:3%}
+@media (max-width:900px){.gcard{margin:8px auto 0;width:100%}}
+@media (max-width:420px){.gcard-btns{flex-wrap:wrap}}
 </style>
 </head>
 <body>
