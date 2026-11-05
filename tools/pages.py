@@ -11,7 +11,7 @@ import re
 import unicodedata
 from urllib.parse import quote
 
-SITE = "https://birdy-agent.netlify.app/"
+SITE = "https://birdy-agent.pages.dev/"
 TEL = "06 16 21 34 47"
 WA = "https://wa.me/33616213447?text="
 REGIONS = [
