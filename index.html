@@ -263,6 +263,59 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 .wa svg{width:28px;height:28px;flex:none}
 @media (max-width:560px){.wa{padding:13px}.wa span{display:none}}
 @media (prefers-reduced-motion:reduce){.wa{transition:none}}
+
+/* Carrousel 3D des destinations (première page) */
+.cx{position:relative;overflow:hidden;isolation:isolate;background:#06201A;color:#FFFFFF;padding-block:clamp(34px,5vw,60px) clamp(34px,5vw,56px)}
+.cx-amb{position:absolute;inset:-12%;z-index:-2;pointer-events:none}
+.cx-amb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(50px) saturate(1.35);transform:scale(1.15);opacity:0;transition:opacity 1.2s ease}
+.cx-amb img.on{opacity:.6}
+.cx::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(6,32,26,.1),rgba(6,32,26,.88) 75%),linear-gradient(180deg,rgba(6,32,26,.55),rgba(6,32,26,.15) 35%,rgba(6,32,26,.9) 100%)}
+.cx-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.cx-eyebrow{font:600 12.5px/1.2 var(--body);letter-spacing:.24em;text-transform:uppercase;color:#E8D9A8}
+.cx h1{font-size:clamp(44px,6.6vw,92px);letter-spacing:-.01em;perspective:600px}
+.cx h1 .w{display:inline-block;white-space:nowrap}
+.cx h1 .ch{display:inline-block;opacity:0;transform:translateY(.45em) rotateX(-75deg);transform-origin:50% 100%;animation:chIn .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 38ms + 150ms)}
+.cx-sub{color:#D7E7DE;font-size:clamp(16px,1.8vw,19px);max-width:46ch}
+.cx-regions{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:6px}
+.cx-regions button{font:600 13.5px/1 var(--body);color:#E8F1EC;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:9px 14px;cursor:pointer;backdrop-filter:blur(6px);transition:background .2s,color .2s,border-color .2s}
+.cx-regions button:hover{background:rgba(255,255,255,.14)}
+.cx-regions button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--pine)}
+.cx-stage{--cw:clamp(200px,19vw,290px);position:relative;height:calc(var(--cw) * 1.32 + 70px);perspective:1500px;perspective-origin:50% 40%;margin-top:clamp(18px,3vw,30px);touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;outline:none}
+.cx-stage.drag{cursor:grabbing}
+.cx-stage:focus-visible{box-shadow:inset 0 0 0 3px rgba(201,162,75,.6)}
+.cx-track{position:absolute;inset:0;transform-style:preserve-3d}
+.cx-card{position:absolute;left:50%;top:6px;width:var(--cw);height:calc(var(--cw) * 1.3);margin-left:calc(var(--cw) / -2);transform-style:preserve-3d;will-change:transform,opacity;-webkit-box-reflect:below 12px linear-gradient(transparent 72%,rgba(255,255,255,.16))}
+.cx-card .tl{position:absolute;inset:0;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#0E3A31,#2F7A55);box-shadow:0 30px 60px rgba(0,0,0,.5);transition:transform .25s ease}
+.cx-card .fb{position:absolute;top:18px;left:18px;right:18px;font:700 22px/1.1 var(--display);color:#E8D9A8}
+.cx-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.cx-card.act img{transform:scale(1)}
+.cx-card .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(4,24,19,.9));}
+.cx-card .dim{position:absolute;inset:0;background:#04140F;opacity:var(--dim,0);pointer-events:none}
+.cx-card .gl{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.42),rgba(255,255,255,0) 46%);mix-blend-mode:overlay;opacity:0;transition:opacity .3s;pointer-events:none}
+.cx-card.act .tl:hover .gl{opacity:1}
+.cx-card .ct{position:absolute;left:0;right:0;bottom:0;padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px}
+.cx-card small{font:600 11px/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#E8D9A8}
+.cx-card b{font:700 clamp(24px,2.4vw,32px)/1 var(--display);color:#FFFFFF}
+.cx-card .rg{position:absolute;inset:0;border-radius:22px;border:1px solid rgba(255,255,255,.16);pointer-events:none;transition:border-color .4s,box-shadow .4s}
+.cx-card.act .rg{border-color:rgba(201,162,75,.95);box-shadow:inset 0 0 0 1px rgba(201,162,75,.45),0 0 40px rgba(201,162,75,.25)}
+.cx-info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-top:clamp(6px,1.6vw,18px)}
+.cx-tag{font:600 12px/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:#E8D9A8;min-height:1.2em}
+.cx-name{font-size:clamp(32px,4.4vw,50px);color:#FFFFFF;min-height:1.05em}
+.cx-name span,.cx-txt span{display:inline-block;animation:nameIn .55s cubic-bezier(.2,.8,.2,1)}
+.cx-txt{color:#D7E7DE;max-width:50ch;min-height:3.2em}
+.cx-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.btn.glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35);color:#FFFFFF;backdrop-filter:blur(6px)}
+.btn.glass:hover{background:rgba(255,255,255,.16)}
+.cx-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
+.cx-arrow{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#FFFFFF;font-size:19px;cursor:pointer;transition:background .2s}
+.cx-arrow:hover{background:rgba(255,255,255,.16)}
+.cx-count{font:600 13px/1 var(--body);color:#BFD6CB;font-variant-numeric:tabular-nums;min-width:58px;text-align:right}
+.cx-prog{display:block;width:min(240px,40vw);height:3px;background:rgba(255,255,255,.16);border-radius:3px;overflow:hidden}
+.cx-prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .45s ease}
+@keyframes chIn{to{opacity:1;transform:none}}
+@keyframes nameIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:560px){.cx-stage{--cw:62vw}.cx-regions button{padding:8px 11px;font-size:12.5px}}
+@media (prefers-reduced-motion:reduce){.cx h1 .ch{animation:none;opacity:1;transform:none}.cx-name span,.cx-txt span{animation:none}.cx-card img,.cx-amb img{transition:none}}
 </style>
 </head>
 <body>
@@ -274,51 +327,23 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 </div></header>
 
 <main>
-<section class="hero" id="accueil">
-  <img class="hero-photo" src="https://images.pexels.com/photos/919335/pexels-photo-919335.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="" onerror="this.remove()">
-  <div class="veil"></div>
-  <svg class="hero-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-  <defs>
-    <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E3A31"/><stop offset=".38" stop-color="#2D6656"/><stop offset=".62" stop-color="#C9A06E"/><stop offset=".72" stop-color="#F3C27E"/></linearGradient>
-    <radialGradient id="glow" cx="1080" cy="575" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE7B3" stop-opacity=".95"/><stop offset=".25" stop-color="#F7C987" stop-opacity=".55"/><stop offset="1" stop-color="#F7C987" stop-opacity="0"/></radialGradient>
-    <linearGradient id="hl1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7E9D8E"/><stop offset="1" stop-color="#C7B28A"/></linearGradient>
-    <linearGradient id="hl2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F8466"/><stop offset="1" stop-color="#5E8A62"/></linearGradient>
-    <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F8A55"/><stop offset="1" stop-color="#1D4D33"/></linearGradient>
-    <linearGradient id="fw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CC66B"/><stop offset="1" stop-color="#5DA548"/></linearGradient>
-    <pattern id="stripe" width="1600" height="56" patternUnits="userSpaceOnUse"><rect width="1600" height="28" fill="#FFFFFF" fill-opacity=".08"/></pattern>
-    <linearGradient id="pond" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4CF95"/><stop offset="1" stop-color="#4E8C95"/></linearGradient>
-    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9AE78"/><stop offset=".35" stop-color="#F1DFB4"/></linearGradient>
-    <clipPath id="fwc"><path d="M640 900 C700 820 760 760 860 720 C960 682 1040 668 1080 650 C1110 636 1090 624 1050 626 C990 630 900 650 820 690 C700 750 560 830 470 900Z"/></clipPath>
-  </defs>
-  <rect width="1600" height="900" fill="url(#sk)"/>
-  <rect width="1600" height="900" fill="url(#glow)"/>
-  <g fill="#FFF3D6" opacity=".10"><path d="M1080 575 L760 0 L860 0Z"/><path d="M1080 575 L1180 0 L1300 0Z"/><path d="M1080 575 L1560 0 L1600 0 L1600 90Z"/></g>
-  <circle cx="1080" cy="575" r="62" fill="#FFF1CF"/>
-  <g fill="none" stroke="#0E3A31" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M420 200 q12 -10 24 0 q12 -10 24 0"/><path d="M480 240 q9 -8 18 0 q9 -8 18 0"/><path d="M380 260 q8 -7 16 0 q8 -7 16 0"/></g>
-  <path d="M0 560 C120 520 240 515 360 535 C480 555 560 500 700 505 C820 510 900 560 1040 548 C1180 536 1260 505 1400 515 C1500 522 1560 540 1600 548 V900 H0Z" fill="url(#hl1)" opacity=".9"/>
-  <path d="M0 600 C160 575 300 580 460 598 C620 616 760 585 920 590 C1100 596 1240 620 1400 604 C1500 594 1560 598 1600 602 V900 H0Z" fill="url(#hl2)"/>
-  <path d="M0 652 L0 612 Q2 586 11 586 Q19 586 21 612 Q18 583 27 583 Q37 583 39 612 Q35 583 44 583 Q53 583 55 612 Q50 591 56 591 Q62 591 63 612 Q62 588 72 588 Q82 588 85 612 Q80 596 90 596 Q100 596 102 612 Q97 594 105 594 Q113 594 115 612 Q111 589 120 589 Q128 589 130 612 Q126 595 131 595 Q137 595 138 612 Q136 583 143 583 Q150 583 152 612 Q149 595 159 595 Q168 595 170 612 Q166 596 175 596 Q185 596 187 612 Q183 596 191 596 Q200 596 202 612 Q197 584 203 584 Q209 584 210 612 Q208 595 214 595 Q221 595 223 612 Q221 584 231 584 Q241 584 244 612 Q238 583 245 583 Q252 583 254 612 Q251 587 259 587 Q268 587 270 612 Q266 583 272 583 Q279 583 280 612 Q278 583 287 583 Q296 583 298 612 Q294 593 304 593 Q314 593 316 612 Q311 595 319 595 Q326 595 328 612 Q324 597 331 597 Q337 597 339 612 Q336 588 343 588 Q350 588 352 612 Q348 587 354 587 Q359 587 361 612 Q359 593 366 593 Q373 593 375 612 Q372 590 382 590 Q391 590 394 612 Q389 590 396 590 Q403 590 405 612 Q402 597 411 597 Q420 597 422 612 Q419 598 429 598 Q439 598 442 612 Q437 584 446 584 Q455 584 458 612 Q453 585 458 585 Q464 585 465 612 Q463 589 471 589 Q478 589 480 612 Q476 597 482 597 Q487 597 489 612 Q486 583 493 583 Q499 583 501 612 Q498 586 505 586 Q511 586 513 612 Q511 583 521 583 Q531 583 533 612 Q528 592 535 592 Q543 592 544 612 Q541 586 549 586 Q558 586 560 612 Q555 586 562 586 Q568 586 569 612 Q567 584 577 584 Q586 584 589 612 Q583 583 589 583 Q595 583 596 612 Q594 593 600 593 Q606 593 607 612 Q605 583 614 583 Q622 583 624 612 Q620 583 628 583 Q635 583 637 612 Q634 593 642 593 Q650 593 652 612 Q648 595 655 595 Q662 595 664 612 Q661 596 667 596 Q673 596 674 612 Q672 582 681 582 Q690 582 692 612 Q688 597 694 597 Q700 597 702 612 Q700 589 710 589 Q721 589 723 612 Q718 594 725 594 Q733 594 735 612 Q732 585 740 585 Q749 585 751 612 Q747 591 755 591 Q762 591 764 612 Q760 583 766 583 Q772 583 774 612 Q771 590 777 590 Q782 590 784 612 Q782 596 792 596 Q801 596 804 612 Q799 583 808 583 Q818 583 820 612 Q816 585 824 585 Q833 585 835 612 Q831 591 837 591 Q843 591 844 612 Q842 584 848 584 Q854 584 856 612 Q853 591 860 591 Q867 591 869 612 Q867 584 877 584 Q887 584 890 612 Q885 591 896 591 Q906 591 908 612 Q903 586 911 586 Q919 586 921 612 Q918 593 925 593 Q933 593 935 612 Q932 596 939 596 Q947 596 949 612 Q945 582 953 582 Q960 582 962 612 Q959 588 969 588 Q980 588 982 612 Q977 593 985 593 Q993 593 995 612 Q991 594 997 594 Q1003 594 1004 612 Q1003 584 1012 584 Q1021 584 1024 612 Q1019 585 1026 585 Q1034 585 1035 612 Q1033 587 1042 587 Q1051 587 1054 612 Q1049 586 1058 586 Q1067 586 1069 612 Q1065 587 1072 587 Q1079 587 1081 612 Q1078 590 1085 590 Q1092 590 1093 612 Q1091 587 1100 587 Q1110 587 1112 612 Q1107 583 1114 583 Q1121 583 1123 612 Q1120 589 1129 589 Q1138 589 1140 612 Q1135 589 1141 589 Q1146 589 1148 612 Q1146 587 1152 587 Q1159 587 1161 612 Q1158 585 1166 585 Q1174 585 1176 612 Q1172 585 1181 585 Q1190 585 1192 612 Q1188 588 1195 588 Q1202 588 1204 612 Q1201 585 1210 585 Q1220 585 1222 612 Q1217 585 1224 585 Q1232 585 1234 612 Q1231 587 1241 587 Q1250 587 1253 612 Q1249 583 1259 583 Q1269 583 1272 612 Q1267 590 1275 590 Q1283 590 1285 612 Q1281 585 1287 585 Q1294 585 1295 612 Q1293 590 1303 590 Q1313 590 1316 612 Q1311 586 1320 586 Q1329 586 1331 612 Q1327 595 1336 595 Q1345 595 1348 612 Q1344 589 1353 589 Q1362 589 1365 612 Q1360 591 1369 591 Q1378 591 1380 612 Q1376 586 1385 586 Q1393 586 1395 612 Q1392 586 1400 586 Q1409 586 1411 612 Q1406 595 1412 595 Q1418 595 1419 612 Q1417 588 1425 588 Q1433 588 1435 612 Q1431 587 1438 587 Q1444 587 1446 612 Q1443 597 1452 597 Q1461 597 1463 612 Q1459 594 1467 594 Q1474 594 1476 612 Q1472 596 1478 596 Q1484 596 1486 612 Q1483 595 1490 595 Q1497 595 1499 612 Q1496 597 1502 597 Q1509 597 1511 612 Q1508 592 1516 592 Q1524 592 1526 612 Q1522 589 1531 589 Q1539 589 1541 612 Q1537 584 1544 584 Q1551 584 1552 612 Q1549 592 1555 592 Q1560 592 1562 612 Q1559 591 1566 591 Q1573 591 1575 612 Q1572 585 1578 585 Q1584 585 1586 612 Q1583 597 1590 597 Q1598 597 1600 612 Q1597 596 1605 596 Q1614 596 1616 612 L1600 652Z" fill="#2C5E44"/>
-  <path d="M0 680 L0 640 Q3 615 13 615 Q24 615 27 640 Q22 601 33 601 Q44 601 47 640 Q42 613 54 613 Q67 613 70 640 Q64 608 77 608 Q89 608 92 640 Q86 619 96 619 Q105 619 108 640 Q104 610 115 610 Q126 610 128 640 Q124 601 137 601 Q151 601 154 640 Q147 614 159 614 Q170 614 172 640 Q168 622 181 622 Q194 622 197 640 Q190 610 198 610 Q206 610 208 640 Q205 619 216 619 Q227 619 230 640 Q225 602 236 602 Q247 602 250 640 Q245 613 254 613 Q264 613 266 640 Q262 616 270 616 Q279 616 281 640 Q279 614 292 614 Q305 614 309 640 Q303 602 316 602 Q329 602 333 640 Q326 616 337 616 Q348 616 351 640 Q347 611 360 611 Q374 611 377 640 Q370 615 380 615 Q390 615 392 640 Q389 611 402 611 Q416 611 419 640 Q412 612 421 612 Q430 612 432 640 Q428 608 436 608 Q444 608 446 640 Q443 616 453 616 Q463 616 465 640 Q461 604 473 604 Q486 604 489 640 Q482 610 489 610 Q497 610 498 640 Q496 601 504 601 Q513 601 516 640 Q512 617 525 617 Q537 617 540 640 Q534 619 542 619 Q551 619 554 640 Q551 616 564 616 Q578 616 581 640 Q575 612 586 612 Q597 612 599 640 Q595 609 606 609 Q617 609 620 640 Q615 619 627 619 Q639 619 642 640 Q637 615 649 615 Q661 615 664 640 Q658 615 669 615 Q679 615 682 640 Q677 610 686 610 Q695 610 697 640 Q693 614 704 614 Q714 614 716 640 Q712 609 724 609 Q736 609 739 640 Q733 616 740 616 Q747 616 749 640 Q747 602 757 602 Q767 602 769 640 Q765 610 778 610 Q791 610 794 640 Q787 605 795 605 Q802 605 804 640 Q801 609 811 609 Q821 609 823 640 Q819 608 831 608 Q843 608 846 640 Q840 602 850 602 Q861 602 863 640 Q859 613 868 613 Q878 613 880 640 Q877 618 889 618 Q902 618 905 640 Q899 604 908 604 Q917 604 919 640 Q915 604 922 604 Q930 604 932 640 Q929 612 941 612 Q953 612 955 640 Q950 605 959 605 Q968 605 970 640 Q967 619 980 619 Q993 619 996 640 Q990 610 1000 610 Q1010 610 1013 640 Q1008 615 1019 615 Q1029 615 1031 640 Q1026 609 1034 609 Q1043 609 1045 640 Q1042 620 1054 620 Q1067 620 1070 640 Q1063 604 1072 604 Q1081 604 1083 640 Q1080 607 1092 607 Q1104 607 1108 640 Q1101 606 1108 606 Q1116 606 1117 640 Q1116 600 1129 600 Q1142 600 1146 640 Q1139 621 1151 621 Q1163 621 1166 640 Q1161 617 1173 617 Q1186 617 1189 640 Q1183 601 1194 601 Q1206 601 1208 640 Q1203 619 1215 619 Q1227 619 1230 640 Q1224 602 1233 602 Q1242 602 1244 640 Q1240 609 1248 609 Q1256 609 1258 640 Q1255 618 1265 618 Q1275 618 1277 640 Q1273 621 1284 621 Q1296 621 1298 640 Q1293 614 1300 614 Q1308 614 1310 640 Q1307 621 1314 621 Q1322 621 1324 640 Q1321 606 1332 606 Q1343 606 1346 640 Q1341 619 1354 619 Q1367 619 1370 640 Q1364 615 1374 615 Q1384 615 1386 640 Q1382 611 1393 611 Q1404 611 1407 640 Q1402 614 1416 614 Q1429 614 1432 640 Q1425 607 1432 607 Q1440 607 1442 640 Q1438 608 1447 608 Q1455 608 1457 640 Q1454 602 1464 602 Q1475 602 1477 640 Q1473 608 1483 608 Q1494 608 1497 640 Q1491 610 1500 610 Q1509 610 1511 640 Q1507 605 1516 605 Q1525 605 1527 640 Q1524 619 1534 619 Q1545 619 1547 640 Q1542 614 1551 614 Q1560 614 1562 640 Q1559 618 1571 618 Q1583 618 1586 640 Q1580 608 1592 608 Q1604 608 1607 640 Q1600 607 1608 607 Q1616 607 1618 640 L1600 680Z" fill="#1F4A35"/>
-  <path d="M0 650 C200 630 400 636 640 646 C900 656 1200 632 1600 640 V900 H0Z" fill="url(#gr)"/>
-  <path d="M640 900 C700 820 760 760 860 720 C960 682 1040 668 1080 650 C1110 636 1090 624 1050 626 C990 630 900 650 820 690 C700 750 560 830 470 900Z" fill="url(#fw)"/>
-  <g clip-path="url(#fwc)"><rect y="600" width="1600" height="300" fill="url(#stripe)"/></g>
-  <ellipse cx="1060" cy="640" rx="78" ry="14" fill="#A5D97F"/>
-  <path d="M1076 641 L990 652" stroke="#0E3A31" stroke-width="3" opacity=".35" stroke-linecap="round"/>
-  <ellipse cx="1076" cy="641" rx="5" ry="2" fill="#0E3A31"/>
-  <path d="M1076 641 V560" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M1078 561 C1092 566 1104 562 1118 570 C1104 576 1092 574 1078 584Z" fill="#E2A93A"/>
-  <path d="M900 690 C918 678 960 676 972 686 C982 696 946 704 920 702 C900 700 892 696 900 690Z" fill="url(#sand)"/>
-  <path d="M1150 760 C1180 740 1260 738 1286 752 C1306 766 1250 782 1204 780 C1166 778 1140 772 1150 760Z" fill="url(#sand)"/>
-  <path d="M160 730 C230 704 380 704 440 726 C492 746 420 770 330 772 C230 774 120 756 160 730Z" fill="url(#pond)"/>
-  <path d="M220 734 H300 M330 748 H400 M250 758 H310" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-  <rect x="62" y="776" width="17" height="84" fill="#123426"/><circle cx="70" cy="713" r="97" fill="#123426"/><circle cx="-1" cy="755" r="76" fill="#123426"/><circle cx="141" cy="751" r="80" fill="#123426"/><circle cx="32" cy="654" r="67" fill="#123426"/><circle cx="112" cy="658" r="71" fill="#123426"/><circle cx="70" cy="608" r="55" fill="#123426"/><rect x="225" y="788" width="10" height="52" fill="#16402D"/><circle cx="230" cy="749" r="60" fill="#16402D"/><circle cx="186" cy="775" r="47" fill="#16402D"/><circle cx="274" cy="772" r="49" fill="#16402D"/><circle cx="207" cy="713" r="42" fill="#16402D"/><circle cx="256" cy="715" r="44" fill="#16402D"/><circle cx="230" cy="684" r="34" fill="#16402D"/><rect x="1521" y="782" width="18" height="88" fill="#123426"/><circle cx="1530" cy="716" r="101" fill="#123426"/><circle cx="1455" cy="760" r="79" fill="#123426"/><circle cx="1605" cy="756" r="84" fill="#123426"/><circle cx="1490" cy="654" r="70" fill="#123426"/><circle cx="1574" cy="659" r="75" fill="#123426"/><circle cx="1530" cy="606" r="57" fill="#123426"/><rect x="1385" y="782" width="10" height="48" fill="#16402D"/><circle cx="1390" cy="746" r="55" fill="#16402D"/><circle cx="1349" cy="770" r="43" fill="#16402D"/><circle cx="1431" cy="768" r="46" fill="#16402D"/><circle cx="1368" cy="712" r="38" fill="#16402D"/><circle cx="1414" cy="715" r="41" fill="#16402D"/><circle cx="1390" cy="686" r="31" fill="#16402D"/>
-  <path d="M0 860 C300 840 600 870 900 866 C1200 862 1400 846 1600 856 V900 H0Z" fill="#163F2C"/>
-  <g transform="translate(720 868)"><rect x="-3" y="-8" width="6" height="22" rx="2" fill="#F3EEE4"/><circle cy="-22" r="16" fill="#FFFFFF"/><circle cx="-5" cy="-26" r="5" fill="#FFFFFF" opacity=".9"/><circle cy="-22" r="16" fill="none" stroke="#D6E4DB" stroke-width="1.5"/></g>
-</svg>
-  <div class="in">
-    <h1>Le golf sur mesure</h1>
-    <p>Votre séjour golf, organisé pour vous en quelques clics.</p>
-    <div class="cta"><a class="btn gold" href="#organiser">Organiser mon séjour</a><a class="btn light" href="#etapes">Comment ça marche</a></div>
+<section class="cx" id="accueil" aria-label="Nos destinations golf">
+  <div class="cx-amb" aria-hidden="true"><img alt=""><img alt=""></div>
+  <div class="in cx-head">
+    <p class="cx-eyebrow">Séjours golf de groupe · 55 destinations</p>
+    <h1 aria-label="Le golf sur mesure"><span aria-hidden="true"><span class="w"><span class="ch" style="--i:1">L</span><span class="ch" style="--i:2">e</span></span> <span class="w"><span class="ch" style="--i:3">g</span><span class="ch" style="--i:4">o</span><span class="ch" style="--i:5">l</span><span class="ch" style="--i:6">f</span></span> <span class="w"><span class="ch" style="--i:7">s</span><span class="ch" style="--i:8">u</span><span class="ch" style="--i:9">r</span></span> <span class="w"><span class="ch" style="--i:10">m</span><span class="ch" style="--i:11">e</span><span class="ch" style="--i:12">s</span><span class="ch" style="--i:13">u</span><span class="ch" style="--i:14">r</span><span class="ch" style="--i:15">e</span></span></span></h1>
+    <p class="cx-sub">Choisissez votre prochain parcours. Faites glisser les cartes, nous organisons le reste.</p>
+    <div class="cx-regions" id="cx-regions" role="group" aria-label="Aller à une région"><button type="button" data-r="france" aria-pressed="false">France</button><button type="button" data-r="europe" aria-pressed="false">Europe</button><button type="button" data-r="afrique" aria-pressed="false">Afrique</button><button type="button" data-r="indien" aria-pressed="false">Océan Indien</button><button type="button" data-r="asie" aria-pressed="false">Moyen-Orient et Asie</button><button type="button" data-r="ameriques" aria-pressed="false">Amérique du Nord</button><button type="button" data-r="caraibes" aria-pressed="false">Caraïbes</button><button type="button" data-r="oceanie" aria-pressed="false">Océanie</button></div>
+  </div>
+  <div class="cx-stage" id="cx-stage" tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Destinations : utilisez les flèches gauche et droite">
+    <div class="cx-track" id="cx-track"></div>
+  </div>
+  <div class="in cx-info" aria-live="polite">
+    <p class="cx-tag" id="cx-tag"></p>
+    <h2 class="cx-name" id="cx-name"></h2>
+    <p class="cx-txt" id="cx-txt"></p>
+    <div class="cx-btns"><button type="button" class="btn gold" id="cx-go">Organiser un séjour ici</button><a class="btn glass" id="cx-more" href="/golf/">Découvrir la destination</a></div>
+    <div class="cx-nav"><button type="button" class="cx-arrow" id="cx-prev" aria-label="Destination précédente">←</button><span class="cx-count" id="cx-count"></span><span class="cx-prog"><i id="cx-prog"></i></span><button type="button" class="cx-arrow" id="cx-next" aria-label="Destination suivante">→</button></div>
   </div>
 </section>
 
@@ -677,6 +702,7 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
     show(0);
     document.getElementById("organiser").scrollIntoView({ behavior: lent ? "smooth" : "auto", block: "start" });
   });
+  window.birdyChoisir = function (n) { if (DATA[n]) { pick(n); document.getElementById("d-go").click(); } };
   setVB(VB.monde.slice()); region("monde"); pick("Algarve"); region("monde");
   try {
     var qd = new URLSearchParams(location.search).get("dest");
@@ -713,5 +739,124 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 })();
 </script>
 
+<script>
+/* Carrousel 3D : position continue « pos », animée vers « cible » ; glisser avec élan, flèches, défilement automatique. */
+(function () {
+  var D = [{"n": "Algarve", "p": "Portugal", "r": "europe", "rl": "Europe", "t": "Plus d’une centaine de parcours au Portugal, dont Monte Rei, Quinta do Lago et Vale do Lobo.", "ph": 18141984, "s": "algarve"}, {"n": "Lisbonne et Cascais", "p": "Portugal", "r": "europe", "rl": "Europe", "t": "Des parcours entre océan et collines, à deux pas de Lisbonne.", "ph": 29820651, "s": "lisbonne-et-cascais"}, {"n": "Açores", "p": "Portugal", "r": "europe", "rl": "Europe", "t": "São Miguel, l’île verte des Açores, au milieu de l’Atlantique.", "ph": 29141707, "s": "acores"}, {"n": "Catalogne", "p": "Espagne", "r": "europe", "rl": "Europe", "t": "Barcelone et la Costa Brava, à 1 h 45 de vol de Paris.", "ph": 14281559, "s": "catalogne"}, {"n": "Marbella", "p": "Espagne · Andalousie", "r": "europe", "rl": "Europe", "t": "La Costa del Sol et ses dizaines de parcours entre mer et montagne.", "ph": 18489894, "s": "marbella"}, {"n": "Majorque", "p": "Espagne · Baléares", "r": "europe", "rl": "Europe", "t": "Des autotours entre les golfs de l’île.", "ph": 29874108, "s": "majorque"}, {"n": "Canaries", "p": "Espagne", "r": "europe", "rl": "Europe", "t": "Le golf au soleil toute l’année, au large de l’Afrique.", "ph": 15472927, "s": "canaries"}, {"n": "Saint-Andrews", "p": "Écosse", "r": "europe", "rl": "Europe", "t": "Le berceau du golf, l’Old Course et les links de la côte est.", "ph": null, "s": "saint-andrews"}, {"n": "East Lothian", "p": "Écosse", "r": "europe", "rl": "Europe", "t": "21 parcours à 30 minutes d’Édimbourg.", "ph": 27879520, "s": "east-lothian"}, {"n": "Turnberry", "p": "Écosse", "r": "europe", "rl": "Europe", "t": "Le resort de Turnberry et ses links face à la mer.", "ph": null, "s": "turnberry"}, {"n": "Irlande", "p": "Irlande", "r": "europe", "rl": "Europe", "t": "Druids Glen et The K Club, hôte de la Ryder Cup 2006.", "ph": 3404361, "s": "irlande"}, {"n": "Irlande du Nord", "p": "Royaume-Uni", "r": "europe", "rl": "Europe", "t": "Des autotours entre les grands links du nord.", "ph": 34016052, "s": "irlande-du-nord"}, {"n": "Italie du Nord", "p": "Italie", "r": "europe", "rl": "Europe", "t": "Lombardie, Ligurie, Émilie-Romagne : l’Italie compte plus de 250 parcours.", "ph": 8430005, "s": "italie-du-nord"}, {"n": "Sardaigne", "p": "Italie", "r": "europe", "rl": "Europe", "t": "Des parcours au bord d’une mer turquoise.", "ph": 29011885, "s": "sardaigne"}, {"n": "Sicile", "p": "Italie", "r": "europe", "rl": "Europe", "t": "Golf, volcans et villages perchés.", "ph": 4563289, "s": "sicile"}, {"n": "Grèce", "p": "Grèce", "r": "europe", "rl": "Europe", "t": "Des autotours entre les golfs grecs.", "ph": 14356860, "s": "grece"}, {"n": "Chypre", "p": "Chypre", "r": "europe", "rl": "Europe", "t": "Le golf au soleil en Méditerranée orientale.", "ph": 15667913, "s": "chypre"}, {"n": "Belek", "p": "Turquie", "r": "europe", "rl": "Europe", "t": "Pins parasols, grands resorts et hôtels au bord du golf.", "ph": 10463590, "s": "belek"}, {"n": "Hongrie", "p": "Hongrie", "r": "europe", "rl": "Europe", "t": "Des séjours golf au cœur de l’Europe centrale.", "ph": 26737415, "s": "hongrie"}, {"n": "Autriche", "p": "Autriche", "r": "europe", "rl": "Europe", "t": "Des parcours au pied des Alpes.", "ph": 18845358, "s": "autriche"}, {"n": "Côte d’Azur", "p": "France", "r": "france", "rl": "France", "t": "L’une des plus belles destinations golf de France.", "ph": 14504325, "s": "cote-dazur"}, {"n": "Corse", "p": "France", "r": "france", "rl": "France", "t": "Sperone et Murtoli, des parcours spectaculaires face à la mer.", "ph": 31384821, "s": "corse"}, {"n": "Bretagne", "p": "France", "r": "france", "rl": "France", "t": "Saint-Malo et Dinard, l’un des plus anciens golfs de France.", "ph": 19896675, "s": "bretagne"}, {"n": "Pays basque", "p": "France", "r": "france", "rl": "France", "t": "Chiberta, Arcangues, Hossegor et les parcours des Landes.", "ph": 11662240, "s": "pays-basque"}, {"n": "Marrakech", "p": "Maroc", "r": "afrique", "rl": "Afrique", "t": "Des parcours verts entre palmeraie et Atlas.", "ph": 30142699, "s": "marrakech"}, {"n": "Agadir", "p": "Maroc", "r": "afrique", "rl": "Afrique", "t": "Le golf au bord de l’Atlantique, sous le soleil du sud marocain.", "ph": 30557503, "s": "agadir"}, {"n": "El Jadida", "p": "Maroc", "r": "afrique", "rl": "Afrique", "t": "Le resort Mazagan et son parcours face à l’océan.", "ph": null, "s": "el-jadida"}, {"n": "Tanger", "p": "Maroc", "r": "afrique", "rl": "Afrique", "t": "Entre Atlantique et Méditerranée, à la pointe nord du Maroc.", "ph": 14009980, "s": "tanger"}, {"n": "Fès", "p": "Maroc", "r": "afrique", "rl": "Afrique", "t": "La cité impériale et son festival de golf.", "ph": 30158523, "s": "fes"}, {"n": "Mer Rouge", "p": "Égypte", "r": "afrique", "rl": "Afrique", "t": "El Gouna et Soma Bay, des resorts 5 étoiles au bord de la mer Rouge.", "ph": 30683936, "s": "mer-rouge"}, {"n": "Djerba", "p": "Tunisie", "r": "afrique", "rl": "Afrique", "t": "Un parcours de 27 trous sur l’île de Djerba.", "ph": 33891843, "s": "djerba"}, {"n": "Le Cap et Garden Route", "p": "Afrique du Sud", "r": "afrique", "rl": "Afrique", "t": "Pezula et Arabella, entre océan et montagnes du Cap.", "ph": 35398305, "s": "le-cap-et-garden-route"}, {"n": "Sun City et Kruger", "p": "Afrique du Sud", "r": "afrique", "rl": "Afrique", "t": "Le golf de Sun City, à combiner avec un safari au parc Kruger.", "ph": 631317, "s": "sun-city-et-kruger"}, {"n": "Île Maurice", "p": "Océan Indien", "r": "indien", "rl": "Océan Indien", "t": "Neuf parcours de 18 trous, dont Anahita, Tamarina et le Paradis.", "ph": 17937827, "s": "ile-maurice"}, {"n": "La Réunion", "p": "Océan Indien", "r": "indien", "rl": "Océan Indien", "t": "Trois parcours, à combiner avec quelques jours à Maurice.", "ph": 19971633, "s": "la-reunion"}, {"n": "Seychelles", "p": "Océan Indien", "r": "indien", "rl": "Océan Indien", "t": "Praslin et le Lemuria, seul parcours 18 trous des Seychelles.", "ph": 31386176, "s": "seychelles"}, {"n": "Dubaï", "p": "Émirats arabes unis", "r": "asie", "rl": "Moyen-Orient et Asie", "t": "À moins de 6 h 30 de vol, des hôtels 3 à 5 étoiles près de nombreux parcours.", "ph": 33687811, "s": "dubai"}, {"n": "Thaïlande", "p": "Thaïlande", "r": "asie", "rl": "Moyen-Orient et Asie", "t": "Des circuits golf avec chauffeur privé.", "ph": 2983756, "s": "thailande"}, {"n": "Vietnam", "p": "Vietnam", "r": "asie", "rl": "Moyen-Orient et Asie", "t": "Le golf entre rizières et plages.", "ph": 30280835, "s": "vietnam"}, {"n": "Cambodge", "p": "Cambodge", "r": "asie", "rl": "Moyen-Orient et Asie", "t": "Des parcours à combiner avec les temples d’Angkor.", "ph": 3217663, "s": "cambodge"}, {"n": "Floride", "p": "États-Unis", "r": "ameriques", "rl": "Amérique du Nord", "t": "La destination golf phare des États-Unis.", "ph": 30698939, "s": "floride"}, {"n": "Californie", "p": "États-Unis", "r": "ameriques", "rl": "Amérique du Nord", "t": "Pebble Beach et les parcours de la côte Pacifique.", "ph": 13850739, "s": "californie"}, {"n": "Caroline du Sud", "p": "États-Unis", "r": "ameriques", "rl": "Amérique du Nord", "t": "Des parcours mythiques sur la côte atlantique.", "ph": 18985754, "s": "caroline-du-sud"}, {"n": "Virginie", "p": "États-Unis", "r": "ameriques", "rl": "Amérique du Nord", "t": "Le golf dans l’histoire de la côte est américaine.", "ph": 36613605, "s": "virginie"}, {"n": "Texas", "p": "États-Unis", "r": "ameriques", "rl": "Amérique du Nord", "t": "Des resorts de golf à la texane.", "ph": null, "s": "texas"}, {"n": "Cancún", "p": "Mexique", "r": "ameriques", "rl": "Amérique du Nord", "t": "Des parcours signés Jack Nicklaus et Greg Norman.", "ph": 35576143, "s": "cancun"}, {"n": "Punta Mita", "p": "Mexique", "r": "ameriques", "rl": "Amérique du Nord", "t": "Un resort 5 étoiles tout compris sur la côte Pacifique.", "ph": 754355, "s": "punta-mita"}, {"n": "Québec", "p": "Canada", "r": "ameriques", "rl": "Amérique du Nord", "t": "Mont-Tremblant et ses parcours au cœur de la forêt.", "ph": 20843515, "s": "quebec"}, {"n": "Ontario", "p": "Canada", "r": "ameriques", "rl": "Amérique du Nord", "t": "Près de Niagara-on-the-Lake et ses vignobles.", "ph": 14436934, "s": "ontario"}, {"n": "Bahamas", "p": "Caraïbes", "r": "caraibes", "rl": "Caraïbes", "t": "Le golf entre eaux turquoise et plages de sable blanc.", "ph": 7203795, "s": "bahamas"}, {"n": "Jamaïque", "p": "Caraïbes", "r": "caraibes", "rl": "Caraïbes", "t": "Des parcours tropicaux face à la mer des Caraïbes.", "ph": 30793026, "s": "jamaique"}, {"n": "République dominicaine", "p": "Caraïbes", "r": "caraibes", "rl": "Caraïbes", "t": "Punta Cana et ses parcours au bord de l’océan.", "ph": 149542, "s": "republique-dominicaine"}, {"n": "Barbade", "p": "Caraïbes", "r": "caraibes", "rl": "Caraïbes", "t": "Le golf de luxe sur l’île de la Barbade.", "ph": 35010454, "s": "barbade"}, {"n": "Nouvelle-Zélande", "p": "Océanie", "r": "oceanie", "rl": "Océanie", "t": "Un circuit de 15 jours entre l’île du Nord et l’île du Sud.", "ph": 724960, "s": "nouvelle-zelande"}, {"n": "Australie", "p": "Océanie", "r": "oceanie", "rl": "Océanie", "t": "Des séjours golf de l’autre côté du monde.", "ph": 4810613, "s": "australie"}];
+  var stage = document.getElementById("cx-stage"), track = document.getElementById("cx-track");
+  if (!stage) return;
+  var n = D.length, cards = [], pos = 0, cible = 0, raf = null, tire = false, act = -1, ecart = 240;
+  var calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function ph(id, w) { return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=" + w; }
+  D.forEach(function (d, i) {
+    var c = document.createElement("div"); c.className = "cx-card";
+    c.setAttribute("role", "group"); c.setAttribute("aria-roledescription", "carte"); c.setAttribute("aria-label", d.n + ", " + d.p);
+    var t = document.createElement("div"); t.className = "tl";
+    var fb = document.createElement("span"); fb.className = "fb"; fb.textContent = d.rl; t.appendChild(fb);
+    if (d.ph) { var im = document.createElement("img"); im.alt = ""; im.draggable = false; im.dataset.src = ph(d.ph, 700); im.onerror = function () { im.remove(); }; t.appendChild(im); }
+    t.insertAdjacentHTML("beforeend", '<span class="sh"></span><span class="gl"></span><span class="ct"><small></small><b></b></span><span class="dim"></span><span class="rg"></span>');
+    t.querySelector("small").textContent = d.p; t.querySelector("b").textContent = d.n;
+    c.appendChild(t); track.appendChild(c); cards.push(c);
+  });
+  function rel(i, p) { var d = i - p; d = ((d % n) + n) % n; if (d > n / 2) d -= n; return d; }
+  function mesure() { ecart = cards[0].offsetWidth * (innerWidth < 560 ? .58 : .74); }
+  function rendu() {
+    for (var i = 0; i < n; i++) {
+      var c = cards[i], d = rel(i, pos), a = Math.abs(d);
+      if (a > 5.6) { if (c.style.visibility !== "hidden") c.style.visibility = "hidden"; continue; }
+      c.style.visibility = "visible";
+      var s = d < 0 ? -1 : 1, x = s * (Math.min(a, 1) * ecart * 1.08 + Math.max(a - 1, 0) * ecart * .56);
+      var z = -a * 170, ry = -s * (Math.min(a, 1) * 40 + Math.max(a - 1, 0) * 7), sc = 1 - Math.min(a, 1) * .06;
+      c.style.transform = "translate3d(" + x.toFixed(1) + "px,0," + z.toFixed(1) + "px) rotateY(" + ry.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
+      c.style.opacity = a > 4.6 ? Math.max(0, 5.6 - a).toFixed(2) : 1;
+      c.style.zIndex = 1000 - Math.round(a * 100);
+      c.style.setProperty("--dim", Math.min(a * .16, .62).toFixed(2));
+      if (a < 6.5) { var im = c.querySelector("img[data-src]"); if (im) { im.src = im.dataset.src; im.removeAttribute("data-src"); } }
+    }
+    var k = ((Math.round(pos) % n) + n) % n;
+    if (k !== act) actif(k);
+  }
+  var tPrec = 0;
+  function boucle(ts) {
+    var dt = tPrec ? Math.min(ts - tPrec, 64) : 16; tPrec = ts;
+    if (!tire) {
+      var diff = cible - pos, f = 1 - Math.exp(-dt / (calme ? 40 : 140));
+      pos += diff * f;
+      if (Math.abs(diff) < .0008) { pos = cible; rendu(); raf = null; tPrec = 0; return; }
+    }
+    rendu(); raf = requestAnimationFrame(boucle);
+  }
+  function lance() { if (!raf) { tPrec = 0; raf = requestAnimationFrame(boucle); } }
+  function va(t) { cible = t; lance(); }
+  function vers(i) { var b = Math.round(cible); va(b + rel(i, b)); }
+  // Contenu de la carte active
+  var nom = document.getElementById("cx-name"), txt = document.getElementById("cx-txt"), tag = document.getElementById("cx-tag");
+  var amb = document.querySelectorAll(".cx-amb img"), ambI = 0, regs = document.querySelectorAll("#cx-regions button");
+  function anime(el, t) { el.textContent = ""; var sp = document.createElement("span"); sp.textContent = t; el.appendChild(sp); }
+  function actif(k) {
+    if (act >= 0) cards[act].classList.remove("act");
+    act = k; var d = D[k]; cards[k].classList.add("act");
+    anime(nom, d.n); anime(txt, d.t); tag.textContent = d.p + " · " + d.rl;
+    document.getElementById("cx-more").href = "/golf/" + d.s + ".html";
+    document.getElementById("cx-count").textContent = (k + 1) + " / " + n;
+    document.getElementById("cx-prog").style.width = ((k + 1) / n * 100) + "%";
+    Array.prototype.forEach.call(regs, function (b) { b.setAttribute("aria-pressed", b.dataset.r === d.r ? "true" : "false"); });
+    if (d.ph) {
+      var nx = amb[1 - ambI], old = amb[ambI];
+      nx.onload = function () { nx.classList.add("on"); old.classList.remove("on"); };
+      nx.src = ph(d.ph, 400); ambI = 1 - ambI;
+    }
+  }
+  // Glisser avec élan
+  var x0 = 0, p0 = 0, vx = 0, lx = 0, lt = 0, bouge = 0;
+  stage.addEventListener("pointerdown", function (e) {
+    if (e.target.closest("button,a")) return;
+    tire = true; bouge = 0; x0 = lx = e.clientX; lt = performance.now(); p0 = pos; vx = 0;
+    stage.setPointerCapture(e.pointerId); stage.classList.add("drag"); pause(); lance();
+  });
+  stage.addEventListener("pointermove", function (e) {
+    if (tire) {
+      var now = performance.now(), dx = e.clientX - lx; vx = dx / Math.max(now - lt, 1); lx = e.clientX; lt = now;
+      bouge = Math.max(bouge, Math.abs(e.clientX - x0)); pos = p0 - (e.clientX - x0) / ecart; return;
+    }
+    var t = e.target.closest(".cx-card.act .tl");
+    if (t && !calme) {
+      var r = t.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      t.style.transform = "rotateY(" + ((px - .5) * 14).toFixed(1) + "deg) rotateX(" + ((.5 - py) * 12).toFixed(1) + "deg)";
+      t.style.setProperty("--gx", (px * 100).toFixed(0) + "%"); t.style.setProperty("--gy", (py * 100).toFixed(0) + "%");
+    }
+  });
+  function lache(e) {
+    if (!tire) return; tire = false; stage.classList.remove("drag");
+    if (bouge < 6) { var c = e.target.closest(".cx-card"); if (c) { var i = cards.indexOf(c); if (i === act) location.href = "/golf/" + D[i].s + ".html"; else vers(i); } else va(Math.round(pos)); return; }
+    va(Math.round(pos - vx * 6));
+  }
+  stage.addEventListener("pointerup", lache); stage.addEventListener("pointercancel", lache);
+  stage.addEventListener("pointerleave", function () { var t = stage.querySelector(".cx-card.act .tl"); if (t) t.style.transform = ""; });
+  stage.addEventListener("wheel", function (e) {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 8) return;
+    e.preventDefault(); pause(); va(Math.round(cible) + (e.deltaX > 0 ? 1 : -1));
+  }, { passive: false });
+  stage.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); pause(); va(Math.round(cible) + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); pause(); va(Math.round(cible) - 1); }
+    if (e.key === "Enter") location.href = "/golf/" + D[act].s + ".html";
+  });
+  document.getElementById("cx-next").onclick = function () { pause(); va(Math.round(cible) + 1); };
+  document.getElementById("cx-prev").onclick = function () { pause(); va(Math.round(cible) - 1); };
+  Array.prototype.forEach.call(regs, function (b) {
+    b.onclick = function () { pause(); for (var i = 0; i < n; i++) if (D[i].r === b.dataset.r) { vers(i); break; } };
+  });
+  document.getElementById("cx-go").onclick = function () { if (window.birdyChoisir) window.birdyChoisir(D[act].n); };
+  // Défilement automatique, en pause dès qu'on interagit
+  var repos = 0;
+  function pause() { repos = Date.now() + 9000; }
+  stage.addEventListener("pointerenter", pause);
+  if (!calme) setInterval(function () { if (Date.now() > repos && !document.hidden && !tire) va(Math.round(cible) + 1); }, 4200);
+  addEventListener("resize", function () { mesure(); rendu(); });
+  mesure();
+  if (calme) { pos = cible = 0; rendu(); } else { pos = -9; cible = 0; rendu(); lance(); }
+})();
+</script>
 </body>
 </html>
