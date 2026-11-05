@@ -5,7 +5,7 @@
   var D = B.dest, N = D.length;
   var calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $ = function (id) { return document.getElementById(id); };
-  function ph(id, w) { return "https://images.pexels.com/photos/" + id + "/pexels-photo-" + id + ".jpeg?auto=compress&cs=tinysrgb&w=" + w; }
+  function ph(id, w) { return "/assets/img/p/" + id + "-" + (w <= 600 ? 480 : w <= 1000 ? 960 : 1600) + ".webp"; }
   function idx(nom) { for (var i = 0; i < N; i++) if (D[i].n === nom) return i; return -1; }
   function each(list, fn) { Array.prototype.forEach.call(list, fn); }
   function vers(id) { var el = $(id); if (el) el.scrollIntoView({ behavior: calme ? "auto" : "smooth", block: "start" }); }

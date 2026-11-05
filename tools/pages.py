@@ -9,7 +9,11 @@ import json
 import os
 import re
 import unicodedata
+import sys
 from urllib.parse import quote
+
+sys.path.insert(0, os.path.dirname(__file__))
+from seo_data import PREP, PAYS, PROFILS, TAGS, profils, pays_de  # noqa: E402
 
 SITE = "https://birdy-agent.pages.dev/"
 TEL = "06 16 21 34 47"
@@ -28,7 +32,13 @@ def slug(t):
 
 
 def photo(pid, w):
-    return f"https://images.pexels.com/photos/{pid}/pexels-photo-{pid}.jpeg?auto=compress&cs=tinysrgb&w={w}"
+    """Photo hébergée sur le site (assets/img/p), en 480, 960 ou 1600 px de large."""
+    t = 480 if w <= 600 else 960 if w <= 1000 else 1600
+    return f"/assets/img/p/{pid}-{t}.webp"
+
+
+def photo_abs(pid, w=1200):
+    return SITE.rstrip("/") + photo(pid, w)
 
 
 def carte(d, w=800):
@@ -60,7 +70,7 @@ def head(title, desc, path, image, extra=""):
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{image}">
+<meta property="og:image" content="{image if image.startswith('http') else SITE.rstrip('/') + image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/logo.webp">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
@@ -91,50 +101,107 @@ def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>\n"
 
 
+def faq_destination(d):
+    n, prep = d["nom"], PREP[d["nom"]]
+    tags = profils(d)
+    out = [(f"Combien coûte un séjour golf en groupe {prep} ?",
+            "Le prix dépend de la taille du groupe, des dates, de l’hôtel et du nombre de parcours. "
+            "Nous demandons les vrais tarifs aux hôtels et aux golfs, puis nous vous envoyons une proposition détaillée, sans engagement.")]
+    extra = []
+    if "court" in tags:
+        extra.append((f"Peut-on partir {prep} le temps d’un week-end ?",
+                      "Oui. C’est une destination proche, qui se prête bien à un séjour de trois ou quatre jours entre amis : "
+                      "nous calons les départs sur les parcours pour profiter de chaque journée."))
+    if "hiver" in tags:
+        extra.append((f"Peut-on jouer au golf {prep} en hiver ?",
+                      f"Oui, {n} fait partie des destinations que nous conseillons pour jouer au soleil pendant l’hiver en France. "
+                      "Dites-nous vos dates : nous vérifions les disponibilités des hôtels et des golfs."))
+    if "links" in tags:
+        extra.append(("Qu’est-ce qu’un links ?",
+                      "Un parcours tracé en bord de mer, sur des dunes, exposé au vent. C’est le golf des origines, "
+                      "un rêve pour beaucoup de clubs et de groupes de joueurs."))
+    if "fete" in tags:
+        extra.append((f"Peut-on organiser un enterrement de vie de garçon golf {prep} ?",
+                      "Oui : une compétition amicale par équipes, une initiation pour ceux qui ne jouent pas, "
+                      "un grand dîner et du temps libre. Nous organisons le programme avec l’organisateur seulement."))
+    if "pro" in tags:
+        extra.append((f"Organisez-vous des séminaires d’entreprise {prep} ?",
+                      "Oui. Nous cherchons un hôtel adapté à la taille du groupe et à vos temps de travail, "
+                      "avec une initiation pour les débutants, une compétition par équipes et les dîners."))
+    if "exotique" in tags or d["region"] in ("oceanie", "asie", "ameriques", "caraibes", "indien"):
+        extra.append(("Combien de temps faut-il prévoir ?",
+                      "Pour une destination lointaine, comptez plutôt une semaine ou plus pour profiter du voyage. "
+                      "Nous adaptons le nombre de parcours et les journées de repos à votre groupe."))
+    out += extra[:2]
+    out += [("Faut-il être un bon joueur pour partir ?",
+             "Non. Débutants et joueurs confirmés peuvent partir ensemble : nous adaptons les parcours et pouvons prévoir des cours pour les débutants."),
+            ("Comment faire une demande ?",
+             f"Répondez à quatre questions sur notre site, ou écrivez-nous sur WhatsApp au {TEL}. "
+             "Un conseiller vous recontacte avec une proposition.")]
+    return out
+
+
+def chips(d):
+    out = []
+    for k in profils(d):
+        label, guide = PROFILS[k]
+        out.append(f'<a class="chip" href="/guides/{guide}.html">{e(label)}</a>' if guide else f'<span class="chip">{e(label)}</span>')
+    return "".join(out)
+
+
 def page_destination(d, voisines):
     n, s = d["nom"], slug(d["nom"])
+    prep = PREP[n]
     path = f"golf/{s}.html"
-    title = f"Séjour golf en groupe · {n} ({d['pays']}) | Birdy Agent"
-    desc = (f"Séjour golf de groupe sur mesure, destination {n} ({d['pays']}). {d['texte']} "
+    title = f"Séjour golf {prep} en groupe | Birdy Agent"
+    if len(title) > 62:
+        title = f"Séjour golf {prep} | Birdy Agent"
+    desc = (f"Séjour golf de groupe sur mesure {prep} ({d['pays']}). {d['texte']} "
             "Demande gratuite et sans engagement, avec les vrais tarifs des hôtels et des golfs.")
-    img = photo(d["photo"], 1200) if d["photo"] else SITE + "og.jpg"
-    faq = [
-        (f"Combien coûte un séjour golf en groupe, destination {n} ?",
-         "Le prix dépend de la taille du groupe, des dates, de l’hôtel et du nombre de parcours. "
-         "Nous demandons les vrais tarifs aux hôtels et aux golfs, puis nous vous envoyons une proposition détaillée, sans engagement."),
-        ("Faut-il être un bon joueur pour partir ?",
-         "Non. Débutants et joueurs confirmés peuvent partir ensemble : nous adaptons les parcours et pouvons prévoir des cours pour les débutants."),
-        ("Comment faire une demande ?",
-         f"Répondez à quatre questions sur notre site, ou écrivez-nous sur WhatsApp au {TEL}. "
-         "Un conseiller vous recontacte avec une proposition."),
-    ]
+    img = photo_abs(d["photo"]) if d["photo"] else SITE + "og.jpg"
+    faq = faq_destination(d)
+    hub = pays_de(n)
+    crumbs = [("Accueil", SITE), ("Destinations", SITE + "golf/")]
+    if hub:
+        crumbs.append((hub[1], SITE + f"golf/pays/{hub[0]}.html"))
+    crumbs.append((n, SITE + path))
     extra = ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
-        {"@type": "ListItem", "position": 2, "name": "Destinations", "item": SITE + "golf/"},
-        {"@type": "ListItem", "position": 3, "name": n, "item": SITE + path}]})
+        {"@type": "ListItem", "position": i + 1, "name": c, "item": u} for i, (c, u) in enumerate(crumbs)]})
     extra += ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
-    extra += ld({"@context": "https://schema.org", "@type": "TouristDestination", "name": n,
-                 "description": d["texte"], "geo": {"@type": "GeoCoordinates", "latitude": d["lat"], "longitude": d["lon"]},
-                 "touristType": "Golfeurs", "url": SITE + path})
+    td = {"@context": "https://schema.org", "@type": "TouristDestination", "name": n,
+          "description": d["texte"], "geo": {"@type": "GeoCoordinates", "latitude": d["lat"], "longitude": d["lon"]},
+          "touristType": "Golfeurs", "url": SITE + path}
+    if d["photo"]:
+        td["image"] = img
+    extra += ld(td)
     organiser = "/?dest=" + quote(n) + "#organiser"
     wa = WA + quote(f"Bonjour Birdy Agent, je souhaite organiser un séjour golf en groupe ({n}).")
-    hero_img = (f'<img class="ph" src="{photo(d["photo"], 1600)}" alt="{e(n)}, {e(d["pays"])}" onerror="this.remove()">'
+    hero_img = (f'<img class="ph" src="{photo(d["photo"], 1600)}" srcset="{photo(d["photo"], 480)} 480w, {photo(d["photo"], 960)} 960w, {photo(d["photo"], 1600)} 1600w" '
+                f'sizes="100vw" alt="Golf {e(prep)}, {e(d["pays"])}" fetchpriority="high" onerror="this.remove()">'
                 if d["photo"] else "")
     voisins = "".join(f'<a href="/golf/{slug(v["nom"])}.html">{e(v["nom"])}<small>{e(v["pays"])}</small></a>' for v in voisines)
+    fil = '<a href="/">Accueil</a> › <a href="/golf/">Destinations</a> › '
+    if hub:
+        fil += f'<a href="/golf/pays/{hub[0]}.html">{e(hub[1])}</a> › '
+    noms = [PROFILS[k][0].lower() for k in profils(d)]
+    ideal = (" Idéal pour : " + ", ".join(noms[:3]) + ".") if noms else ""
+    hub_line = (f'<p class="more"><a href="/golf/pays/{hub[0]}.html">Toutes nos destinations golf {e(hub[2])}</a></p>' if hub else "")
     out = head(title, desc, path, img, extra)
     out += f"""<main>
 <section class="hero">{hero_img}<div class="veil"></div><div class="in">
-  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/golf/">Destinations</a> › <span>{e(n)}</span></nav>
+  <nav class="crumbs" aria-label="Fil d’Ariane">{fil}<span>{e(n)}</span></nav>
   <p class="tag">{e(d['pays'])} · {e(RL[d['region']])}</p>
-  <h1>Séjour golf en groupe · {e(n)}</h1>
+  <h1>Séjour golf {e(prep)}</h1>
   <p class="lead">{e(d['texte'])}</p>
   <div class="cta"><a class="btn gold" href="{organiser}">Organiser un séjour ici</a><a class="btn light" href="{wa}" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
 </div></section>
 
 <section class="band"><div class="in grid">
   <div class="txt">
-    <h2>Votre séjour golf, organisé pour vous</h2>
+    <p class="answer"><b>Birdy Agent organise votre séjour golf de groupe {e(prep)}</b> ({e(d['pays'])}) : hébergement, green-fees, transferts et dîners, avec une proposition sur mesure aux vrais tarifs des hôtels et des golfs.{e(ideal)}</p>
+    <div class="chips" aria-label="Idéal pour">{chips(d)}</div>
+    <h2>Votre séjour golf {e(prep)}, organisé pour vous</h2>
     <p>Vous partez entre amis, en équipe ou avec votre club ? Dites-nous combien vous êtes, quand vous souhaitez partir et votre budget. Nous préparons une proposition sur mesure pour {e(n)}, avec les vrais tarifs des hôtels et des golfs.</p>
     <h3>Ce que nous organisons</h3>
     <ul>
@@ -151,6 +218,7 @@ def page_destination(d, voisines):
       <li><b>Vous recevez votre proposition</b> : un conseiller vous recontacte, sans engagement.</li>
     </ol>
     <p class="more"><a href="{e(d['lien'])}" target="_blank" rel="noopener">Voir les séjours {e(n)} chez Parcours &amp; Voyages</a></p>
+    {hub_line}
   </div>
   <aside class="box">
     <h2>Prêt à partir ?</h2>
@@ -161,14 +229,80 @@ def page_destination(d, voisines):
 </div></section>
 
 <section class="band tint"><div class="in">
-  <h2>Questions fréquentes</h2>
+  <h2>Questions fréquentes · séjour golf {e(prep)}</h2>
   <div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in faq)}</div>
 </div></section>
 
 <section class="band"><div class="in">
-  <h2>Autres destinations · {e(RL[d['region']])}</h2>
+  <h2>Autres destinations à découvrir</h2>
   <div class="others">{voisins}</div>
   <p class="more"><a href="/golf/">Voir les {TOTAL} destinations</a></p>
+</div></section>
+</main>
+"""
+    return path, out + foot()
+
+
+def page_pays(p, D):
+    s, titre, prep, noms, intro = p
+    path = f"golf/pays/{s}.html"
+    items = [d for d in D if d["nom"] in noms]
+    title = f"Séjour golf {prep} en groupe : {len(items)} destinations | Birdy Agent"
+    desc = (f"Séjours golf de groupe sur mesure {prep} : {', '.join(noms)}. {intro.split('. ')[0].rstrip('.')}. "
+            "Demande gratuite et sans engagement.")
+    if len(desc) > 300:
+        desc = desc[:297].rsplit(" ", 1)[0] + "…"
+    first = next((d for d in items if d["photo"]), None)
+    img = photo_abs(first["photo"]) if first else SITE + "og.jpg"
+    guides = {}
+    for d in items:
+        for k in profils(d):
+            lab, g = PROFILS[k]
+            if g:
+                guides[g] = lab
+    faq = [(f"Où jouer au golf {prep} ?",
+            f"Nous proposons {len(items)} destinations golf {prep} : {', '.join(noms)}. {intro}"),
+           (f"Combien coûte un séjour golf {prep} ?",
+            "Le prix dépend de la taille du groupe, des dates, de l’hôtel et du nombre de parcours. "
+            "Nous demandons les vrais tarifs aux hôtels et aux golfs, puis nous vous envoyons une proposition détaillée, sans engagement."),
+           ("Comment faire une demande ?",
+            f"Répondez à quatre questions sur notre site, ou écrivez-nous sur WhatsApp au {TEL}. Un conseiller vous recontacte avec une proposition.")]
+    extra = ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
+        {"@type": "ListItem", "position": 2, "name": "Destinations", "item": SITE + "golf/"},
+        {"@type": "ListItem", "position": 3, "name": titre, "item": SITE + path}]})
+    extra += ld({"@context": "https://schema.org", "@type": "ItemList", "name": f"Destinations golf {prep}", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "url": SITE + "golf/" + slug(d["nom"]) + ".html", "name": d["nom"]}
+        for i, d in enumerate(items)]})
+    extra += ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
+    hero_img = (f'<img class="ph" src="{photo(first["photo"], 1600)}" srcset="{photo(first["photo"], 960)} 960w, {photo(first["photo"], 1600)} 1600w" '
+                f'sizes="100vw" alt="Golf {e(prep)}" fetchpriority="high" onerror="this.remove()">' if first else "")
+    cards = "".join(carte(d) for d in items)
+    gl = "".join(f'<a href="/guides/{g}.html">{e(l)}</a>' for g, l in guides.items())
+    autres = "".join(f'<a href="/golf/pays/{o[0]}.html">Golf {e(o[2])}</a>' for o in PAYS if o[0] != s)
+    organiser = "/?dest=" + quote(noms[0]) + "#organiser"
+    out = head(title, desc, path, img, extra)
+    out += f"""<main>
+<section class="hero">{hero_img}<div class="veil"></div><div class="in">
+  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/golf/">Destinations</a> › <span>{e(titre)}</span></nav>
+  <p class="tag">{len(items)} destinations golf</p>
+  <h1>Séjour golf {e(prep)}</h1>
+  <p class="lead">{e(intro)}</p>
+  <div class="cta"><a class="btn gold" href="{organiser}">Organiser mon séjour</a></div>
+</div></section>
+<section class="band ivory"><div class="in">
+  <p class="mc-eyebrow">{e(titre)}</p><h2>Nos destinations golf {e(prep)}</h2>
+  <div class="mc-grid">{cards}</div>
+</div></section>
+<section class="band tint"><div class="in">
+  <h2>Questions fréquentes · golf {e(prep)}</h2>
+  <div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in faq)}</div>
+</div></section>
+<section class="band"><div class="in">
+  {"<h2>Idées de séjours</h2><div class='others plain'>" + gl + "</div>" if gl else ""}
+  <h2 class="mt">Le golf dans d’autres pays</h2>
+  <div class="others plain">{autres}</div>
 </div></section>
 </main>
 """
@@ -190,6 +324,7 @@ def page_index(D):
   <h1>Nos {len(D)} destinations golf</h1>
   <p class="lead">Des séjours golf de groupe sur mesure, en France, en Europe et dans le monde entier.</p>
 </div></section>
+<section class="band"><div class="in"><h2>Par pays</h2><div class="others plain">{"".join(f'<a href="/golf/pays/{p[0]}.html">Golf {e(p[2])}</a>' for p in PAYS)}</div></div></section>
 """
     for k, label in REGIONS:
         items = [d for d in D if d["region"] == k]
@@ -209,8 +344,16 @@ if __name__ == "__main__":
     TOTAL = len(D)
     os.makedirs("golf", exist_ok=True)
     paths = ["", "golf/index.html"]
+    os.makedirs("golf/pays", exist_ok=True)
+    for pp in PAYS:
+        p, html_ = page_pays(pp, D)
+        open(p, "w", encoding="utf8").write(html_)
+        paths.append(p)
     for d in D:
-        voisines = [v for v in D if v["region"] == d["region"] and v is not d]
+        hub = pays_de(d["nom"])
+        meme = [v for v in D if v is not d and hub and pays_de(v["nom"]) == hub]
+        region = [v for v in D if v is not d and v["region"] == d["region"] and v not in meme]
+        voisines = (meme + region)[:8]
         p, html_ = page_destination(d, voisines)
         open(p, "w", encoding="utf8").write(html_)
         paths.append(p)

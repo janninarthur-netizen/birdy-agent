@@ -184,6 +184,130 @@ GUIDES = [
         ],
         "liens": ["Saint-Andrews", "East Lothian", "Irlande", "Algarve", "Marrakech"],
     },
+    {
+        "slug": "golf-au-soleil-en-hiver",
+        "titre": "Golf au soleil en hiver : où partir en groupe ?",
+        "h1": "Jouer au golf au soleil en hiver",
+        "court": "Golf au soleil en hiver",
+        "desc": "Où jouer au golf au soleil en hiver : Algarve, Canaries, Marrakech, Agadir, mer Rouge, Dubaï, île Maurice, "
+                "Floride, Caraïbes… Destinations proches ou lointaines pour un séjour golf de groupe.",
+        "lead": "Quand les parcours sont détrempés en France, d’autres golfs vous attendent au soleil. "
+                "À quelques heures de vol pour un long week-end, ou plus loin pour une vraie semaine de golf.",
+        "photo": DEST["Agadir"]["photo"] or DEST["Algarve"]["photo"],
+        "dest": "Algarve",
+        "wa": "Bonjour Birdy Agent, nous aimerions partir jouer au golf au soleil cet hiver.",
+        "sections": [
+            ("Au soleil, à quelques heures de vol", "ul", [
+                "<b>L’Algarve</b>, au Portugal : la référence du golf en Europe, à environ 2 h 30 de vol de Paris.",
+                "<b>Les Canaries</b> : pour jouer au soleil toute l’année.",
+                "<b>Marbella</b> et la Costa del Sol : des dizaines de parcours.",
+                "<b>Marrakech</b> et <b>Agadir</b>, au Maroc : le golf entre palmeraie, Atlas et océan.",
+                "<b>Djerba</b> et <b>la mer Rouge</b> : des resorts au soleil pour une semaine au chaud.",
+            ]),
+            ("Plus loin, pour une semaine ou plus", "ul", [
+                "<b>Dubaï</b> : des parcours spectaculaires au milieu du désert.",
+                "<b>L’océan Indien</b> : île Maurice, La Réunion, Seychelles.",
+                "<b>L’Asie</b> : Thaïlande, Vietnam, Cambodge.",
+                "<b>Les Amériques</b> : Floride, Cancún, Punta Mita, Bahamas, Jamaïque, République dominicaine, Barbade.",
+                "<b>L’hémisphère sud</b> : Le Cap et la Garden Route, Sun City, Australie, Nouvelle-Zélande, où c’est l’été.",
+            ]),
+            ("Bien choisir sa destination", "p", [
+                "Pour un week-end de trois ou quatre jours, restez sur un vol court : Portugal, Espagne ou Maroc. "
+                "Pour une semaine, les destinations lointaines valent le voyage.",
+                "Les vacances d’hiver sont très demandées : pour un groupe, mieux vaut s’y prendre tôt. "
+                "Dites-nous vos dates, nous vérifions les disponibilités des hôtels et des golfs.",
+            ]),
+        ],
+        "faq": [
+            ("Quelle est la destination golf la plus proche pour avoir du soleil en hiver ?",
+             "Le Portugal (Algarve), le sud de l’Espagne, les Canaries et le Maroc sont les plus proches de la France. "
+             "Nous vous aidons à choisir selon vos dates et votre groupe."),
+            ("Combien coûte un séjour golf au soleil en hiver ?",
+             "Le prix dépend de la destination, des dates, de l’hôtel et du nombre de parcours. "
+             "Nous demandons les vrais tarifs pour votre groupe et vous envoyons une proposition détaillée, sans engagement."),
+            ("Vous occupez-vous des vols ?",
+             "Oui, si vous le souhaitez. Vous pouvez aussi réserver vos vols vous-mêmes : nous organisons le reste."),
+        ],
+        "liens": ["Algarve", "Canaries", "Marrakech", "Agadir", "Mer Rouge", "Dubaï", "Île Maurice", "Floride"],
+    },
+    {
+        "slug": "sejour-golf-tout-compris",
+        "titre": "Séjour golf tout compris en groupe : ce qui est inclus",
+        "h1": "Un séjour golf tout compris pour votre groupe",
+        "court": "Séjour golf tout compris",
+        "desc": "Séjour golf tout compris en groupe : hébergement, green-fees, transferts, dîners et vols si vous le souhaitez. "
+                "Ce qui est inclus, ce qu’il faut vérifier et comment recevoir une proposition.",
+        "lead": "Un seul interlocuteur, un seul devis : l’hôtel, les parcours, les transferts et les dîners sont organisés pour tout le groupe. "
+                "Vous n’avez plus qu’à jouer.",
+        "photo": DEST["Belek"]["photo"],
+        "dest": "Algarve",
+        "wa": "Bonjour Birdy Agent, nous cherchons un séjour golf tout compris pour notre groupe.",
+        "sections": [
+            ("Ce que nous pouvons inclure", "ul", [
+                "<b>L’hébergement</b> de tout le groupe, de l’hôtel au resort sur le golf, et la répartition des chambres.",
+                "<b>Les green-fees</b> et les heures de départ réservées sur chaque parcours.",
+                "<b>Les transferts</b> entre l’aéroport, l’hôtel et les golfs.",
+                "<b>Les dîners de groupe</b> et les moments à partager.",
+                "<b>Des cours</b> pour les débutants, et la location de matériel si besoin.",
+                "<b>Les vols</b>, si vous le souhaitez.",
+            ]),
+            ("Ce qu’il faut vérifier avant de réserver", "ul", [
+                "Le nombre de parcours compris et leur niveau, pour que tout le groupe s’amuse.",
+                "Les repas compris : petit-déjeuner, demi-pension ou dîners de groupe.",
+                "Le transport des sacs de golf en avion.",
+                "Les conditions de modification et d’annulation pour un groupe.",
+            ]),
+            ("Comment se construit votre proposition", "ol", [
+                "<b>Vous nous dites votre envie</b> : groupe, période, budget, destination si vous en avez une.",
+                "<b>Nous demandons les vrais tarifs</b> aux hôtels et aux golfs pour vos dates.",
+                "<b>Vous recevez une proposition détaillée</b>, poste par poste, sans engagement.",
+            ]),
+        ],
+        "faq": [
+            ("Le prix est-il fixé à l’avance ?",
+             "Non : chaque séjour est sur mesure. Nous demandons les tarifs pour votre groupe et vos dates, puis nous vous envoyons une proposition détaillée."),
+            ("Peut-on réserver les vols nous-mêmes ?",
+             "Oui. Nous organisons alors le séjour sur place : hôtel, parcours, transferts et dîners."),
+            ("La demande est-elle payante ?",
+             "Non. La demande est gratuite et sans engagement."),
+        ],
+        "liens": ["Algarve", "Belek", "Marrakech", "Marbella", "Mer Rouge"],
+    },
+    {
+        "slug": "sejour-golf-debutant",
+        "titre": "Séjour golf pour débutants : partir en groupe sans stress",
+        "h1": "Un séjour golf quand on débute",
+        "court": "Séjour golf pour débutants",
+        "desc": "Débutant au golf ? Partez en groupe avec des joueurs confirmés : cours, practice, parcours adaptés et location de matériel. "
+                "Nos conseils et nos destinations.",
+        "lead": "Pas besoin d’avoir un index pour partir. Avec des cours, des parcours adaptés et un groupe bienveillant, "
+                "un séjour golf est la meilleure façon de commencer.",
+        "photo": DEST["Marbella"]["photo"],
+        "dest": "Algarve",
+        "wa": "Bonjour Birdy Agent, il y a des débutants dans notre groupe et nous aimerions partir au golf.",
+        "sections": [
+            ("Ce que nous prévoyons pour les débutants", "ul", [
+                "<b>Des cours</b> avec un enseignant, en petit groupe.",
+                "<b>Du temps au practice</b> et sur le putting green.",
+                "<b>Des parcours adaptés</b>, ou des 9 trous, pour jouer sans pression.",
+                "<b>La location de matériel</b> pour ceux qui n’ont pas de clubs.",
+            ]),
+            ("Débutants et confirmés dans le même groupe", "p", [
+                "C’est le cas de la plupart des groupes. Les joueurs confirmés partent sur un grand parcours pendant que les débutants prennent leur cours, "
+                "puis tout le monde se retrouve pour une partie par équipes, un déjeuner au club-house ou le dîner.",
+                "Les formats par équipes, comme le scramble, permettent à chacun de jouer avec les autres sans ralentir la partie.",
+            ]),
+        ],
+        "faq": [
+            ("Faut-il une carte verte ou un index pour jouer ?",
+             "Certains parcours demandent un niveau minimum. Dites-nous le niveau de chacun : nous choisissons des parcours accessibles et prévoyons des cours."),
+            ("Faut-il acheter des clubs avant de partir ?",
+             "Non. Indiquez-le dans votre demande : nous vérifions la location de matériel sur place."),
+            ("Quelle destination pour un premier séjour golf ?",
+             "Une destination proche avec de nombreux parcours, comme l’Algarve, Marbella ou Marrakech, est un bon choix pour commencer."),
+        ],
+        "liens": ["Algarve", "Marbella", "Marrakech", "Agadir", "Belek"],
+    },
 ]
 
 
@@ -203,7 +327,7 @@ def section_html(titre, kind, items):
 
 def page_guide(g):
     path = f"guides/{g['slug']}.html"
-    img = pages.photo(g["photo"], 1200)
+    img = pages.photo_abs(g["photo"])
     extra = pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": "Idées de séjours", "item": SITE + "guides/"},
@@ -222,7 +346,7 @@ def page_guide(g):
     out = pages.head(g["titre"] + " | Birdy Agent", g["desc"], path, img, extra)
     out += f"""<main>
 <section class="hero">
-  <img class="ph" src="{pages.photo(g['photo'], 1600)}" alt="" onerror="this.remove()"><div class="veil"></div>
+  <img class="ph" src="{pages.photo(g['photo'], 1600)}" srcset="{pages.photo(g['photo'], 960)} 960w, {pages.photo(g['photo'], 1600)} 1600w" sizes="100vw" fetchpriority="high" alt="" onerror="this.remove()"><div class="veil"></div>
   <div class="in">
     <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/guides/">Idées de séjours</a> › <span>{e(g['court'])}</span></nav>
     <h1>{e(g['h1'])}</h1>
@@ -256,11 +380,12 @@ def page_guide(g):
 
 def page_hub():
     path = "guides/index.html"
-    title = "Idées de séjours golf : entre amis, EVG, séminaire, club | Birdy Agent"
-    desc = "Week-end golf entre amis au Portugal, enterrement de vie de garçon, séminaire d’entreprise, voyage de club : nos idées de séjours golf de groupe."
+    title = "Idées de séjours golf en groupe : amis, EVG, séminaire, hiver | Birdy Agent"
+    desc = ("Week-end golf entre amis au Portugal, enterrement de vie de garçon, séminaire d’entreprise, voyage de club, "
+            "golf au soleil en hiver, séjour tout compris ou pour débutants : nos idées de séjours golf de groupe.")
     out = pages.head(title, desc, "guides/", SITE + "og.jpg", "")
     cards = "".join(
-        f'<a class="card" href="/guides/{g["slug"]}.html"><span class="pic"><img src="{pages.photo(g["photo"], 600)}" alt="" loading="lazy" onerror="this.remove()"></span>'
+        f'<a class="card" href="/guides/{g["slug"]}.html"><span class="pic"><img src="{pages.photo(g["photo"], 480)}" alt="" loading="lazy" onerror="this.remove()"></span>'
         f'<b>{e(g["court"])}</b><span class="t">{e(g["lead"])}</span></a>' for g in GUIDES)
     out += f"""<main>
 <section class="hero short"><div class="veil"></div><div class="in">
@@ -285,8 +410,8 @@ if __name__ == "__main__":
     open(p, "w", encoding="utf8").write(h)
     # Sitemap complet : accueil, guides, destinations, mentions légales
     golf = sorted(f"golf/{f}" for f in os.listdir("golf") if f.endswith(".html") and f != "index.html")
-    allp = ["", "guides/index.html"] + paths + ["golf/index.html"] + golf + ["mentions-legales.html"]
+    pays = sorted(f"golf/pays/{f}" for f in os.listdir("golf/pays") if f.endswith(".html"))
+    allp = ["", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
-    import clean_urls, glob as _g
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)
