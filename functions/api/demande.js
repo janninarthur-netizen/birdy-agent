@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
 
   const texte = [
     d.groupe + " · " + d.destination,
-    d.periode + " · budget " + d.budget + "/pers.",
+    d.periode + " · budget " + d.budget + (/€/.test(d.budget) ? " par personne" : ""),
     d.prenom + " · " + d.tel + (d.email ? " · " + d.email : ""),
     d.note ? "Note : " + d.note : "",
   ].filter(Boolean).join("\n");
