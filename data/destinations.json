@@ -1,0 +1,552 @@
+[
+ {
+  "nom": "Algarve",
+  "pays": "Portugal",
+  "region": "europe",
+  "lon": -8.25,
+  "lat": 37.1,
+  "texte": "Plus d’une centaine de parcours au Portugal, dont Monte Rei, Quinta do Lago et Vale do Lobo.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/237/algarve",
+  "photo": 18141984
+ },
+ {
+  "nom": "Lisbonne et Cascais",
+  "pays": "Portugal",
+  "region": "europe",
+  "lon": -9.42,
+  "lat": 38.7,
+  "texte": "Des parcours entre océan et collines, à deux pas de Lisbonne.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/23/portugal",
+  "photo": 29820651
+ },
+ {
+  "nom": "Açores",
+  "pays": "Portugal",
+  "region": "europe",
+  "lon": -25.67,
+  "lat": 37.78,
+  "texte": "São Miguel, l’île verte des Açores, au milieu de l’Atlantique.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/23/portugal",
+  "photo": 29141707
+ },
+ {
+  "nom": "Catalogne",
+  "pays": "Espagne",
+  "region": "europe",
+  "lon": 2.17,
+  "lat": 41.39,
+  "texte": "Barcelone et la Costa Brava, à 1 h 45 de vol de Paris.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/22/espagne",
+  "photo": 14281559
+ },
+ {
+  "nom": "Marbella",
+  "pays": "Espagne · Andalousie",
+  "region": "europe",
+  "lon": -4.88,
+  "lat": 36.51,
+  "texte": "La Costa del Sol et ses dizaines de parcours entre mer et montagne.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/22/espagne",
+  "photo": 18489894
+ },
+ {
+  "nom": "Majorque",
+  "pays": "Espagne · Baléares",
+  "region": "europe",
+  "lon": 2.65,
+  "lat": 39.57,
+  "texte": "Des autotours entre les golfs de l’île.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/22/espagne",
+  "photo": 29874108
+ },
+ {
+  "nom": "Canaries",
+  "pays": "Espagne",
+  "region": "europe",
+  "lon": -15.6,
+  "lat": 28.1,
+  "texte": "Le golf au soleil toute l’année, au large de l’Afrique.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/22/espagne",
+  "photo": 15472927
+ },
+ {
+  "nom": "Saint-Andrews",
+  "pays": "Écosse",
+  "region": "europe",
+  "lon": -2.8,
+  "lat": 56.34,
+  "texte": "Le berceau du golf, l’Old Course et les links de la côte est.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/20/royaume-uni",
+  "photo": null
+ },
+ {
+  "nom": "East Lothian",
+  "pays": "Écosse",
+  "region": "europe",
+  "lon": -2.75,
+  "lat": 55.98,
+  "texte": "21 parcours à 30 minutes d’Édimbourg.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/20/royaume-uni",
+  "photo": 27879520
+ },
+ {
+  "nom": "Turnberry",
+  "pays": "Écosse",
+  "region": "europe",
+  "lon": -4.83,
+  "lat": 55.31,
+  "texte": "Le resort de Turnberry et ses links face à la mer.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/20/royaume-uni",
+  "photo": null
+ },
+ {
+  "nom": "Irlande",
+  "pays": "Irlande",
+  "region": "europe",
+  "lon": -6.65,
+  "lat": 53.25,
+  "texte": "Druids Glen et The K Club, hôte de la Ryder Cup 2006.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/1/europe",
+  "photo": 3404361
+ },
+ {
+  "nom": "Irlande du Nord",
+  "pays": "Royaume-Uni",
+  "region": "europe",
+  "lon": -6.0,
+  "lat": 54.9,
+  "texte": "Des autotours entre les grands links du nord.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/20/royaume-uni",
+  "photo": 34016052
+ },
+ {
+  "nom": "Italie du Nord",
+  "pays": "Italie",
+  "region": "europe",
+  "lon": 9.6,
+  "lat": 45.0,
+  "texte": "Lombardie, Ligurie, Émilie-Romagne : l’Italie compte plus de 250 parcours.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/19/italie",
+  "photo": 8430005
+ },
+ {
+  "nom": "Sardaigne",
+  "pays": "Italie",
+  "region": "europe",
+  "lon": 9.3,
+  "lat": 40.6,
+  "texte": "Des parcours au bord d’une mer turquoise.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/19/italie",
+  "photo": 29011885
+ },
+ {
+  "nom": "Sicile",
+  "pays": "Italie",
+  "region": "europe",
+  "lon": 14.2,
+  "lat": 37.5,
+  "texte": "Golf, volcans et villages perchés.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/19/italie",
+  "photo": 4563289
+ },
+ {
+  "nom": "Grèce",
+  "pays": "Grèce",
+  "region": "europe",
+  "lon": 21.7,
+  "lat": 37.3,
+  "texte": "Des autotours entre les golfs grecs.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/1/europe",
+  "photo": 14356860
+ },
+ {
+  "nom": "Chypre",
+  "pays": "Chypre",
+  "region": "europe",
+  "lon": 32.6,
+  "lat": 34.8,
+  "texte": "Le golf au soleil en Méditerranée orientale.",
+  "lien": "https://www.parcours-voyages.fr/groupes-associations-parcours-voyages",
+  "photo": 15667913
+ },
+ {
+  "nom": "Belek",
+  "pays": "Turquie",
+  "region": "europe",
+  "lon": 31.05,
+  "lat": 36.86,
+  "texte": "Pins parasols, grands resorts et hôtels au bord du golf.",
+  "lien": "https://www.parcours-voyages.fr/groupes-associations-parcours-voyages",
+  "photo": 10463590
+ },
+ {
+  "nom": "Hongrie",
+  "pays": "Hongrie",
+  "region": "europe",
+  "lon": 19.04,
+  "lat": 47.5,
+  "texte": "Des séjours golf au cœur de l’Europe centrale.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/1/europe",
+  "photo": 26737415
+ },
+ {
+  "nom": "Autriche",
+  "pays": "Autriche",
+  "region": "europe",
+  "lon": 13.2,
+  "lat": 47.4,
+  "texte": "Des parcours au pied des Alpes.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/1/europe",
+  "photo": 18845358
+ },
+ {
+  "nom": "Côte d’Azur",
+  "pays": "France",
+  "region": "france",
+  "lon": 7.0,
+  "lat": 43.6,
+  "texte": "L’une des plus belles destinations golf de France.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/5/provence",
+  "photo": 14504325
+ },
+ {
+  "nom": "Corse",
+  "pays": "France",
+  "region": "france",
+  "lon": 9.15,
+  "lat": 41.5,
+  "texte": "Sperone et Murtoli, des parcours spectaculaires face à la mer.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/434/corse",
+  "photo": 31384821
+ },
+ {
+  "nom": "Bretagne",
+  "pays": "France",
+  "region": "france",
+  "lon": -2.05,
+  "lat": 48.63,
+  "texte": "Saint-Malo et Dinard, l’un des plus anciens golfs de France.",
+  "lien": "https://www.parcours-voyages.fr/",
+  "photo": 19896675
+ },
+ {
+  "nom": "Pays basque",
+  "pays": "France",
+  "region": "france",
+  "lon": -1.5,
+  "lat": 43.45,
+  "texte": "Chiberta, Arcangues, Hossegor et les parcours des Landes.",
+  "lien": "https://www.parcours-voyages.fr/",
+  "photo": 11662240
+ },
+ {
+  "nom": "Marrakech",
+  "pays": "Maroc",
+  "region": "afrique",
+  "lon": -7.99,
+  "lat": 31.63,
+  "texte": "Des parcours verts entre palmeraie et Atlas.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/123/marrakech",
+  "photo": 30142699
+ },
+ {
+  "nom": "Agadir",
+  "pays": "Maroc",
+  "region": "afrique",
+  "lon": -9.6,
+  "lat": 30.42,
+  "texte": "Le golf au bord de l’Atlantique, sous le soleil du sud marocain.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/28/maroc",
+  "photo": 30557503
+ },
+ {
+  "nom": "El Jadida",
+  "pays": "Maroc",
+  "region": "afrique",
+  "lon": -8.5,
+  "lat": 33.25,
+  "texte": "Le resort Mazagan et son parcours face à l’océan.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/122/el-jadida",
+  "photo": null
+ },
+ {
+  "nom": "Tanger",
+  "pays": "Maroc",
+  "region": "afrique",
+  "lon": -5.8,
+  "lat": 35.77,
+  "texte": "Entre Atlantique et Méditerranée, à la pointe nord du Maroc.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/28/maroc",
+  "photo": 14009980
+ },
+ {
+  "nom": "Fès",
+  "pays": "Maroc",
+  "region": "afrique",
+  "lon": -5.0,
+  "lat": 34.03,
+  "texte": "La cité impériale et son festival de golf.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/28/maroc",
+  "photo": 30158523
+ },
+ {
+  "nom": "Mer Rouge",
+  "pays": "Égypte",
+  "region": "afrique",
+  "lon": 33.85,
+  "lat": 27.0,
+  "texte": "El Gouna et Soma Bay, des resorts 5 étoiles au bord de la mer Rouge.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/811/egypte",
+  "photo": 30683936
+ },
+ {
+  "nom": "Djerba",
+  "pays": "Tunisie",
+  "region": "afrique",
+  "lon": 10.86,
+  "lat": 33.8,
+  "texte": "Un parcours de 27 trous sur l’île de Djerba.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/14/afrique",
+  "photo": 33891843
+ },
+ {
+  "nom": "Le Cap et Garden Route",
+  "pays": "Afrique du Sud",
+  "region": "afrique",
+  "lon": 22.5,
+  "lat": -34.0,
+  "texte": "Pezula et Arabella, entre océan et montagnes du Cap.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/14/afrique",
+  "photo": 35398305
+ },
+ {
+  "nom": "Sun City et Kruger",
+  "pays": "Afrique du Sud",
+  "region": "afrique",
+  "lon": 27.09,
+  "lat": -25.33,
+  "texte": "Le golf de Sun City, à combiner avec un safari au parc Kruger.",
+  "lien": "https://www.parcours-voyages.fr/blog/vibrations/347/circuit-golf-et-safari-au-parc-kruger-en-afrique-du-sud",
+  "photo": 631317
+ },
+ {
+  "nom": "Île Maurice",
+  "pays": "Océan Indien",
+  "region": "indien",
+  "lon": 57.55,
+  "lat": -20.3,
+  "texte": "Neuf parcours de 18 trous, dont Anahita, Tamarina et le Paradis.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/33/ile-maurice",
+  "photo": 17937827
+ },
+ {
+  "nom": "La Réunion",
+  "pays": "Océan Indien",
+  "region": "indien",
+  "lon": 55.5,
+  "lat": -21.1,
+  "texte": "Trois parcours, à combiner avec quelques jours à Maurice.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/16/ocean-indien",
+  "photo": 19971633
+ },
+ {
+  "nom": "Seychelles",
+  "pays": "Océan Indien",
+  "region": "indien",
+  "lon": 55.73,
+  "lat": -4.32,
+  "texte": "Praslin et le Lemuria, seul parcours 18 trous des Seychelles.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/34/seychelles",
+  "photo": 31386176
+ },
+ {
+  "nom": "Dubaï",
+  "pays": "Émirats arabes unis",
+  "region": "asie",
+  "lon": 55.27,
+  "lat": 25.2,
+  "texte": "À moins de 6 h 30 de vol, des hôtels 3 à 5 étoiles près de nombreux parcours.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/136/dubai",
+  "photo": 33687811
+ },
+ {
+  "nom": "Thaïlande",
+  "pays": "Thaïlande",
+  "region": "asie",
+  "lon": 100.5,
+  "lat": 13.0,
+  "texte": "Des circuits golf avec chauffeur privé.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/7/asie",
+  "photo": 2983756
+ },
+ {
+  "nom": "Vietnam",
+  "pays": "Vietnam",
+  "region": "asie",
+  "lon": 108.2,
+  "lat": 16.05,
+  "texte": "Le golf entre rizières et plages.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/7/asie",
+  "photo": 30280835
+ },
+ {
+  "nom": "Cambodge",
+  "pays": "Cambodge",
+  "region": "asie",
+  "lon": 103.86,
+  "lat": 13.36,
+  "texte": "Des parcours à combiner avec les temples d’Angkor.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/7/asie",
+  "photo": 3217663
+ },
+ {
+  "nom": "Floride",
+  "pays": "États-Unis",
+  "region": "ameriques",
+  "lon": -81.5,
+  "lat": 27.8,
+  "texte": "La destination golf phare des États-Unis.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/66/etats-unis",
+  "photo": 30698939
+ },
+ {
+  "nom": "Californie",
+  "pays": "États-Unis",
+  "region": "ameriques",
+  "lon": -121.95,
+  "lat": 36.57,
+  "texte": "Pebble Beach et les parcours de la côte Pacifique.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/66/etats-unis",
+  "photo": 13850739
+ },
+ {
+  "nom": "Caroline du Sud",
+  "pays": "États-Unis",
+  "region": "ameriques",
+  "lon": -80.0,
+  "lat": 32.8,
+  "texte": "Des parcours mythiques sur la côte atlantique.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/66/etats-unis",
+  "photo": 18985754
+ },
+ {
+  "nom": "Virginie",
+  "pays": "États-Unis",
+  "region": "ameriques",
+  "lon": -78.6,
+  "lat": 37.5,
+  "texte": "Le golf dans l’histoire de la côte est américaine.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/66/etats-unis",
+  "photo": 36613605
+ },
+ {
+  "nom": "Texas",
+  "pays": "États-Unis",
+  "region": "ameriques",
+  "lon": -97.7,
+  "lat": 30.3,
+  "texte": "Des resorts de golf à la texane.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/66/etats-unis",
+  "photo": null
+ },
+ {
+  "nom": "Cancún",
+  "pays": "Mexique",
+  "region": "ameriques",
+  "lon": -86.85,
+  "lat": 21.16,
+  "texte": "Des parcours signés Jack Nicklaus et Greg Norman.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/193/mexique",
+  "photo": 35576143
+ },
+ {
+  "nom": "Punta Mita",
+  "pays": "Mexique",
+  "region": "ameriques",
+  "lon": -105.5,
+  "lat": 20.77,
+  "texte": "Un resort 5 étoiles tout compris sur la côte Pacifique.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/193/mexique",
+  "photo": 754355
+ },
+ {
+  "nom": "Québec",
+  "pays": "Canada",
+  "region": "ameriques",
+  "lon": -74.6,
+  "lat": 46.2,
+  "texte": "Mont-Tremblant et ses parcours au cœur de la forêt.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/264/canada",
+  "photo": 20843515
+ },
+ {
+  "nom": "Ontario",
+  "pays": "Canada",
+  "region": "ameriques",
+  "lon": -79.07,
+  "lat": 43.25,
+  "texte": "Près de Niagara-on-the-Lake et ses vignobles.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/264/canada",
+  "photo": 14436934
+ },
+ {
+  "nom": "Bahamas",
+  "pays": "Caraïbes",
+  "region": "caraibes",
+  "lon": -77.35,
+  "lat": 25.05,
+  "texte": "Le golf entre eaux turquoise et plages de sable blanc.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/65/caraibes",
+  "photo": 7203795
+ },
+ {
+  "nom": "Jamaïque",
+  "pays": "Caraïbes",
+  "region": "caraibes",
+  "lon": -77.3,
+  "lat": 18.1,
+  "texte": "Des parcours tropicaux face à la mer des Caraïbes.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/65/caraibes",
+  "photo": 30793026
+ },
+ {
+  "nom": "République dominicaine",
+  "pays": "Caraïbes",
+  "region": "caraibes",
+  "lon": -68.4,
+  "lat": 18.6,
+  "texte": "Punta Cana et ses parcours au bord de l’océan.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/65/caraibes",
+  "photo": 149542
+ },
+ {
+  "nom": "Barbade",
+  "pays": "Caraïbes",
+  "region": "caraibes",
+  "lon": -59.55,
+  "lat": 13.1,
+  "texte": "Le golf de luxe sur l’île de la Barbade.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/65/caraibes",
+  "photo": 35010454
+ },
+ {
+  "nom": "Nouvelle-Zélande",
+  "pays": "Océanie",
+  "region": "oceanie",
+  "lon": 174.0,
+  "lat": -41.0,
+  "texte": "Un circuit de 15 jours entre l’île du Nord et l’île du Sud.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/222/oceanie",
+  "photo": 724960
+ },
+ {
+  "nom": "Australie",
+  "pays": "Océanie",
+  "region": "oceanie",
+  "lon": 151.2,
+  "lat": -33.9,
+  "texte": "Des séjours golf de l’autre côté du monde.",
+  "lien": "https://www.parcours-voyages.fr/sejour-voyage-golf/222/oceanie",
+  "photo": 4810613
+ }
+]
