@@ -502,7 +502,7 @@
     form.addEventListener("submit", function (e) { e.preventDefault(); envoie(inp.value); inp.value = ""; });
     sugg.addEventListener("click", function (e) { var b = e.target.closest && e.target.closest("button"); if (b) envoie(b.textContent); });
     setTimeout(function () {
-      tape(function () { dit("Bonjour, je suis Birdy, votre agent golf. Dites-moi en une phrase le séjour dont vous rêvez : je vous trouve la destination et je prépare votre demande."); });
+      tape(function () { dit("Bonjour, je suis Birdy, votre concierge golf. Racontez-moi votre projet (combien vous êtes, quand, vos envies) ou posez-moi n’importe quelle question sur le golf."); });
     }, calme ? 0 : 900);
   })();
 
