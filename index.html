@@ -822,6 +822,64 @@ footer{background:var(--night)}
 .nums{background:#F8F9F8;color:#0A1E17;border-bottom:1px solid #E4EEE9}
 .num b{color:#0A1E17}
 .num span{color:#4E6157}
+
+/* ===== Héros, version finale : verre sombre, Birdy épuré, fiche flottante reliée au globe ===== */
+.hx-grid{align-items:center}
+.agent{background:rgba(13,34,26,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:24px;box-shadow:0 30px 70px rgba(0,0,0,.45);animation:none}
+.agent-head{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);background:none}
+.agent-head small::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#5BE08F;margin-right:6px;vertical-align:1px}
+.agent-log{min-height:96px;max-height:250px;padding:16px 18px}
+.composer{margin:0 12px 12px;padding:12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:10px;transition:border-color .25s,box-shadow .25s}
+.composer:focus-within{border-color:rgba(163,201,184,.55);box-shadow:0 0 0 3px rgba(163,201,184,.12)}
+.composer .agent-sugg{display:flex;flex-wrap:wrap;gap:6px;overflow:visible;padding:0}
+.composer .agent-sugg button{font:500 12.5px/1 var(--body);color:#D0E4DC;background:rgba(163,201,184,.08);border:1px solid rgba(163,201,184,.22);border-radius:99px;padding:8px 11px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.composer .agent-sugg button:hover{background:rgba(163,201,184,.18);border-color:#A3C9B8;color:#FFFFFF}
+.composer .agent-form{display:flex;align-items:center;gap:8px;padding:0;border:0}
+.composer .agent-form input{flex:1;min-width:0;height:48px;background:transparent;border:0;border-radius:12px;padding:0 6px;font:400 16px var(--body);color:#FFFFFF;box-shadow:none}
+.composer .agent-form input:focus{outline:none;border:0;box-shadow:none}
+.composer .agent-form input::placeholder{color:#8FB0A2}
+.composer .agent-form button{flex:none;width:46px;height:46px;border-radius:14px;border:0;background:#FFFFFF;color:#0D221A;display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}
+.composer .agent-form button:hover{background:#D0E4DC;transform:translateX(2px)}
+.composer .agent-form button svg{width:20px;height:20px}
+/* Globe : halo sauge */
+.hx-right{position:relative}
+.globe{max-height:580px}
+.globe::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(163,201,184,.22) 0%,rgba(163,201,184,.08) 45%,transparent 70%);filter:blur(20px);pointer-events:none;z-index:-1}
+.globe-hint{bottom:2%;background:rgba(13,34,26,.6);border:1px solid rgba(255,255,255,.1);color:#A3C9B8}
+/* Fiche flottante reliée au point */
+.g-link{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.g-link line{stroke:#A3C9B8;stroke-width:1.5;stroke-dasharray:4 5;opacity:.85}
+.g-link circle{fill:#FFFFFF;stroke:#A3C9B8;stroke-width:2}
+.gcard{position:absolute;z-index:3;right:-2%;bottom:9%;width:min(300px,62%);margin:0;padding:10px;gap:12px;align-items:center;background:rgba(13,34,26,.78);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 24px 50px rgba(0,0,0,.5);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.gcard.swap{opacity:0;transform:translateY(12px) scale(.97)}
+.gcard-pic{width:64px;height:64px;border-radius:12px}
+.gcard-name{font-size:21px}
+.gcard-desc{font-size:12.5px;-webkit-line-clamp:2}
+.gcard-btns{gap:6px;margin-top:6px}
+.gcard-btns .btn.sm{padding:8px 12px;font-size:12.5px}
+/* Barre de filtres pleine largeur */
+.explore{margin-top:clamp(26px,3vw,40px);padding:14px 16px 10px;border-radius:22px;background:rgba(13,34,26,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1)}
+.explore-bar{gap:12px;flex-wrap:nowrap}
+.search{flex:0 1 320px;max-width:none}
+.search input{width:100%;height:44px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.explore-regions{flex:1;justify-content:flex-end;gap:6px}
+.explore-regions button,.explore-list button{min-height:38px}
+.explore-list{scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);padding:12px 4px 4px}
+.explore-list::-webkit-scrollbar{display:none}
+@media (max-width:1100px){.explore-bar{flex-wrap:wrap}.search{flex:1 1 100%}.explore-regions{justify-content:flex-start}}
+@media (max-width:900px){
+  .gcard{position:relative;right:auto;bottom:auto;width:100%;margin-top:6px}
+  .g-link{display:none}
+  .explore-regions{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;justify-content:flex-start;padding-bottom:2px}
+  .explore-regions::-webkit-scrollbar{display:none}
+  .explore-regions button{flex:none}
+}
+
+.search{flex:0 1 250px}
+.explore-regions{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:5px}
+.explore-regions::-webkit-scrollbar{display:none}
+.explore-regions button{flex:none;padding:9px 12px;font-size:12.5px}
+.explore-list button[aria-pressed="true"] small{color:#2F6B55}
 </style>
 </head>
 <body>
@@ -844,18 +902,14 @@ footer{background:var(--night)}
       <div class="agent" id="agent">
         <div class="agent-head"><img src="logo.webp" alt="" width="38" height="38"><div><b>Birdy</b><small>Votre agent golf · répond tout de suite</small></div></div>
         <div class="agent-log" id="agent-log" aria-live="polite"></div>
-        <div class="agent-sugg" id="agent-sugg">
-          <button type="button">On est 8 potes, un week-end au soleil en mars</button>
-          <button type="button">Un EVG golf en Espagne</button>
-          <button type="button">Séminaire d’entreprise pour 20 personnes</button>
-          <button type="button">Du golf au chaud cet hiver</button>
-          <button type="button">Les links mythiques d’Écosse</button>
+        <div class="composer">
+          <div class="agent-sugg" id="agent-sugg" role="group" aria-label="Suggestions"><button type="button">8 potes en mars au soleil</button><button type="button">EVG golf en Espagne</button><button type="button">Séminaire pour 20 personnes</button><button type="button">Golf au chaud cet hiver</button><button type="button">Links mythiques en Écosse</button></div>
+          <form class="agent-form" id="agent-form" autocomplete="off">
+            <label class="sr" for="agent-in">Votre message à Birdy</label>
+            <input id="agent-in" maxlength="240" placeholder="Décrivez votre séjour : 6 amis, Portugal, avril…">
+            <button type="submit" aria-label="Envoyer à Birdy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+          </form>
         </div>
-        <form class="agent-form" id="agent-form" autocomplete="off">
-          <label class="sr" for="agent-in">Votre message à Birdy</label>
-          <input id="agent-in" maxlength="240" placeholder="Ex. : 6 amis, Portugal, avril, 1 200 € chacun">
-          <button type="submit" aria-label="Envoyer">→</button>
-        </form>
       </div>
     </div>
     <div class="hx-right">
@@ -864,6 +918,7 @@ footer{background:var(--night)}
         <div class="globe-hint" id="globe-hint">Faites tourner la Terre · touchez un point lumineux</div>
         <div class="globe-fallback">Chargement de la carte du monde…</div>
       </div>
+      <svg class="g-link" id="g-link" aria-hidden="true"><line id="g-line" x1="0" y1="0" x2="0" y2="0"/><circle id="g-dot" r="4"/></svg>
       <article class="gcard" id="gcard" aria-live="polite">
         <div class="gcard-pic"><img id="gcard-img" alt=""></div>
         <div class="gcard-txt">
@@ -1108,7 +1163,7 @@ footer{background:var(--night)}
   function actif(k) {
     if (act >= 0) cards[act].classList.remove("act");
     act = k; var d = D[k]; cards[k].classList.add("act");
-    anime(nom, d.n); anime(txt, d.t); tag.textContent = d.p + " · " + d.rl;
+    anime(nom, d.n); anime(txt, d.t); tag.textContent = d.p === d.rl ? d.p : d.p + " · " + d.rl;
     document.getElementById("cx-more").href = "/golf/" + d.s + ".html";
     document.getElementById("cx-count").textContent = (k + 1) + " / " + n;
     document.getElementById("cx-prog").style.width = ((k + 1) / n * 100) + "%";

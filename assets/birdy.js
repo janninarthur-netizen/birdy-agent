@@ -98,7 +98,7 @@
       var d = D[i];
       card.classList.add("swap");
       setTimeout(function () {
-        $("gcard-tag").textContent = d.p + " · " + d.rl;
+        $("gcard-tag").textContent = d.p === d.rl ? d.p : d.p + " · " + d.rl;
         $("gcard-name").textContent = d.n;
         $("gcard-desc").textContent = d.t;
         $("gcard-more").href = "/golf/" + d.s + ".html";
@@ -221,7 +221,19 @@
           if (o.line.material.opacity <= 0) { G.remove(o.line); G.remove(o.avion); o.line.geometry.dispose(); arcs.splice(a, 1); }
         } else if (u >= 1 && !o.garde) { o.avion.material.opacity = Math.max(0, 1.7 - o.t); }
       }
+      relie();
       renderer.render(scene, cam);
+    }
+    var gl = $("g-line"), gd = $("g-dot"), gs = $("g-link"), pp = new THREE.Vector3();
+    function relie() {
+      if (!gl || act < 0 || innerWidth <= 900) { if (gs) gs.style.opacity = 0; return; }
+      pins[act].getWorldPosition(pp);
+      if (pp.z < 0.1 || card.classList.contains("swap")) { gs.style.opacity = 0; return; }
+      var s = pp.clone().project(cam), r = box.getBoundingClientRect(), base = box.parentNode.getBoundingClientRect();
+      var x = (s.x + 1) / 2 * r.width + r.left - base.left, y = (1 - s.y) / 2 * r.height + r.top - base.top;
+      var c = card.getBoundingClientRect(), cx = c.left - base.left + 18, cy = c.top - base.top;
+      gl.setAttribute("x1", x.toFixed(1)); gl.setAttribute("y1", y.toFixed(1)); gl.setAttribute("x2", cx.toFixed(1)); gl.setAttribute("y2", cy.toFixed(1));
+      gd.setAttribute("cx", x.toFixed(1)); gd.setAttribute("cy", y.toFixed(1)); gs.style.opacity = 1;
     }
     requestAnimationFrame(image);
     return api;
