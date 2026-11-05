@@ -21,6 +21,12 @@
       qs.forEach(function (q, k) { q.classList.toggle("on", k === n); });
       each(dots, function (d, k) { d.classList.toggle("on", k <= n); });
       back.hidden = n === 0;
+      var fait = Math.min(n, 4), fill = $("wz-fill"), bar = $("wz-bar");
+      if (fill) {
+        fill.style.width = (fait / 4 * 100) + "%"; bar.setAttribute("aria-valuenow", fait);
+        $("wz-step").textContent = cle(n) === "fin" ? "Dernière étape : vos coordonnées" : "Étape " + (n + 1) + " sur 4";
+        $("wz-pct").textContent = Math.round(fait / 4 * 100) + " %";
+      }
       if (cle(n) === "fin") recap();
     }
     function suivant(from) { for (var j = from; j < qs.length; j++) if (cle(j) === "fin" || !choix[cle(j)]) return j; return qs.length - 1; }
