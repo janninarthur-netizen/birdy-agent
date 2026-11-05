@@ -1,0 +1,10 @@
+# Ancien hébergement : tout le trafic de birdy-agent.netlify.app part vers le nouveau site.
+# (Cloudflare Pages ignore ce fichier.)
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "https://birdy-agent.pages.dev/:splat"
+  status = 301
+  force = true
