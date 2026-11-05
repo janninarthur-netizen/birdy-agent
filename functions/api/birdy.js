@@ -87,7 +87,7 @@ function sortie(w) {
 }
 
 async function cloudflareIA(env, messages) {
-  const model = env.CF_AI_MODEL || "@cf/mistralai/mistral-small-3.1-24b-instruct";
+  const model = env.CF_AI_MODEL || "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
   let flux;
   try {
     flux = await env.AI.run(model, { messages: [{ role: "system", content: SYSTEM }, ...messages], stream: true, max_tokens: 600, temperature: 0.35 });
