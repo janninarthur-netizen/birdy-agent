@@ -113,8 +113,8 @@ async function cloudflareIA(env, messages) {
   for (const m of modeles) {
     try {
       const r = m.startsWith("@cf/openai/")
-        ? await env.AI.run(m, { instructions: SYSTEM, input: messages, reasoning: { effort: "low" }, max_output_tokens: 1500 })
-        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 600, temperature: 0.3 });
+        ? await env.AI.run(m, { instructions: SYSTEM, input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
+        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 900, temperature: 0.3 });
       texte = texteDe(r).trim();
       if (texte) break;
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));

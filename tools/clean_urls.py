@@ -33,6 +33,13 @@ if __name__ == "__main__":
         n = propre(s)
         if n != s:
             open(f, "w", encoding="utf8").write(n)
+    # Version du script dans l'adresse : les navigateurs rechargent birdy.js dès qu'il change
+    import hashlib
+    v = hashlib.md5(open("assets/birdy.js", "rb").read()).hexdigest()[:8]
+    ix = open("index.html", encoding="utf8").read()
+    ix2 = re.sub(r'src="/assets/birdy\.js(\?v=\w+)?"', f'src="/assets/birdy.js?v={v}"', ix)
+    if ix2 != ix:
+        open("index.html", "w", encoding="utf8").write(ix2)
     sm = open("sitemap.xml", encoding="utf8").read()
     sm = propre(sm)
     jour = date.today().isoformat()

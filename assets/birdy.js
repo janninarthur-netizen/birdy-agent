@@ -484,7 +484,9 @@
         .catch(function (e) {
           b.remove(); histo.pop(); occupe = false;
           if (e.message === "503" || e.message === "404") ia = false;
-          repond(txt);
+          var r = analyse(txt);
+          if (r.tags.length + r.pays.length + r.regs.length + r.noms.length || r.groupe || r.periode) repond(txt);
+          else tape(function () { dit("Je suis momentanément très sollicité et je n’ai pas pu vous répondre. Réessayez dans un instant, ou appelez-nous au 06 16 21 34 47."); });
         });
     }
     log.addEventListener("click", function (e) {
