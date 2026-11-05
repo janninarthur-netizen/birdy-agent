@@ -1,61 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://birdy-agent.netlify.app/</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/guides/</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/guides/week-end-golf-entre-amis-portugal.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/guides/enterrement-de-vie-de-garcon-golf.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/guides/seminaire-golf-entreprise.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/guides/voyage-golf-club-association.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/algarve.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/lisbonne-et-cascais.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/acores.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/catalogne.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/marbella.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/majorque.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/canaries.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/saint-andrews.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/east-lothian.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/turnberry.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/irlande.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/irlande-du-nord.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/italie-du-nord.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/sardaigne.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/sicile.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/grece.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/chypre.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/belek.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/hongrie.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/autriche.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/cote-dazur.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/corse.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/bretagne.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/pays-basque.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/marrakech.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/agadir.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/el-jadida.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/tanger.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/fes.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/mer-rouge.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/djerba.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/le-cap-et-garden-route.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/sun-city-et-kruger.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/ile-maurice.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/la-reunion.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/seychelles.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/dubai.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/thailande.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/vietnam.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/cambodge.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/floride.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/algarve.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/australie.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/autriche.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/bahamas.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/barbade.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/belek.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/bretagne.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/californie.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/caroline-du-sud.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/virginie.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/texas.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/cambodge.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/canaries.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/cancun.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/caroline-du-sud.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/catalogne.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/chypre.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/corse.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/cote-dazur.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/djerba.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/dubai.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/east-lothian.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/el-jadida.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/fes.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/floride.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/grece.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/hongrie.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/ile-maurice.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/irlande-du-nord.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/irlande.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/italie-du-nord.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/jamaique.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/la-reunion.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/le-cap-et-garden-route.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/lisbonne-et-cascais.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/majorque.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/marbella.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/marrakech.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/mer-rouge.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/nouvelle-zelande.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/ontario.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/pays-basque.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/punta-mita.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/quebec.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/ontario.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/bahamas.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/jamaique.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/golf/republique-dominicaine.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/barbade.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/nouvelle-zelande.html</loc></url>
-  <url><loc>https://birdy-agent.netlify.app/golf/australie.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/saint-andrews.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/sardaigne.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/seychelles.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/sicile.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/sun-city-et-kruger.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/tanger.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/texas.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/thailande.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/turnberry.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/vietnam.html</loc></url>
+  <url><loc>https://birdy-agent.netlify.app/golf/virginie.html</loc></url>
   <url><loc>https://birdy-agent.netlify.app/mentions-legales.html</loc></url>
 </urlset>

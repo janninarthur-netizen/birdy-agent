@@ -86,3 +86,21 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 
 @media (max-width:860px){.grid{grid-template-columns:1fr}.box{position:static}}
 @media (max-width:560px){.logo span{display:none}.top nav a:not(.btn){display:none}.band{padding-block:40px}}
+
+/* Guides */
+.guide{gap:6px}
+.guide .block{display:flex;flex-direction:column;gap:12px;padding-bottom:22px}
+.guide h2{font-size:clamp(26px,3.2vw,34px);margin:0}
+.guide ul{padding-left:22px;display:grid;gap:8px}
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;position:relative;padding:14px 16px 14px 58px;background:var(--mist);border-radius:14px}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--pine);color:var(--gold);display:grid;place-items:center;font:700 17px/1 var(--display)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.choice{display:flex;flex-direction:column;gap:8px;border:1.5px solid var(--line);border-radius:16px;padding:18px;text-decoration:none;color:var(--ink)}
+.choice:hover{border-color:var(--fairway);background:var(--mist)}
+.choice b{font:700 24px/1.1 var(--display);color:var(--pine)}
+.choice span{color:var(--muted);font-size:15px}
+.choice em{font-style:normal;font-weight:600;color:var(--fairway);font-size:14px}
+.mt{margin-top:34px}
+.others.plain a{font-weight:600}
+@media (max-width:560px){.duo{grid-template-columns:1fr}}
