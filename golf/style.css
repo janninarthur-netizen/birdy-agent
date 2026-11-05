@@ -154,3 +154,6 @@ footer{background:#0A1E17}
 
 .logo img{width:64px;height:64px;margin-bottom:-20px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.85),0 10px 24px rgba(0,0,0,.4)}
 .logo span{font-size:17px}
+
+.logo img{width:48px;height:48px;margin-bottom:0}
+.logo span{font-size:15px}
