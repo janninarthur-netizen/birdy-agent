@@ -288,3 +288,5 @@ if __name__ == "__main__":
     allp = ["", "guides/index.html"] + paths + ["golf/index.html"] + golf + ["mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
+    import clean_urls, glob as _g
+    __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)

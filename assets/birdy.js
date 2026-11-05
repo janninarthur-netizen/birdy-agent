@@ -101,7 +101,7 @@
         $("gcard-tag").textContent = d.p === d.rl ? d.p : d.p + " · " + d.rl;
         $("gcard-name").textContent = d.n;
         $("gcard-desc").textContent = d.t;
-        $("gcard-more").href = "/golf/" + d.s + ".html";
+        $("gcard-more").href = "/golf/" + d.s;
         var im = $("gcard-img");
         if (d.ph) { im.hidden = false; im.onerror = function () { im.hidden = true; }; im.src = ph(d.ph, 300); im.alt = d.n; } else { im.hidden = true; }
         card.classList.remove("swap");
@@ -370,7 +370,7 @@
           var dest = GL && document.getElementById("gcard-name").textContent || dernier.d;
           if (W) W.prefill({ groupe: dernier.r.groupe, destination: dest, periode: dernier.r.periode, budget: dernier.r.budget });
         });
-        var plus = document.createElement("a"); plus.className = "btn glass sm"; plus.textContent = "Voir " + D[top[0].i].n; plus.href = "/golf/" + D[top[0].i].s + ".html";
+        var plus = document.createElement("a"); plus.className = "btn glass sm"; plus.textContent = "Voir " + D[top[0].i].n; plus.href = "/golf/" + D[top[0].i].s;
         c.appendChild(go); c.appendChild(plus);
         setTimeout(function () { var cb = bulle("msg-b", c); cb.style.background = "transparent"; cb.style.border = "0"; }, calme ? 0 : 520);
     }

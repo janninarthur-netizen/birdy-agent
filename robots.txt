@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /tools/
+Disallow: /data/
+Disallow: /functions/
+Disallow: /api/
 
 Sitemap: https://birdy-agent.pages.dev/sitemap.xml
