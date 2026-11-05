@@ -386,6 +386,12 @@
       l.forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = String(x); sugg.appendChild(b); });
     }
     function majProjet(f) {
+      // secours : ce que le visiteur a écrit lui-même (nombre, mois, budget, destination citée)
+      var u = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
+      if (u.nb && !projet.nb) { projet.nb = u.nb; projet.groupe = u.groupe; }
+      if (u.periode && !projet.periode) projet.periode = u.periode;
+      if (u.budget && !projet.budget) projet.budget = u.budget;
+      if (u.noms.length) projet.destination = u.noms[u.noms.length - 1];
       if (!f || typeof f !== "object") return;
       var n = parseInt(f.nb, 10);
       if (n > 0) { projet.nb = n; projet.groupe = GROUPES[n <= 4 ? 0 : n <= 8 ? 1 : n <= 16 ? 2 : 3]; }
@@ -473,6 +479,7 @@
           if (err || !rep.trim()) throw new Error(err || "vide");
           rep = rep.trim(); b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false;
           apres(rep); majProjet(fiche); carteProjet(); choixRapides(choix);
+          if (!choix) sugg.textContent = "";
         })
         .catch(function (e) {
           b.remove(); histo.pop(); occupe = false;

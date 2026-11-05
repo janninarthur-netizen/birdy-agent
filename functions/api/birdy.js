@@ -76,40 +76,58 @@ function sortie(w) {
       }
       const f = tout.match(/<fiche>([\s\S]*?)(?:<\/fiche>|$)/);
       if (f) {
-        try {
-          const o = JSON.parse(f[1].trim().replace(/^```(?:json)?|```$/g, ""));
-          if (o && typeof o === "object" && !Array.isArray(o)) await w.write(sse({ fiche: o }));
-        } catch {}
+        const brut = f[1].trim().replace(/^```(?:json)?|```$/g, "");
+        let o = null;
+        try { o = JSON.parse(brut); } catch {
+          o = {}; // JSON mal formé : on récupère champ par champ
+          for (const k of ["groupe", "nb", "destination", "periode", "dates", "budget", "niveau", "occasion", "resume"]) {
+            const m = brut.match(new RegExp('"?' + k + '"?\\s*:\\s*(?:"([^"]*)"|(\\d+))'));
+            if (m) o[k] = m[1] !== undefined ? m[1] : +m[2];
+          }
+        }
+        if (o && typeof o === "object" && !Array.isArray(o) && Object.keys(o).length) await w.write(sse({ fiche: o }));
       }
       await w.write(sse({ fin: true }));
     },
   };
 }
 
-async function cloudflareIA(env, messages) {
-  const model = env.CF_AI_MODEL || "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
-  let flux;
-  try {
-    flux = await env.AI.run(model, { messages: [{ role: "system", content: SYSTEM }, ...messages], stream: true, max_tokens: 600, temperature: 0.35 });
-  } catch (e) {
-    console.log("Workers AI", String(e).slice(0, 300)); // quota du jour épuisé, modèle indisponible…
-    return json({ erreur: "occupe" }, 429);
+// Texte d'une réponse Workers AI, quel que soit le format du modèle
+function texteDe(r) {
+  if (!r) return "";
+  if (typeof r === "string") return r;
+  if (typeof r.response === "string") return r.response;
+  if (r.choices && r.choices[0] && r.choices[0].message) return r.choices[0].message.content || "";
+  if (Array.isArray(r.output)) {
+    return r.output.filter((o) => o.type === "message").flatMap((o) => o.content || [])
+      .filter((c) => c.type === "output_text" || c.type === "text").map((c) => c.text).join("");
   }
+  return "";
+}
+
+// IA gratuite de Cloudflare. Génération en un bloc (le mode flux perd des espaces devant les nombres).
+// Si un modèle échoue (quota, indisponible), on essaie le suivant.
+async function cloudflareIA(env, messages) {
+  const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
+  let texte = "";
+  for (const m of modeles) {
+    try {
+      const r = m.startsWith("@cf/openai/")
+        ? await env.AI.run(m, { instructions: SYSTEM, input: messages, reasoning: { effort: "low" }, max_output_tokens: 1500 })
+        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 600, temperature: 0.3 });
+      texte = texteDe(r).trim();
+      if (texte) break;
+      console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
+    } catch (e) {
+      console.log("Workers AI", m, String(e).slice(0, 300));
+    }
+  }
+  if (!texte) return json({ erreur: "occupe" }, 429);
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
   const s = sortie(w);
   (async () => {
-    try {
-      await litSSE(flux, async (ev) => {
-        const t = ev.response ?? (ev.choices && ev.choices[0] && ev.choices[0].delta && ev.choices[0].delta.content);
-        if (t !== undefined && t !== null && t !== "") await s.texte(String(t));
-      });
-      await s.fin();
-    } catch {
-      try { await w.write(sse({ erreur: "reseau" })); } catch {}
-    } finally {
-      try { await w.close(); } catch {}
-    }
+    try { await s.texte(texte); await s.fin(); } catch {} finally { try { await w.close(); } catch {} }
   })();
   return new Response(readable, { headers: FLUX });
 }
