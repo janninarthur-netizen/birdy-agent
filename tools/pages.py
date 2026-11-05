@@ -31,6 +31,18 @@ def photo(pid, w):
     return f"https://images.pexels.com/photos/{pid}/pexels-photo-{pid}.jpeg?auto=compress&cs=tinysrgb&w={w}"
 
 
+def carte(d, w=800):
+    """Carte magazine 4:3 : photo, dégradé noir en bas, étiquette dorée de région au survol."""
+    n = d["nom"]
+    im = (f'<img src="{photo(d["photo"], w)}" alt="{e(n)}, {e(d["pays"])}" loading="lazy" onerror="this.remove()">'
+          if d["photo"] else f'<span class="mc-fb">{e(RL[d["region"]])}</span>')
+    return (f'<a class="mc" href="/golf/{slug(n)}.html">{im}<span class="mc-shade"></span>'
+            f'<span class="mc-tag">{e(RL[d["region"]])}</span>'
+            f'<span class="mc-body"><small>{e(d["pays"])}</small><b>{e(n)}</b>'
+            f'<span class="mc-txt">{e(d["texte"])}</span>'
+            f'<span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a>')
+
+
 def head(title, desc, path, image, extra=""):
     url = SITE + path
     return f"""<!doctype html>
@@ -181,12 +193,9 @@ def page_index(D):
 """
     for k, label in REGIONS:
         items = [d for d in D if d["region"] == k]
-        cards = ""
-        for d in items:
-            im = (f'<img src="{photo(d["photo"], 500)}" alt="" loading="lazy" onerror="this.remove()">' if d["photo"] else "")
-            cards += (f'<a class="card" href="/golf/{slug(d["nom"])}.html"><span class="pic">{im}</span>'
-                      f'<b>{e(d["nom"])}</b><small>{e(d["pays"])}</small><span class="t">{e(d["texte"])}</span></a>')
-        out += f'<section class="band" id="{k}"><div class="in"><h2>{e(label)}</h2><div class="cards">{cards}</div></div></section>\n'
+        cards = "".join(carte(d) for d in items)
+        alt = " ivory" if REGIONS.index((k, label)) % 2 == 0 else ""
+        out += f'<section class="band{alt}" id="{k}"><div class="in"><p class="mc-eyebrow">{len(items)} destination{"s" if len(items) > 1 else ""}</p><h2>{e(label)}</h2><div class="mc-grid">{cards}</div></div></section>\n'
     return path, out + "</main>\n" + foot()
 
 

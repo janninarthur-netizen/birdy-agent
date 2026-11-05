@@ -567,6 +567,35 @@ footer{background:var(--night)}
 .hx-title .gold{font-style:italic;padding-right:.04em;background:linear-gradient(100deg,#F6E7B8 0%,#E5C158 32%,#C6A052 58%,#F3DF9E 74%,#E5C158 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .hx-bg::after{-webkit-backdrop-filter:blur(2px) saturate(1.1);backdrop-filter:blur(2px) saturate(1.1)}
 .hx-title .nw{display:inline-block;white-space:nowrap}
+
+/* ===== Carte magazine 4:3 ===== */
+.mc-eyebrow{font:600 12px/1.2 var(--body);letter-spacing:.2em;text-transform:uppercase;color:#C6A052;margin-bottom:6px}
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:22px}
+.mc{position:relative;display:block;aspect-ratio:4/3;border-radius:16px;overflow:hidden;isolation:isolate;text-decoration:none;color:#FFFFFF;background:linear-gradient(135deg,#0E3A31,#2F7A55);box-shadow:0 24px 48px -14px rgba(9,26,20,.45),0 8px 18px -8px rgba(9,26,20,.25);transform:translateY(0);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s cubic-bezier(.2,.8,.2,1)}
+.mc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-2}
+.mc-fb{position:absolute;top:18px;left:18px;font:700 26px/1 var(--display);color:#E2C085;opacity:.55}
+.mc-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.45) 38%,rgba(0,0,0,0) 68%)}
+.mc-tag{position:absolute;top:14px;left:14px;font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#091A14;background:#E2C085;padding:7px 11px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.25);opacity:0;transform:translateY(-8px);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.mc-body{position:absolute;left:0;right:0;bottom:0;padding:18px 20px 18px;display:flex;flex-direction:column;gap:4px}
+.mc-body small{font:600 11.5px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#E2C085}
+.mc-body b{font:700 clamp(24px,2.3vw,30px)/1.05 var(--display);color:#FFFFFF;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.mc-txt{font-size:14px;line-height:1.4;color:rgba(255,255,255,.85);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mc-cta{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font:600 13.5px/1 var(--body);color:#FFFFFF}
+.mc-cta i{font-style:normal;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.mc:hover,.mc:focus-visible{transform:translateY(-4px);box-shadow:0 34px 60px -16px rgba(9,26,20,.55),0 10px 22px -8px rgba(9,26,20,.3)}
+.mc:hover>img,.mc:focus-visible>img{transform:scale(1.05)}
+.mc:hover .mc-tag,.mc:focus-visible .mc-tag{opacity:1;transform:none}
+.mc:hover .mc-cta i,.mc:focus-visible .mc-cta i{transform:translateX(4px)}
+.mc:focus-visible{outline:3px solid #E2C085;outline-offset:3px}
+@media (hover:none){.mc-tag{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mc,.mc>img,.mc-tag,.mc-cta i{transition:none}}
+
+.une{background:#F9F8F3;color:#091A14;padding-block:clamp(56px,8vw,100px)}
+.une .sec-head h2{color:#091A14}
+.une-more{text-align:center;margin-top:34px}
+.btn.dark{background:#091A14;color:#F4F6F5;border:1px solid #091A14;border-radius:99px}
+.btn.dark:hover{background:#14352A}
+@media (min-width:1100px){.une .mc-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -670,6 +699,11 @@ footer{background:var(--night)}
   <div class="num rv"><b data-count="0" data-suffix=" €">0 €</b><span>pour recevoir une proposition</span></div>
 </div></section>
 
+<section class="une" id="une"><div class="in">
+  <div class="sec-head rv"><p class="eyebrow">Nos destinations à la une</p><h2>Où jouerez-vous cette saison ?</h2></div>
+  <div class="mc-grid"><a class="mc" href="/golf/marrakech.html"><img src="https://images.pexels.com/photos/30142699/pexels-photo-30142699.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marrakech, Maroc" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Afrique</span><span class="mc-body"><small>Maroc</small><b>Marrakech</b><span class="mc-txt">Des parcours verts entre palmeraie et Atlas.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/algarve.html"><img src="https://images.pexels.com/photos/18141984/pexels-photo-18141984.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Algarve, Portugal" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Europe</span><span class="mc-body"><small>Portugal</small><b>Algarve</b><span class="mc-txt">Plus d’une centaine de parcours au Portugal, dont Monte Rei, Quinta do Lago et Vale do Lobo.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/cote-dazur.html"><img src="https://images.pexels.com/photos/14504325/pexels-photo-14504325.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Côte d’Azur, France" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">France</span><span class="mc-body"><small>France</small><b>Côte d’Azur</b><span class="mc-txt">L’une des plus belles destinations golf de France.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/ile-maurice.html"><img src="https://images.pexels.com/photos/17937827/pexels-photo-17937827.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Île Maurice, Océan Indien" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Océan Indien</span><span class="mc-body"><small>Océan Indien</small><b>Île Maurice</b><span class="mc-txt">Neuf parcours de 18 trous, dont Anahita, Tamarina et le Paradis.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/marbella.html"><img src="https://images.pexels.com/photos/18489894/pexels-photo-18489894.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marbella, Espagne · Andalousie" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Europe</span><span class="mc-body"><small>Espagne · Andalousie</small><b>Marbella</b><span class="mc-txt">La Costa del Sol et ses dizaines de parcours entre mer et montagne.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/dubai.html"><img src="https://images.pexels.com/photos/33687811/pexels-photo-33687811.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dubaï, Émirats arabes unis" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Moyen-Orient et Asie</span><span class="mc-body"><small>Émirats arabes unis</small><b>Dubaï</b><span class="mc-txt">À moins de 6 h 30 de vol, des hôtels 3 à 5 étoiles près de nombreux parcours.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/sicile.html"><img src="https://images.pexels.com/photos/4563289/pexels-photo-4563289.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sicile, Italie" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Europe</span><span class="mc-body"><small>Italie</small><b>Sicile</b><span class="mc-txt">Golf, volcans et villages perchés.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a><a class="mc" href="/golf/bahamas.html"><img src="https://images.pexels.com/photos/7203795/pexels-photo-7203795.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bahamas, Caraïbes" loading="lazy" onerror="this.remove()"><span class="mc-shade"></span><span class="mc-tag">Caraïbes</span><span class="mc-body"><small>Caraïbes</small><b>Bahamas</b><span class="mc-txt">Le golf entre eaux turquoise et plages de sable blanc.</span><span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a></div>
+  <p class="une-more"><a class="btn dark" href="/golf/">Voir les 55 destinations</a></p>
+</div></section>
 <section class="cx" id="images" aria-label="Nos destinations en images">
   <div class="cx-amb" aria-hidden="true"><img alt=""><img alt=""></div>
   <div class="in cx-head">
