@@ -26,7 +26,7 @@
 <meta charset="utf-8">
 <link rel="icon" href="logo.webp">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* Mise en page : une grande scène de golf, trois étapes illustrées, un parcours guidé en quatre clics. */
 :root{
@@ -34,7 +34,7 @@
   --ink:#10261E; --muted:#51675D; --gold:#C9A24B; --white:#FFFFFF;
   --brand:"Cinzel",Georgia,serif;
   --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -479,6 +479,88 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
   .rv.pre{opacity:1;transform:none;filter:none}
   .st{transition:none}
 }
+
+/* ===== Finition premium : contraste, or champagne, verre dépoli, sections crème ===== */
+:root{--night:#091A14;--night2:#0D221A;--ivory:#F9F8F3;--ivory2:#F1EEE4;--cream-line:#E6E1D3;--snow:#F4F6F5;--sage:#A0B2A6;--champ:#E2C085;--champ-deep:#C6A052}
+.btn.gold{background:linear-gradient(135deg,#F3E0A9 0%,#D9B866 45%,#C6A052 70%,#B48A3C 100%);background-size:180% 180%;background-position:0% 50%;color:#0A1E17;border:1px solid rgba(255,236,190,.55);box-shadow:0 10px 26px rgba(198,160,82,.30),inset 0 1px 0 rgba(255,255,255,.55);transition:background-position .6s ease,transform .2s ease,box-shadow .3s ease}
+.btn.gold:hover{background:linear-gradient(135deg,#F3E0A9 0%,#D9B866 45%,#C6A052 70%,#B48A3C 100%);background-size:180% 180%;background-position:100% 50%;transform:translateY(-2px);box-shadow:0 16px 34px rgba(198,160,82,.42),inset 0 1px 0 rgba(255,255,255,.6)}
+.btn.glass,.btn.ghost{border-radius:99px}
+.top{background:rgba(9,26,20,.72);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid rgba(226,192,133,.12)}
+
+/* Héros : nuit profonde + vraie photo de parcours */
+.hx{background:var(--night)}
+.hx-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42;transform:scale(1.06);animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
+.hx-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,26,20,.96) 0%,rgba(9,26,20,.86) 38%,rgba(9,26,20,.55) 70%,rgba(9,26,20,.75) 100%),linear-gradient(180deg,rgba(9,26,20,0) 55%,var(--night) 100%)}
+.hx-bg i{opacity:.32}
+.hx-title{color:var(--snow);letter-spacing:-.015em}
+.hx-title .gold{background:linear-gradient(100deg,#F3E0A9 0%,#E2C085 30%,#C6A052 55%,#F6E7BC 70%,#C6A052 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}
+.hx-lead{color:var(--sage)}
+.hx-eyebrow{color:var(--champ)}
+
+/* Birdy : fenêtre flottante en verre dépoli */
+.agent{background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(255,255,255,.10);border-radius:28px;box-shadow:0 0 0 1px rgba(226,192,133,.06),0 30px 80px rgba(0,0,0,.50),0 0 70px rgba(198,160,82,.13);transform:translateY(0);animation:dock 6s ease-in-out infinite}
+@keyframes dock{50%{transform:translateY(-4px)}}
+.agent:focus-within{box-shadow:0 0 0 1px rgba(226,192,133,.35),0 30px 80px rgba(0,0,0,.5),0 0 90px rgba(198,160,82,.22);animation-play-state:paused}
+.agent-head{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0))}
+.agent-head small{color:var(--sage)}
+.agent-head img{box-shadow:0 0 0 2px rgba(226,192,133,.5)}
+.msg-b{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:var(--snow)}
+.msg-u{background:linear-gradient(135deg,#F3E0A9,#C6A052);color:#0A1E17}
+.msg-b,.msg-u{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.reco{opacity:0;animation:rise .55s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--k,0) * 120ms + 80ms);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);overflow:hidden}
+.reco .p{position:relative;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.reco .p::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(9,26,20,.55))}
+.reco:hover .p{transform:scale(1.05)}
+.reco:hover{border-color:var(--champ)}
+.agent-form input{background:rgba(0,0,0,.28);border-color:rgba(255,255,255,.12);border-radius:16px}
+.agent-form input:focus{outline:none;border-color:rgba(226,192,133,.6);box-shadow:0 0 0 3px rgba(226,192,133,.15)}
+.agent-form button{background:linear-gradient(135deg,#F3E0A9,#C6A052);color:#0A1E17;border-radius:16px}
+.agent-sugg button{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.agent-sugg button:hover{border-color:var(--champ);background:rgba(226,192,133,.10)}
+.caret{display:inline-block;width:2px;height:1em;background:var(--champ);margin-left:2px;vertical-align:-2px;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+
+/* Globe et fiche */
+.gcard{background:rgba(9,26,20,.62);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-color:rgba(255,255,255,.12);box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 50px rgba(198,160,82,.12)}
+.gcard-pic{overflow:hidden}
+.gcard-pic img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.gcard:hover .gcard-pic img{transform:scale(1.05)}
+.gcard-tag{color:var(--champ)}
+.gcard-desc{color:var(--sage)}
+.explore-regions button[aria-pressed="true"]{background:linear-gradient(135deg,#F3E0A9,#C6A052);color:#0A1E17;border-color:transparent}
+.search input:focus{outline:none;border-color:rgba(226,192,133,.6)}
+.globe-hint{background:rgba(9,26,20,.55);color:var(--sage);border:1px solid rgba(255,255,255,.08)}
+
+/* Bandeau */
+.ticker{background:linear-gradient(90deg,#C6A052,#E2C085 50%,#C6A052);color:#0A1E17}
+
+/* Sections claires crème : respiration et contraste */
+.story{background:var(--ivory)}
+.st{background:#FFFFFF;border-color:var(--cream-line)}
+.st.on{border-color:var(--champ-deep);box-shadow:0 24px 50px rgba(9,26,20,.10)}
+.st-n{background:var(--night);color:var(--champ)}
+.nums{background:var(--night2)}
+.num b{background:linear-gradient(135deg,#F3E0A9,#C6A052);-webkit-background-clip:text;background-clip:text;color:transparent}
+.num span{color:var(--sage)}
+.cx{background:var(--night2)}
+.who{background:var(--ivory2)}
+.wc{box-shadow:0 24px 50px rgba(9,26,20,.18)}
+.wc:hover img{transform:scale(1.05)}
+.plan{background:var(--ivory)}
+.plan .card{box-shadow:0 30px 70px rgba(9,26,20,.10);border:1px solid var(--cream-line)}
+.chip.sel,.tile.sel,.pill.sel{border-color:var(--champ-deep);box-shadow:inset 0 0 0 2px var(--champ-deep);background:#FBF6E8}
+.dots i.on{background:linear-gradient(90deg,#E2C085,#C6A052)}
+.alld{background:var(--ivory2)}
+footer{background:var(--night)}
+.eyebrow{color:var(--champ-deep)}
+
+/* Halo doré qui suit la souris sur les zones sombres */
+.halo{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(226,192,133,.16) 0%,rgba(226,192,133,.06) 35%,rgba(226,192,133,0) 70%);mix-blend-mode:screen;opacity:0;transition:opacity .4s ease;will-change:transform}
+.halo.on{opacity:1}
+@media (hover:none),(prefers-reduced-motion:reduce){.halo{display:none}}
+@media (prefers-reduced-motion:reduce){.hx-photo,.agent{animation:none}.reco{opacity:1;animation:none}}
 </style>
 </head>
 <body>
@@ -491,7 +573,8 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 
 <main>
 <section class="hx" id="accueil" aria-label="Birdy, votre agent golf">
-  <div class="hx-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="hx-bg" aria-hidden="true"><img class="hx-photo" src="https://images.pexels.com/photos/919335/pexels-photo-919335.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="" onerror="this.remove()"><i></i><i></i><i></i></div>
+  <div class="halo" id="halo" aria-hidden="true"></div>
   <div class="in hx-grid">
     <div class="hx-left">
       <p class="hx-eyebrow"><span class="live"></span>Votre agent golf · 55 destinations</p>

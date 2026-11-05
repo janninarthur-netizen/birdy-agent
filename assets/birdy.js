@@ -132,7 +132,7 @@
     for (var k = 0; k < P.length; k += 2) { var v = ll(P[k + 1], P[k], 1.0); pos[k / 2 * 3] = v.x; pos[k / 2 * 3 + 1] = v.y; pos[k / 2 * 3 + 2] = v.z; }
     var geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     G.add(new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.026, map: disc("rgba(170,232,196,1)"), transparent: true, depthWrite: false, opacity: 1 })));
-    var or = disc("rgba(240,206,120,1)", true), blanc = disc("rgba(255,255,255,1)", true), pins = [];
+    var or = disc("rgba(236,204,140,1)", true), blanc = disc("rgba(255,255,255,1)", true), pins = [];
     D.forEach(function (d, i) {
       var s = new THREE.Sprite(new THREE.SpriteMaterial({ map: or, transparent: true, depthWrite: false }));
       s.position.copy(ll(d.lat, d.lon, 1.008)); s.scale.set(0.05, 0.05, 1); G.add(s); pins.push(s);
@@ -203,7 +203,7 @@
         if (!calme && Date.now() - dernier > 5000) { rotY += 0.0018; rotX += (0.5 - rotX) * 0.004; }
       }
       G.rotation.set(rotX, rotY, 0);
-      for (var i = 0; i < pins.length; i++) { var s = i === act ? 0.1 + Math.sin(t / 200) * 0.015 : 0.05; pins[i].scale.set(s, s, 1); }
+      for (var i = 0; i < pins.length; i++) { var s = i === act ? 0.11 + Math.sin(t / 200) * 0.018 : 0.048 + (calme ? 0 : Math.sin(t / 520 + i * 1.7) * 0.01); pins[i].scale.set(s, s, 1); }
       if (!calme && t - ambiant > 2600 && Date.now() - dernier > 3000) { ambiant = t; arc(Math.floor(Math.random() * N), false); }
       for (var a = arcs.length - 1; a >= 0; a--) {
         var o = arcs[a]; o.t += o.garde ? 0.014 : 0.01;
@@ -277,6 +277,17 @@
       if (typeof contenu === "string") b.textContent = contenu; else b.appendChild(contenu);
       log.appendChild(b); log.scrollTop = log.scrollHeight; return b;
     }
+    function dit(texte, fin) {
+      var b = bulle("msg-b", "");
+      if (calme) { b.textContent = texte; if (fin) fin(); return b; }
+      var i = 0, c = document.createElement("span"); c.className = "caret";
+      (function pas() {
+        i = Math.min(texte.length, i + 2 + Math.floor(Math.random() * 2));
+        b.textContent = texte.slice(0, i); b.appendChild(c); log.scrollTop = log.scrollHeight;
+        if (i < texte.length) setTimeout(pas, 16 + Math.random() * 18); else { c.remove(); if (fin) setTimeout(fin, 120); }
+      })();
+      return b;
+    }
     function tape(fn) {
       var t = bulle("msg-b", ""); t.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
       setTimeout(function () { t.remove(); fn(); }, calme ? 50 : 650);
@@ -311,7 +322,7 @@
       var compris = r.tags.length + r.pays.length + r.regs.length + r.noms.length;
       tape(function () {
         if (!compris && !r.groupe && !r.periode && !r.budget) {
-          bulle("msg-b", "Dites-m’en un peu plus : combien vous êtes, quand vous aimeriez partir, et plutôt soleil, links mythiques ou destination exotique ?");
+          dit("Dites-m’en un peu plus : combien vous êtes, quand vous aimeriez partir, et plutôt soleil, links mythiques ou destination exotique ?");
           return;
         }
         var top = score(r).slice(0, 3);
@@ -319,17 +330,20 @@
         if (r.nb) bits.push(r.nb + " personnes");
         if (r.periode) bits.push(r.periode);
         if (r.budget) bits.push("budget " + r.budget);
-        bulle("msg-b", (bits.length ? "C’est noté : " + bits.join(", ") + ". " : "") + "Voici ce que je vous propose :");
+        dit((bits.length ? "C’est noté : " + bits.join(", ") + ". " : "") + "Voici ce que je vous propose :", function () { suite(r, top); });
+      });
+    }
+    function suite(r, top) {
         var g = document.createElement("div"); g.className = "recos";
-        top.forEach(function (o) {
-          var d = D[o.i], b = document.createElement("button"); b.type = "button"; b.className = "reco";
+        top.forEach(function (o, k) {
+          var d = D[o.i], b = document.createElement("button"); b.type = "button"; b.className = "reco"; b.style.setProperty("--k", k);
           b.innerHTML = '<span class="p"></span><b></b><small></small>';
           if (d.ph) b.firstChild.style.backgroundImage = "url(" + ph(d.ph, 300) + ")";
           b.children[1].textContent = d.n; b.children[2].textContent = d.p;
           b.addEventListener("click", function () { if (GL) { GL.select(o.i); GL.fly(o.i); } });
           g.appendChild(b);
         });
-        bulle("msg-b recos-wrap", g).style.background = "transparent";
+        var rw = bulle("msg-b recos-wrap", g); rw.style.background = "transparent"; rw.style.border = "0"; rw.style.padding = "0";
         if (GL) { GL.select(top[0].i); GL.fly(top[0].i); }
         dernier = { r: r, d: D[top[0].i].n };
         var c = document.createElement("div"); c.className = "agent-cta";
@@ -340,14 +354,13 @@
         });
         var plus = document.createElement("a"); plus.className = "btn glass sm"; plus.textContent = "Voir " + D[top[0].i].n; plus.href = "/golf/" + D[top[0].i].s + ".html";
         c.appendChild(go); c.appendChild(plus);
-        setTimeout(function () { bulle("msg-b", c).style.background = "transparent"; }, calme ? 0 : 250);
-      });
+        setTimeout(function () { var cb = bulle("msg-b", c); cb.style.background = "transparent"; cb.style.border = "0"; }, calme ? 0 : 520);
     }
     function envoie(txt) { txt = txt.trim(); if (!txt) return; bulle("msg-u", txt); repond(txt); }
     form.addEventListener("submit", function (e) { e.preventDefault(); envoie(inp.value); inp.value = ""; });
     each(sugg.children, function (b) { b.addEventListener("click", function () { envoie(b.textContent); }); });
     setTimeout(function () {
-      tape(function () { bulle("msg-b", "Bonjour, je suis Birdy, votre agent golf. Dites-moi en une phrase le séjour dont vous rêvez : je vous trouve la destination et je prépare votre demande."); });
+      tape(function () { dit("Bonjour, je suis Birdy, votre agent golf. Dites-moi en une phrase le séjour dont vous rêvez : je vous trouve la destination et je prépare votre demande."); });
     }, calme ? 0 : 900);
   })();
 
@@ -392,6 +405,19 @@
       });
       c.addEventListener("pointerleave", function () { c.style.transform = ""; });
     });
+  })();
+
+  /* ---------- Halo doré ---------- */
+  (function () {
+    var h = $("halo"); if (!h || calme || matchMedia("(hover: none)").matches) return;
+    var x = 0, y = 0, tx = 0, ty = 0, on = false, raf = null;
+    addEventListener("pointermove", function (e) {
+      tx = e.clientX; ty = e.clientY;
+      var sombre = e.target.closest && e.target.closest(".hx,.cx,.nums,footer");
+      if (!!sombre !== on) { on = !!sombre; h.classList.toggle("on", on); }
+      if (!raf) raf = requestAnimationFrame(suit);
+    }, { passive: true });
+    function suit() { x += (tx - x) * 0.18; y += (ty - y) * 0.18; h.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)"; raf = (Math.abs(tx - x) + Math.abs(ty - y) > 0.5) ? requestAnimationFrame(suit) : null; }
   })();
 
   /* ---------- Liens entre les briques ---------- */

@@ -4,7 +4,7 @@
   --ink:#10261E; --muted:#51675D; --gold:#C9A24B; --white:#FFFFFF;
   --brand:"Cinzel",Georgia,serif;
   --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -104,3 +104,11 @@ footer .tel{font:700 24px/1 var(--display);color:var(--white);letter-spacing:.03
 .mt{margin-top:34px}
 .others.plain a{font-weight:600}
 @media (max-width:560px){.duo{grid-template-columns:1fr}}
+
+/* Finition premium (mêmes boutons que l'accueil) */
+.btn.gold{background:linear-gradient(135deg,#F3E0A9 0%,#D9B866 45%,#C6A052 70%,#B48A3C 100%);background-size:180% 180%;color:#0A1E17;border:1px solid rgba(255,236,190,.55);box-shadow:0 10px 26px rgba(198,160,82,.28),inset 0 1px 0 rgba(255,255,255,.55);transition:background-position .6s ease,transform .2s ease}
+.btn.gold:hover{background-position:100% 50%;transform:translateY(-2px)}
+.top{background:rgba(9,26,20,.85);border-bottom:1px solid rgba(226,192,133,.12)}
+.hero{background:linear-gradient(135deg,#091A14,#1F5A44)}
+.band.tint{background:#F9F8F3}
+footer{background:#091A14}
