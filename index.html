@@ -791,6 +791,37 @@ footer{background:var(--night)}
 /* Halo blanc doux */
 .halo{background:radial-gradient(circle,rgba(208,228,220,.13) 0%,rgba(208,228,220,.05) 35%,rgba(208,228,220,0) 70%)}
 .top{background:rgba(10,30,23,.78);border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* ===== « Comment Birdy vous accompagne » sur vert forêt (dernière couche) ===== */
+.story{position:relative;background:#0D221A;color:#FFFFFF;isolation:isolate;overflow:hidden}
+.story::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 50% at 85% 10%,rgba(163,201,184,.10),transparent 70%),radial-gradient(50% 45% at 0% 100%,rgba(163,201,184,.07),transparent 70%)}
+.story .eyebrow{color:#A3C9B8}
+.tl-intro h2{color:#FFFFFF}
+.tl-intro h2 em{color:#A3C9B8}
+.tl-lead{color:#A3C9B8}
+.tl-legend li{color:#D0E4DC}
+.tl-who.ia{background:rgba(163,201,184,.14);color:#D0E4DC;border:1px solid rgba(163,201,184,.45)}
+.tl-who.hum{background:#FFFFFF;color:#0A1E17;border:1px solid #FFFFFF}
+.tl-rail{background:repeating-linear-gradient(to bottom,rgba(255,255,255,.22) 0 6px,transparent 6px 12px)}
+.tl-fill{background:linear-gradient(#FFFFFF,#A3C9B8);box-shadow:0 0 14px rgba(163,201,184,.8)}
+.tl-ball{background:radial-gradient(circle at 35% 30%,#FFFFFF,#E4ECE8 70%);box-shadow:0 0 0 3px #A3C9B8,0 0 18px rgba(163,201,184,.7)}
+.tl-node{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.22);color:#D0E4DC;backdrop-filter:blur(6px)}
+.tl-node em{background:#FFFFFF;color:#0A1E17}
+.tl-step.on .tl-node{background:#D0E4DC;border-color:#D0E4DC;color:#0A1E17;box-shadow:0 0 0 6px rgba(163,201,184,.16),0 12px 26px rgba(0,0,0,.35)}
+.tl-step.on .tl-node em{background:#0A1E17;color:#D0E4DC}
+.tl-card{background:rgba(255,255,255,.05);border:1px solid rgba(208,228,220,.16);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.tl-card h3{color:#FFFFFF}
+.tl-card p{color:#B9D3C7}
+.tl-step.on .tl-card{background:rgba(255,255,255,.08);border-color:rgba(163,201,184,.55);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.tl-relay span{background:#0D221A;color:#D0E4DC;border-color:rgba(163,201,184,.5)}
+.tl-relay span::before{background:#A3C9B8;box-shadow:0 0 0 4px rgba(163,201,184,.25)}
+.adv{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.adv-quote{color:#D0E4DC}
+.adv-tel{color:#A3C9B8}
+/* Chiffres sur fond clair pour garder l'alternance sombre / clair */
+.nums{background:#F8F9F8;color:#0A1E17;border-bottom:1px solid #E4EEE9}
+.num b{color:#0A1E17}
+.num span{color:#4E6157}
 </style>
 </head>
 <body>

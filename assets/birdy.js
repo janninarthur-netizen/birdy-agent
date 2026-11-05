@@ -416,7 +416,7 @@
     var x = 0, y = 0, tx = 0, ty = 0, on = false, raf = null;
     addEventListener("pointermove", function (e) {
       tx = e.clientX; ty = e.clientY;
-      var sombre = e.target.closest && e.target.closest(".hx,.cx,.nums,footer");
+      var sombre = e.target.closest && e.target.closest(".hx,.cx,.story,footer");
       if (!!sombre !== on) { on = !!sombre; h.classList.toggle("on", on); }
       if (!raf) raf = requestAnimationFrame(suit);
     }, { passive: true });
