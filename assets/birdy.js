@@ -382,17 +382,48 @@
     }, calme ? 0 : 900);
   })();
 
-  /* ---------- Frise « Comment Birdy vous accompagne » ---------- */
+  /* ---------- Trou de golf : la balle avance au défilement ---------- */
   (function () {
-    var tl = $("tl"), fill = $("tl-fill"), ball = $("tl-ball"), steps = document.querySelectorAll(".tl-step");
-    if (!tl) return;
+    var path = $("gs-path"), list = $("gs-steps");
+    if (!path || !list) return;
+    var ns = "http://www.w3.org/2000/svg", L = path.getTotalLength(), ball = $("gs-ball"), sh = $("gs-shadow"), ring = $("gs-ring");
+    var cap = $("gs-cap-n"), bar = $("gs-bar"), steps = list.querySelectorAll(".gs-step");
+    var POS = [0.16, 0.42, 0.66, 0.86], NOMS = ["Envie", "Destinations", "Tarifs", "Séjour"], mk = [];
+    path.style.strokeDasharray = L; path.style.strokeDashoffset = L;
+    POS.forEach(function (f, i) {
+      var pt = path.getPointAtLength(L * f), g = document.createElementNS(ns, "g"); g.setAttribute("class", "gs-mk");
+      g.innerHTML = '<circle r="13"/><text>' + (i + 1) + '</text><text class="lb"></text>';
+      g.setAttribute("transform", "translate(" + pt.x.toFixed(1) + " " + pt.y.toFixed(1) + ")");
+      var lb = g.querySelector(".lb"); lb.textContent = NOMS[i]; lb.setAttribute("y", i === 0 ? 0 : -26); lb.setAttribute("x", i === 0 ? -42 : 0);
+      $("gs-marks").appendChild(g); mk.push(g);
+    });
+    var sol = [440, 300, 0]; // départ du sol
     function maj() {
-      var r = tl.getBoundingClientRect(), h = innerHeight, ligne = h * 0.62;
-      var p = Math.max(0, Math.min(1, (ligne - r.top - 28) / Math.max(1, r.height - 56)));
-      fill.style.height = (p * 100) + "%"; ball.style.top = (p * 100) + "%";
-      each(steps, function (st) { var n = st.querySelector(".tl-node").getBoundingClientRect(); st.classList.toggle("on", n.top + 28 < ligne); });
+      var h = innerHeight, art = document.querySelector(".gs-art").getBoundingClientRect();
+      var ligne = innerWidth <= 900 ? art.bottom + 230 : h * 0.55;
+      var tops = Array.prototype.map.call(steps, function (st) { return st.getBoundingClientRect().top; });
+      var idx = -1; tops.forEach(function (tp, i) { if (tp < ligne) idx = i; });
+      var A = [0].concat(POS, [1]), deb = idx < 0 ? tops[0] - h * 0.5 : tops[idx], finT = idx + 1 < tops.length ? tops[idx + 1] : deb + h * 0.4;
+      var f = Math.max(0, Math.min(1, (ligne - deb) / Math.max(1, finT - deb)));
+      var p = idx >= 4 ? 1 : A[idx + 1] + (A[idx + 2] - A[idx + 1]) * f;
+      if (idx < 0) p = POS[0] * f;
+      path.style.strokeDashoffset = L * (1 - p);
+      var pt = path.getPointAtLength(L * p);
+      ball.setAttribute("cx", pt.x.toFixed(1)); ball.setAttribute("cy", pt.y.toFixed(1));
+      var gy = 462 - (462 - 386) * Math.min(1, Math.max(0, (pt.x - 76) / (512 - 76)));
+      var haut = Math.max(0, gy - pt.y);
+      sh.setAttribute("cx", pt.x.toFixed(1)); sh.setAttribute("cy", gy.toFixed(1));
+      sh.setAttribute("rx", (8 + haut * 0.02).toFixed(1)); sh.setAttribute("opacity", Math.max(0.12, 0.45 - haut / 900).toFixed(2));
+      var k = Math.min(idx, 3), fin = idx >= 4;
+      mk.forEach(function (g, i) { g.classList.toggle("on", i <= k); });
+      ring.classList.toggle("go", fin);
+      each(steps, function (st, i) { st.classList.toggle("on", i === Math.max(idx, 0)); });
+      cap.textContent = fin ? "Dans le trou !" : k < 0 ? "Départ" : "Étape " + (k + 1) + " · " + NOMS[k];
+      bar.style.width = (p * 100).toFixed(1) + "%";
     }
     addEventListener("scroll", maj, { passive: true }); addEventListener("resize", maj); maj();
+    var talk = $("gs-talk");
+    if (talk) talk.addEventListener("click", function (e) { e.preventDefault(); vers("accueil"); setTimeout(function () { var i = $("agent-in"); if (i) i.focus({ preventScroll: true }); }, calme ? 0 : 700); });
   })();
 
   /* ---------- Chiffres, apparitions, inclinaison ---------- */

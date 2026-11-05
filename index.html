@@ -880,6 +880,76 @@ footer{background:var(--night)}
 .explore-regions::-webkit-scrollbar{display:none}
 .explore-regions button{flex:none;padding:9px 12px;font-size:12.5px}
 .explore-list button[aria-pressed="true"] small{color:#2F6B55}
+
+/* ===== « Comment Birdy vous accompagne » : trou de golf, balle au défilement ===== */
+.gs{position:relative;isolation:isolate;overflow:hidden;background:#0A1E17;color:#FFFFFF;padding-block:clamp(64px,8vw,110px)}
+.gs::before{content:none}
+.gs-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.gs-bg img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:blur(7px) saturate(.9);opacity:.38}
+.gs-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0A1E17 0%,rgba(10,30,23,.78) 22%,rgba(10,30,23,.86) 70%,#0A1E17 100%)}
+.gs-bg i{position:absolute;z-index:1;width:60vw;height:30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(208,228,220,.10),transparent);filter:blur(30px);animation:mist 26s ease-in-out infinite alternate}
+.gs-bg i:nth-child(2){left:-10vw;top:20%}
+.gs-bg i:nth-child(3){right:-15vw;bottom:5%;animation-duration:34s;animation-direction:alternate-reverse}
+@keyframes mist{to{transform:translate3d(12vw,-4vw,0) scale(1.15)}}
+.gs-head{text-align:center;max-width:720px;margin:0 auto clamp(34px,5vw,60px)}
+.gs-head .eyebrow{color:#A3C9B8}
+.gs-head h2{font-size:clamp(36px,5vw,60px);color:#FFFFFF;margin-bottom:14px}
+.gs-head p{color:#B9D3C7;font-size:17px}
+.gs-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.gs-art{position:sticky;top:96px}
+.gs-frame{border-radius:26px;padding:14px 14px 18px;background:rgba(13,34,26,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.gs-frame svg{display:block;width:100%;height:auto;border-radius:18px;background:linear-gradient(180deg,#183F31 0%,#0F2C22 60%)}
+.gs-cap{display:flex;align-items:center;gap:14px;padding:14px 6px 0;font:600 12.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#D0E4DC}
+.gs-cap span:first-child{min-width:110px}
+.gs-bar{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.gs-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#A3C9B8,#FFFFFF);transition:width .15s linear}
+.gs-mk circle{fill:rgba(13,34,26,.9);stroke:#A3C9B8;stroke-width:1.5;transition:fill .35s,stroke .35s}
+.gs-mk text{font:700 12px var(--body);fill:#D0E4DC;text-anchor:middle;dominant-baseline:central;transition:fill .35s}
+.gs-mk .lb{font:600 11px var(--body);letter-spacing:.08em;text-transform:uppercase;fill:#A3C9B8;opacity:.75}
+.gs-mk.on circle{fill:#FFFFFF;stroke:#FFFFFF}
+.gs-mk.on text:not(.lb){fill:#0A1E17}
+.gs-mk.on .lb{fill:#FFFFFF;opacity:1}
+.gs-flag{transform-origin:514px 310px;animation:flag 2.4s ease-in-out infinite}
+@keyframes flag{50%{transform:skewY(-6deg) scaleX(.94)}}
+#gs-ring.go{animation:ring 1.6s ease-out infinite}
+@keyframes ring{0%{opacity:.9;r:5}100%{opacity:0;r:34}}
+.gs-steps{list-style:none;margin:0;padding:6vh 0 4vh;display:flex;flex-direction:column;gap:clamp(18px,7vh,70px)}
+.gs-step{display:flex;gap:16px;align-items:flex-start;padding:22px 22px 24px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);opacity:.55;transform:scale(.98);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1),border-color .5s,background .5s,box-shadow .5s}
+.gs-step.on{opacity:1;transform:none;background:rgba(255,255,255,.07);border-color:rgba(163,201,184,.55);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.gs-n{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:700 18px/1 var(--display);background:rgba(255,255,255,.06);border:1.5px solid rgba(163,201,184,.5);color:#D0E4DC;transition:background .4s,color .4s,border-color .4s}
+.gs-step.on .gs-n{background:#FFFFFF;border-color:#FFFFFF;color:#0A1E17}
+.gs-n-flag svg{width:20px;height:20px}
+.gs-who{display:inline-block;font:600 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:99px;margin-bottom:10px}
+.gs-who.ia{background:rgba(163,201,184,.14);color:#D0E4DC;border:1px solid rgba(163,201,184,.4)}
+.gs-who.hum{background:#FFFFFF;color:#0A1E17}
+.gs-step h3{font:600 20px/1.25 var(--body);color:#FFFFFF;margin-bottom:6px}
+.gs-step p{color:#B9D3C7}
+.gs-go{border-style:dashed}
+.gs-go.on{border-style:solid;border-color:#FFFFFF}
+.gs-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.gs .adv{margin-top:clamp(36px,6vw,70px)}
+@media (max-width:900px){
+  .gs-grid{grid-template-columns:1fr}
+  .gs-art{top:64px;z-index:2;max-width:440px;margin:0 auto;width:100%}
+  .gs-frame{padding:8px 8px 12px}
+  .gs-steps{padding-top:10px}
+  .gs-btns .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){.gs-bg i,.gs-flag,#gs-ring.go{animation:none}.gs-step{transition:none}}
+
+.gs-art{position:static;align-self:stretch}
+.gs-frame{position:sticky;top:96px}
+.gs-n{font:700 16px/1 var(--body)}
+@media (max-width:900px){
+  .gs-grid{display:block}
+  .gs-art{position:sticky;top:62px;z-index:3;max-width:400px;margin:0 auto 18px}
+  .gs-frame{position:static;background:rgba(10,30,23,.92);padding:6px 6px 10px}
+  .gs-cap{padding-top:10px;font-size:11px}
+  .gs-steps{gap:22px;padding:0 0 10vh}
+}
+.gs{overflow:clip}
+.gs-bg{overflow:hidden}
+@media (max-width:900px){.gs-art{max-width:340px}.gs-steps{padding-bottom:40vh}}
 </style>
 </head>
 <body>
@@ -941,22 +1011,50 @@ footer{background:var(--night)}
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span><span>Algarve</span><span>Lisbonne et Cascais</span><span>Açores</span><span>Catalogne</span><span>Marbella</span><span>Majorque</span><span>Canaries</span><span>Saint-Andrews</span><span>East Lothian</span><span>Turnberry</span><span>Irlande</span><span>Irlande du Nord</span><span>Italie du Nord</span><span>Sardaigne</span><span>Sicile</span><span>Grèce</span><span>Chypre</span><span>Belek</span><span>Hongrie</span><span>Autriche</span><span>Côte d’Azur</span><span>Corse</span><span>Bretagne</span><span>Pays basque</span><span>Marrakech</span><span>Agadir</span><span>El Jadida</span><span>Tanger</span><span>Fès</span><span>Mer Rouge</span><span>Djerba</span><span>Le Cap et Garden Route</span><span>Sun City et Kruger</span><span>Île Maurice</span><span>La Réunion</span><span>Seychelles</span><span>Dubaï</span><span>Thaïlande</span><span>Vietnam</span><span>Cambodge</span><span>Floride</span><span>Californie</span><span>Caroline du Sud</span><span>Virginie</span><span>Texas</span><span>Cancún</span><span>Punta Mita</span><span>Québec</span><span>Ontario</span><span>Bahamas</span><span>Jamaïque</span><span>République dominicaine</span><span>Barbade</span><span>Nouvelle-Zélande</span><span>Australie</span></div></div>
 
-<section class="story" id="birdy">
-  <div class="in tl-grid">
-    <div class="tl-intro">
+<section class="story gs" id="birdy">
+  <div class="gs-bg" aria-hidden="true"><img src="assets/img/green-coucher-soleil.webp" alt="" loading="lazy"><i></i><i></i></div>
+  <div class="in">
+    <div class="gs-head rv">
       <p class="eyebrow">Comment Birdy vous accompagne</p>
-      <h2>L’intelligence de Birdy, <em>l’exigence d’un conseiller</em></h2>
-      <p class="tl-lead">Birdy, notre agent IA, trouve en quelques secondes les destinations qui vous ressemblent. Ensuite, un conseiller passionné de golf prend le relais : il vérifie chaque tarif et construit votre séjour avec vous.</p>
-      <ul class="tl-legend"><li><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span>trouve et prépare</li><li><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span>vérifie et personnalise</li></ul>
+      <h2>Du premier message au premier départ</h2>
+      <p>Birdy, notre agent IA, trouve la destination. Un conseiller passionné de golf vérifie les tarifs et construit votre séjour. Suivez la balle.</p>
     </div>
-    <div class="tl-col">
-      <ol class="tl" id="tl">
-        <li class="tl-rail" aria-hidden="true"><span class="tl-fill" id="tl-fill"></span><span class="tl-ball" id="tl-ball"></span></li>
-        <li class="tl-step rv" style="--d:0"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H9l-5 4Z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg><em>1</em></span><div class="tl-card"><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span><h3>Racontez-nous votre envie</h3><p>Une phrase suffit : combien vous êtes, quand vous voulez partir, plutôt soleil ou links mythiques. Birdy comprend et prend note.</p></div></li><li class="tl-step rv" style="--d:1"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5S9.6 5.9 12 3.5Z"/></svg><em>2</em></span><div class="tl-card"><span class="tl-who ia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 13.6 8.4 18.5 10 13.6 11.6 12 16.5 10.4 11.6 5.5 10 10.4 8.4Z"/><path d="M18.5 15.5 19.2 17.3 21 18 19.2 18.7 18.5 20.5 17.8 18.7 16 18 17.8 17.3Z"/></svg>Birdy · agent IA</span><h3>Birdy trouve vos destinations</h3><p>En quelques secondes, il sélectionne parmi nos 55 destinations celles qui vous ressemblent, vous les montre sur la carte et prépare votre demande.</p></div></li><li class="tl-relay rv"><span>Birdy passe le relais à votre conseiller</span></li><li class="tl-step rv" style="--d:2"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h14v15H5Z"/><path d="M8.5 9h7M8.5 12.5h7M8.5 16h4"/><path d="m15 15.5 1.5 1.5 3-3.5" stroke="#A3C9B8"/></svg><em>3</em></span><div class="tl-card"><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span><h3>Un conseiller vérifie les vrais tarifs</h3><p>Un conseiller passionné de golf reprend votre demande, interroge les hôtels et les golfs et obtient les prix réels. Jamais de prix inventé.</p></div></li><li class="tl-step rv" style="--d:3"><span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21V4"/><path d="M7 4.5 16 7 7 9.5"/><ellipse cx="12" cy="20" rx="8" ry="1.6"/></svg><em>4</em></span><div class="tl-card"><span class="tl-who hum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>Votre conseiller</span><h3>Votre séjour, sur mesure</h3><p>Il ajuste chaque détail avec vous : chambres, horaires de départ, cours pour les débutants, dîners de groupe. Vous n’avez plus qu’à jouer.</p></div></li>
+    <div class="gs-grid">
+      <div class="gs-art">
+        <div class="gs-frame">
+          <svg viewBox="0 0 600 500" id="gs-svg" role="img" aria-label="Un trou de golf : la balle vole du départ jusqu’au drapeau en passant par les quatre étapes">
+            <defs>
+              <linearGradient id="gs-fw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2C6B51"/><stop offset="1" stop-color="#1A4636"/></linearGradient>
+              <radialGradient id="gs-gr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5FA582"/><stop offset="1" stop-color="#3E8564"/></radialGradient>
+              <filter id="gs-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path d="M0 300 C60 280 110 286 170 292 C240 298 290 270 360 276 C430 282 480 262 600 270 V500 H0Z" fill="#14362A" opacity=".9"/>
+            <path d="M0 318 C40 300 70 312 100 304 C140 292 160 310 200 302 C250 292 280 312 330 300 C380 290 420 308 470 298 C520 290 560 304 600 296 V500 H0Z" fill="#0F2C22"/>
+            <path d="M0 360 C150 340 300 352 600 334 V500 H0Z" fill="#163F30"/>
+            <path d="M40 500 C110 440 220 410 340 392 C430 380 500 372 560 368 C590 366 600 380 560 392 C480 412 360 430 270 470 C240 484 220 494 210 500Z" fill="url(#gs-fw)"/>
+            <path d="M120 500 C190 450 280 424 380 408 M180 500 C240 462 320 440 430 420" stroke="rgba(255,255,255,.05)" stroke-width="14" fill="none"/>
+            <ellipse cx="505" cy="382" rx="70" ry="16" fill="url(#gs-gr)"/>
+            <path d="M398 418 C410 410 440 408 450 414 C458 420 434 426 418 426 C404 426 392 424 398 418Z" fill="#CFC9B4" opacity=".8"/>
+            <ellipse cx="512" cy="383" rx="6" ry="2.4" fill="#0A1E17"/>
+            <circle cx="512" cy="383" r="5" fill="none" stroke="#FFFFFF" stroke-width="2" id="gs-ring" opacity="0"/>
+            <line x1="512" y1="383" x2="512" y2="300" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+            <path d="M514 301 C528 306 540 300 556 309 C540 316 528 312 514 322Z" fill="#A3C9B8" class="gs-flag"/>
+            <rect x="74" y="444" width="5" height="16" rx="2" fill="#E8EEEA"/>
+            <ellipse cx="76" cy="461" rx="10" ry="2.5" fill="rgba(0,0,0,.35)"/>
+            <path id="gs-track" d="M76 440 C150 60 430 40 512 378" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round"/>
+            <path id="gs-path" d="M76 440 C150 60 430 40 512 378" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" filter="url(#gs-glow)"/>
+            <g id="gs-marks"></g>
+            <ellipse id="gs-shadow" cx="76" cy="462" rx="8" ry="2.5" fill="rgba(0,0,0,.4)"/>
+            <circle id="gs-ball" cx="76" cy="440" r="9" fill="#FFFFFF" filter="url(#gs-glow)"/>
+          </svg>
+          <div class="gs-cap"><span id="gs-cap-n">Départ</span><span class="gs-bar"><i id="gs-bar"></i></span></div>
+        </div>
+      </div>
+      <ol class="gs-steps" id="gs-steps">
+        <li class="gs-step rv" data-k="0"><span class="gs-n">1</span><div><span class="gs-who ia">Birdy · agent IA</span><h3>Racontez votre envie</h3><p>Une phrase suffit : combien vous êtes, quand vous voulez partir, plutôt soleil ou links mythiques.</p></div></li><li class="gs-step rv" data-k="1"><span class="gs-n">2</span><div><span class="gs-who ia">Birdy · agent IA</span><h3>Birdy trouve vos destinations</h3><p>En quelques secondes, il sélectionne parmi nos 55 destinations celles qui vous ressemblent et prépare votre demande.</p></div></li><li class="gs-step rv" data-k="2"><span class="gs-n">3</span><div><span class="gs-who hum">Votre conseiller</span><h3>Un conseiller vérifie les vrais tarifs</h3><p>Un conseiller passionné de golf interroge les hôtels et les golfs et obtient les prix réels. Jamais de prix inventé.</p></div></li><li class="gs-step rv" data-k="3"><span class="gs-n">4</span><div><span class="gs-who hum">Votre conseiller</span><h3>Votre séjour, sur mesure</h3><p>Chambres, horaires de départ, cours pour les débutants, dîners de groupe : il ajuste chaque détail. Vous n’avez plus qu’à jouer.</p></div></li>
+        <li class="gs-step gs-go rv" data-k="4"><span class="gs-n gs-n-flag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21V4"/><path d="M7 4.5 16 7 7 9.5"/></svg></span><div><h3>Prêt à jouer ?</h3><p>Dites-nous votre envie en une phrase, ou répondez à quatre questions. C’est gratuit et sans engagement.</p><div class="gs-btns"><a class="btn gold" href="#accueil" id="gs-talk">Parler à Birdy</a><a class="btn glass" href="#organiser">Organiser mon séjour</a></div></div></li>
       </ol>
     </div>
-  </div>
-  <div class="in">
     <aside class="adv rv" aria-label="Votre conseiller dédié">
       <div class="adv-av"><img src="logo.webp" alt="" width="76" height="76"><span class="adv-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6.5 12.5 3.5 3.5 7.5-8" stroke-width="2.6"/></svg></span></div>
       <div class="adv-txt">
