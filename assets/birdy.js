@@ -351,7 +351,7 @@
         dit((bits.length ? "C’est noté : " + bits.join(", ") + ". " : "") + "Voici ce que je vous propose :", function () { suite(r, top); });
       });
     }
-    function suite(r, top) {
+    function suite(r, top, sansCta) {
         var g = document.createElement("div"); g.className = "recos";
         top.forEach(function (o, k) {
           var d = D[o.i], b = document.createElement("button"); b.type = "button"; b.className = "reco"; b.style.setProperty("--k", k);
@@ -364,6 +364,7 @@
         var rw = bulle("msg-b recos-wrap", g); rw.style.background = "transparent"; rw.style.border = "0"; rw.style.padding = "0";
         if (GL) { GL.select(top[0].i); GL.fly(top[0].i); }
         dernier = { r: r, d: D[top[0].i].n };
+        if (sansCta) return;
         var c = document.createElement("div"); c.className = "agent-cta";
         var go = document.createElement("button"); go.type = "button"; go.className = "btn gold sm"; go.textContent = "Préparer ma demande";
         go.addEventListener("click", function () {
@@ -375,7 +376,52 @@
         setTimeout(function () { var cb = bulle("msg-b", c); cb.style.background = "transparent"; cb.style.border = "0"; }, calme ? 0 : 520);
     }
     /* --- Vraie IA (functions/api/birdy.js) ; l'agent simple ci-dessus prend le relais si elle ne répond pas --- */
-    var histo = [], ia = !!window.fetch && !!window.TextDecoder, occupe = false;
+    var histo = [], ia = !!window.fetch && !!window.TextDecoder, occupe = false, projet = {}, carte = null;
+    var GROUPES = ["2 à 4 personnes", "5 à 8 personnes", "9 à 16 personnes", "17 personnes ou plus"];
+    var PERIODES = ["au printemps", "en été", "en automne", "en hiver", "à des dates flexibles"];
+    var BUDGETS = ["moins de 800 €", "800 à 1 500 €", "1 500 à 2 500 €", "plus de 2 500 €", "à définir ensemble"];
+    function choixRapides(l) {
+      if (!l || !l.length) return;
+      sugg.textContent = "";
+      l.forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = String(x); sugg.appendChild(b); });
+    }
+    function majProjet(f) {
+      if (!f || typeof f !== "object") return;
+      var n = parseInt(f.nb, 10);
+      if (n > 0) { projet.nb = n; projet.groupe = GROUPES[n <= 4 ? 0 : n <= 8 ? 1 : n <= 16 ? 2 : 3]; }
+      else if (GROUPES.indexOf(f.groupe) > -1) projet.groupe = f.groupe;
+      if (f.destination) { var t = norm(String(f.destination)); D.forEach(function (d) { if (norm(d.n) === t) projet.destination = d.n; }); }
+      if (PERIODES.indexOf(f.periode) > -1) projet.periode = f.periode;
+      if (BUDGETS.indexOf(f.budget) > -1) projet.budget = f.budget;
+      ["dates", "niveau", "occasion", "resume"].forEach(function (k) { if (f[k]) projet[k] = String(f[k]).slice(0, 200); });
+    }
+    function note() {
+      return [projet.resume, projet.nb ? projet.nb + " personnes" : "", projet.dates ? "Dates : " + projet.dates : "",
+        projet.niveau ? "Niveau : " + projet.niveau : "", projet.occasion ? "Occasion : " + projet.occasion : ""].filter(Boolean).join(" · ") + " (échange avec Birdy)";
+    }
+    function finaliser() {
+      if (!W) return;
+      W.prefill({ groupe: projet.groupe, destination: projet.destination, periode: projet.periode, budget: projet.budget });
+      var f = document.getElementById("form"); if (f && f.elements.note && !f.elements.note.value) f.elements.note.value = note().slice(0, 300);
+    }
+    function carteProjet() {
+      var connus = ["groupe", "destination", "periode", "budget"].filter(function (k) { return projet[k]; }).length;
+      if (connus < 3) return;
+      if (carte) carte.remove();
+      var c = document.createElement("div"); c.className = "projet";
+      var h = document.createElement("p"); h.className = "pj-t"; h.textContent = connus === 4 ? "Votre projet est prêt" : "Votre projet"; c.appendChild(h);
+      var dl = document.createElement("dl");
+      [["Groupe", projet.nb ? projet.nb + " personnes" : projet.groupe], ["Destination", projet.destination], ["Quand", projet.dates || projet.periode], ["Budget / pers.", projet.budget], ["Niveau", projet.niveau]].forEach(function (x) {
+        if (!x[1]) return; var dt = document.createElement("dt"), dd = document.createElement("dd"); dt.textContent = x[0]; dd.textContent = x[1]; dl.appendChild(dt); dl.appendChild(dd);
+      });
+      c.appendChild(dl);
+      var cta = document.createElement("div"); cta.className = "pj-cta";
+      var go = document.createElement("button"); go.type = "button"; go.className = "btn gold sm"; go.textContent = "Finaliser ma demande"; go.addEventListener("click", finaliser);
+      var wa = document.createElement("a"); wa.className = "btn glass sm"; wa.target = "_blank"; wa.rel = "noopener"; wa.textContent = "WhatsApp";
+      wa.href = "https://wa.me/33616213447?text=" + encodeURIComponent("Bonjour, voici mon projet golf : " + note());
+      cta.appendChild(go); cta.appendChild(wa); c.appendChild(cta);
+      carte = bulle("msg-b pj-wrap", c);
+    }
     function md(t) {
       var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
@@ -392,12 +438,12 @@
       }
       if (!vus.length) return;
       var r = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
-      suite(r, vus.map(function (i) { return { i: i }; }));
+      suite(r, vus.map(function (i) { return { i: i }; }), true);
     }
     function demandeIA(txt) {
       occupe = true;
       var b = bulle("msg-b", ""); b.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
-      var rep = "", err = null;
+      var rep = "", err = null, choix = null, fiche = null;
       fetch("/api/birdy", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: histo }) })
         .then(function (res) {
           if (!res.ok || !res.body) throw new Error(String(res.status));
@@ -414,6 +460,8 @@
                 if (o.reset) rep = "";
                 if (o.t != null) rep += String(o.t);
                 if (o.erreur) err = o.erreur;
+                if (o.choix) choix = o.choix;
+                if (o.fiche) fiche = o.fiche;
                 if (rep) { b.innerHTML = md(rep) + '<span class="caret"></span>'; log.scrollTop = log.scrollHeight; }
               }
               return lit();
@@ -423,7 +471,8 @@
         })
         .then(function () {
           if (err || !rep.trim()) throw new Error(err || "vide");
-          b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false; apres(rep);
+          rep = rep.trim(); b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false;
+          apres(rep); majProjet(fiche); carteProjet(); choixRapides(choix);
         })
         .catch(function (e) {
           b.remove(); histo.pop(); occupe = false;
@@ -435,8 +484,8 @@
       var a = e.target.closest && e.target.closest('a[href="/#organiser"]');
       if (!a || !W) return;
       e.preventDefault();
-      var r = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
-      W.prefill({ groupe: r.groupe, destination: dernier && dernier.d, periode: r.periode, budget: r.budget });
+      if (!projet.destination && dernier) projet.destination = dernier.d;
+      finaliser();
     });
     function envoie(txt) {
       txt = txt.trim(); if (!txt || occupe) return;
@@ -444,7 +493,7 @@
       if (ia) { histo.push({ role: "user", content: txt }); demandeIA(txt); } else repond(txt);
     }
     form.addEventListener("submit", function (e) { e.preventDefault(); envoie(inp.value); inp.value = ""; });
-    each(sugg.children, function (b) { b.addEventListener("click", function () { envoie(b.textContent); }); });
+    sugg.addEventListener("click", function (e) { var b = e.target.closest && e.target.closest("button"); if (b) envoie(b.textContent); });
     setTimeout(function () {
       tape(function () { dit("Bonjour, je suis Birdy, votre agent golf. Dites-moi en une phrase le séjour dont vous rêvez : je vous trouve la destination et je prépare votre demande."); });
     }, calme ? 0 : 900);

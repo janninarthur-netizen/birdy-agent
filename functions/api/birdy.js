@@ -1,5 +1,7 @@
 // Assistant IA Birdy : POST /api/birdy  {messages: [{role: "user"|"assistant", content: "..."}]}
-// Répond en flux (text/event-stream) : lignes `data: {"t": "..."}` puis `data: {"fin": true}`.
+// Répond en flux (text/event-stream) : lignes `data: {"t": "..."}` (texte visible), puis
+// `data: {"choix": [...]}` (réponses rapides), `data: {"fiche": {...}}` (projet du visiteur) et `data: {"fin": true}`.
+// Le modèle écrit <choix>…</choix> et <fiche>…</fiche> après sa réponse : ces balises ne sont jamais affichées.
 // Deux moteurs possibles :
 //  - gratuit : l'IA de Cloudflare (liaison « Workers AI » nommée AI dans les réglages Cloudflare Pages) ;
 //  - payant : Claude, si le secret ANTHROPIC_API_KEY existe (prioritaire).
@@ -56,24 +58,53 @@ async function litSSE(corps, chaque) {
   }
 }
 
+// Filtre la sortie du modèle : envoie le texte visible au fur et à mesure, garde les balises pour la fin
+function sortie(w) {
+  let tout = "", envoye = 0;
+  return {
+    reset() { tout = ""; envoye = 0; },
+    async texte(t) {
+      tout += t;
+      const cut = tout.indexOf("<"), vis = cut < 0 ? tout : tout.slice(0, cut);
+      if (vis.length > envoye) { await w.write(sse({ t: vis.slice(envoye) })); envoye = vis.length; }
+    },
+    async fin() {
+      const c = tout.match(/<choix>([\s\S]*?)(?:<\/choix>|$)/);
+      if (c) {
+        const l = c[1].split("|").map((x) => x.replace(/<[^>]*>/g, "").trim()).filter(Boolean).slice(0, 4).map((x) => x.slice(0, 40));
+        if (l.length) await w.write(sse({ choix: l }));
+      }
+      const f = tout.match(/<fiche>([\s\S]*?)(?:<\/fiche>|$)/);
+      if (f) {
+        try {
+          const o = JSON.parse(f[1].trim().replace(/^```(?:json)?|```$/g, ""));
+          if (o && typeof o === "object" && !Array.isArray(o)) await w.write(sse({ fiche: o }));
+        } catch {}
+      }
+      await w.write(sse({ fin: true }));
+    },
+  };
+}
+
 async function cloudflareIA(env, messages) {
   const model = env.CF_AI_MODEL || "@cf/mistralai/mistral-small-3.1-24b-instruct";
   let flux;
   try {
-    flux = await env.AI.run(model, { messages: [{ role: "system", content: SYSTEM }, ...messages], stream: true, max_tokens: 700, temperature: 0.4 });
+    flux = await env.AI.run(model, { messages: [{ role: "system", content: SYSTEM }, ...messages], stream: true, max_tokens: 600, temperature: 0.35 });
   } catch (e) {
     console.log("Workers AI", String(e).slice(0, 300)); // quota du jour épuisé, modèle indisponible…
     return json({ erreur: "occupe" }, 429);
   }
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
+  const s = sortie(w);
   (async () => {
     try {
       await litSSE(flux, async (ev) => {
         const t = ev.response ?? (ev.choices && ev.choices[0] && ev.choices[0].delta && ev.choices[0].delta.content);
-        if (t !== undefined && t !== null && t !== "") await w.write(sse({ t: String(t) }));
+        if (t !== undefined && t !== null && t !== "") await s.texte(String(t));
       });
-      await w.write(sse({ fin: true }));
+      await s.fin();
     } catch {
       try { await w.write(sse({ erreur: "reseau" })); } catch {}
     } finally {
@@ -126,16 +157,17 @@ export async function onRequestPost({ request, env }) {
 
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
+  const s = sortie(w);
   (async () => {
     let refus = false;
     try {
       await litSSE(up.body, async (ev) => {
-        if (ev.type === "content_block_start" && ev.content_block && ev.content_block.type === "fallback") await w.write(sse({ reset: true }));
-        else if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") await w.write(sse({ t: ev.delta.text }));
+        if (ev.type === "content_block_start" && ev.content_block && ev.content_block.type === "fallback") { s.reset(); await w.write(sse({ reset: true })); }
+        else if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta") await s.texte(ev.delta.text);
         else if (ev.type === "message_delta" && ev.delta && ev.delta.stop_reason === "refusal") refus = true;
         else if (ev.type === "error") await w.write(sse({ erreur: "api" }));
       });
-      await w.write(sse(refus ? { erreur: "refus" } : { fin: true }));
+      if (refus) await w.write(sse({ erreur: "refus" })); else await s.fin();
     } catch {
       try { await w.write(sse({ erreur: "reseau" })); } catch {}
     } finally {
