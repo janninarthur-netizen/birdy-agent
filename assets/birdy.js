@@ -72,7 +72,7 @@
       btn.disabled = true; m.textContent = "Envoi en cours…";
       try {
         ["groupe", "destination", "periode", "budget"].forEach(function (k) { form.elements[k].value = choix[k] || ""; });
-        var r = await fetch("/", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(form)).toString() });
+        var r = await fetch("/api/demande", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(form)).toString() });
         if (!r.ok) throw new Error("envoi");
         $("m-nom").textContent = prenom; form.hidden = true; $("merci").hidden = false; m.textContent = "";
       } catch (err) {
