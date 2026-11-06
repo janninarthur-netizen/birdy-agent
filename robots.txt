@@ -12,6 +12,7 @@ Allow: /
 Disallow: /tools/
 Disallow: /functions/
 Disallow: /api/
+Disallow: /suivi/
 
 User-agent: *
 Allow: /
@@ -22,5 +23,6 @@ Allow: /data/france-points.json
 Disallow: /data/
 Disallow: /functions/
 Disallow: /api/
+Disallow: /suivi/
 
 Sitemap: https://birdy-agent.pages.dev/sitemap.xml

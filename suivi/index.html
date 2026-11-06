@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Suivi des demandes · Birdy Agent</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A1E17">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:wght@700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0A1E17;--card:#11291F;--line:rgba(208,228,220,.16);--sage:#A3C9B8;--mist:#D0E4DC;--ink:#E8F1EC;--muted:rgba(232,241,236,.62);
+--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--display:"Cormorant Garamond",Georgia,serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);min-height:100vh}
+a{color:var(--mist)}
+button{font:inherit;cursor:pointer}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px max(16px,env(safe-area-inset-left));border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,30,23,.92);backdrop-filter:blur(10px);z-index:5}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo img{width:40px;height:40px;border-radius:50%}
+.logo b{font:700 13px/1 "Cinzel",serif;letter-spacing:.18em}
+.logo small{display:block;color:var(--sage);font-size:12px;margin-top:3px;letter-spacing:.04em}
+.in{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+h1{font:700 34px/1.1 var(--display);margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 18px}
+.carte{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.login{max-width:420px;margin:12vh auto 0;text-align:center}
+.login input{width:100%;margin:14px 0 10px;padding:14px;border-radius:12px;border:1px solid var(--line);background:#0C231B;color:#fff;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:99px;padding:11px 16px;border:1px solid var(--line);background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+.btn.plein{background:#fff;color:var(--bg);border-color:#fff}
+.btn.wa{background:#25D366;border-color:#25D366}
+.btn:disabled{opacity:.5}
+.msg{color:#F3B4B4;min-height:1.4em;font-size:14px}
+.barre{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.f{border-radius:99px;padding:8px 13px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:13.5px}
+.f[aria-pressed=true]{background:var(--sage);color:var(--bg);border-color:var(--sage);font-weight:600}
+.f i{font-style:normal;opacity:.7;margin-left:4px}
+.sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.grille{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px;align-items:start}
+.liste{display:grid;gap:8px}
+.it{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;text-align:left;width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink)}
+.it:hover,.it.on{border-color:var(--sage)}
+.ty{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(163,201,184,.14);font-size:16px}
+.it b{display:block;font-size:15px}
+.it small{color:var(--muted);font-size:12.5px}
+.st{font-size:11.5px;font-weight:600;border-radius:99px;padding:5px 9px;white-space:nowrap}
+.st.nouveau{background:#D0E4DC;color:#0A1E17}.st.a_rappeler{background:#F2C76E;color:#2A1E05}.st.en_cours{background:#7FB3E0;color:#0B1E2E}
+.st.confirme{background:#5BC08A;color:#06200F}.st.annule{background:rgba(255,255,255,.12);color:var(--muted)}
+.det{position:sticky;top:76px}
+.det h2{font:700 28px/1.15 var(--display);margin:4px 0 2px}
+.det dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:16px 0}
+.det dt{color:var(--muted)}.det dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.stats{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.stats button{border-radius:99px;padding:8px 12px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:13px}
+.stats button.on{outline:2px solid #fff}
+textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--line);background:#0C231B;color:#fff;padding:12px;font:inherit}
+.hist{color:var(--muted);font-size:12.5px;margin-top:12px}
+.vide{color:var(--muted);text-align:center;padding:30px}
+.conf ol{text-align:left;line-height:1.7}
+.conf code{background:#0C231B;padding:2px 6px;border-radius:6px}
+@media (max-width:860px){.grille{grid-template-columns:1fr}.det{position:static}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="/"><img src="/favicon-96.png" alt=""><span><b>BIRDY AGENT</b><small>Suivi des demandes</small></span></a>
+<button class="btn" id="sortir" hidden>Se déconnecter</button></header>
+<main class="in" id="app">
+  <form class="carte login" id="login">
+    <h1>Espace conseiller</h1>
+    <p class="sub">Entrez votre code d’accès pour voir les demandes.</p>
+    <input type="password" id="code" autocomplete="current-password" placeholder="Code d’accès" required>
+    <button class="btn plein" type="submit">Entrer</button>
+    <p class="msg" id="lmsg"></p>
+  </form>
+</main>
+<script>
+(function () {
+  "use strict";
+  var app = document.getElementById("app"), CODE = "";
+  try { CODE = sessionStorage.getItem("birdy-suivi") || ""; } catch (e) {}
+  var LIB = { nouveau: "Nouveau", a_rappeler: "À rappeler", en_cours: "En cours", confirme: "Confirmé", annule: "Annulé" };
+  var data = [], filtre = "actives", type = "tous", sel = null;
+  function api(meth, url, corps) {
+    return fetch(url, { method: meth, headers: { "x-suivi-code": CODE, "content-type": "application/json" }, body: corps ? JSON.stringify(corps) : undefined })
+      .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); });
+  }
+  function el(t, cls, txt) { var x = document.createElement(t); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; }
+  function date(iso) { try { return new Date(iso).toLocaleString("fr-FR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }); } catch (e) { return iso; } }
+  function jour(iso) { try { return new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }); } catch (e) { return iso; } }
+
+  function nonConfigure(j) {
+    app.innerHTML = "";
+    var c = el("div", "carte conf");
+    c.appendChild(el("h1", null, "Encore une étape"));
+    c.appendChild(el("p", "sub", "Le suivi des demandes doit être activé une fois dans Cloudflare (gratuit, 3 minutes)."));
+    var ol = el("ol");
+    ol.innerHTML = (j.stockage ? "<li>✅ Stockage DEMANDES : activé</li>" :
+      "<li>Cloudflare → <b>Workers &amp; Pages</b> → <b>KV</b> → <b>Create a namespace</b>, nom <code>birdy-demandes</code>.</li>" +
+      "<li>Workers &amp; Pages → <b>birdy-agent</b> → <b>Settings</b> → <b>Bindings</b> → <b>Add</b> → <b>KV namespace</b> : nom <code>DEMANDES</code>, choisir <code>birdy-demandes</code>.</li>") +
+      (j.code ? "<li>✅ Code d’accès : enregistré</li>" :
+      "<li>Settings → <b>Variables and Secrets</b> → <b>Add</b> : type <b>Secret</b>, nom <code>SUIVI_CODE</code>, valeur : un code d’au moins 8 caractères que vous retiendrez.</li>") +
+      "<li><b>Deployments</b> → ⋯ sur le dernier → <b>Retry deployment</b>, puis rechargez cette page.</li>";
+    c.appendChild(ol); app.appendChild(c);
+  }
+  function connexion(msg) {
+    app.innerHTML = '<form class="carte login" id="login"><h1>Espace conseiller</h1><p class="sub">Entrez votre code d’accès pour voir les demandes.</p><input type="password" id="code" autocomplete="current-password" placeholder="Code d’accès" required><button class="btn plein" type="submit">Entrer</button><p class="msg" id="lmsg"></p></form>';
+    document.getElementById("lmsg").textContent = msg || "";
+    document.getElementById("login").addEventListener("submit", entrer);
+    document.getElementById("sortir").hidden = true;
+  }
+  function entrer(ev) {
+    ev.preventDefault();
+    CODE = document.getElementById("code").value.trim();
+    charger();
+  }
+  function charger() {
+    api("GET", "/api/suivi").then(function (r) {
+      if (r.s === 503) return nonConfigure(r.j);
+      if (r.s === 401) { CODE = ""; try { sessionStorage.removeItem("birdy-suivi"); } catch (e) {} return connexion(document.getElementById("code") ? "Code incorrect." : ""); }
+      if (r.s !== 200) return connexion("Erreur, réessayez.");
+      try { sessionStorage.setItem("birdy-suivi", CODE); } catch (e) {}
+      document.getElementById("sortir").hidden = false;
+      data = r.j.demandes; tableau();
+      var id = new URLSearchParams(location.search).get("id");
+      if (id && !sel) ouvrir(id);
+    }).catch(function () { connexion("Connexion impossible."); });
+  }
+  function tableau() {
+    app.innerHTML = "";
+    app.appendChild(el("h1", null, "Demandes"));
+    var nb = data.filter(function (d) { return d.statut === "nouveau"; }).length;
+    app.appendChild(el("p", "sub", data.length + " demandes · " + nb + " nouvelle" + (nb > 1 ? "s" : "")));
+    var bar = el("div", "barre");
+    [["actives", "À traiter"], ["tous", "Toutes"], ["nouveau", "Nouveau"], ["a_rappeler", "À rappeler"], ["en_cours", "En cours"], ["confirme", "Confirmé"], ["annule", "Annulé"]].forEach(function (f) {
+      var n = data.filter(function (d) { return f[0] === "tous" || (f[0] === "actives" ? d.statut !== "confirme" && d.statut !== "annule" : d.statut === f[0]); }).length;
+      var b = el("button", "f", f[1]); b.type = "button"; b.setAttribute("aria-pressed", filtre === f[0]); b.appendChild(el("i", null, n));
+      b.addEventListener("click", function () { filtre = f[0]; tableau(); }); bar.appendChild(b);
+    });
+    bar.appendChild(el("span", "sep"));
+    [["tous", "Tout"], ["voyage", "✈ Voyages"], ["depart", "⛳ Départs"]].forEach(function (t) {
+      var b = el("button", "f", t[1]); b.type = "button"; b.setAttribute("aria-pressed", type === t[0]);
+      b.addEventListener("click", function () { type = t[0]; tableau(); }); bar.appendChild(b);
+    });
+    var rf = el("button", "f", "↻ Actualiser"); rf.type = "button"; rf.addEventListener("click", charger); bar.appendChild(rf);
+    app.appendChild(bar);
+    var g = el("div", "grille"), l = el("div", "liste"), det = el("div", "det"); det.id = "det";
+    var vis = data.filter(function (d) {
+      var okS = filtre === "tous" || (filtre === "actives" ? d.statut !== "confirme" && d.statut !== "annule" : d.statut === filtre);
+      return okS && (type === "tous" || d.type === type);
+    });
+    if (!vis.length) l.appendChild(el("p", "vide", data.length ? "Aucune demande dans ce filtre." : "Aucune demande pour l’instant. Elles apparaîtront ici dès le premier envoi."));
+    vis.forEach(function (d) {
+      var b = el("button", "it" + (sel === d.id ? " on" : "")); b.type = "button";
+      b.appendChild(el("span", "ty", d.type === "depart" ? "⛳" : "✈"));
+      var t = el("span"); t.appendChild(el("b", null, d.prenom + " · " + (d.titre || ""))); t.appendChild(el("small", null, (d.type === "depart" ? "Départ" : "Voyage") + " · reçue " + date(d.cree)));
+      b.appendChild(t); b.appendChild(el("span", "st " + d.statut, LIB[d.statut] || d.statut));
+      b.addEventListener("click", function () { ouvrir(d.id); });
+      l.appendChild(b);
+    });
+    det.appendChild(el("div", "carte vide", "Choisissez une demande pour voir le détail."));
+    g.appendChild(l); g.appendChild(det); app.appendChild(g);
+    if (sel) ouvrir(sel, true);
+  }
+  function ouvrir(id, silencieux) {
+    sel = id;
+    api("GET", "/api/suivi?id=" + encodeURIComponent(id)).then(function (r) {
+      if (r.s !== 200) return;
+      var d = r.j, det = document.getElementById("det"); if (!det) return;
+      Array.prototype.forEach.call(document.querySelectorAll(".it"), function (x) { x.classList.remove("on"); });
+      det.innerHTML = "";
+      var c = el("div", "carte");
+      c.appendChild(el("span", "st " + d.statut, LIB[d.statut]));
+      c.appendChild(el("h2", null, d.type === "depart" ? d.golf.n : d.destination));
+      c.appendChild(el("p", "sub", (d.type === "depart" ? "Demande de départ" : "Demande de voyage") + " reçue le " + date(d.cree)));
+      var dl = el("dl"), lignes = d.type === "depart"
+        ? [["Golf", d.golf.n + " · " + d.golf.v + " (" + d.golf.d + ")"], ["Date", jour(d.date)], ["Créneau", d.creneau], ["Joueurs", d.joueurs], ["Budget", d.budget ? d.budget + (/€/.test(d.budget) ? "" : " €") + " / joueur" : ""], ["Niveau", d.niveau]]
+        : [["Destination", d.destination], ["Groupe", d.groupe], ["Période", d.periode], ["Budget", d.budget]];
+      lignes = lignes.concat([["Prénom", d.prenom], ["Téléphone", d.tel], ["E-mail", d.email], ["Note du client", d.note]]);
+      lignes.forEach(function (x) { if (x[1] === "" || x[1] == null) return; dl.appendChild(el("dt", null, x[0])); dl.appendChild(el("dd", null, String(x[1]))); });
+      c.appendChild(dl);
+      var a = el("div", "acts"), lien = function (cls, txt, href) { var x = el("a", "btn " + cls, txt); x.href = href; if (/^http/.test(href)) { x.target = "_blank"; x.rel = "noopener"; } a.appendChild(x); };
+      if (d.tel_e164) { lien("plein", "Appeler", "tel:+" + d.tel_e164); lien("wa", "WhatsApp", "https://wa.me/" + d.tel_e164 + "?text=" + encodeURIComponent("Bonjour " + d.prenom + ", c’est Birdy Agent au sujet de votre demande " + (d.type === "depart" ? "de départ au " + d.golf.n : "de séjour golf") + ".")); }
+      if (d.email) lien("", "E-mail", "mailto:" + d.email);
+      if (d.type === "depart" && d.golf.u) lien("", "Site du golf", d.golf.u);
+      if (d.type === "depart" && d.golf.s) lien("", "Fiche golf", "/parcours/golf/" + d.golf.s);
+      c.appendChild(a);
+      c.appendChild(el("p", "sub", "Statut"));
+      var st = el("div", "stats");
+      Object.keys(LIB).forEach(function (k) {
+        var b = el("button", d.statut === k ? "on" : "", LIB[k]); b.type = "button";
+        b.addEventListener("click", function () { maj(d.id, { statut: k }); }); st.appendChild(b);
+      });
+      c.appendChild(st);
+      c.appendChild(el("p", "sub", "Note interne (visible seulement ici)"));
+      var ta = el("textarea"); ta.value = d.note_interne || ""; ta.maxLength = 1000; c.appendChild(ta);
+      var sv = el("button", "btn", "Enregistrer la note"); sv.type = "button"; sv.style.marginTop = "8px";
+      sv.addEventListener("click", function () { sv.disabled = true; maj(d.id, { note_interne: ta.value }).then(function () { sv.disabled = false; sv.textContent = "Note enregistrée ✓"; }); });
+      c.appendChild(sv);
+      if (d.historique && d.historique.length) c.appendChild(el("p", "hist", "Historique : " + d.historique.map(function (h) { return date(h.quand) + " " + (LIB[h.de] || h.de) + " → " + (LIB[h.vers] || h.vers); }).join(" · ")));
+      det.appendChild(c);
+      if (!silencieux && innerWidth < 860) det.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+  function maj(id, ch) {
+    return api("POST", "/api/suivi", Object.assign({ id: id }, ch)).then(function (r) {
+      if (r.s !== 200) return;
+      data.forEach(function (x) { if (x.id === id) x.statut = r.j.statut; });
+      if (ch.statut) tableau();
+    });
+  }
+  document.getElementById("sortir").addEventListener("click", function () { try { sessionStorage.removeItem("birdy-suivi"); } catch (e) {} CODE = ""; sel = null; connexion(); });
+  document.getElementById("login").addEventListener("submit", entrer);
+  if (CODE) charger(); else api("GET", "/api/suivi").then(function (r) { if (r.s === 503) nonConfigure(r.j); }).catch(function () {});
+})();
+</script>
+</body>
+</html>

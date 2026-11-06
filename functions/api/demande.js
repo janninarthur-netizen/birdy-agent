@@ -2,6 +2,8 @@
 // Envoie une notification ntfy (variable NTFY_TOPIC) et, si NTFY_EMAIL est défini, un e-mail via ntfy.
 // Réglages dans Cloudflare : Workers & Pages → birdy-agent → Settings → Variables and Secrets.
 
+import { enregistrer } from "../../lib/demandes.js";
+
 function propre(v, max) {
   return String(v == null ? "" : v).replace(/[\u0000-\u001f]+/g, " ").trim().slice(0, max);
 }
@@ -49,7 +51,12 @@ export async function onRequestPost({ request, env }) {
     d.note ? "Note : " + d.note : "",
   ].filter(Boolean).join("\n");
 
-  if (!env.NTFY_TOPIC) { console.error("NTFY_TOPIC manquant"); return json(500, { erreur: "Service indisponible" }); }
+  // Sauvegarde pour la page /suivi/ (si le stockage est activé) ; n'empêche jamais l'envoi
+  const id = await enregistrer(env, { type: "voyage", titre: d.destination + " · " + d.groupe, ...d, tel_e164: tel });
+  if (!env.NTFY_TOPIC) {
+    console.error("NTFY_TOPIC manquant");
+    return id ? json(200, { ok: true }) : json(500, { erreur: "Service indisponible" });
+  }
   const msg = {
     topic: env.NTFY_TOPIC,
     title: "Nouvelle demande Birdy : " + d.prenom,
@@ -58,8 +65,9 @@ export async function onRequestPost({ request, env }) {
     priority: 4,
     actions: [{ action: "view", label: "Appeler " + d.prenom, url: "tel:+" + tel }],
   };
+  if (id) msg.actions.push({ action: "view", label: "Suivi", url: new URL("/suivi/?id=" + id, request.url).href });
   if (env.NTFY_EMAIL) msg.email = env.NTFY_EMAIL;
   const r = await fetch("https://ntfy.sh/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(msg) });
-  if (!r.ok) { console.error("ntfy " + r.status + " " + (await r.text()).slice(0, 200)); return json(502, { erreur: "Envoi impossible" }); }
+  if (!r.ok) { console.error("ntfy " + r.status + " " + (await r.text()).slice(0, 200)); if (!id) return json(502, { erreur: "Envoi impossible" }); }
   return json(200, { ok: true });
 }
