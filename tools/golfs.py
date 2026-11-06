@@ -156,7 +156,7 @@ def page_app(golfs, maj):
     title = "Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent"
     desc = (f"Trouvez et réservez votre départ sur l’un des {len(golfs)} golfs de France, dont {n18} avec un parcours 18 trous. "
             "Recherche par ville et distance, demande de départ gratuite, confirmée par un conseiller.")
-    extra = EXTRA_CSS + '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
+    extra = EXTRA_CSS + '<link rel="stylesheet" href="/parcours/clair.css">\n<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
     extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": SITE + "parcours/"}]})
@@ -267,6 +267,7 @@ def page_app(golfs, maj):
 <script defer src="/assets/parcours.js"></script>
 <script defer src="/assets/france3d.js"></script>
 """
+    out = out.replace('<html lang="fr">', '<html lang="fr" class="clair">', 1)  # thème clair (parcours/clair.css)
     return "parcours/index.html", out + pages.foot()
 
 

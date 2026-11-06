@@ -9,6 +9,9 @@
   var cv = document.getElementById("gp-3d");
   if (!cv || !window.THREE || !window.BirdyGolf) return;
   var calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Thème clair (classe « clair » sur <html>) : points vert foncé sur fond clair, sans effet lumineux additif
+  var CLAIR = document.documentElement.classList.contains("clair");
+  var MELANGE = CLAIR ? THREE.NormalBlending : THREE.AdditiveBlending;
   var renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); } catch (e) { return; }
   renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
@@ -38,7 +41,7 @@
     pts.forEach(function (p, i) { pos[i * 3] = p[0]; pos[i * 3 + 1] = p[1]; pos[i * 3 + 2] = p[2] || 0; ta[i] = opt.taille * (p[3] || 1); ph[i] = Math.random() * 6.28; });
     g.setAttribute("position", new THREE.BufferAttribute(pos, 3)); g.setAttribute("taille", new THREE.BufferAttribute(ta, 1));
     g.setAttribute("phase", new THREE.BufferAttribute(ph, 1)); g.setAttribute("hi", new THREE.BufferAttribute(hi, 1));
-    var m = new THREE.ShaderMaterial({ vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    var m = new THREE.ShaderMaterial({ vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, blending: MELANGE,
       uniforms: { t: { value: 0 }, zoom: { value: 1 }, px: { value: renderer.getPixelRatio() }, lev: { value: calme ? 1 : 0 }, sel: { value: 0 },
         c1: { value: new THREE.Color(opt.c1) }, c2: { value: new THREE.Color(opt.c2 || "#FFFFFF") }, base: { value: opt.base } } });
     var o = new THREE.Points(g, m); carte.add(o); return o;
@@ -49,9 +52,9 @@
   var vise = { x: 0, y: 0, s: 1 }, actuel = { x: 0, y: 0, s: 1 }, glisse = 0, tourne = 0, depart = null;
 
   Promise.all([BirdyGolf.charger(), fetch("/data/france-points.json").then(function (r) { return r.json(); })]).then(function (x) {
-    fond = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), { taille: 2.7, c1: "#7FBFA3", base: 0.95 });
+    fond = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), CLAIR ? { taille: 2.8, c1: "#7FAE97", base: 0.95 } : { taille: 2.7, c1: "#7FBFA3", base: 0.95 });
     liste = x[0].golfs.filter(function (g) { return metro(g.la, g.lo); });
-    golfs = nuage(liste.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), { taille: 5.4, c1: "#E2F2EA", c2: "#FFFFFF", base: 0.6 });
+    golfs = nuage(liste.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), CLAIR ? { taille: 5.2, c1: "#2F7A55", c2: "#0E3A31", base: 0.75 } : { taille: 5.4, c1: "#E2F2EA", c2: "#FFFFFF", base: 0.6 });
     taille(); cv.classList.add("on"); depart = performance.now();
   }).catch(function () {});
 
@@ -60,7 +63,7 @@
   function onde() {
     if (!golfs || !liste.length) return;
     var pos = golfs.geometry.attributes.position.array, i = choisis.length ? choisis[Math.floor(Math.random() * choisis.length)] : Math.floor(Math.random() * liste.length);
-    var m = new THREE.Mesh(anneau, new THREE.MeshBasicMaterial({ color: 0xA3C9B8, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending }));
+    var m = new THREE.Mesh(anneau, new THREE.MeshBasicMaterial({ color: CLAIR ? 0x2F7A55 : 0xA3C9B8, transparent: true, opacity: 0.7, depthWrite: false, blending: MELANGE }));
     m.position.set(pos[i * 3], pos[i * 3 + 1], 0.07); m.userData.t = 0; carte.add(m); ondes.push(m);
   }
   // Faisceaux lumineux verticaux au-dessus des golfs trouvés
@@ -69,7 +72,7 @@
     while (faisceaux.children.length) { var c = faisceaux.children.pop(); c.material.dispose(); }
     var pos = golfs.geometry.attributes.position.array;
     idx.slice(0, 80).forEach(function (i, k) {
-      var m = new THREE.Mesh(faisceauGeo, new THREE.MeshBasicMaterial({ color: 0xD0E4DC, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }));
+      var m = new THREE.Mesh(faisceauGeo, new THREE.MeshBasicMaterial({ color: CLAIR ? 0x2F7A55 : 0xD0E4DC, transparent: true, opacity: 0.55, depthWrite: false, blending: MELANGE }));
       m.position.set(pos[i * 3], pos[i * 3 + 1], 0.06); m.scale.set(1, 1, 0.001);
       m.userData = { t: -k * 0.03, h: 0.35 + Math.random() * 0.45 }; faisceaux.add(m);
     });

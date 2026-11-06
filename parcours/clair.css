@@ -1,0 +1,66 @@
+/* Birdy Golf — thème clair, moderne et aéré (activé par la classe « clair » sur <html>) */
+html.clair .gp{--cream:#F7F8F4;--mist:#EEF5F0;--pine:#0E3A31;--sage:#A3C9B8;--ink2:#2B4A3F}
+/* En-tête : fond blanc cassé, photo à droite dans un cadre arrondi fondu */
+html.clair .gp-hero{background:linear-gradient(180deg,#FFFFFF 0%,#F2F7F3 100%);color:var(--pine)}
+html.clair .gp-hero .veil{background:radial-gradient(60% 70% at 85% 40%,rgba(163,201,184,.28),rgba(255,255,255,0) 70%)}
+html.clair .gp-bg{opacity:.18;filter:saturate(.6) brightness(1.15);-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 75%);mask-image:linear-gradient(90deg,transparent 30%,#000 75%)}
+html.clair .gp-hero .tag{color:#2F7A55}
+html.clair .gp-slogan{color:var(--pine)}
+html.clair .gp-slogan em{color:#2F7A55}
+html.clair .gp-txt .lead{color:var(--ink2)}
+html.clair .gp-ask{background:#FFFFFF;border-color:rgba(14,58,49,.12);box-shadow:0 18px 40px -22px rgba(14,58,49,.35)}
+html.clair .gp-ask input{color:var(--pine)}
+html.clair .gp-ask input::placeholder{color:#7C928A}
+html.clair .gp-ask .btn.gold,html.clair .gp-hero .btn.gold{background:var(--pine)!important;color:#fff!important;border-color:var(--pine)!important}
+html.clair .gp-say{background:#FFFFFF;border-color:rgba(14,58,49,.1);color:var(--pine);box-shadow:0 12px 30px -20px rgba(14,58,49,.35)}
+html.clair .gp-say a{color:#2F7A55}
+html.clair .gp-chips button{background:#FFFFFF;color:var(--pine);border-color:rgba(14,58,49,.14);box-shadow:0 6px 16px -12px rgba(14,58,49,.4)}
+html.clair .gp-chips button:hover{border-color:#2F7A55;background:var(--mist)}
+html.clair #gp-moi{border-color:#2F7A55}
+html.clair .gp-cap{background:#FFFFFF;color:var(--pine);border-color:rgba(14,58,49,.12);box-shadow:0 10px 24px -16px rgba(14,58,49,.4)}
+html.clair .gp-tip{background:#FFFFFF;color:var(--pine);border-color:rgba(14,58,49,.12)}
+html.clair .gp-tip small{color:#2F7A55}
+/* Étapes : cartes blanches flottantes */
+html.clair .gp-steps{background:#F2F7F3!important;color:var(--pine)}
+html.clair .gp-step{background:#FFFFFF;border-color:rgba(14,58,49,.08);box-shadow:0 20px 40px -28px rgba(14,58,49,.45)}
+html.clair .gp-step b{color:var(--pine)}
+html.clair .gp-step span{color:var(--ink2)}
+html.clair .gp-step i{background:var(--pine);color:#fff}
+/* Recherche : fond blanc, photos très légères, cartes blanches à ombres douces */
+html.clair .gp-band{background:linear-gradient(180deg,#F2F7F3 0%,#FFFFFF 22%);color:var(--pine)}
+html.clair .gp-band::after{display:none}
+html.clair .gp-bg2,html.clair .gp-bg3{opacity:.08!important;filter:saturate(.4)!important}
+html.clair .gp-band .gp-f{background:#FFFFFF;border-color:rgba(14,58,49,.08);box-shadow:0 24px 50px -30px rgba(14,58,49,.45)}
+html.clair .gp-band .gp-f label{color:#5D7A6F}
+html.clair .gp-band .gp-f input,html.clair .gp-band .gp-f select{background:#F7F8F4;border-color:rgba(14,58,49,.12);color:var(--pine);color-scheme:light}
+html.clair .gp-band .gp-f input::placeholder{color:#8AA097}
+html.clair .gp-band .gp-f .btn.gold{background:var(--pine);color:#fff;border-color:var(--pine)}
+html.clair .gp-band .gp-info{background:var(--mist);color:var(--ink2);border-color:transparent}
+html.clair .gp-band .gp-info b,html.clair .gp-band .gp-count{color:var(--pine)}
+html.clair .gp-band .gp-src{color:#6B837A}
+html.clair .gp-band .gc{background:#FFFFFF;border-color:rgba(14,58,49,.08);color:var(--pine);box-shadow:0 14px 30px -24px rgba(14,58,49,.5)}
+html.clair .gp-band .gc:hover,html.clair .gp-band .gc.on{border-color:#2F7A55;box-shadow:0 20px 40px -24px rgba(14,58,49,.55)}
+html.clair .gp-band .gc h3{color:var(--pine)}
+html.clair .gp-band .gc-v{color:#5D7A6F}
+html.clair .gp-band .gd{color:#2F7A55}
+html.clair .gp-band .gb{background:var(--pine);color:#fff}
+html.clair .gp-band .gg{background:var(--mist);color:#5D7A6F}
+html.clair .gp-band .gc .btn.gold{background:var(--pine);color:#fff;border-color:var(--pine)}
+html.clair .gp-band .gp-grid .gc-cta .btn.ghost{color:#2F7A55}
+html.clair .gp-band .btn.ghost{color:var(--pine);border-color:rgba(14,58,49,.2)}
+html.clair .gp-band .gp-map{background:#EEF5F0;border-color:rgba(14,58,49,.08);box-shadow:0 24px 50px -30px rgba(14,58,49,.45)}
+html.clair .gp-tuiles{filter:saturate(.85)}
+html.clair .gp-map .leaflet-control-attribution{background:rgba(255,255,255,.85)!important;color:#5D7A6F!important}
+html.clair .gp-map .leaflet-control-attribution a{color:#2F7A55}
+html.clair .gp-map .leaflet-bar a{background:#FFFFFF;color:var(--pine);border-color:rgba(14,58,49,.12)}
+/* Accueil de la recherche */
+html.clair .gp-start{background:linear-gradient(160deg,#FFFFFF,#F2F7F3);border-color:rgba(14,58,49,.08);box-shadow:0 24px 50px -32px rgba(14,58,49,.5)}
+html.clair .gp-start::before{background:radial-gradient(circle,rgba(163,201,184,.35),transparent 70%)}
+html.clair .gp-start-h b{color:var(--pine)}
+html.clair .gp-start-h span{color:#5D7A6F}
+html.clair .gp-stats div{background:#FFFFFF;border-color:rgba(14,58,49,.08)}
+html.clair .gp-stats b{color:var(--pine)}
+html.clair .gp-stats small{color:#5D7A6F}
+html.clair .gp-villes button{background:#FFFFFF;color:var(--pine);border-color:rgba(14,58,49,.1)}
+html.clair .gp-villes button:hover{border-color:#2F7A55;background:var(--mist)}
+html.clair .gp-villes small{color:#2F7A55}

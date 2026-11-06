@@ -104,6 +104,7 @@
   /* ---------- Page /parcours/ ---------- */
   var F = document.getElementById("gp-f");
   if (!F) return;
+  var CL = document.documentElement.classList.contains("clair");
   var list = document.getElementById("gp-list"), count = document.getElementById("gp-count"), dlg = document.getElementById("gp-dlg");
   var dep = document.getElementById("gp-dep"), carte = null, couche = null, marques = {}, dernier = [];
   var auj = new Date(); auj.setMinutes(auj.getMinutes() - auj.getTimezoneOffset());
@@ -122,7 +123,8 @@
   function carteInit() {
     if (carte || !window.L) return;
     carte = L.map("gp-map", { scrollWheelZoom: false, zoomSnap: 0.25 }).setView([46.6, 2.4], 5);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, className: "gp-tuiles", attribution: "© OpenStreetMap" }).addTo(carte);
+    L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", { maxZoom: 19, subdomains: "abc", className: "gp-tuiles",
+      attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.openstreetmap.fr" target="_blank" rel="noopener">OSM France</a>' }).addTo(carte);
     couche = L.layerGroup().addTo(carte);
   }
   // Grille de résultats : 12 cartes, puis « Voir plus »
@@ -147,8 +149,8 @@
     c.appendChild(go);
     if (g.u) { var l = document.createElement("a"); l.className = "btn ghost sm"; l.href = g.u; l.target = "_blank"; l.rel = "noopener nofollow"; l.textContent = "Site du golf"; c.appendChild(l); }
     a.appendChild(h); a.appendChild(v); a.appendChild(b); a.appendChild(c);
-    a.addEventListener("mouseenter", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 11, fillColor: "#FFFFFF" }); });
-    a.addEventListener("mouseleave", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 7, fillColor: "#A3C9B8" }); });
+    a.addEventListener("mouseenter", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 11, fillColor: CL ? "#0E3A31" : "#FFFFFF" }); });
+    a.addEventListener("mouseleave", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 7, fillColor: CL ? "#2F7A55" : "#A3C9B8" }); });
     return a;
   }
   function de(x) { return /^Le /.test(x) ? "du " + x.slice(3) : /^Les /.test(x) ? "des " + x.slice(4) : /^[aeiouyhâéèêîôûAEIOUYHÂÉÈÊÎÔÛ]/.test(x) ? "d’" + x : "de " + x; }
@@ -165,7 +167,7 @@
     couche.clearLayers(); marques = {};
     var pts = [];
     r.res.forEach(function (o) {
-      var m = L.circleMarker([o.g.la, o.g.lo], { radius: 7, color: "#E8F1EC", weight: 1.5, fillColor: "#A3C9B8", fillOpacity: .95 }).addTo(couche);
+      var m = L.circleMarker([o.g.la, o.g.lo], { radius: 7, color: CL ? "#FFFFFF" : "#E8F1EC", weight: 1.5, fillColor: CL ? "#2F7A55" : "#A3C9B8", fillOpacity: .95 }).addTo(couche);
       m.bindTooltip(o.g.n);
       m.on("click", function () { var el = document.getElementById("g-" + o.g.i); if (el) { el.scrollIntoView({ behavior: "smooth", block: "nearest" }); el.classList.add("on"); setTimeout(function () { el.classList.remove("on"); }, 1600); } });
       marques[o.g.i] = m; pts.push([o.g.la, o.g.lo]);
@@ -223,7 +225,7 @@
     couche.clearLayers(); marques = {};
     D.golfs.forEach(function (g) {
       if (!g.t18 || g.la < 41 || g.la > 51.6 || g.lo < -5.6 || g.lo > 10) return;
-      var m = L.circleMarker([g.la, g.lo], { radius: 4, color: "#0A1E17", weight: 1, fillColor: "#A3C9B8", fillOpacity: .9 }).addTo(couche);
+      var m = L.circleMarker([g.la, g.lo], { radius: 4, color: CL ? "#FFFFFF" : "#0A1E17", weight: 1, fillColor: CL ? "#2F7A55" : "#A3C9B8", fillOpacity: .9 }).addTo(couche);
       m.bindTooltip(g.n + " · " + g.v);
       m.on("click", function () { ouvrir(g); });
     });
