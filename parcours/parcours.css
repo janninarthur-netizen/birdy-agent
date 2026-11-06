@@ -195,6 +195,6 @@
 /* Fond de carte OpenStreetMap assombri et teinté vert (gratuit, sans clé) */
 .gp-tuiles{filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.78) contrast(1.05) sepia(.55) hue-rotate(95deg) saturate(1.5)}
 .gp-map .leaflet-container{background:#0F2A21}
-.gp-map .leaflet-control-attribution{background:rgba(10,30,23,.75);color:rgba(232,241,236,.6)}
+.gp-map .leaflet-control-attribution{background:rgba(10,30,23,.75)!important;color:rgba(232,241,236,.6)!important}
 .gp-map .leaflet-control-attribution a{color:#A3C9B8}
 .gp-map .leaflet-bar a{background:#11291F;color:#E8F1EC;border-color:rgba(208,228,220,.2)}
