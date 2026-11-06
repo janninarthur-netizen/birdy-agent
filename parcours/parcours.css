@@ -74,3 +74,25 @@
 .gc h3 a{color:inherit;text-decoration:none}.gc h3 a:hover{text-decoration:underline}
 .gi{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:14px 0 18px}
 .gi dt{color:var(--muted);font-weight:600}.gi dd{margin:0}
+
+/* Accueil Birdy Golf : France en 3D, raccourcis, étapes */
+.gp-hero{background:radial-gradient(120% 140% at 85% 30%,#1B4D3E 0%,#0F2F26 45%,#0A1E17 100%)}
+.gp-hero .veil{background:linear-gradient(90deg,rgba(10,30,23,.92) 0%,rgba(10,30,23,.55) 55%,rgba(10,30,23,0) 100%)}
+.gp-3d{position:absolute;top:0;right:0;width:58%;height:100%;display:block;opacity:0;transition:opacity 1.2s ease}
+.gp-3d.on{opacity:1}
+.gp-hin{position:relative;z-index:1}
+.gp-hin h1,.gp-hin .lead,.gp-ask,.gp-say,.gp-chips{max-width:640px}
+.gp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.gp-chips button{font:500 13.5px/1 var(--body);color:#E8F1EC;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:9px 13px;cursor:pointer;transition:border-color .2s,background .2s}
+.gp-chips button:hover{border-color:#D0E4DC;background:rgba(163,201,184,.14)}
+#gp-moi{border-color:rgba(208,228,220,.5);font-weight:600}
+.gp-steps{background:#0A1E17;color:#E8F1EC;padding:0 0 34px}
+.gp-steps .in{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gp-step{border:1px solid rgba(208,228,220,.18);border-radius:18px;padding:18px 20px;background:linear-gradient(160deg,rgba(163,201,184,.12),rgba(255,255,255,.02));display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(14px);animation:gpUp .7s ease forwards}
+.gp-step:nth-child(2){animation-delay:.12s}.gp-step:nth-child(3){animation-delay:.24s}
+.gp-step i{font:700 13px/1 var(--body);font-style:normal;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#A3C9B8;color:#0A1E17}
+.gp-step b{font:700 22px/1.15 var(--display);color:#fff}
+.gp-step span{font-size:14.5px;color:rgba(232,241,236,.78)}
+@keyframes gpUp{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.gp-step{animation:none;opacity:1;transform:none}}
+@media (max-width:980px){.gp-3d{width:100%;opacity:.0}.gp-3d.on{opacity:.35}.gp-steps .in{grid-template-columns:1fr}}

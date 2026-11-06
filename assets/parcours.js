@@ -31,6 +31,8 @@
   function sansArt(s) { return norm(s).replace(/^(le |la |les )/, ""); }
   // Lieu tapé -> zone : { label, lat, lon } (point) ou { label, d: [...] } / { label, r: [...] } (département, région)
   function lieu(q) {
+    var gps = String(q || "").match(/^(-?\d+\.\d+),\s*(-?\d+\.\d+)$/);
+    if (gps) return Promise.resolve({ label: "votre position", lat: +gps[1], lon: +gps[2] });
     var t = nettoie(q);
     if (!t) return Promise.resolve(null);
     return charger().then(function (D) {
@@ -143,6 +145,7 @@
   function de(x) { return /^Le /.test(x) ? "du " + x.slice(3) : /^Les /.test(x) ? "des " + x.slice(4) : /^[aeiouyhâéèêîôûAEIOUYHÂÉÈÊÎÔÛ]/.test(x) ? "d’" + x : "de " + x; }
   function afficher(r, c) {
     dernier = r.res; list.textContent = "";
+    if (window.BirdyGolf3D) BirdyGolf3D.surligne(r.res.map(function (o) { return o.g.i; }));
     if (!r.zone) { count.textContent = c.lieu ? "Lieu introuvable : essayez une ville, un département ou une région." : "Indiquez un lieu pour voir les parcours."; return; }
     var n = r.res.length, quoi = r.trous === 18 ? "parcours 18 trous" : r.trous === 9 ? "parcours 9 trous" : "golfs";
     count.textContent = n ? n + " " + (n === 1 && quoi === "golfs" ? "golf" : quoi) + (r.zone.lat != null ? " à moins de " + r.rayon + " km " + de(r.zone.label) : " · " + r.zone.label)
@@ -167,7 +170,38 @@
     history.replaceState(null, "", url(Object.assign({}, c, { golf: null })));
     return chercher(c).then(function (r) { afficher(r, c); return r; });
   }
-  F.addEventListener("submit", function (ev) { ev.preventDefault(); lancer(); });
+  F.addEventListener("submit", function (ev) { ev.preventDefault(); lancer().then(function () { count.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+
+  // Raccourcis et « Autour de moi »
+  var chips = document.getElementById("gp-chips");
+  if (chips) chips.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest("button[data-lieu]"); if (!b) return;
+    F.lieu.value = b.getAttribute("data-lieu");
+    lancer().then(function () { count.scrollIntoView({ behavior: "smooth", block: "start" }); });
+  });
+  var moi = document.getElementById("gp-moi");
+  if (moi) moi.addEventListener("click", function () {
+    if (!navigator.geolocation) { F.lieu.focus(); return; }
+    moi.textContent = "Localisation…";
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      moi.textContent = "◎ Autour de moi";
+      F.lieu.value = pos.coords.latitude.toFixed(4) + "," + pos.coords.longitude.toFixed(4);
+      lancer().then(function () { count.scrollIntoView({ behavior: "smooth", block: "start" }); });
+    }, function () { moi.textContent = "◎ Autour de moi"; count.textContent = "Position indisponible : indiquez une ville."; F.lieu.focus(); }, { timeout: 10000, maximumAge: 600000 });
+  });
+
+  // Carte de départ : tous les golfs de France
+  function apercu(D) {
+    carteInit(); if (!carte || dernier.length) return;
+    couche.clearLayers(); marques = {};
+    D.golfs.forEach(function (g) {
+      if (!g.t18 || g.la < 41 || g.la > 51.6 || g.lo < -5.6 || g.lo > 10) return;
+      var m = L.circleMarker([g.la, g.lo], { radius: 4, color: "#0E3A31", weight: 1, fillColor: "#2F7A55", fillOpacity: .8 }).addTo(couche);
+      m.bindTooltip(g.n + " · " + g.v);
+      m.on("click", function () { ouvrir(g); });
+    });
+    carte.setView([46.6, 2.4], 5);
+  }
 
   // Demande de départ
   function ouvrir(g) {
@@ -251,7 +285,10 @@
   charger().then(function (D) {
     var dl = document.getElementById("f-villes");
     D.villes.slice(0, 400).forEach(function (v) { var o = document.createElement("option"); o.value = v[0]; dl.appendChild(o); });
-    if (c0.lieu) lancer();
+    if (c0.lieu) lancer(); else {
+      count.textContent = D.golfs.filter(function (g) { return g.t18; }).length + " parcours 18 trous en France : choisissez une ville, une région, ou touchez un point de la carte.";
+      if (window.L) apercu(D); else addEventListener("load", function () { apercu(D); });
+    }
     var id = P.get("golf");
     if (id) { var g = D.golfs.find(function (x) { return x.i === id; }); if (g) ouvrir(g); }
   });

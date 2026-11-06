@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="/parcours/parcours.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://birdy-agent.pages.dev/"}, {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": "https://birdy-agent.pages.dev/parcours/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment réserver un parcours de golf avec Birdy Agent ?", "acceptedAnswer": {"@type": "Answer", "text": "Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer."}}, {"@type": "Question", "name": "La réservation est-elle immédiate ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas encore : vous envoyez une demande de départ gratuite. Rien n’est réservé tant que le conseiller ne vous a pas confirmé l’horaire et le tarif auprès du golf. La réservation en temps réel arrivera avec nos futurs partenaires."}}, {"@type": "Question", "name": "Combien coûte un green fee en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget maximum par joueur dans la demande : le conseiller vous confirme le tarif exact avant toute réservation. La demande est gratuite."}}, {"@type": "Question", "name": "Combien de golfs 18 trous y a-t-il en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Notre annuaire, issu du recensement officiel des équipements sportifs, compte 621 golfs, dont 413 avec au moins un parcours 18 trous."}}, {"@type": "Question", "name": "Peut-on réserver pour un groupe ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, de 1 à 8 joueurs par demande de départ. Pour un séjour golf de groupe avec hôtel, utilisez notre pôle voyages Birdy Travel."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Birdy Golf : demande de départ sur un parcours de golf en France", "serviceType": "Réservation de départs de golf", "areaServed": "FR", "url": "https://birdy-agent.pages.dev/parcours/", "provider": {"@type": "TravelAgency", "name": "Birdy Agent", "url": "https://birdy-agent.pages.dev/", "telephone": "+33616213447"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Demande de départ gratuite et sans engagement"}}</script>
 </head>
 <body>
 <header class="top"><div class="in">
@@ -33,17 +35,24 @@
   <nav><a href="/golf/">Voyages golf</a><a href="/parcours/">Réserver un parcours</a><a href="/guides/">Idées de séjours</a><a class="btn gold sm" href="/#organiser">Organiser mon séjour</a></nav>
 </div></header>
 <main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+<section class="hero short gp-hero"><div class="veil"></div><canvas class="gp-3d" id="gp-3d" aria-hidden="true"></canvas><div class="in gp-hin">
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Réserver un parcours</span></nav>
   <p class="tag">Birdy Golf · Nouveau</p>
   <h1>Réservez votre départ sur un parcours en France</h1>
-  <p class="lead">621 golfs, dont 413 avec un parcours 18 trous. Dites à Birdy ce que vous cherchez, il trouve les parcours et transmet votre demande.</p>
+  <p class="lead">621 golfs, dont 413 avec un parcours 18 trous. Dites à Birdy ce que vous cherchez : il trouve les parcours et transmet votre demande à un conseiller.</p>
   <form class="gp-ask" id="gp-ask" autocomplete="off">
     <label class="sr" for="gp-q">Décrivez votre partie</label>
     <input id="gp-q" maxlength="400" placeholder="Ex. : 4 joueurs samedi matin, un 18 trous autour de Bordeaux">
     <button class="btn gold" type="submit">Demander à Birdy</button>
   </form>
   <div class="gp-say" id="gp-say" hidden></div>
+  <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Autour de moi</button><button type="button" data-lieu="Paris">Autour de Paris</button><button type="button" data-lieu="Lyon">Lyon</button><button type="button" data-lieu="Bordeaux">Bordeaux</button><button type="button" data-lieu="Côte d’Azur">Côte d’Azur</button><button type="button" data-lieu="Bretagne">Bretagne</button><button type="button" data-lieu="Pays basque">Pays basque</button><button type="button" data-lieu="sud de la France">Sud de la France</button></div>
+</div></section>
+
+<section class="gp-steps" aria-label="Comment ça marche"><div class="in">
+  <div class="gp-step"><i>1</i><b>Trouvez votre parcours</b><span>Par ville, département ou région, ou en décrivant votre partie à Birdy.</span></div>
+  <div class="gp-step"><i>2</i><b>Envoyez votre demande</b><span>Date, créneau, nombre de joueurs, budget : gratuit et sans engagement.</span></div>
+  <div class="gp-step"><i>3</i><b>Un conseiller confirme</b><span>Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.</span></div>
 </div></section>
 
 <section class="band gp-band"><div class="in">
@@ -63,6 +72,12 @@
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
   </div>
   <p class="gp-src">Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 06/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.</p>
+</div></section>
+
+<section class="band"><div class="in">
+  <h2>Questions fréquentes</h2>
+  <div class="faq"><details><summary>Comment réserver un parcours de golf avec Birdy Agent ?</summary><p>Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer.</p></details><details><summary>La réservation est-elle immédiate ?</summary><p>Pas encore : vous envoyez une demande de départ gratuite. Rien n’est réservé tant que le conseiller ne vous a pas confirmé l’horaire et le tarif auprès du golf. La réservation en temps réel arrivera avec nos futurs partenaires.</p></details><details><summary>Combien coûte un green fee en France ?</summary><p>Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget maximum par joueur dans la demande : le conseiller vous confirme le tarif exact avant toute réservation. La demande est gratuite.</p></details><details><summary>Combien de golfs 18 trous y a-t-il en France ?</summary><p>Notre annuaire, issu du recensement officiel des équipements sportifs, compte 621 golfs, dont 413 avec au moins un parcours 18 trous.</p></details><details><summary>Peut-on réserver pour un groupe ?</summary><p>Oui, de 1 à 8 joueurs par demande de départ. Pour un séjour golf de groupe avec hôtel, utilisez notre pôle voyages Birdy Travel.</p></details></div>
+  <p class="more"><a href="/golf/">Envie d’un séjour golf à l’étranger ? Découvrez Birdy Travel et nos 55 destinations</a></p>
 </div></section>
 
 <section class="band tint"><div class="in"><h2>Golfs autour des grandes villes</h2><div class="others plain"><a href="/parcours/paris">Golf autour de Paris</a><a href="/parcours/lyon">Golf autour de Lyon</a><a href="/parcours/marseille">Golf autour de Marseille</a><a href="/parcours/bordeaux">Golf autour de Bordeaux</a><a href="/parcours/toulouse">Golf autour de Toulouse</a><a href="/parcours/nice">Golf autour de Nice</a><a href="/parcours/nantes">Golf autour de Nantes</a><a href="/parcours/lille">Golf autour de Lille</a><a href="/parcours/strasbourg">Golf autour de Strasbourg</a><a href="/parcours/montpellier">Golf autour de Montpellier</a><a href="/parcours/rennes">Golf autour de Rennes</a><a href="/parcours/grenoble">Golf autour de Grenoble</a><a href="/parcours/aix-en-provence">Golf autour de Aix-en-Provence</a><a href="/parcours/annecy">Golf autour de Annecy</a><a href="/parcours/biarritz">Golf autour de Biarritz</a><a href="/parcours/tours">Golf autour de Tours</a><a href="/parcours/dijon">Golf autour de Dijon</a><a href="/parcours/reims">Golf autour de Reims</a><a href="/parcours/rouen">Golf autour de Rouen</a><a href="/parcours/deauville">Golf autour de Deauville</a><a href="/parcours/cannes">Golf autour de Cannes</a><a href="/parcours/avignon">Golf autour de Avignon</a><a href="/parcours/la-rochelle">Golf autour de La Rochelle</a><a href="/parcours/clermont-ferrand">Golf autour de Clermont-Ferrand</a><a href="/parcours/le-touquet-paris-plage">Golf autour de Le Touquet-Paris-Plage</a></div>
@@ -93,7 +108,9 @@
   <div class="gp-merci" id="d-merci" hidden><h3>Demande envoyée</h3><p>Un conseiller contacte le golf et vous rappelle pour confirmer l’horaire et le tarif. Rien n’est réservé tant qu’il ne vous l’a pas confirmé.</p></div>
 </dialog>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="/assets/parcours.js"></script>
+<script defer src="/assets/france3d.js"></script>
 <a class="wa" href="https://wa.me/33616213447?text=Bonjour%20Birdy%20Agent%2C%20je%20souhaite%20organiser%20un%20s%C3%A9jour%20golf." target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>

@@ -163,19 +163,48 @@ def page_app(golfs, maj):
     villes = "".join(f'<a href="/parcours/{pages.slug(v)}.html">Golf autour de {e(v)}</a>' for v, _ in VILLES_SEO)
     regs = sorted({g["r"] for g in golfs}, key=lambda r: (-sum(1 for g in golfs if g["r"] == r), r))
     regions = "".join(f'<a href="/parcours/region/{pages.slug(r)}.html">{e(r)}<small>{sum(1 for g in golfs if g["r"] == r)} golfs</small></a>' for r in regs)
+    faq = [("Comment réserver un parcours de golf avec Birdy Agent ?",
+            "Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, "
+            "le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer."),
+           ("La réservation est-elle immédiate ?",
+            "Pas encore : vous envoyez une demande de départ gratuite. Rien n’est réservé tant que le conseiller ne vous a pas confirmé "
+            "l’horaire et le tarif auprès du golf. La réservation en temps réel arrivera avec nos futurs partenaires."),
+           ("Combien coûte un green fee en France ?",
+            "Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget maximum par joueur dans la demande : "
+            "le conseiller vous confirme le tarif exact avant toute réservation. La demande est gratuite."),
+           (f"Combien de golfs 18 trous y a-t-il en France ?",
+            f"Notre annuaire, issu du recensement officiel des équipements sportifs, compte {len(golfs)} golfs, dont {n18} avec au moins un parcours 18 trous."),
+           ("Peut-on réserver pour un groupe ?",
+            "Oui, de 1 à 8 joueurs par demande de départ. Pour un séjour golf de groupe avec hôtel, utilisez notre pôle voyages Birdy Travel.")]
+    extra += pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
+    extra += pages.ld({"@context": "https://schema.org", "@type": "Service", "name": "Birdy Golf : demande de départ sur un parcours de golf en France",
+                       "serviceType": "Réservation de départs de golf", "areaServed": "FR", "url": SITE + "parcours/",
+                       "provider": {"@type": "TravelAgency", "name": "Birdy Agent", "url": SITE, "telephone": "+33616213447"},
+                       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Demande de départ gratuite et sans engagement"}})
+    chips = "".join(f'<button type="button" data-lieu="{e(l)}">{e(t)}</button>' for t, l in
+                    [("Autour de Paris", "Paris"), ("Lyon", "Lyon"), ("Bordeaux", "Bordeaux"), ("Côte d’Azur", "Côte d’Azur"),
+                     ("Bretagne", "Bretagne"), ("Pays basque", "Pays basque"), ("Sud de la France", "sud de la France")])
     out = pages.head(title, desc, "parcours/", SITE + "og.jpg", extra)
     out += f"""<main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+<section class="hero short gp-hero"><div class="veil"></div><canvas class="gp-3d" id="gp-3d" aria-hidden="true"></canvas><div class="in gp-hin">
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Réserver un parcours</span></nav>
   <p class="tag">Birdy Golf · Nouveau</p>
   <h1>Réservez votre départ sur un parcours en France</h1>
-  <p class="lead">{len(golfs)} golfs, dont {n18} avec un parcours 18 trous. Dites à Birdy ce que vous cherchez, il trouve les parcours et transmet votre demande.</p>
+  <p class="lead">{len(golfs)} golfs, dont {n18} avec un parcours 18 trous. Dites à Birdy ce que vous cherchez : il trouve les parcours et transmet votre demande à un conseiller.</p>
   <form class="gp-ask" id="gp-ask" autocomplete="off">
     <label class="sr" for="gp-q">Décrivez votre partie</label>
     <input id="gp-q" maxlength="400" placeholder="Ex. : 4 joueurs samedi matin, un 18 trous autour de Bordeaux">
     <button class="btn gold" type="submit">Demander à Birdy</button>
   </form>
   <div class="gp-say" id="gp-say" hidden></div>
+  <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Autour de moi</button>{chips}</div>
+</div></section>
+
+<section class="gp-steps" aria-label="Comment ça marche"><div class="in">
+  <div class="gp-step"><i>1</i><b>Trouvez votre parcours</b><span>Par ville, département ou région, ou en décrivant votre partie à Birdy.</span></div>
+  <div class="gp-step"><i>2</i><b>Envoyez votre demande</b><span>Date, créneau, nombre de joueurs, budget : gratuit et sans engagement.</span></div>
+  <div class="gp-step"><i>3</i><b>Un conseiller confirme</b><span>Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.</span></div>
 </div></section>
 
 <section class="band gp-band"><div class="in">
@@ -195,6 +224,12 @@ def page_app(golfs, maj):
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
   </div>
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>
+</div></section>
+
+<section class="band"><div class="in">
+  <h2>Questions fréquentes</h2>
+  <div class="faq">{"".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in faq)}</div>
+  <p class="more"><a href="/golf/">Envie d’un séjour golf à l’étranger ? Découvrez Birdy Travel et nos 55 destinations</a></p>
 </div></section>
 
 <section class="band tint"><div class="in"><h2>Golfs autour des grandes villes</h2><div class="others plain">{villes}</div>
@@ -225,7 +260,9 @@ def page_app(golfs, maj):
   <div class="gp-merci" id="d-merci" hidden><h3>Demande envoyée</h3><p>Un conseiller contacte le golf et vous rappelle pour confirmer l’horaire et le tarif. Rien n’est réservé tant qu’il ne vous l’a pas confirmé.</p></div>
 </dialog>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="/assets/parcours.js"></script>
+<script defer src="/assets/france3d.js"></script>
 """
     return "parcours/index.html", out + pages.foot()
 
@@ -389,6 +426,15 @@ def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
         "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE + f"parcours/golf/{g['s']}.html", "name": g["n"]}
                             for i, g in enumerate(liste)]})
     sous_html = f'<h2>Par département</h2><div class="others">{sous}</div>' if sous else ""
+    faq = [(f"Combien y a-t-il de golfs {intro_lieu} ?",
+            f"Nous recensons {len(liste)} golfs {intro_lieu}, dont {n18} avec au moins un parcours 18 trous (source : {SOURCE_TXT})."),
+           (f"Comment réserver un départ sur un golf {intro_lieu} ?",
+            "Choisissez un golf dans la liste, puis indiquez la date, le créneau et le nombre de joueurs. Un conseiller Birdy Agent "
+            f"réserve auprès du golf et vous rappelle pour confirmer l’horaire et le tarif. Vous pouvez aussi appeler le {TEL}."),
+           ("La demande de départ est-elle payante ?", "Non, la demande est gratuite et sans engagement. Rien n’est réservé avant la confirmation du conseiller.")]
+    extra += pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
+    faq_html = "".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in faq)
     out = pages.head(title, desc, path, SITE + "og.jpg", extra)
     out += f"""<main class="gp">
 <section class="hero short gp-hero"><div class="veil"></div><div class="in">
@@ -403,6 +449,7 @@ def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
   <div class="gp-list static">{"".join(fiche(g) for g in liste)}</div>
   <p class="gp-src">Source : {e(SOURCE_TXT)}, mise à jour le {maj}.</p>
 </div></section>
+<section class="band tint"><div class="in"><h2>Questions fréquentes</h2><div class="faq">{faq_html}</div></div></section>
 </main>
 """
     return path, out + pages.foot()

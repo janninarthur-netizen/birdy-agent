@@ -417,3 +417,4 @@ if __name__ == "__main__":
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)
+    __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "llms.py")], check=True)
