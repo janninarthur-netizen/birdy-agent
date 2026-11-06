@@ -79,6 +79,7 @@ def head(title, desc, path, image, extra=""):
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/golf/style.css">
+<script defer src="/assets/menu.js"></script>
 {extra}</head>
 <body>
 <header class="top"><div class="in">
