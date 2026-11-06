@@ -135,7 +135,9 @@
   function taille() {
     var r = cv.getBoundingClientRect(); if (!r.width || !r.height) return;
     renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height;
-    cam.position.set(0, -6.2, r.width < 600 ? 14.5 : 12.2); cam.lookAt(0, 0.15, 0); cam.updateProjectionMatrix();
+    // Cadrage : la France remplit la zone, centrée (un peu plus loin sur écran étroit)
+    var loin = r.width / r.height < 0.9 ? 11.5 : 9.6;
+    cam.position.set(0, -4.6, loin); cam.lookAt(0, 0.35, 0); cam.updateProjectionMatrix();
   }
   addEventListener("resize", taille);
   if (window.IntersectionObserver) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);

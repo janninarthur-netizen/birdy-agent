@@ -130,3 +130,22 @@
 .gp-grid .gc-cta .btn.ghost{border:0;padding:6px 2px;background:none;color:var(--fairway);text-decoration:underline;text-underline-offset:3px}
 .gp-grid .gc-cta .btn.ghost::after{content:" ↗"}
 .gp-grid .gc .btn.gold{padding:10px 14px}
+
+/* En-tête épuré : slogan, carte plus grande et centrée */
+.gp-hin{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:8px!important;padding-block:36px 30px!important;position:relative}
+.gp-txt{gap:16px}
+.gp-txt .crumbs{display:none}
+.gp-slogan{font-size:clamp(38px,4.4vw,62px)!important;line-height:1.02!important;max-width:15ch!important;letter-spacing:-.01em}
+.gp-slogan em{font-style:italic;color:#A3C9B8}
+.gp-txt .lead{font-size:18px;max-width:30ch!important;color:rgba(232,241,236,.85)}
+.gp-ask{max-width:100%!important}
+.gp-ask .btn{padding:13px 22px}
+.gp-chips{max-width:100%!important;gap:6px}
+.gp-chips button{padding:8px 12px;font-size:13px}
+.gp-viz{height:min(680px,74vh);min-height:460px}
+.gp-cap{position:absolute;left:auto;right:16px;bottom:18px;transform:none}
+@media (max-width:980px){
+  .gp-hin{grid-template-columns:1fr!important}
+  .gp-viz{height:380px;min-height:0}
+  .gp-cap{position:static;justify-self:center;margin-top:-8px}
+}

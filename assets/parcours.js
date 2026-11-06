@@ -193,10 +193,10 @@
     if (!navigator.geolocation) { F.lieu.focus(); return; }
     moi.textContent = "Localisation…";
     navigator.geolocation.getCurrentPosition(function (pos) {
-      moi.textContent = "◎ Autour de moi";
+      moi.textContent = "◎ Près de moi";
       F.lieu.value = pos.coords.latitude.toFixed(4) + "," + pos.coords.longitude.toFixed(4);
       lancer().then(function () { count.scrollIntoView({ behavior: "smooth", block: "start" }); });
-    }, function () { moi.textContent = "◎ Autour de moi"; count.textContent = "Position indisponible : indiquez une ville."; F.lieu.focus(); }, { timeout: 10000, maximumAge: 600000 });
+    }, function () { moi.textContent = "◎ Près de moi"; count.textContent = "Position indisponible : indiquez une ville."; F.lieu.focus(); }, { timeout: 10000, maximumAge: 600000 });
   });
 
   // Carte de départ : tous les golfs de France
