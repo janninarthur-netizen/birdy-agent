@@ -122,7 +122,7 @@
   function carteInit() {
     if (carte || !window.L) return;
     carte = L.map("gp-map", { scrollWheelZoom: false }).setView([46.6, 2.4], 5);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(carte);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", { maxZoom: 19, subdomains: "abcd", attribution: "© OpenStreetMap · © CARTO" }).addTo(carte);
     couche = L.layerGroup().addTo(carte);
   }
   // Grille de résultats : 12 cartes, puis « Voir plus »
@@ -147,8 +147,8 @@
     c.appendChild(go);
     if (g.u) { var l = document.createElement("a"); l.className = "btn ghost sm"; l.href = g.u; l.target = "_blank"; l.rel = "noopener nofollow"; l.textContent = "Site du golf"; c.appendChild(l); }
     a.appendChild(h); a.appendChild(v); a.appendChild(b); a.appendChild(c);
-    a.addEventListener("mouseenter", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 10, fillColor: "#A3C9B8" }); });
-    a.addEventListener("mouseleave", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 7, fillColor: "#2F7A55" }); });
+    a.addEventListener("mouseenter", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 11, fillColor: "#FFFFFF" }); });
+    a.addEventListener("mouseleave", function () { var m = marques[g.i]; if (m) m.setStyle({ radius: 7, fillColor: "#A3C9B8" }); });
     return a;
   }
   function de(x) { return /^Le /.test(x) ? "du " + x.slice(3) : /^Les /.test(x) ? "des " + x.slice(4) : /^[aeiouyhâéèêîôûAEIOUYHÂÉÈÊÎÔÛ]/.test(x) ? "d’" + x : "de " + x; }
@@ -165,7 +165,7 @@
     couche.clearLayers(); marques = {};
     var pts = [];
     r.res.forEach(function (o) {
-      var m = L.circleMarker([o.g.la, o.g.lo], { radius: 7, color: "#0E3A31", weight: 2, fillColor: "#2F7A55", fillOpacity: .9 }).addTo(couche);
+      var m = L.circleMarker([o.g.la, o.g.lo], { radius: 7, color: "#E8F1EC", weight: 1.5, fillColor: "#A3C9B8", fillOpacity: .95 }).addTo(couche);
       m.bindTooltip(o.g.n);
       m.on("click", function () { var el = document.getElementById("g-" + o.g.i); if (el) { el.scrollIntoView({ behavior: "smooth", block: "nearest" }); el.classList.add("on"); setTimeout(function () { el.classList.remove("on"); }, 1600); } });
       marques[o.g.i] = m; pts.push([o.g.la, o.g.lo]);
@@ -199,17 +199,35 @@
     }, function () { moi.textContent = "◎ Près de moi"; count.textContent = "Position indisponible : indiquez une ville."; F.lieu.focus(); }, { timeout: 10000, maximumAge: 600000 });
   });
 
+  // Panneau d'accueil avant la première recherche : logo, chiffres clés, grandes villes
+  function accueil(D) {
+    var n18 = D.golfs.filter(function (g) { return g.t18; }).length, regs = {};
+    D.golfs.forEach(function (g) { regs[g.r] = 1; });
+    var p = document.createElement("div"); p.className = "gp-start";
+    p.innerHTML = '<div class="gp-start-h"><img src="/favicon-192.png" alt="Birdy Agent" width="74" height="74"><div><b>Où voulez-vous jouer ?</b><span>Touchez une ville, ou cherchez par lieu ci-dessus.</span></div></div>' +
+      '<div class="gp-stats"><div><b>' + n18 + '</b><small>parcours 18 trous</small></div><div><b>' + D.golfs.length + '</b><small>golfs en France</small></div><div><b>0 €</b><small>pour demander</small></div></div>';
+    var v = document.createElement("div"); v.className = "gp-villes";
+    ["Paris", "Lyon", "Bordeaux", "Marseille", "Nice", "Toulouse", "Nantes", "Lille", "Biarritz", "Annecy"].forEach(function (nom, k) {
+      var c = D.villes.find(function (x) { return x[0] === nom; }); if (!c) return;
+      var n = D.golfs.filter(function (g) { return g.t18 && km(c[1], c[2], g.la, g.lo) <= 30; }).length;
+      var b = document.createElement("button"); b.type = "button"; b.style.setProperty("--k", k);
+      b.innerHTML = "<span></span><small></small>"; b.firstChild.textContent = nom; b.lastChild.textContent = n + " parcours · 30 km";
+      b.addEventListener("click", function () { F.lieu.value = nom; F.rayon.value = "30"; lancer().then(function () { count.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+      v.appendChild(b);
+    });
+    p.appendChild(v); list.appendChild(p);
+  }
   // Carte de départ : tous les golfs de France
   function apercu(D) {
     carteInit(); if (!carte || dernier.length) return;
     couche.clearLayers(); marques = {};
     D.golfs.forEach(function (g) {
       if (!g.t18 || g.la < 41 || g.la > 51.6 || g.lo < -5.6 || g.lo > 10) return;
-      var m = L.circleMarker([g.la, g.lo], { radius: 4, color: "#0E3A31", weight: 1, fillColor: "#2F7A55", fillOpacity: .8 }).addTo(couche);
+      var m = L.circleMarker([g.la, g.lo], { radius: 4, color: "#0A1E17", weight: 1, fillColor: "#A3C9B8", fillOpacity: .9 }).addTo(couche);
       m.bindTooltip(g.n + " · " + g.v);
       m.on("click", function () { ouvrir(g); });
     });
-    carte.setView([46.6, 2.4], 5);
+    carte.fitBounds([[42.2, -4.9], [51.1, 8.3]], { padding: [8, 8] });
   }
 
   // Demande de départ
@@ -315,7 +333,8 @@
     var dl = document.getElementById("f-villes");
     D.villes.slice(0, 400).forEach(function (v) { var o = document.createElement("option"); o.value = v[0]; dl.appendChild(o); });
     if (c0.lieu) lancer(); else {
-      count.textContent = D.golfs.filter(function (g) { return g.t18; }).length + " parcours 18 trous en France : choisissez une ville, une région, ou touchez un point de la carte.";
+      accueil(D);
+      count.textContent = "Tous les parcours 18 trous de France sont sur la carte.";
       if (window.L) apercu(D); else addEventListener("load", function () { apercu(D); });
     }
     var id = P.get("golf");
