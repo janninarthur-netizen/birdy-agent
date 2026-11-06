@@ -121,8 +121,8 @@
   }
   function carteInit() {
     if (carte || !window.L) return;
-    carte = L.map("gp-map", { scrollWheelZoom: false }).setView([46.6, 2.4], 5);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", { maxZoom: 19, subdomains: "abcd", attribution: "© OpenStreetMap · © CARTO" }).addTo(carte);
+    carte = L.map("gp-map", { scrollWheelZoom: false, zoomSnap: 0.25 }).setView([46.6, 2.4], 5);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, className: "gp-tuiles", attribution: "© OpenStreetMap" }).addTo(carte);
     couche = L.layerGroup().addTo(carte);
   }
   // Grille de résultats : 12 cartes, puis « Voir plus »
