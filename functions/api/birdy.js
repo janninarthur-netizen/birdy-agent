@@ -8,6 +8,14 @@
 // Sans aucun des deux, ou si le quota gratuit du jour est épuisé, le site garde l'agent simple.
 import { SYSTEM } from "../../lib/birdy-ctx.js";
 
+// Date du jour (heure de Paris), pour que Birdy comprenne « samedi », « ce week-end »…
+function aujourdhui() {
+  const d = new Date();
+  const long = d.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  const iso = d.toLocaleDateString("sv-SE", { timeZone: "Europe/Paris" });
+  return "\n\n# Date du jour\nNous sommes le " + long + " (" + iso + ").";
+}
+
 const MAX_MSG = 16, MAX_LEN = 1200, MAX_TOTAL = 9000;
 
 function json(obj, status) {
@@ -74,6 +82,8 @@ function sortie(w) {
         const l = c[1].split("|").map((x) => x.replace(/<[^>]*>/g, "").trim()).filter(Boolean).slice(0, 4).map((x) => x.slice(0, 40));
         if (l.length) await w.write(sse({ choix: l }));
       }
+      const g = tout.match(/<golf>([\s\S]*?)(?:<\/golf>|$)/);
+      if (g) { try { const o = JSON.parse(g[1].trim()); if (o && typeof o === "object") await w.write(sse({ golf: o })); } catch {} }
       const f = tout.match(/<fiche>([\s\S]*?)(?:<\/fiche>|$)/);
       if (f) {
         const brut = f[1].trim().replace(/^```(?:json)?|```$/g, "");
@@ -113,8 +123,8 @@ async function cloudflareIA(env, messages) {
   for (const m of modeles) {
     try {
       const r = m.startsWith("@cf/openai/")
-        ? await env.AI.run(m, { instructions: SYSTEM, input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
-        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 900, temperature: 0.3 });
+        ? await env.AI.run(m, { instructions: SYSTEM + aujourdhui(), input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
+        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM + aujourdhui() }, ...messages], max_tokens: 900, temperature: 0.3 });
       texte = texteDe(r).trim();
       if (texte) break;
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
@@ -149,7 +159,7 @@ export async function onRequestPost({ request, env }) {
     max_tokens: 2000,
     stream: true,
     output_config: { effort: "low" },
-    system: [{ type: "text", text: SYSTEM, cache_control: { type: "ephemeral" } }],
+    system: [{ type: "text", text: SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: aujourdhui() }],
     messages,
   };
   const headers = {

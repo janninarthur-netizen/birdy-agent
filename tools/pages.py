@@ -83,7 +83,7 @@ def head(title, desc, path, image, extra=""):
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="/"><img src="/logo.webp" alt="Birdy Agent" width="48" height="48"><span>BIRDY AGENT</span></a>
-  <nav><a href="/golf/">Destinations</a><a href="/guides/">Idées de séjours</a><a class="btn gold sm" href="/#organiser">Organiser mon séjour</a></nav>
+  <nav><a href="/golf/">Voyages golf</a><a href="/parcours/">Réserver un parcours</a><a href="/guides/">Idées de séjours</a><a class="btn gold sm" href="/#organiser">Organiser mon séjour</a></nav>
 </div></header>
 """
 
@@ -93,7 +93,7 @@ def foot():
     return f"""<a class="wa" href="{wa}" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>
-  <div class="links"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/mentions-legales.html">Mentions légales</a></div>
+  <div class="links"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/guides/">Idées de séjours</a><a href="/mentions-legales.html">Mentions légales</a></div>
   <div class="tel">{TEL}</div>
 </div></footer>
 </body>

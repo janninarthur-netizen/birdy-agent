@@ -432,7 +432,7 @@
       var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
       h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, txt, u) {
-        return /^\/(golf|guides)\/[\w\/-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
+        return /^\/(golf|guides|parcours)\/[\w\/-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
       });
       return h.replace(/^[-•] /gm, "• ").replace(/\n/g, "<br>");
     }
@@ -446,10 +446,35 @@
       var r = analyse(histo.filter(function (x) { return x.role === "user"; }).map(function (x) { return x.content; }).join(" "));
       suite(r, vus.map(function (i) { return { i: i }; }), true);
     }
+    /* Pôle Birdy Golf : vrais parcours de l'annuaire officiel, sous la réponse de Birdy */
+    function golfs(c) {
+      BirdyGolf.chercher(c).then(function (r) {
+        var w = document.createElement("div"); w.className = "gchat";
+        if (!r.zone) { bulle("msg-b", "Je n’ai pas trouvé ce lieu. Pouvez-vous préciser la ville ou le département ?"); return; }
+        if (!r.res.length) {
+          var v = document.createElement("a"); v.className = "gci"; v.href = BirdyGolf.url(Object.assign({}, c, { rayon: 100 }));
+          v.innerHTML = "<b></b><small>Élargir la recherche sur la carte</small>"; v.firstChild.textContent = "Aucun parcours à moins de " + r.rayon + " km de " + r.zone.label;
+          w.appendChild(v);
+        }
+        r.res.slice(0, 4).forEach(function (o) {
+          var a = document.createElement("a"); a.className = "gci"; a.href = BirdyGolf.url(Object.assign({}, c, { golf: o.g.i }));
+          var i = document.createElement("i"); i.textContent = "Demander un départ";
+          var b = document.createElement("b"); b.textContent = o.g.n;
+          var sm = document.createElement("small"); sm.textContent = o.g.v + " (" + o.g.d + ") · " + BirdyGolf.trousTxt(o.g).join(", ") + (o.dist != null ? " · " + Math.round(o.dist) + " km" : "");
+          a.appendChild(i); a.appendChild(b); a.appendChild(sm); w.appendChild(a);
+        });
+        if (r.res.length) {
+          var tout = document.createElement("a"); tout.className = "btn glass sm"; tout.href = BirdyGolf.url(c);
+          tout.textContent = r.res.length > 4 ? "Voir les " + r.res.length + " parcours sur la carte" : "Voir sur la carte";
+          w.appendChild(tout);
+        }
+        bulle("msg-b pj-wrap", w);
+      }).catch(function () {});
+    }
     function demandeIA(txt) {
       occupe = true;
       var b = bulle("msg-b", ""); b.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
-      var rep = "", err = null, choix = null, fiche = null;
+      var rep = "", err = null, choix = null, fiche = null, golfC = null;
       fetch("/api/birdy", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: histo }) })
         .then(function (res) {
           if (!res.ok || !res.body) throw new Error(String(res.status));
@@ -468,6 +493,7 @@
                 if (o.erreur) err = o.erreur;
                 if (o.choix) choix = o.choix;
                 if (o.fiche) fiche = o.fiche;
+                if (o.golf) golfC = o.golf;
                 if (rep) { b.innerHTML = md(rep) + '<span class="caret"></span>'; log.scrollTop = log.scrollHeight; }
               }
               return lit();
@@ -478,7 +504,9 @@
         .then(function () {
           if (err || !rep.trim()) throw new Error(err || "vide");
           rep = rep.trim(); b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false;
-          apres(rep); majProjet(fiche); carteProjet(); choixRapides(choix);
+          if (golfC && window.BirdyGolf) golfs(golfC);
+          else { apres(rep); majProjet(fiche); carteProjet(); }
+          choixRapides(choix);
           if (!choix) sugg.textContent = "";
         })
         .catch(function (e) {
@@ -504,7 +532,7 @@
     form.addEventListener("submit", function (e) { e.preventDefault(); envoie(inp.value); inp.value = ""; });
     sugg.addEventListener("click", function (e) { var b = e.target.closest && e.target.closest("button"); if (b) envoie(b.textContent); });
     setTimeout(function () {
-      tape(function () { dit("Bonjour, je suis Birdy, votre concierge golf. Racontez-moi votre projet (combien vous êtes, quand, vos envies) ou posez-moi n’importe quelle question sur le golf."); });
+      tape(function () { dit("Bonjour, je suis Birdy, votre concierge golf. Un voyage golf entre amis, un 18 trous près de chez vous ce week-end, ou une simple question : dites-moi tout."); });
     }, calme ? 0 : 900);
   })();
 

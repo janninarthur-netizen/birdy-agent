@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
+Allow: /data/golfs.json
+Allow: /data/villes.json
 Disallow: /data/
 Disallow: /functions/
 Disallow: /api/
