@@ -142,7 +142,7 @@ def fiche(g, dist=None):
     badges = "".join(f'<span class="gb">{e(t)}</span>' for t in trous(g))
     lien = (f'<a class="btn ghost sm" href="{e(g["u"])}" target="_blank" rel="noopener nofollow">Site du golf</a>' if g["u"] else "")
     loin = f'<span class="gd">{dist:.0f} km</span>' if dist is not None else ""
-    return (f'<article class="gc"><div class="gc-h"><h3>{e(g["n"])}</h3>{loin}</div>'
+    return (f'<article class="gc"><div class="gc-h"><h3><a href="/parcours/golf/{g["s"]}.html">{e(g["n"])}</a></h3>{loin}</div>'
             f'<p class="gc-v">{e(g["v"])} ({e(g["d"])}) · {e(g["dn"])}</p><div class="gc-b">{badges}'
             f'{"<span class=gg>" + e(g["g"]) + "</span>" if g["g"] else ""}</div>'
             f'<div class="gc-cta"><a class="btn gold sm" href="/parcours/?golf={g["i"]}">Demander un départ</a>{lien}</div></article>')
@@ -161,6 +161,8 @@ def page_app(golfs, maj):
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": SITE + "parcours/"}]})
     villes = "".join(f'<a href="/parcours/{pages.slug(v)}.html">Golf autour de {e(v)}</a>' for v, _ in VILLES_SEO)
+    regs = sorted({g["r"] for g in golfs}, key=lambda r: (-sum(1 for g in golfs if g["r"] == r), r))
+    regions = "".join(f'<a href="/parcours/region/{pages.slug(r)}.html">{e(r)}<small>{sum(1 for g in golfs if g["r"] == r)} golfs</small></a>' for r in regs)
     out = pages.head(title, desc, "parcours/", SITE + "og.jpg", extra)
     out += f"""<main class="gp">
 <section class="hero short gp-hero"><div class="veil"></div><div class="in">
@@ -195,7 +197,8 @@ def page_app(golfs, maj):
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>
 </div></section>
 
-<section class="band tint"><div class="in"><h2>Golfs autour des grandes villes</h2><div class="others plain">{villes}</div></div></section>
+<section class="band tint"><div class="in"><h2>Golfs autour des grandes villes</h2><div class="others plain">{villes}</div>
+<h2 class="mt">Golfs par région</h2><div class="others">{regions}</div></div></section>
 </main>
 
 <dialog class="gp-dlg" id="gp-dlg">
@@ -287,6 +290,124 @@ def page_ville(nom, rayon, golfs, villes, maj):
     return path, out + pages.foot()
 
 
+def ariane(liens):
+    """liens : [(nom, chemin)] ; le dernier n'a pas de lien."""
+    html_ = " › ".join(f'<a href="/{c}">{e(n)}</a>' for n, c in liens[:-1]) + f" › <span>{e(liens[-1][0])}</span>"
+    ld = pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + c} for i, (n, c) in enumerate(liens)]})
+    return html_, ld
+
+
+def chemin_dep(g):
+    return f"parcours/departement/{pages.slug(g['dn'])}.html"
+
+
+def chemin_reg(r):
+    return f"parcours/region/{pages.slug(r)}.html"
+
+
+def page_golf(g, golfs, villes, maj):
+    path = f"parcours/golf/{g['s']}.html"
+    tr = trous(g)
+    trtxt = " et ".join(tr) if tr else "parcours"
+    proches = sorted(((km(g["la"], g["lo"], x["la"], x["lo"]), x) for x in golfs if x is not g), key=lambda t: t[0])[:6]
+    grandes = [v for v in villes if v[4] >= 40000 and v[0] != g["v"]]
+    vd, vv = min(((km(g["la"], g["lo"], v[1], v[2]), v) for v in grandes), key=lambda t: t[0])
+    situ = f"à {max(vd, 1):.0f} km de {vv[0]}"
+    title = f"{g['n']} ({g['v']}) : {trtxt}, réserver un départ | Birdy Agent"
+    desc = (f"{g['n']}, golf {('de ' + trtxt) if tr else ''} à {g['v']} ({g['d']}), {situ}. Adresse, itinéraire, golfs à proximité. "
+            "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.").replace("  ", " ")
+    fil, ld_fil = ariane([("Accueil", ""), ("Réserver un parcours", "parcours/"), (g["r"], chemin_reg(g["r"])),
+                          (f"{g['dn']} ({g['d']})", chemin_dep(g)), (g["n"], path)])
+    faq = [(f"Comment réserver un départ au {g['n']} ?",
+            "Indiquez la date, le créneau et le nombre de joueurs dans votre demande de départ. Un conseiller Birdy Agent réserve "
+            f"auprès du golf et vous rappelle pour confirmer l’horaire. Vous pouvez aussi appeler le {TEL}."),
+           (f"Combien coûte un green fee au {g['n']} ?",
+            "Le tarif dépend du jour, de l’heure et de la saison. Indiquez votre budget dans la demande : le conseiller vous confirme "
+            "le prix exact avant toute réservation."),
+           (f"Combien de trous compte le {g['n']} ?",
+            f"D’après le recensement officiel des équipements sportifs, le {g['n']} propose : {trtxt}.")]
+    gc = {"@context": "https://schema.org", "@type": "GolfCourse", "name": g["n"], "url": SITE + path,
+          "address": {"@type": "PostalAddress", "streetAddress": g["a"], "postalCode": g["cp"], "addressLocality": g["v"],
+                      "addressRegion": g["r"], "addressCountry": "FR"},
+          "geo": {"@type": "GeoCoordinates", "latitude": g["la"], "longitude": g["lo"]}}
+    if g["u"]:
+        gc["sameAs"] = g["u"]
+    extra = EXTRA_CSS + ld_fil + pages.ld(gc) + pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in faq]})
+    itin = f"https://www.google.com/maps/dir/?api=1&destination={g['la']},{g['lo']}"
+    infos = [("Adresse", ", ".join(x for x in [g["a"], f"{g['cp']} {g['v']}".strip()] if x)), ("Parcours", trtxt),
+             ("Type", g["g"] or "Golf"), ("Situation", f"{g['v']}, {situ}, {g['dn']} ({g['d']}), {g['r']}")]
+    lignes = "".join(f"<dt>{e(a)}</dt><dd>{e(b)}</dd>" for a, b in infos if b)
+    site = f'<a class="btn ghost sm" href="{e(g["u"])}" target="_blank" rel="noopener nofollow">Site du golf</a>' if g["u"] else ""
+    voisins = "".join(fiche(x, d) for d, x in proches)
+    out = pages.head(title, desc, path, SITE + "og.jpg", extra)
+    out += f"""<main class="gp">
+<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+  <nav class="crumbs" aria-label="Fil d’Ariane">{fil}</nav>
+  <p class="tag">Golf · {e(g['v'])} ({e(g['d'])})</p>
+  <h1>{e(g['n'])}</h1>
+  <p class="lead">{e(trtxt[0].upper() + trtxt[1:])} à {e(g['v'])}, {e(situ)}. Envoyez votre demande de départ : un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.</p>
+  <div class="cta"><a class="btn gold" href="/parcours/?golf={g['i']}">Demander un départ</a></div>
+</div></section>
+<section class="band"><div class="in grid">
+  <div class="txt">
+    <h2>Informations pratiques</h2>
+    <dl class="gi">{lignes}</dl>
+    <div class="gc-cta"><a class="btn ghost sm" href="{itin}" target="_blank" rel="noopener nofollow">Itinéraire</a>{site}</div>
+    <p class="gp-src">Source : {e(SOURCE_TXT)}, mise à jour le {maj}. Une information est fausse ? Appelez le {TEL}.</p>
+  </div>
+  <aside class="box">
+    <h2>Jouer ici</h2>
+    <p>Demande de départ gratuite et sans engagement. Rien n’est réservé avant la confirmation du conseiller.</p>
+    <a class="btn gold" href="/parcours/?golf={g['i']}">Demander un départ</a>
+    <p class="call">Ou appelez-nous<br><b>{TEL}</b></p>
+  </aside>
+</div></section>
+<section class="band tint"><div class="in">
+  <h2>Questions fréquentes</h2>
+  <div class="faq">{"".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in faq)}</div>
+</div></section>
+<section class="band"><div class="in">
+  <h2>Golfs à proximité</h2>
+  <div class="gp-list static">{voisins}</div>
+  <p class="more"><a href="/{chemin_dep(g)}">Tous les golfs : {e(g['dn'])} ({e(g['d'])})</a></p>
+</div></section>
+</main>
+"""
+    return path, out + pages.foot()
+
+
+def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
+    n18 = sum(1 for g in liste if g["t18"])
+    title = f"Golf {titre_zone} : {len(liste)} golfs, {n18} parcours 18 trous | Birdy Agent"
+    desc = (f"Les {len(liste)} golfs {intro_lieu}, dont {n18} avec un parcours 18 trous : adresse, nombre de trous, site web. "
+            "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.")
+    fil, ld_fil = ariane(fil_liens)
+    liste = sorted(liste, key=lambda g: (-min(g["t18"], 1), g["n"]))
+    extra = EXTRA_CSS + ld_fil + pages.ld({"@context": "https://schema.org", "@type": "ItemList", "name": f"Golfs {intro_lieu}",
+        "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE + f"parcours/golf/{g['s']}.html", "name": g["n"]}
+                            for i, g in enumerate(liste)]})
+    sous_html = f'<h2>Par département</h2><div class="others">{sous}</div>' if sous else ""
+    out = pages.head(title, desc, path, SITE + "og.jpg", extra)
+    out += f"""<main class="gp">
+<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+  <nav class="crumbs" aria-label="Fil d’Ariane">{fil}</nav>
+  <p class="tag">Birdy Golf</p>
+  <h1>Golf · {e(titre_zone)}</h1>
+  <p class="lead">{len(liste)} golfs {e(intro_lieu)}, dont {n18} avec un parcours 18 trous. Choisissez votre parcours : un conseiller réserve votre départ.</p>
+</div></section>
+<section class="band"><div class="in">
+  {sous_html}
+  <h2 class="mt">Tous les golfs</h2>
+  <div class="gp-list static">{"".join(fiche(g) for g in liste)}</div>
+  <p class="gp-src">Source : {e(SOURCE_TXT)}, mise à jour le {maj}.</p>
+</div></section>
+</main>
+"""
+    return path, out + pages.foot()
+
+
 if __name__ == "__main__":
     if "--maj" in sys.argv:
         maj_source()
@@ -298,4 +419,25 @@ if __name__ == "__main__":
     for nom, rayon in VILLES_SEO:
         p, h = page_ville(nom, rayon, golfs, villes, maj)
         open(p, "w", encoding="utf8").write(h)
+    for d in ("parcours/golf", "parcours/departement", "parcours/region"):
+        os.makedirs(d, exist_ok=True)
+    for g in golfs:
+        p, h = page_golf(g, golfs, villes, maj)
+        open(p, "w", encoding="utf8").write(h)
+    deps = {}
+    for g in golfs:
+        deps.setdefault(g["d"], []).append(g)
+    for code, liste in deps.items():
+        g0 = liste[0]
+        p, h = page_zone(f"{g0['dn']} ({code})", chemin_dep(g0), liste,
+                         [("Accueil", ""), ("Réserver un parcours", "parcours/"), (g0["r"], chemin_reg(g0["r"])), (f"{g0['dn']} ({code})", chemin_dep(g0))],
+                         "", maj, f"du département {g0['dn']} ({code})")
+        open(p, "w", encoding="utf8").write(h)
+    for r in sorted({g["r"] for g in golfs}):
+        liste = [g for g in golfs if g["r"] == r]
+        ds = sorted({(g["dn"], g["d"]) for g in liste})
+        sous = "".join(f'<a href="/{chemin_dep({"dn": dn})}">{e(dn)} ({e(c)})<small>{len(deps[c])} golfs</small></a>' for dn, c in ds) if len(ds) > 1 else ""
+        p, h = page_zone(r, chemin_reg(r), liste, [("Accueil", ""), ("Réserver un parcours", "parcours/"), (r, chemin_reg(r))], sous, maj, f"de la région {r}")
+        open(p, "w", encoding="utf8").write(h)
+    print(len(golfs), "pages golf ;", len(deps), "départements ;")
     print(len(golfs), "golfs ;", sum(1 for g in golfs if g["t18"]), "avec un 18 trous ;", len(VILLES_SEO), "pages ville")

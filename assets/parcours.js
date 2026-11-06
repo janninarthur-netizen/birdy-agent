@@ -125,7 +125,7 @@
   function fiche(o) {
     var g = o.g, a = document.createElement("article"); a.className = "gc"; a.id = "g-" + g.i;
     var h = document.createElement("div"); h.className = "gc-h";
-    var t = document.createElement("h3"); t.textContent = g.n; h.appendChild(t);
+    var t = document.createElement("h3"), tl = document.createElement("a"); tl.href = "/parcours/golf/" + g.s; tl.textContent = g.n; t.appendChild(tl); h.appendChild(t);
     if (o.dist != null) { var d = document.createElement("span"); d.className = "gd"; d.textContent = Math.round(o.dist) + " km"; h.appendChild(d); }
     var v = document.createElement("p"); v.className = "gc-v"; v.textContent = g.v + " (" + g.d + ") · " + g.dn;
     var b = document.createElement("div"); b.className = "gc-b";

@@ -411,7 +411,8 @@ if __name__ == "__main__":
     # Sitemap complet : accueil, guides, destinations, mentions légales
     golf = sorted(f"golf/{f}" for f in os.listdir("golf") if f.endswith(".html") and f != "index.html")
     pays = sorted(f"golf/pays/{f}" for f in os.listdir("golf/pays") if f.endswith(".html"))
-    parc = sorted(f"parcours/{f}" for f in os.listdir("parcours") if f.endswith(".html") and f != "index.html") if os.path.isdir("parcours") else []
+    import glob as _glob
+    parc = sorted(f for f in _glob.glob("parcours/**/*.html", recursive=True) if f != "parcours/index.html")
     allp = ["", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
