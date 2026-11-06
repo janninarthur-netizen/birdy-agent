@@ -72,7 +72,11 @@ def head(title, desc, path, image, extra=""):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{image if image.startswith('http') else SITE.rstrip('/') + image}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/logo.webp">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/golf/style.css">
 {extra}</head>
