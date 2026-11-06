@@ -187,7 +187,7 @@ def page_app(golfs, maj):
                      ("Bretagne", "Bretagne"), ("Pays basque", "Pays basque"), ("Sud de la France", "sud de la France")])
     out = pages.head(title, desc, "parcours/", SITE + "og.jpg", extra)
     out += f"""<main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><canvas class="gp-3d" id="gp-3d" aria-hidden="true"></canvas><div class="in gp-hin">
+<section class="hero short gp-hero"><img class="gp-bg" src="/assets/img/green-coucher-soleil.webp" alt="" fetchpriority="high"><div class="veil"></div><div class="in gp-hin"><div class="gp-txt">
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Réserver un parcours</span></nav>
   <p class="tag">Birdy Golf · Nouveau</p>
   <h1>Réservez votre départ sur un parcours en France</h1>
@@ -199,6 +199,9 @@ def page_app(golfs, maj):
   </form>
   <div class="gp-say" id="gp-say" hidden></div>
   <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Autour de moi</button>{chips}</div>
+</div>
+  <div class="gp-viz" aria-hidden="true"><canvas class="gp-3d" id="gp-3d"></canvas><div class="gp-tip" id="gp-tip" hidden></div>
+    <p class="gp-cap"><span class="gp-dot"></span>{len(golfs)} golfs · survolez la France, touchez un parcours</p></div>
 </div></section>
 
 <section class="gp-steps" aria-label="Comment ça marche"><div class="in">
@@ -207,7 +210,7 @@ def page_app(golfs, maj):
   <div class="gp-step"><i>3</i><b>Un conseiller confirme</b><span>Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.</span></div>
 </div></section>
 
-<section class="band gp-band"><div class="in">
+<section class="band gp-band"><img class="gp-bg2" src="/assets/img/golfeur-bunker.webp" alt="" loading="lazy"><div class="in">
   <form class="gp-f" id="gp-f" autocomplete="off">
     <label>Où ?<input name="lieu" id="f-lieu" placeholder="Ville, département ou région" list="f-villes"></label>
     <datalist id="f-villes"></datalist>
@@ -220,7 +223,8 @@ def page_app(golfs, maj):
   </form>
   <p class="gp-info">Les tarifs et créneaux en temps réel arrivent bientôt. Aujourd’hui, vous envoyez une <b>demande de départ</b> gratuite : un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.</p>
   <div class="gp-res">
-    <div><p class="gp-count" id="gp-count" aria-live="polite">Indiquez un lieu pour voir les parcours.</p><div class="gp-list" id="gp-list"></div></div>
+    <div><p class="gp-count" id="gp-count" aria-live="polite">Indiquez un lieu pour voir les parcours.</p><div class="gp-list gp-grid" id="gp-list"></div>
+      <button class="btn ghost gp-plus" id="gp-plus" type="button" hidden>Voir plus de parcours</button></div>
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
   </div>
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>

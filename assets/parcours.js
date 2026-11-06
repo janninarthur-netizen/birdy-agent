@@ -46,6 +46,7 @@
       var regs = {}, deps = {};
       D.golfs.forEach(function (x) { regs[norm(x.r)] = x.r; deps[norm(x.dn)] = [x.d, x.dn]; });
       if (regs[t]) return { label: regs[t], r: [regs[t]] };
+      for (k = 0; k < D.villes.length; k++) if (sansArt(D.villes[k][0]) === t && D.villes[k][4] > 100000) return { label: D.villes[k][0], lat: D.villes[k][1], lon: D.villes[k][2] };
       if (deps[t]) return { label: deps[t][1] + " (" + deps[t][0] + ")", d: [deps[t][0]] };
       for (k = 0; k < D.villes.length; k++) if (sansArt(D.villes[k][0]) === t) return { label: D.villes[k][0], lat: D.villes[k][1], lon: D.villes[k][2] };
       g = D.golfs.find(function (x) { return sansArt(x.v) === t; });
@@ -124,6 +125,14 @@
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(carte);
     couche = L.layerGroup().addTo(carte);
   }
+  // Grille de résultats : 12 cartes, puis « Voir plus »
+  var montres = 0, bPlus = document.getElementById("gp-plus");
+  function plus(n) {
+    dernier.slice(montres, montres + n).forEach(function (o, k) { var f = fiche(o); f.style.setProperty("--k", k); list.appendChild(f); });
+    montres = Math.min(dernier.length, montres + n);
+    if (bPlus) { bPlus.hidden = montres >= dernier.length; bPlus.textContent = "Voir plus de parcours (" + (dernier.length - montres) + ")"; }
+  }
+  if (bPlus) bPlus.addEventListener("click", function () { plus(12); });
   function fiche(o) {
     var g = o.g, a = document.createElement("article"); a.className = "gc"; a.id = "g-" + g.i;
     var h = document.createElement("div"); h.className = "gc-h";
@@ -149,8 +158,8 @@
     if (!r.zone) { count.textContent = c.lieu ? "Lieu introuvable : essayez une ville, un département ou une région." : "Indiquez un lieu pour voir les parcours."; return; }
     var n = r.res.length, quoi = r.trous === 18 ? "parcours 18 trous" : r.trous === 9 ? "parcours 9 trous" : "golfs";
     count.textContent = n ? n + " " + (n === 1 && quoi === "golfs" ? "golf" : quoi) + (r.zone.lat != null ? " à moins de " + r.rayon + " km " + de(r.zone.label) : " · " + r.zone.label)
-      : "Aucun " + quoi.replace(/s$/, "") + (r.zone.lat != null ? " à moins de " + r.rayon + " km " + de(r.zone.label) + " : élargissez le rayon." : " ici.");
-    r.res.slice(0, 80).forEach(function (o) { list.appendChild(fiche(o)); });
+      : "Aucun " + quoi.replace(/^golfs$/, "golf") + (r.zone.lat != null ? " à moins de " + r.rayon + " km " + de(r.zone.label) + " : élargissez le rayon." : " ici.");
+    montres = 0; plus(12);
     carteInit();
     if (!carte) return;
     couche.clearLayers(); marques = {};
@@ -282,7 +291,27 @@
   ["lieu", "rayon", "trous", "date", "creneau", "joueurs", "budget"].forEach(function (k) { if (P.get(k)) c0[k] = P.get(k); });
   remplir(c0);
   addEventListener("load", carteInit);
+  // Clic sur un golf de la France en 3D : demande de départ
+  function brancher3D(D) {
+    if (window.BirdyGolf3D) window.BirdyGolf3D.onPick = function (id) { var g = D.golfs.find(function (x) { return x.i === id; }); if (g) ouvrir(g); };
+    else setTimeout(function () { brancher3D(D); }, 400);
+  }
+  // Apparition des sections au défilement, inclinaison 3D des étapes
+  if (window.IntersectionObserver && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add("vu"); io.unobserve(x.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    Array.prototype.forEach.call(document.querySelectorAll(".gp-steps .gp-step, .gp-f, .gp-info, main.gp > .band:not(.gp-band) .in > *"), function (el, k) {
+      el.classList.add("rv"); el.style.transitionDelay = (k % 3) * 90 + "ms"; io.observe(el);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".gp-step"), function (el) {
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = "perspective(700px) rotateY(" + (x * 10) + "deg) rotateX(" + (-y * 10) + "deg) translateY(-3px)";
+    });
+    el.addEventListener("pointerleave", function () { el.style.transform = ""; });
+  });
   charger().then(function (D) {
+    brancher3D(D);
     var dl = document.getElementById("f-villes");
     D.villes.slice(0, 400).forEach(function (v) { var o = document.createElement("option"); o.value = v[0]; dl.appendChild(o); });
     if (c0.lieu) lancer(); else {

@@ -1,6 +1,9 @@
-/* Birdy Golf : la France en 3D. Les villes dessinent la carte, les 621 golfs brillent,
-   des ondes partent des parcours, et les golfs trouvés par la recherche s'illuminent.
-   Three.js r128 (cdnjs). Désactivé si WebGL est absent ; calme si l'utilisateur réduit les animations. */
+/* Birdy Golf : la France en 3D.
+   - la carte pointillée de France apparaît en s'élevant, puis tourne doucement (glisser pour la faire pivoter) ;
+   - les 621 golfs brillent et des ondes partent des parcours ;
+   - survol : nom du golf ; clic : demande de départ ;
+   - recherche : la caméra zoome sur la zone et des faisceaux de lumière sortent des golfs trouvés.
+   Three.js r128 (cdnjs). Rien ne s'affiche sans WebGL ; animations réduites si l'utilisateur le demande. */
 (function () {
   "use strict";
   var cv = document.getElementById("gp-3d");
@@ -9,25 +12,26 @@
   var renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); } catch (e) { return; }
   renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
-  var scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-  cam.position.set(0, -6.5, 13); cam.lookAt(0, 0.2, 0);
-  var groupe = new THREE.Group(); scene.add(groupe);
-  var K = 0.7, cosL = Math.cos(46.6 * Math.PI / 180);
+  var scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  var pivot = new THREE.Group(), carte = new THREE.Group(); pivot.add(carte); scene.add(pivot);
+  var K = 0.72, cosL = Math.cos(46.6 * Math.PI / 180);
   function xy(la, lo) { return [(lo - 2.45) * cosL * K, (la - 46.6) * K]; }
   function metro(la, lo) { return la > 41 && la < 51.6 && lo > -5.6 && lo < 10; }
+  var tip = document.getElementById("gp-tip");
 
   var vert = [
-    "attribute float taille; attribute float phase; attribute float hi; uniform float t; uniform float px;",
+    "attribute float taille; attribute float phase; attribute float hi; uniform float t; uniform float px; uniform float lev; uniform float zoom;",
     "varying float vA; varying float vHi;",
-    "void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0);",
-    " float s = taille * (1.0 + 0.25*sin(t*1.6 + phase)) * (1.0 + hi*0.9);",
-    " gl_PointSize = s * px * (12.0 / -mv.z); vA = 0.55 + 0.45*sin(t*1.3 + phase); vHi = hi; gl_Position = projectionMatrix * mv; }"
+    "void main(){ vec3 p = position; p.z += (1.0 - lev) * (-2.0 + phase * 0.25);",
+    " vec4 mv = modelViewMatrix * vec4(p,1.0);",
+    " float s = taille * (1.0 + 0.25*sin(t*1.6 + phase)) * (1.0 + hi*1.1) * zoom;",
+    " gl_PointSize = s * px * (13.0 / -mv.z); vA = 0.55 + 0.45*sin(t*1.3 + phase); vHi = hi; gl_Position = projectionMatrix * mv; }"
   ].join("\n");
   var frag = [
-    "uniform vec3 c1; uniform vec3 c2; uniform float base; uniform float sel; varying float vA; varying float vHi;",
+    "uniform vec3 c1; uniform vec3 c2; uniform float base; uniform float sel; uniform float lev; varying float vA; varying float vHi;",
     "void main(){ vec2 d = gl_PointCoord - 0.5; float r = length(d); if (r > 0.5) discard;",
     " float a = smoothstep(0.5, 0.0, r); vec3 c = mix(c1, c2, vHi);",
-    " gl_FragColor = vec4(c, a * (base + (1.0-base)*vA) * mix(1.0 - sel*0.7, 1.0, vHi)); }"
+    " gl_FragColor = vec4(c, lev * a * (base + (1.0-base)*vA) * mix(1.0 - sel*0.72, 1.0, vHi)); }"
   ].join("\n");
   function nuage(pts, opt) {
     var g = new THREE.BufferGeometry(), n = pts.length, pos = new Float32Array(n * 3), ta = new Float32Array(n), ph = new Float32Array(n), hi = new Float32Array(n);
@@ -35,60 +39,128 @@
     g.setAttribute("position", new THREE.BufferAttribute(pos, 3)); g.setAttribute("taille", new THREE.BufferAttribute(ta, 1));
     g.setAttribute("phase", new THREE.BufferAttribute(ph, 1)); g.setAttribute("hi", new THREE.BufferAttribute(hi, 1));
     var m = new THREE.ShaderMaterial({ vertexShader: vert, fragmentShader: frag, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      uniforms: { t: { value: 0 }, px: { value: renderer.getPixelRatio() }, c1: { value: new THREE.Color(opt.c1) }, c2: { value: new THREE.Color(opt.c2 || "#FFFFFF") }, base: { value: opt.base }, sel: { value: 0 } } });
-    var o = new THREE.Points(g, m); groupe.add(o); return o;
+      uniforms: { t: { value: 0 }, zoom: { value: 1 }, px: { value: renderer.getPixelRatio() }, lev: { value: calme ? 1 : 0 }, sel: { value: 0 },
+        c1: { value: new THREE.Color(opt.c1) }, c2: { value: new THREE.Color(opt.c2 || "#FFFFFF") }, base: { value: opt.base } } });
+    var o = new THREE.Points(g, m); carte.add(o); return o;
   }
-  // Socle : léger halo sous la carte
 
-  var villes, golfs, ids = [], ondes = [], visible = true, mx = 0, my = 0;
+  var fond, golfs, liste = [], ondes = [], faisceaux = new THREE.Group(), visible = true, mx = 0, my = 0, survol = -1;
+  carte.add(faisceaux);
+  var vise = { x: 0, y: 0, s: 1 }, actuel = { x: 0, y: 0, s: 1 }, glisse = 0, tourne = 0, depart = null;
+
   Promise.all([BirdyGolf.charger(), fetch("/data/france-points.json").then(function (r) { return r.json(); })]).then(function (x) {
-    var D = x[0];
-    villes = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), { taille: 2.1, c1: "#5C9C82", base: 0.85 });
-    var gs = D.golfs.filter(function (g) { return metro(g.la, g.lo); });
-    ids = gs.map(function (g) { return g.i; });
-    golfs = nuage(gs.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), { taille: 4.6, c1: "#BFE0D1", c2: "#FFFFFF", base: 0.45 });
-    taille(); cv.classList.add("on"); if (calme) dessine(0);
+    fond = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), { taille: 2.2, c1: "#5C9C82", base: 0.85 });
+    liste = x[0].golfs.filter(function (g) { return metro(g.la, g.lo); });
+    golfs = nuage(liste.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), { taille: 4.8, c1: "#BFE0D1", c2: "#FFFFFF", base: 0.45 });
+    taille(); cv.classList.add("on"); depart = performance.now();
   }).catch(function () {});
 
-  // Ondes : un anneau s'élargit autour d'un golf au hasard (ou d'un golf trouvé)
+  // Ondes : un anneau s'élargit autour d'un golf (au hasard, ou parmi les golfs trouvés)
   var anneau = new THREE.RingGeometry(0.05, 0.058, 48), choisis = [];
   function onde() {
-    if (!golfs) return;
-    var pos = golfs.geometry.attributes.position.array, i = choisis.length ? choisis[Math.floor(Math.random() * choisis.length)] : Math.floor(Math.random() * ids.length);
+    if (!golfs || !liste.length) return;
+    var pos = golfs.geometry.attributes.position.array, i = choisis.length ? choisis[Math.floor(Math.random() * choisis.length)] : Math.floor(Math.random() * liste.length);
     var m = new THREE.Mesh(anneau, new THREE.MeshBasicMaterial({ color: 0xA3C9B8, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending }));
-    m.position.set(pos[i * 3], pos[i * 3 + 1], 0.07); m.userData.t = 0; groupe.add(m); ondes.push(m);
+    m.position.set(pos[i * 3], pos[i * 3 + 1], 0.07); m.userData.t = 0; carte.add(m); ondes.push(m);
   }
-  // Appelé par la recherche : les golfs trouvés s'illuminent
+  // Faisceaux lumineux verticaux au-dessus des golfs trouvés
+  var faisceauGeo = new THREE.CylinderGeometry(0.012, 0.03, 1, 6, 1, true); faisceauGeo.rotateX(Math.PI / 2); faisceauGeo.translate(0, 0, 0.5);
+  function faisceauxPour(idx) {
+    while (faisceaux.children.length) { var c = faisceaux.children.pop(); c.material.dispose(); }
+    var pos = golfs.geometry.attributes.position.array;
+    idx.slice(0, 80).forEach(function (i, k) {
+      var m = new THREE.Mesh(faisceauGeo, new THREE.MeshBasicMaterial({ color: 0xD0E4DC, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }));
+      m.position.set(pos[i * 3], pos[i * 3 + 1], 0.06); m.scale.set(1, 1, 0.001);
+      m.userData = { t: -k * 0.03, h: 0.35 + Math.random() * 0.45 }; faisceaux.add(m);
+    });
+  }
   window.BirdyGolf3D = {
-    surligne: function (liste) {
+    onPick: null,
+    surligne: function (ids) {
       if (!golfs) return;
-      var set = {}, a = golfs.geometry.attributes.hi; (liste || []).forEach(function (x) { set[x] = 1; });
+      var set = {}, a = golfs.geometry.attributes.hi, pos = golfs.geometry.attributes.position.array;
+      (ids || []).forEach(function (x) { set[x] = 1; });
       choisis = [];
-      for (var k = 0; k < ids.length; k++) { var on = set[ids[k]] ? 1 : 0; a.array[k] = on; if (on) choisis.push(k); }
-      a.needsUpdate = true; golfs.material.uniforms.sel.value = choisis.length ? 1 : 0;
+      for (var k = 0; k < liste.length; k++) { var on = set[liste[k].i] ? 1 : 0; a.array[k] = on; if (on) choisis.push(k); }
+      a.needsUpdate = true;
+      golfs.material.uniforms.sel.value = choisis.length ? 1 : 0;
+      faisceauxPour(choisis);
+      // Caméra : centrer et zoomer sur la zone trouvée
+      if (choisis.length) {
+        var x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+        choisis.forEach(function (i) { x0 = Math.min(x0, pos[i * 3]); x1 = Math.max(x1, pos[i * 3]); y0 = Math.min(y0, pos[i * 3 + 1]); y1 = Math.max(y1, pos[i * 3 + 1]); });
+        var span = Math.max(x1 - x0, y1 - y0, 0.35);
+        vise = { x: -(x0 + x1) / 2, y: -(y0 + y1) / 2, s: Math.max(1, Math.min(4.2, 3.4 / span)) };
+      } else vise = { x: 0, y: 0, s: 1 };
     }
   };
+
+  // Survol et clic sur un golf (recherche du point le plus proche à l'écran)
+  var v3 = new THREE.Vector3();
+  function proche(cx, cy) {
+    if (!golfs) return -1;
+    var r = cv.getBoundingClientRect(), pos = golfs.geometry.attributes.position.array, best = -1, bd = 14 * 14;
+    for (var i = 0; i < liste.length; i++) {
+      v3.set(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]).applyMatrix4(golfs.matrixWorld).project(cam);
+      var sx = (v3.x + 1) / 2 * r.width, sy = (1 - v3.y) / 2 * r.height, d = (sx - cx) * (sx - cx) + (sy - cy) * (sy - cy);
+      if (d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+  function montre(i, cx, cy) {
+    survol = i;
+    cv.classList.toggle("pick", i >= 0);
+    if (!tip) return;
+    if (i < 0) { tip.hidden = true; return; }
+    var g = liste[i]; tip.innerHTML = ""; tip.appendChild(document.createTextNode(g.n));
+    var sm = document.createElement("small"); sm.textContent = g.v + " (" + g.d + ") · " + BirdyGolf.trousTxt(g).join(", "); tip.appendChild(sm);
+    tip.style.left = cx + "px"; tip.style.top = cy + "px"; tip.hidden = false;
+  }
+  var bas = null;
+  cv.addEventListener("pointermove", function (e) {
+    var r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
+    if (bas) { tourne += (e.clientX - bas.x) * 0.006; glisse += Math.abs(e.clientX - bas.x); bas = { x: e.clientX }; montre(-1); return; }
+    montre(proche(cx, cy), cx, cy);
+  });
+  cv.addEventListener("pointerleave", function () { montre(-1); bas = null; });
+  var vise_clic = -1;
+  cv.addEventListener("pointerdown", function (e) { bas = { x: e.clientX }; glisse = 0; vise_clic = survol; });
+  cv.addEventListener("pointerup", function (e) {
+    var r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top, i = glisse < 6 ? (vise_clic >= 0 ? vise_clic : proche(cx, cy)) : -1;
+    bas = null;
+    if (i >= 0 && window.BirdyGolf3D.onPick) window.BirdyGolf3D.onPick(liste[i].i);
+  });
+  addEventListener("pointermove", function (e) { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
+
   function taille() {
     var r = cv.getBoundingClientRect(); if (!r.width || !r.height) return;
     renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height;
-    cam.position.z = r.width < 600 ? 15.5 : 13; cam.updateProjectionMatrix(); groupe.position.x = r.width > 700 ? 0.8 : 0;
+    cam.position.set(0, -6.2, r.width < 600 ? 14.5 : 12.2); cam.lookAt(0, 0.15, 0); cam.updateProjectionMatrix();
   }
   addEventListener("resize", taille);
-  addEventListener("pointermove", function (e) { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
   if (window.IntersectionObserver) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);
   var t0 = performance.now(), prochaine = 0;
+  function ease(x) { return 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3); }
   function dessine(now) {
-    var t = (now - t0) / 1000;
-    groupe.rotation.x = -0.12 + my * 0.12;
-    groupe.rotation.z = Math.sin(t * 0.12) * 0.22 + mx * 0.25;
-    [villes, golfs].forEach(function (o) { if (o) o.material.uniforms.t.value = t; });
-    if (!calme && t > prochaine) { onde(); prochaine = t + (choisis.length ? 0.3 : 0.75); }
+    var t = (now - t0) / 1000, lev = depart ? (calme ? 1 : ease((now - depart) / 2200)) : 0;
+    [fond, golfs].forEach(function (o) { if (o) { var u = o.material.uniforms; u.t.value = t; u.lev.value = lev; u.zoom.value = Math.pow(actuel.s, o === fond ? 0.75 : 0.45); } });
+    // Arrivée : la carte s'incline et se pose ; ensuite léger balancement + parallaxe souris + rotation à la main
+    pivot.rotation.x = -0.9 * (1 - lev) - 0.1 + my * 0.1;
+    pivot.rotation.z = (calme ? 0 : Math.sin(t * 0.12) * 0.18) + mx * 0.2 + tourne + (1 - lev) * 0.6;
+    tourne *= 0.985;
+    actuel.x += (vise.x - actuel.x) * 0.06; actuel.y += (vise.y - actuel.y) * 0.06; actuel.s += (vise.s - actuel.s) * 0.06;
+    carte.position.set(actuel.x * actuel.s, actuel.y * actuel.s, 0); carte.scale.setScalar(actuel.s);
+    if (!calme && lev > 0.9 && t > prochaine) { onde(); prochaine = t + (choisis.length ? 0.28 : 0.7); }
     for (var i = ondes.length - 1; i >= 0; i--) {
       var o = ondes[i]; o.userData.t += 0.016; var k = o.userData.t;
-      o.scale.setScalar(1 + k * 6); o.material.opacity = Math.max(0, 0.7 - k * 0.6);
-      if (k > 1.2) { groupe.remove(o); o.material.dispose(); ondes.splice(i, 1); }
+      o.scale.setScalar((1 + k * 6) / Math.sqrt(actuel.s)); o.material.opacity = Math.max(0, 0.7 - k * 0.6);
+      if (k > 1.2) { carte.remove(o); o.material.dispose(); ondes.splice(i, 1); }
     }
+    faisceaux.children.forEach(function (m) {
+      m.userData.t += 0.02; var h = ease(m.userData.t * 1.6) * m.userData.h;
+      m.scale.set(1, 1, Math.max(0.001, h / actuel.s * 1.6)); m.material.opacity = 0.35 + 0.25 * Math.sin(t * 3 + m.position.x * 9);
+    });
     renderer.render(scene, cam);
   }
-  (function boucle(now) { if (visible && !calme) dessine(now); requestAnimationFrame(boucle); })(performance.now());
+  (function boucle(now) { if (visible) dessine(now); requestAnimationFrame(boucle); })(performance.now());
 })();
