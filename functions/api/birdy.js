@@ -115,17 +115,29 @@ function texteDe(r) {
   return "";
 }
 
+// gpt-oss renvoie parfois son raisonnement interne (« analysis: … ») au lieu de sa réponse.
+// On garde la partie finale si elle existe ; sinon la réponse est rejetée et on réessaie.
+function reponseFinale(t) {
+  if (!t) return "";
+  const m = t.split(/assistant\s*final|<\|channel\|>\s*final<\|message\|>/i);
+  if (m.length > 1) t = m[m.length - 1];
+  t = t.replace(/<\|[^|]*\|>/g, "").trim();
+  if (/^(analysis|commentary|thinking|reasoning)\b/i.test(t)) return "";
+  if (/\b(we need to|need respond|the user (asks|wants|says)|let's (craft|answer|respond))\b/i.test(t.slice(0, 200))) return "";
+  return t;
+}
+
 // IA gratuite de Cloudflare. Génération en un bloc (le mode flux perd des espaces devant les nombres).
 // Si un modèle échoue (quota, indisponible), on essaie le suivant.
 async function cloudflareIA(env, messages) {
-  const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
+  const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
   let texte = "";
   for (const m of modeles) {
     try {
       const r = m.startsWith("@cf/openai/")
         ? await env.AI.run(m, { instructions: SYSTEM + aujourdhui(), input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
         : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM + aujourdhui() }, ...messages], max_tokens: 900, temperature: 0.3 });
-      texte = texteDe(r).trim();
+      texte = reponseFinale(texteDe(r).trim());
       if (texte) break;
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
     } catch (e) {

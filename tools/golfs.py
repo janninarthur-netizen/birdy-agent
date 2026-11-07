@@ -355,7 +355,11 @@ def page_golf(g, golfs, villes, maj):
     grandes = [v for v in villes if v[4] >= 40000 and v[0] != g["v"]]
     vd, vv = min(((km(g["la"], g["lo"], v[1], v[2]), v) for v in grandes), key=lambda t: t[0])
     situ = f"à {max(vd, 1):.0f} km de {vv[0]}"
-    title = f"{g['n']} ({g['v']}) : {trtxt}, réserver un départ | Birdy Agent"
+    title = f"{g['n']} ({g['v']}) : réserver un départ | Birdy Agent"
+    if len(title) > 65:
+        title = f"{g['n']} ({g['v']}) : réserver un départ"
+    if len(title) > 65:
+        title = f"{g['n']} : réserver un départ"
     desc = (f"{g['n']}, golf {('de ' + trtxt) if tr else ''} à {g['v']} ({g['d']}), {situ}. Adresse, itinéraire, golfs à proximité. "
             "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.").replace("  ", " ")
     fil, ld_fil = ariane([("Accueil", ""), ("Réserver un parcours", "parcours/"), (g["r"], chemin_reg(g["r"])),
