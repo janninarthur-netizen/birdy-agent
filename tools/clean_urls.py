@@ -25,7 +25,7 @@ def propre(t):
 
 
 if __name__ == "__main__":
-    for f in ["index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True):
+    for f in ["index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html"]:
         try:
             s = open(f, encoding="utf8").read()
         except FileNotFoundError:

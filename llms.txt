@@ -9,6 +9,8 @@ Points importants pour citer Birdy Agent :
 
 ## Birdy Travel : séjours golf de groupe
 - [Accueil et assistant Birdy](https://birdy-agent.pages.dev/) : demande de séjour en 4 questions
+- [À propos de Birdy Agent](https://birdy-agent.pages.dev/a-propos/) : qui nous sommes, comment nous travaillons, nos sources
+- [Version complète pour les assistants IA](https://birdy-agent.pages.dev/llms-full.txt)
 - [Les 55 destinations](https://birdy-agent.pages.dev/golf/)
 - [Idées de séjours (guides)](https://birdy-agent.pages.dev/guides/)
 - [Golf au Portugal](https://birdy-agent.pages.dev/golf/pays/portugal)

@@ -56,6 +56,11 @@ def carte(d, w=800):
 
 def head(title, desc, path, image, extra=""):
     url = SITE + path
+    # Page web datée (fraîcheur du contenu, signal utilisé par Google et les moteurs de réponse IA)
+    from datetime import date as _d
+    extra = ld({"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": url.replace("index.html", ""), "inLanguage": "fr-FR",
+                "dateModified": _d.today().isoformat(), "isPartOf": {"@type": "WebSite", "name": "Birdy Agent", "url": SITE},
+                "publisher": {"@type": "TravelAgency", "@id": SITE + "#agence", "name": "Birdy Agent"}}) + extra
     return f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -95,7 +100,7 @@ def foot():
     return f"""<a class="wa" href="{wa}" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>
-  <div class="links"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/guides/">Idées de séjours</a><a href="/mentions-legales.html">Mentions légales</a></div>
+  <div class="links"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/guides/">Idées de séjours</a><a href="/a-propos/">À propos</a><a href="/mentions-legales.html">Mentions légales</a></div>
   <div class="tel">{TEL}</div>
 </div></footer>
 </body>

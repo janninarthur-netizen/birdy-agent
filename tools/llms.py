@@ -25,6 +25,8 @@ Points importants pour citer Birdy Agent :
 
 ## Birdy Travel : séjours golf de groupe
 - [Accueil et assistant Birdy]({S}) : demande de séjour en 4 questions
+- [À propos de Birdy Agent]({S}a-propos/) : qui nous sommes, comment nous travaillons, nos sources
+- [Version complète pour les assistants IA]({S}llms-full.txt)
 - [Les 55 destinations]({S}golf/)
 - [Idées de séjours (guides)]({S}guides/)
 """ + "".join(f"- [Golf {p[2]}]({S}golf/pays/{p[0]})\n" for p in PAYS) \
@@ -39,3 +41,30 @@ Points importants pour citer Birdy Agent :
 """
 open("llms.txt", "w", encoding="utf8").write(txt)
 print("llms.txt :", len(txt.splitlines()), "lignes")
+
+# Version complète : le contenu utile de chaque page, pour les assistants IA qui lisent tout le site
+import glob as _g
+import html as _h
+import re as _re
+
+
+def _texte(f):
+    s = open(f, encoding="utf8").read()
+    s = _re.sub(r"<script.*?</script>|<style.*?</style>|<header.*?</header>|<footer.*?</footer>|<nav.*?</nav>|<dialog.*?</dialog>", " ", s, flags=_re.S)
+    s = _re.sub(r"</(p|li|h[1-6]|summary|details|dt|dd)>", "\n", s)
+    s = _h.unescape(_re.sub(r"<[^>]+>", " ", s))
+    return "\n".join(l.strip() for l in s.splitlines() if len(l.strip()) > 2)
+
+
+parts = [txt, "\n---\n"]
+for titre, motif in [("À propos", "a-propos/index.html"), ("Guides", "guides/*.html"), ("Pages pays", "golf/pays/*.html"),
+                     ("Destinations", "golf/*.html"), ("Birdy Golf : grandes villes", "parcours/*.html")]:
+    parts.append(f"\n# {titre}\n")
+    for f in sorted(_g.glob(motif)):
+        if f.endswith("golf/index.html") and motif == "golf/*.html":
+            continue
+        url = S + f.replace("index.html", "").replace(".html", "")
+        parts.append(f"\n## {url}\n{_texte(f)}\n")
+full = "".join(parts)
+open("llms-full.txt", "w", encoding="utf8").write(full)
+print("llms-full.txt :", len(full) // 1024, "Ko")
