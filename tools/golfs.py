@@ -148,7 +148,7 @@ def fiche(g, dist=None):
             f'<div class="gc-cta"><a class="btn gold sm" href="/parcours/?golf={g["i"]}">Demander un départ</a>{lien}</div></article>')
 
 
-EXTRA_CSS = '<link rel="stylesheet" href="/parcours/parcours.css">\n'
+EXTRA_CSS = '<link rel="stylesheet" href="/parcours/parcours.css">\n<link rel="stylesheet" href="/parcours/pro.css">\n'
 
 
 def page_app(golfs, maj):
@@ -156,7 +156,7 @@ def page_app(golfs, maj):
     title = "Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent"
     desc = (f"Trouvez et réservez votre départ sur l’un des {len(golfs)} golfs de France, dont {n18} avec un parcours 18 trous. "
             "Recherche par ville et distance, demande de départ gratuite, confirmée par un conseiller.")
-    extra = EXTRA_CSS + '<link rel="stylesheet" href="/parcours/pro.css">\n<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
+    extra = EXTRA_CSS + '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
     extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": SITE + "parcours/"}]})
@@ -306,7 +306,7 @@ def page_ville(nom, rayon, golfs, villes, maj):
     q = urllib.parse.urlencode({"lieu": nom, "rayon": rayon})
     out = pages.head(title, desc, path, SITE + "og.jpg", extra)
     out += f"""<main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+<section class="hero short gp-hero"><img class="gp-bg" src="/assets/img/green-coucher-soleil.webp" alt="" fetchpriority="high"><div class="veil"></div><div class="in">
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/parcours/">Réserver un parcours</a> › <span>{e(nom)}</span></nav>
   <p class="tag">Birdy Golf</p>
   <h1>Golf autour de {e(nom)}</h1>
@@ -327,6 +327,13 @@ def page_ville(nom, rayon, golfs, villes, maj):
 </main>
 """
     return path, out + pages.foot()
+
+
+def ecrire(p, h):
+    """Écrit une page du pôle Birdy Golf avec le thème « pro » (parcours/pro.css)."""
+    if 'class="pro"' not in h[:300]:
+        h = h.replace('<html lang="fr">', '<html lang="fr" class="pro">', 1)
+    open(p, "w", encoding="utf8").write(h)
 
 
 def ariane(liens):
@@ -386,7 +393,7 @@ def page_golf(g, golfs, villes, maj):
     voisins = "".join(fiche(x, d) for d, x in proches)
     out = pages.head(title, desc, path, SITE + "og.jpg", extra)
     out += f"""<main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+<section class="hero short gp-hero"><img class="gp-bg" src="/assets/img/green-coucher-soleil.webp" alt="" fetchpriority="high"><div class="veil"></div><div class="in">
   <nav class="crumbs" aria-label="Fil d’Ariane">{fil}</nav>
   <p class="tag">Golf · {e(g['v'])} ({e(g['d'])})</p>
   <h1>{e(g['n'])}</h1>
@@ -443,7 +450,7 @@ def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
     faq_html = "".join(f"<details><summary>{e(a)}</summary><p>{e(b)}</p></details>" for a, b in faq)
     out = pages.head(title, desc, path, SITE + "og.jpg", extra)
     out += f"""<main class="gp">
-<section class="hero short gp-hero"><div class="veil"></div><div class="in">
+<section class="hero short gp-hero"><img class="gp-bg" src="/assets/img/green-coucher-soleil.webp" alt="" fetchpriority="high"><div class="veil"></div><div class="in">
   <nav class="crumbs" aria-label="Fil d’Ariane">{fil}</nav>
   <p class="tag">Birdy Golf</p>
   <h1>Golf · {e(titre_zone)}</h1>
@@ -468,15 +475,15 @@ if __name__ == "__main__":
     maj = date.today().strftime("%d/%m/%Y")
     os.makedirs("parcours", exist_ok=True)
     p, h = page_app(golfs, maj)
-    open(p, "w", encoding="utf8").write(h)
+    ecrire(p, h)
     for nom, rayon in VILLES_SEO:
         p, h = page_ville(nom, rayon, golfs, villes, maj)
-        open(p, "w", encoding="utf8").write(h)
+        ecrire(p, h)
     for d in ("parcours/golf", "parcours/departement", "parcours/region"):
         os.makedirs(d, exist_ok=True)
     for g in golfs:
         p, h = page_golf(g, golfs, villes, maj)
-        open(p, "w", encoding="utf8").write(h)
+        ecrire(p, h)
     deps = {}
     for g in golfs:
         deps.setdefault(g["d"], []).append(g)
@@ -485,12 +492,12 @@ if __name__ == "__main__":
         p, h = page_zone(f"{g0['dn']} ({code})", chemin_dep(g0), liste,
                          [("Accueil", ""), ("Réserver un parcours", "parcours/"), (g0["r"], chemin_reg(g0["r"])), (f"{g0['dn']} ({code})", chemin_dep(g0))],
                          "", maj, f"du département {g0['dn']} ({code})")
-        open(p, "w", encoding="utf8").write(h)
+        ecrire(p, h)
     for r in sorted({g["r"] for g in golfs}):
         liste = [g for g in golfs if g["r"] == r]
         ds = sorted({(g["dn"], g["d"]) for g in liste})
         sous = "".join(f'<a href="/{chemin_dep({"dn": dn})}">{e(dn)} ({e(c)})<small>{len(deps[c])} golfs</small></a>' for dn, c in ds) if len(ds) > 1 else ""
         p, h = page_zone(r, chemin_reg(r), liste, [("Accueil", ""), ("Réserver un parcours", "parcours/"), (r, chemin_reg(r))], sous, maj, f"de la région {r}")
-        open(p, "w", encoding="utf8").write(h)
+        ecrire(p, h)
     print(len(golfs), "pages golf ;", len(deps), "départements ;")
     print(len(golfs), "golfs ;", sum(1 for g in golfs if g["t18"]), "avec un 18 trous ;", len(VILLES_SEO), "pages ville")
