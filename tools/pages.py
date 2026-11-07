@@ -44,7 +44,8 @@ def photo_abs(pid, w=1200):
 def carte(d, w=800):
     """Carte magazine 4:3 : photo, dégradé noir en bas, étiquette dorée de région au survol."""
     n = d["nom"]
-    im = (f'<img src="{photo(d["photo"], w)}" alt="{e(n)}, {e(d["pays"])}" loading="lazy" onerror="this.remove()">'
+    im = (f'<img src="{photo(d["photo"], w)}" srcset="{photo(d["photo"], 480)} 480w, {photo(d["photo"], 960)} 960w" '
+          f'sizes="(max-width: 640px) 92vw, 360px" alt="{e(n)}, {e(d["pays"])}" loading="lazy" decoding="async" onerror="this.remove()">'
           if d["photo"] else f'<span class="mc-fb">{e(RL[d["region"]])}</span>')
     return (f'<a class="mc" href="/golf/{slug(n)}.html">{im}<span class="mc-shade"></span>'
             f'<span class="mc-tag">{e(RL[d["region"]])}</span>'
@@ -163,6 +164,10 @@ def page_destination(d, voisines):
         title = f"Séjour golf {prep} | Birdy Agent"
     desc = (f"Séjour golf de groupe sur mesure {prep} ({d['pays']}). {d['texte']} "
             "Demande gratuite et sans engagement, avec les vrais tarifs des hôtels et des golfs.")
+    if len(desc) > 160:
+        desc = f"Séjour golf de groupe sur mesure {prep} ({d['pays']}). {d['texte']} Demande gratuite, vrais tarifs."
+    if len(desc) > 160:
+        desc = desc[:157].rsplit(" ", 1)[0] + "…"
     img = photo_abs(d["photo"]) if d["photo"] else SITE + "og.jpg"
     faq = faq_destination(d)
     hub = pays_de(n)
@@ -255,8 +260,8 @@ def page_pays(p, D):
     title = f"Séjour golf {prep} en groupe : {len(items)} destinations | Birdy Agent"
     desc = (f"Séjours golf de groupe sur mesure {prep} : {', '.join(noms)}. {intro.split('. ')[0].rstrip('.')}. "
             "Demande gratuite et sans engagement.")
-    if len(desc) > 300:
-        desc = desc[:297].rsplit(" ", 1)[0] + "…"
+    if len(desc) > 160:
+        desc = desc[:157].rsplit(" ", 1)[0] + "…"
     first = next((d for d in items if d["photo"]), None)
     img = photo_abs(first["photo"]) if first else SITE + "og.jpg"
     guides = {}
@@ -318,7 +323,7 @@ def page_index(D):
     path = "golf/index.html"
     title = f"Nos {len(D)} destinations de séjours golf en groupe | Birdy Agent"
     desc = (f"Séjours golf de groupe sur mesure dans {len(D)} destinations : Portugal, Espagne, Écosse, Maroc, île Maurice, "
-            "Dubaï, Floride, Caraïbes et plus. Demande gratuite et sans engagement.")
+            "Dubaï, Floride… Demande gratuite.")
     extra = ld({"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "url": SITE + "golf/" + slug(d["nom"]) + ".html", "name": d["nom"]}
         for i, d in enumerate(D)]})
