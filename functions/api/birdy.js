@@ -117,13 +117,20 @@ function texteDe(r) {
 
 // gpt-oss renvoie parfois son raisonnement interne (« analysis: … ») au lieu de sa réponse.
 // On garde la partie finale si elle existe ; sinon la réponse est rejetée et on réessaie.
-function reponseFinale(t) {
+function reponseFinale(t, francais) {
   if (!t) return "";
   const m = t.split(/assistant\s*final|<\|channel\|>\s*final<\|message\|>/i);
   if (m.length > 1) t = m[m.length - 1];
   t = t.replace(/<\|[^|]*\|>/g, "").trim();
   if (/^(analysis|commentary|thinking|reasoning)\b/i.test(t)) return "";
   if (/\b(we need to|need respond|the user (asks|wants|says)|let's (craft|answer|respond))\b/i.test(t.slice(0, 200))) return "";
+  // Réponse en anglais alors que le site est en français : rejetée (sauf si le visiteur écrit lui-même en anglais)
+  if (francais) {
+    const vis = t.split("<")[0];
+    const en = (vis.match(/\b(the|and|you|your|with|within|offers|several|near|for|is|are|this|that)\b/gi) || []).length;
+    const fr = (vis.match(/\b(le|la|les|des|vous|votre|pour|avec|est|sont|une|un|du|et)\b/gi) || []).length;
+    if (en > 4 && en > fr) return "";
+  }
   return t;
 }
 
@@ -132,12 +139,15 @@ function reponseFinale(t) {
 async function cloudflareIA(env, messages) {
   const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
   let texte = "";
+  // Le visiteur écrit-il en français ? (dernier message)
+  const dernier = messages[messages.length - 1].content;
+  const francais = !/\b(the|and|you|what|where|how|please|golf course near)\b/i.test(dernier) || /[éèàçù]|\b(le|la|les|un|une|pour|près|vers)\b/i.test(dernier);
   for (const m of modeles) {
     try {
       const r = m.startsWith("@cf/openai/")
         ? await env.AI.run(m, { instructions: SYSTEM + aujourdhui(), input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
         : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM + aujourdhui() }, ...messages], max_tokens: 900, temperature: 0.3 });
-      texte = reponseFinale(texteDe(r).trim());
+      texte = reponseFinale(texteDe(r).trim(), francais);
       if (texte) break;
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
     } catch (e) {
