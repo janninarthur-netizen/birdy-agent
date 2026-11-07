@@ -156,7 +156,7 @@ def page_app(golfs, maj):
     title = "Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent"
     desc = (f"Trouvez et réservez votre départ sur l’un des {len(golfs)} golfs de France, dont {n18} avec un parcours 18 trous. "
             "Recherche par ville et distance, demande de départ gratuite, confirmée par un conseiller.")
-    extra = EXTRA_CSS + '<link rel="stylesheet" href="/parcours/clair.css">\n<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
+    extra = EXTRA_CSS + '<link rel="stylesheet" href="/parcours/pro.css">\n<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
     extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
         {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": SITE + "parcours/"}]})
@@ -198,18 +198,16 @@ def page_app(golfs, maj):
   </form>
   <div class="gp-say" id="gp-say" hidden></div>
   <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Près de moi</button>{chips}</div>
+  <ol class="gp-strip" aria-label="Comment ça marche"><li><i>1</i>Choisissez un parcours</li><li><i>2</i>Envoyez votre demande</li><li><i>3</i>Un conseiller confirme</li></ol>
 </div>
   <div class="gp-viz" aria-hidden="true"><canvas class="gp-3d" id="gp-3d"></canvas><div class="gp-tip" id="gp-tip" hidden></div></div>
   <p class="gp-cap"><span class="gp-dot"></span>Touchez un golf sur la carte</p>
 </div></section>
 
-<section class="gp-steps" aria-label="Comment ça marche"><div class="in">
-  <div class="gp-step"><i>1</i><b>Trouvez votre parcours</b><span>Par ville, département ou région, ou en décrivant votre partie à Birdy.</span></div>
-  <div class="gp-step"><i>2</i><b>Envoyez votre demande</b><span>Date, créneau, nombre de joueurs, budget : gratuit et sans engagement.</span></div>
-  <div class="gp-step"><i>3</i><b>Un conseiller confirme</b><span>Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.</span></div>
-</div></section>
 
 <section class="band gp-band"><img class="gp-bg2" src="/assets/img/golfeur-bunker.webp" alt="" loading="lazy"><img class="gp-bg3" src="/assets/img/parcours-vue-aerienne.webp" alt="" loading="lazy"><div class="in">
+  <div class="gp-app">
+  <div class="gp-app-h"><div><p class="gp-k">Birdy Golf</p><h2>Trouvez votre départ</h2></div><p class="gp-app-note">Demande gratuite · un conseiller réserve et confirme l’horaire et le prix</p></div>
   <form class="gp-f" id="gp-f" autocomplete="off">
     <label>Où ?<input name="lieu" id="f-lieu" placeholder="Ville, département ou région" list="f-villes"></label>
     <datalist id="f-villes"></datalist>
@@ -220,11 +218,11 @@ def page_app(golfs, maj):
     <label>Joueurs<select name="joueurs"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
     <button class="btn gold" type="submit">Rechercher</button>
   </form>
-  <p class="gp-info">Les tarifs et créneaux en temps réel arrivent bientôt. Aujourd’hui, vous envoyez une <b>demande de départ</b> gratuite : un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.</p>
-  <div class="gp-res">
+  <div class="gp-res vide" id="gp-res">
     <div><p class="gp-count" id="gp-count" aria-live="polite">Indiquez un lieu pour voir les parcours.</p><div class="gp-list gp-grid" id="gp-list"></div>
       <button class="btn ghost gp-plus" id="gp-plus" type="button" hidden>Voir plus de parcours</button></div>
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
+  </div>
   </div>
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>
 </div></section>
@@ -267,7 +265,7 @@ def page_app(golfs, maj):
 <script defer src="/assets/parcours.js"></script>
 <script defer src="/assets/france3d.js"></script>
 """
-    out = out.replace('<html lang="fr">', '<html lang="fr" class="clair">', 1)  # thème clair (parcours/clair.css)
+    out = out.replace('<html lang="fr">', '<html lang="fr" class="pro">', 1)  # thème « pro » (parcours/pro.css)
     return "parcours/index.html", out + pages.foot()
 
 

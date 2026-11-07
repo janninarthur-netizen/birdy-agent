@@ -104,7 +104,7 @@
   /* ---------- Page /parcours/ ---------- */
   var F = document.getElementById("gp-f");
   if (!F) return;
-  var CL = document.documentElement.classList.contains("clair");
+  var CL = document.documentElement.classList.contains("clair") || document.documentElement.classList.contains("pro");
   var list = document.getElementById("gp-list"), count = document.getElementById("gp-count"), dlg = document.getElementById("gp-dlg");
   var dep = document.getElementById("gp-dep"), carte = null, couche = null, marques = {}, dernier = [];
   var auj = new Date(); auj.setMinutes(auj.getMinutes() - auj.getTimezoneOffset());
@@ -154,8 +154,15 @@
     return a;
   }
   function de(x) { return /^Le /.test(x) ? "du " + x.slice(3) : /^Les /.test(x) ? "des " + x.slice(4) : /^[aeiouyhâéèêîôûAEIOUYHÂÉÈÊÎÔÛ]/.test(x) ? "d’" + x : "de " + x; }
+  var zoneRes = document.getElementById("gp-res");
+  function montreCarte(oui) {
+    if (!zoneRes) return;
+    zoneRes.classList.toggle("vide", !oui);
+    if (oui) { carteInit(); if (carte) setTimeout(function () { carte.invalidateSize(); }, 60); }
+  }
   function afficher(r, c) {
     dernier = r.res; list.textContent = "";
+    montreCarte(!!(r.zone && r.res.length));
     if (window.BirdyGolf3D) BirdyGolf3D.surligne(r.res.map(function (o) { return o.g.i; }));
     if (!r.zone) { count.textContent = c.lieu ? "Lieu introuvable : essayez une ville, un département ou une région." : "Indiquez un lieu pour voir les parcours."; return; }
     var n = r.res.length, quoi = r.trous === 18 ? "parcours 18 trous" : r.trous === 9 ? "parcours 9 trous" : "golfs";
@@ -206,8 +213,8 @@
     var n18 = D.golfs.filter(function (g) { return g.t18; }).length, regs = {};
     D.golfs.forEach(function (g) { regs[g.r] = 1; });
     var p = document.createElement("div"); p.className = "gp-start";
-    p.innerHTML = '<div class="gp-start-h"><img src="/favicon-192.png" alt="Birdy Agent" width="74" height="74"><div><b>Où voulez-vous jouer ?</b><span>Touchez une ville, ou cherchez par lieu ci-dessus.</span></div></div>' +
-      '<div class="gp-stats"><div><b>' + n18 + '</b><small>parcours 18 trous</small></div><div><b>' + D.golfs.length + '</b><small>golfs en France</small></div><div><b>0 €</b><small>pour demander</small></div></div>';
+    p.innerHTML = '<div class="gp-start-h"><img src="/favicon-192.png" alt="Birdy Agent" width="74" height="74"><div><b>Où voulez-vous jouer ?</b><span>' + n18 + ' parcours 18 trous en France. Choisissez une ville ou cherchez par lieu.</span></div></div>' +
+      '';
     var v = document.createElement("div"); v.className = "gp-villes";
     ["Paris", "Lyon", "Bordeaux", "Marseille", "Nice", "Toulouse", "Nantes", "Lille", "Biarritz", "Annecy"].forEach(function (nom, k) {
       var c = D.villes.find(function (x) { return x[0] === nom; }); if (!c) return;
@@ -336,8 +343,7 @@
     D.villes.slice(0, 400).forEach(function (v) { var o = document.createElement("option"); o.value = v[0]; dl.appendChild(o); });
     if (c0.lieu) lancer(); else {
       accueil(D);
-      count.textContent = "Tous les parcours 18 trous de France sont sur la carte.";
-      if (window.L) apercu(D); else addEventListener("load", function () { apercu(D); });
+      count.textContent = "";
     }
     var id = P.get("golf");
     if (id) { var g = D.golfs.find(function (x) { return x.i === id; }); if (g) ouvrir(g); }

@@ -3225,10 +3225,13 @@ Du clic au  tee , en un swing.
 Décrivez votre partie
 Trouver
 ◎ Près de moi  Paris  Lyon  Bordeaux  Côte d’Azur
+1 Choisissez un parcours
+2 Envoyez votre demande
+3 Un conseiller confirme
 Touchez un golf sur la carte
-1  Trouvez votre parcours  Par ville, département ou région, ou en décrivant votre partie à Birdy.
-2  Envoyez votre demande  Date, créneau, nombre de joueurs, budget : gratuit et sans engagement.
-3  Un conseiller confirme  Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.
+Birdy Golf
+Trouvez votre départ
+Demande gratuite · un conseiller réserve et confirme l’horaire et le prix
 Où ?
 Rayon  15 km  30 km  50 km  100 km
 Parcours  18 trous  9 trous  Tous
@@ -3236,7 +3239,6 @@ Date
 Créneau  Indifférent  Matin  Midi  Après-midi
 Joueurs  1  2  3  4  5  6  7  8
 Rechercher
-Les tarifs et créneaux en temps réel arrivent bientôt. Aujourd’hui, vous envoyez une  demande de départ  gratuite : un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Indiquez un lieu pour voir les parcours.
 Voir plus de parcours
 Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 07/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.

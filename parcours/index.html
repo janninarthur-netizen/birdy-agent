@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" class="clair">
+<html lang="fr" class="pro">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -25,7 +25,7 @@
 <script defer src="/assets/menu.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent", "url": "https://birdy-agent.pages.dev/parcours/", "inLanguage": "fr-FR", "dateModified": "2026-11-07", "isPartOf": {"@type": "WebSite", "name": "Birdy Agent", "url": "https://birdy-agent.pages.dev/"}, "publisher": {"@type": "TravelAgency", "@id": "https://birdy-agent.pages.dev/#agence", "name": "Birdy Agent"}}</script>
 <link rel="stylesheet" href="/parcours/parcours.css">
-<link rel="stylesheet" href="/parcours/clair.css">
+<link rel="stylesheet" href="/parcours/pro.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://birdy-agent.pages.dev/"}, {"@type": "ListItem", "position": 2, "name": "Réserver un parcours", "item": "https://birdy-agent.pages.dev/parcours/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment réserver un parcours de golf avec Birdy Agent ?", "acceptedAnswer": {"@type": "Answer", "text": "Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer."}}, {"@type": "Question", "name": "La réservation est-elle immédiate ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas encore : vous envoyez une demande de départ gratuite. Rien n’est réservé tant que le conseiller ne vous a pas confirmé l’horaire et le tarif auprès du golf. La réservation en temps réel arrivera avec nos futurs partenaires."}}, {"@type": "Question", "name": "Combien coûte un green fee en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget maximum par joueur dans la demande : le conseiller vous confirme le tarif exact avant toute réservation. La demande est gratuite."}}, {"@type": "Question", "name": "Combien de golfs 18 trous y a-t-il en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Notre annuaire, issu du recensement officiel des équipements sportifs, compte 621 golfs, dont 413 avec au moins un parcours 18 trous."}}, {"@type": "Question", "name": "Peut-on réserver pour un groupe ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, de 1 à 8 joueurs par demande de départ. Pour un séjour golf de groupe avec hôtel, utilisez notre pôle voyages Birdy Travel."}}]}</script>
@@ -49,18 +49,16 @@
   </form>
   <div class="gp-say" id="gp-say" hidden></div>
   <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Près de moi</button><button type="button" data-lieu="Paris">Paris</button><button type="button" data-lieu="Lyon">Lyon</button><button type="button" data-lieu="Bordeaux">Bordeaux</button><button type="button" data-lieu="Côte d’Azur">Côte d’Azur</button></div>
+  <ol class="gp-strip" aria-label="Comment ça marche"><li><i>1</i>Choisissez un parcours</li><li><i>2</i>Envoyez votre demande</li><li><i>3</i>Un conseiller confirme</li></ol>
 </div>
   <div class="gp-viz" aria-hidden="true"><canvas class="gp-3d" id="gp-3d"></canvas><div class="gp-tip" id="gp-tip" hidden></div></div>
   <p class="gp-cap"><span class="gp-dot"></span>Touchez un golf sur la carte</p>
 </div></section>
 
-<section class="gp-steps" aria-label="Comment ça marche"><div class="in">
-  <div class="gp-step"><i>1</i><b>Trouvez votre parcours</b><span>Par ville, département ou région, ou en décrivant votre partie à Birdy.</span></div>
-  <div class="gp-step"><i>2</i><b>Envoyez votre demande</b><span>Date, créneau, nombre de joueurs, budget : gratuit et sans engagement.</span></div>
-  <div class="gp-step"><i>3</i><b>Un conseiller confirme</b><span>Il réserve auprès du golf et vous rappelle avec l’horaire et le tarif.</span></div>
-</div></section>
 
 <section class="band gp-band"><img class="gp-bg2" src="/assets/img/golfeur-bunker.webp" alt="" loading="lazy"><img class="gp-bg3" src="/assets/img/parcours-vue-aerienne.webp" alt="" loading="lazy"><div class="in">
+  <div class="gp-app">
+  <div class="gp-app-h"><div><p class="gp-k">Birdy Golf</p><h2>Trouvez votre départ</h2></div><p class="gp-app-note">Demande gratuite · un conseiller réserve et confirme l’horaire et le prix</p></div>
   <form class="gp-f" id="gp-f" autocomplete="off">
     <label>Où ?<input name="lieu" id="f-lieu" placeholder="Ville, département ou région" list="f-villes"></label>
     <datalist id="f-villes"></datalist>
@@ -71,11 +69,11 @@
     <label>Joueurs<select name="joueurs"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
     <button class="btn gold" type="submit">Rechercher</button>
   </form>
-  <p class="gp-info">Les tarifs et créneaux en temps réel arrivent bientôt. Aujourd’hui, vous envoyez une <b>demande de départ</b> gratuite : un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.</p>
-  <div class="gp-res">
+  <div class="gp-res vide" id="gp-res">
     <div><p class="gp-count" id="gp-count" aria-live="polite">Indiquez un lieu pour voir les parcours.</p><div class="gp-list gp-grid" id="gp-list"></div>
       <button class="btn ghost gp-plus" id="gp-plus" type="button" hidden>Voir plus de parcours</button></div>
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
+  </div>
   </div>
   <p class="gp-src">Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 07/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.</p>
 </div></section>

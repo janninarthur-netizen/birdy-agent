@@ -1,0 +1,86 @@
+/* Birdy Golf — thème « pro » : en-tête vert profond avec photo (comme le pôle voyage),
+   puis un seul panneau d'outil blanc posé sur un fond vert-gris doux. Une seule carte réelle, après la recherche. */
+html.pro .gp-hin{padding-block:34px 96px!important}
+/* Étapes en une ligne */
+html.pro .gp-strip{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+html.pro .gp-strip li{display:flex;align-items:center;gap:8px;font:500 13.5px/1.2 var(--body);color:rgba(232,241,236,.78)}
+html.pro .gp-strip i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(163,201,184,.18);border:1px solid rgba(163,201,184,.45);color:#D0E4DC;font:700 11.5px/1 var(--body)}
+html.pro .gp-steps{display:none}
+/* Fond de l'outil */
+html.pro .gp-band{background:linear-gradient(180deg,#E9F0EB 0%,#F4F7F3 60%,#FFFFFF 100%)!important;color:#0E3A31;padding-block:0 64px!important}
+html.pro .gp-band::after,html.pro .gp-bg2,html.pro .gp-bg3{display:none!important}
+/* Panneau unique */
+html.pro .gp-app{position:relative;z-index:2;margin-top:-58px;background:#FFFFFF;border-radius:26px;padding:24px 24px 20px;border:1px solid rgba(14,58,49,.06);
+  box-shadow:0 30px 70px -40px rgba(10,30,23,.55),0 2px 0 rgba(255,255,255,.6) inset}
+html.pro .gp-app-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+html.pro .gp-k{font:600 11.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:#2F7A55;margin-bottom:6px}
+html.pro .gp-app-h h2{font:700 clamp(26px,3vw,34px)/1.05 var(--display);color:#0E3A31}
+html.pro .gp-app-note{font-size:13.5px;color:#5D7A6F;display:flex;align-items:center;gap:8px}
+html.pro .gp-app-note::before{content:"";width:8px;height:8px;border-radius:50%;background:#5BC08A;box-shadow:0 0 0 4px rgba(91,192,138,.18)}
+/* Critères : intégrés au panneau */
+html.pro .gp-band .gp-f{background:#F4F7F3!important;border:1px solid rgba(14,58,49,.06)!important;box-shadow:none!important;backdrop-filter:none!important;border-radius:18px;padding:12px}
+html.pro .gp-band .gp-f label{color:#5D7A6F}
+html.pro .gp-band .gp-f input,html.pro .gp-band .gp-f select{background:#FFFFFF;border-color:rgba(14,58,49,.12);color:#0E3A31;color-scheme:light}
+html.pro .gp-band .gp-f input::placeholder{color:#8AA097}
+html.pro .gp-band .gp-f .btn.gold{background:#0E3A31;color:#fff;border-color:#0E3A31}
+html.pro .gp-band .gp-f .btn.gold:hover{background:#145C45}
+html.pro .gp-band .gp-info{display:none}
+/* Résultats : liste + carte (la carte n'apparaît qu'après une recherche) */
+html.pro .gp-res{margin-top:16px;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:20px}
+html.pro .gp-res.vide{grid-template-columns:1fr}
+html.pro .gp-res.vide .gp-map{display:none}
+html.pro .gp-band .gp-count{color:#0E3A31;font-weight:600;margin:4px 0 6px}
+html.pro .gp-band .gp-count:empty{display:none}
+html.pro .gp-band .gp-src{color:#7C928A;font-size:12px;margin-top:14px}
+html.pro .gp-band .gp-map{background:#EEF3EE;border:1px solid rgba(14,58,49,.08);border-radius:20px;box-shadow:none;top:84px;height:min(600px,calc(100vh - 110px))}
+html.pro .gp-tuiles{filter:saturate(.8) brightness(1.02)!important}
+html.pro .gp-map .leaflet-control-attribution{background:rgba(255,255,255,.85)!important;color:#5D7A6F!important}
+html.pro .gp-map .leaflet-control-attribution a{color:#2F7A55}
+html.pro .gp-map .leaflet-bar a{background:#FFFFFF;color:#0E3A31;border-color:rgba(14,58,49,.12)}
+/* Lignes de résultat (plus de grille de cartes) */
+html.pro .gp-grid{grid-template-columns:1fr!important;gap:0!important}
+html.pro .gp-band .gp-grid .gc{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"h cta" "v cta" "b cta";column-gap:14px;align-items:center;
+  background:transparent;border:0;border-bottom:1px solid rgba(14,58,49,.08);border-radius:0;padding:14px 8px;box-shadow:none;backdrop-filter:none;color:#0E3A31}
+html.pro .gp-band .gp-grid .gc:hover,html.pro .gp-band .gp-grid .gc.on{background:#F4F7F3;transform:none!important;box-shadow:none;border-color:rgba(14,58,49,.08)}
+html.pro .gp-band .gp-grid .gc::before{display:none}
+html.pro .gp-band .gp-grid .gc-h{grid-area:h;justify-content:flex-start;gap:10px}
+html.pro .gp-band .gp-grid .gc h3{color:#0E3A31;font-size:16px}
+html.pro .gp-band .gp-grid .gd{color:#2F7A55;font-size:12.5px;background:#EEF5F0;border-radius:99px;padding:4px 8px}
+html.pro .gp-band .gp-grid .gc-v{grid-area:v;color:#5D7A6F;font-size:13.5px}
+html.pro .gp-band .gp-grid .gc-b{grid-area:b;margin:6px 0 0}
+html.pro .gp-band .gb{background:#0E3A31;color:#fff}
+html.pro .gp-band .gg{background:#EEF5F0;color:#5D7A6F}
+html.pro .gp-band .gp-grid .gc-cta{grid-area:cta;flex-direction:column;align-items:flex-end;gap:4px}
+html.pro .gp-band .gp-grid .gc .btn.gold{background:#0E3A31;color:#fff;border-color:#0E3A31;padding:10px 14px;font-size:13.5px}
+html.pro .gp-band .gp-grid .gc-cta .btn.ghost{color:#2F7A55;padding:2px;font-size:12.5px}
+html.pro .gp-band .btn.ghost{color:#0E3A31;border-color:rgba(14,58,49,.18)}
+html.pro .gp-plus{margin-top:14px}
+/* Accueil de l'outil : logo + liste des villes, sans cartes empilées */
+html.pro .gp-band .gp-start{background:transparent;border:0;padding:6px 0 0;border-radius:0;overflow:visible}
+html.pro .gp-start::before{display:none}
+html.pro .gp-start-h{margin-bottom:10px}
+html.pro .gp-start-h img{width:54px;height:54px;box-shadow:0 0 0 2px #fff,0 8px 20px rgba(10,30,23,.25)}
+html.pro .gp-start-h b{color:#0E3A31;font-size:24px}
+html.pro .gp-start-h span{color:#5D7A6F}
+html.pro .gp-villes{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0 22px}
+html.pro .gp-band .gp-villes button{background:transparent;border:0;border-bottom:1px solid rgba(14,58,49,.08);border-radius:0;padding:13px 4px;color:#0E3A31}
+html.pro .gp-band .gp-villes button:hover{background:#F4F7F3;transform:none}
+html.pro .gp-band .gp-villes small{color:#2F7A55}
+html.pro .gp-band .gp-villes button::after{content:"→";color:#2F7A55;margin-left:6px}
+/* Sections du bas : fond doux plutôt que blanc pur */
+html.pro main.gp > .band:not(.gp-band){background:#FFFFFF}
+html.pro main.gp > .band.tint{background:#F4F7F3}
+@media (max-width:980px){
+  html.pro .gp-hin{padding-block:24px 70px!important}
+  html.pro .gp-app{margin-top:-40px;padding:18px 14px;border-radius:22px}
+  html.pro .gp-res{grid-template-columns:1fr}
+  html.pro .gp-band .gp-map{position:relative;top:0;height:320px;order:-1}
+}
+@media (max-width:560px){
+  html.pro .gp-band .gp-grid .gc{grid-template-columns:1fr;grid-template-areas:"h" "v" "b" "cta"}
+  html.pro .gp-band .gp-grid .gc-cta{flex-direction:row;align-items:center;margin-top:10px;gap:14px}
+  html.pro .gp-strip{display:none}
+}
+html.pro .gp-band .gp-villes button span{flex:1;text-align:left}
+html.pro .gp-cap{bottom:84px}
+@media (max-width:980px){html.pro .gp-cap{bottom:auto}}
