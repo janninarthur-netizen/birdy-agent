@@ -415,7 +415,8 @@ if __name__ == "__main__":
     import glob as _glob
     parc = sorted(f for f in _glob.glob("parcours/**/*.html", recursive=True) if f != "parcours/index.html")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "apropos.py")], check=True)
-    allp = ["", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["mentions-legales.html"]
+    __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "cours.py")], check=True)
+    allp = ["", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["cours/index.html", "mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)

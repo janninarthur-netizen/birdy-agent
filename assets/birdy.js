@@ -474,7 +474,7 @@
     function demandeIA(txt) {
       occupe = true;
       var b = bulle("msg-b", ""); b.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
-      var rep = "", err = null, choix = null, fiche = null, golfC = null;
+      var rep = "", err = null, choix = null, fiche = null, golfC = null, coursC = null;
       fetch("/api/birdy", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: histo }) })
         .then(function (res) {
           if (!res.ok || !res.body) throw new Error(String(res.status));
@@ -494,6 +494,7 @@
                 if (o.choix) choix = o.choix;
                 if (o.fiche) fiche = o.fiche;
                 if (o.golf) golfC = o.golf;
+                if (o.cours) coursC = o.cours;
                 if (rep) { b.innerHTML = md(rep) + '<span class="caret"></span>'; log.scrollTop = log.scrollHeight; }
               }
               return lit();
@@ -507,6 +508,12 @@
           // Secours : l'IA parle de parcours sans envoyer de critères → on déduit le lieu de la phrase du visiteur
           if (!golfC && window.BirdyGolf && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
             var dv = BirdyGolf.devine(txt); if (dv.lieu) golfC = dv;
+          }
+          if (coursC) {
+            var lc = document.createElement("a"); lc.className = "btn gold sm";
+            lc.href = "/cours/?" + (coursC.lieu ? "lieu=" + encodeURIComponent(coursC.lieu) + "&" : "") + (coursC.type ? "type=" + encodeURIComponent(coursC.type) : "");
+            lc.textContent = coursC.lieu ? "Voir les golfs pour un cours près de " + coursC.lieu : "Trouver un cours de golf";
+            var bc = bulle("msg-b pj-wrap", lc); golfC = null;
           }
           if (golfC && window.BirdyGolf && BirdyGolf.dateDe) { var dt = BirdyGolf.dateDe(txt); if (dt) golfC.date = dt; }
           if (golfC && window.BirdyGolf) golfs(golfC);

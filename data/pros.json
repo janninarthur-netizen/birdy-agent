@@ -1,0 +1,4 @@
+{
+  "_mode_emploi": "Pros partenaires VALIDÉS uniquement (accord écrit du pro). Chaque fiche apparaît sur /cours/. Champs : id, prenom, nom, photo (chemin /assets/img/pros/...), golf (identifiant « i » de data/golfs.json), diplome, specialites (liste), types (liste parmi : Cours individuel, Cours collectif, Stage, Parcours accompagné, Analyse vidéo / Trackman, Initiation), tarif (texte fourni par le pro, ex. « 60 € l'heure »), langues. Ne jamais ajouter d'avis ou de note inventés.",
+  "pros": []
+}

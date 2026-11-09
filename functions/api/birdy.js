@@ -82,6 +82,8 @@ function sortie(w) {
         const l = c[1].split("|").map((x) => x.replace(/<[^>]*>/g, "").trim()).filter(Boolean).slice(0, 4).map((x) => x.slice(0, 40));
         if (l.length) await w.write(sse({ choix: l }));
       }
+      const co = tout.match(/<cours>([\s\S]*?)(?:<\/cours>|$)/);
+      if (co) { try { const o = JSON.parse(co[1].trim()); if (o && typeof o === "object") await w.write(sse({ cours: o })); } catch {} }
       const g = tout.match(/<golf>([\s\S]*?)(?:<\/golf>|$)/);
       if (g) { try { const o = JSON.parse(g[1].trim()); if (o && typeof o === "object") await w.write(sse({ golf: o })); } catch {} }
       const f = tout.match(/<fiche>([\s\S]*?)(?:<\/fiche>|$)/);

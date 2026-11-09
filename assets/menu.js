@@ -32,7 +32,7 @@
   pan.innerHTML =
     '<a class="mb-pole" href="' + (accueil ? "#organiser" : "/#organiser") + '"><small>Birdy Travel</small><b>Voyages golf de groupe</b><em>55 destinations, un conseiller obtient les vrais tarifs</em></a>' +
     '<a class="mb-pole" href="/parcours/"><small>Birdy Golf</small><b>Réserver un parcours en France</b><em>Du clic au tee, en un swing.</em></a>' +
-    '<div class="mb-l"><a href="/">Accueil et Birdy</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
+    '<a class="mb-pole" href="/cours/"><small>Birdy Pro</small><b>Cours de golf &amp; pros</b><em>Le bon pro, pour chaque swing.</em></a><div class="mb-l"><a href="/">Accueil et Birdy</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
     '<div class="mb-c"><a href="tel:+33616213447">Appeler</a><a class="mb-wa" href="https://wa.me/33616213447?text=' + encodeURIComponent("Bonjour Birdy Agent, je souhaite organiser une partie ou un séjour golf.") + '" target="_blank" rel="noopener">WhatsApp</a></div>';
   top.appendChild(btn);
   document.body.appendChild(pan);

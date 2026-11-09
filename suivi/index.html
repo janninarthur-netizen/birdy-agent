@@ -139,7 +139,7 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
       b.addEventListener("click", function () { filtre = f[0]; tableau(); }); bar.appendChild(b);
     });
     bar.appendChild(el("span", "sep"));
-    [["tous", "Tout"], ["voyage", "✈ Voyages"], ["depart", "⛳ Départs"]].forEach(function (t) {
+    [["tous", "Tout"], ["voyage", "✈ Voyages"], ["depart", "⛳ Départs"], ["cours", "🎓 Cours"], ["pro", "★ Pros"]].forEach(function (t) {
       var b = el("button", "f", t[1]); b.type = "button"; b.setAttribute("aria-pressed", type === t[0]);
       b.addEventListener("click", function () { type = t[0]; tableau(); }); bar.appendChild(b);
     });
@@ -153,8 +153,8 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
     if (!vis.length) l.appendChild(el("p", "vide", data.length ? "Aucune demande dans ce filtre." : "Aucune demande pour l’instant. Elles apparaîtront ici dès le premier envoi."));
     vis.forEach(function (d) {
       var b = el("button", "it" + (sel === d.id ? " on" : "")); b.type = "button";
-      b.appendChild(el("span", "ty", d.type === "depart" ? "⛳" : "✈"));
-      var t = el("span"); t.appendChild(el("b", null, d.prenom + " · " + (d.titre || ""))); t.appendChild(el("small", null, (d.type === "depart" ? "Départ" : "Voyage") + " · reçue " + date(d.cree)));
+      b.appendChild(el("span", "ty", { depart: "⛳", cours: "🎓", pro: "★" }[d.type] || "✈"));
+      var t = el("span"); t.appendChild(el("b", null, d.prenom + " · " + (d.titre || ""))); t.appendChild(el("small", null, ({ depart: "Départ", cours: "Cours", pro: "Pro" }[d.type] || "Voyage") + " · reçue " + date(d.cree)));
       b.appendChild(t); b.appendChild(el("span", "st " + d.statut, LIB[d.statut] || d.statut));
       b.addEventListener("click", function () { ouvrir(d.id); });
       l.appendChild(b);
@@ -172,19 +172,23 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
       det.innerHTML = "";
       var c = el("div", "carte");
       c.appendChild(el("span", "st " + d.statut, LIB[d.statut]));
-      c.appendChild(el("h2", null, d.type === "depart" ? d.golf.n : d.destination));
-      c.appendChild(el("p", "sub", (d.type === "depart" ? "Demande de départ" : "Demande de voyage") + " reçue le " + date(d.cree)));
-      var dl = el("dl"), lignes = d.type === "depart"
+      var TY = { depart: "Demande de départ", voyage: "Demande de voyage", cours: "Demande de cours", pro: "Candidature de pro" };
+      c.appendChild(el("h2", null, d.type === "depart" ? d.golf.n : d.type === "cours" ? (d.golf ? d.golf.n : d.lieu) : d.type === "pro" ? d.prenom + " " + d.nom : d.destination));
+      c.appendChild(el("p", "sub", (TY[d.type] || "Demande") + " reçue le " + date(d.cree)));
+      var dl = el("dl"), lignes = d.type === "cours"
+        ? [["Golf", d.golf ? d.golf.n + " · " + d.golf.v + " (" + d.golf.d + ")" : d.lieu], ["Type", d.type_cours], ["Niveau", d.niveau], ["Élèves", d.eleves], ["Disponibilités", d.dispos], ["Budget", d.budget], ["Objectif", d.objectif]]
+        : d.type === "pro" ? [["Golf d’attache", d.golf_attache], ["Diplôme", d.diplome], ["Spécialités", d.specialites], ["Site web", d.site_web]]
+        : d.type === "depart"
         ? [["Golf", d.golf.n + " · " + d.golf.v + " (" + d.golf.d + ")"], ["Date", jour(d.date)], ["Créneau", d.creneau], ["Joueurs", d.joueurs], ["Budget", d.budget ? d.budget + (/€/.test(d.budget) ? "" : " €") + " / joueur" : ""], ["Niveau", d.niveau]]
         : [["Destination", d.destination], ["Groupe", d.groupe], ["Période", d.periode], ["Budget", d.budget]];
       lignes = lignes.concat([["Prénom", d.prenom], ["Téléphone", d.tel], ["E-mail", d.email], ["Note du client", d.note]]);
       lignes.forEach(function (x) { if (x[1] === "" || x[1] == null) return; dl.appendChild(el("dt", null, x[0])); dl.appendChild(el("dd", null, String(x[1]))); });
       c.appendChild(dl);
       var a = el("div", "acts"), lien = function (cls, txt, href) { var x = el("a", "btn " + cls, txt); x.href = href; if (/^http/.test(href)) { x.target = "_blank"; x.rel = "noopener"; } a.appendChild(x); };
-      if (d.tel_e164) { lien("plein", "Appeler", "tel:+" + d.tel_e164); lien("wa", "WhatsApp", "https://wa.me/" + d.tel_e164 + "?text=" + encodeURIComponent("Bonjour " + d.prenom + ", c’est Birdy Agent au sujet de votre demande " + (d.type === "depart" ? "de départ au " + d.golf.n : "de séjour golf") + ".")); }
+      if (d.tel_e164) { lien("plein", "Appeler", "tel:+" + d.tel_e164); lien("wa", "WhatsApp", "https://wa.me/" + d.tel_e164 + "?text=" + encodeURIComponent("Bonjour " + d.prenom + ", c’est Birdy Agent au sujet de votre " + (d.type === "depart" ? "demande de départ au " + d.golf.n : d.type === "cours" ? "demande de cours de golf" : d.type === "pro" ? "candidature Birdy Pro" : "demande de séjour golf") + ".")); }
       if (d.email) lien("", "E-mail", "mailto:" + d.email);
-      if (d.type === "depart" && d.golf.u) lien("", "Site du golf", d.golf.u);
-      if (d.type === "depart" && d.golf.s) lien("", "Fiche golf", "/parcours/golf/" + d.golf.s);
+      if (d.golf && d.golf.u) lien("", "Site du golf", d.golf.u);
+      if (d.golf && d.golf.s) lien("", "Fiche golf", "/parcours/golf/" + d.golf.s);
       c.appendChild(a);
       c.appendChild(el("p", "sub", "Statut"));
       var st = el("div", "stats");

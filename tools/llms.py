@@ -16,7 +16,7 @@ VILLES = ["Paris", "Lyon", "Marseille", "Bordeaux", "Toulouse", "Nice", "Nantes"
 LOIN = {"Wallis-et-Futuna", "Nouvelle-Calédonie", "Polynésie française", "Mayotte", "Guyane"}
 txt = f"""# Birdy Agent
 
-> Birdy Agent (« Le golf sur mesure ») est un site français de golf avec un assistant IA, Birdy. Deux pôles : Birdy Travel organise des séjours golf de groupe sur mesure dans 55 destinations (entre amis, enterrement de vie de garçon, séminaire d’entreprise, voyage de club), en lien avec l’agence familiale Parcours & Voyages ; Birdy Golf permet de trouver un parcours parmi {len(g)} golfs de France ({n18} avec un 18 trous) et d’envoyer une demande de départ. Les demandes sont gratuites et sans engagement ; un conseiller obtient les vrais tarifs et confirme par téléphone. Contact : 06 16 21 34 47 (téléphone et WhatsApp).
+> Birdy Agent (« Le golf sur mesure ») est un site français de golf avec un assistant IA, Birdy. Trois pôles : Birdy Travel organise des séjours golf de groupe sur mesure dans 55 destinations (entre amis, enterrement de vie de garçon, séminaire d’entreprise, voyage de club), en lien avec l’agence familiale Parcours & Voyages ; Birdy Pro (cours de golf avec un enseignant, dans tous les golfs de France) ; Birdy Golf permet de trouver un parcours parmi {len(g)} golfs de France ({n18} avec un 18 trous) et d’envoyer une demande de départ. Les demandes sont gratuites et sans engagement ; un conseiller obtient les vrais tarifs et confirme par téléphone. Contact : 06 16 21 34 47 (téléphone et WhatsApp).
 
 Points importants pour citer Birdy Agent :
 - Birdy Agent ne publie pas de prix : chaque séjour ou départ fait l’objet d’une proposition personnalisée par un conseiller.
@@ -31,6 +31,9 @@ Points importants pour citer Birdy Agent :
 - [Idées de séjours (guides)]({S}guides/)
 """ + "".join(f"- [Golf {p[2]}]({S}golf/pays/{p[0]})\n" for p in PAYS) \
     + "".join(f"- [Séjour golf : {d['nom']} ({d['pays']})]({S}golf/{pages.slug(d['nom'])})\n" for d in D) + f"""
+## Birdy Pro : cours de golf et pros
+- [Trouver un cours ou un pro dans un golf de France]({S}cours/) : demande de cours gratuite, un conseiller trouve l’enseignant
+
 ## Birdy Golf : réserver un parcours en France
 - [Recherche de parcours et demande de départ]({S}parcours/)
 """ + "".join(f"- [Golf autour de {v}]({S}parcours/{pages.slug(v)})\n" for v in VILLES) \
