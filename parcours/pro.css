@@ -225,3 +225,16 @@ html.pro .gp-band .gp-map{border:1px solid rgba(208,228,220,.22)!important;box-s
 html.pro .gp-hin{padding-block:34px 44px!important}
 html.pro .gp-cap{bottom:24px}
 @media (max-width:980px){html.pro .gp-hin{padding-block:24px 30px!important}}
+
+/* ===== Un seul fond photo continu (green au coucher du soleil, fondu vert) derrière en-tête, régions et outil ===== */
+html.pro main.gp{background:
+  linear-gradient(180deg,rgba(10,30,23,.70) 0%,rgba(10,30,23,.78) 45%,rgba(10,30,23,.86) 100%),
+  url(/assets/img/green-coucher-soleil.webp) center top/cover fixed;background-color:#0A1E17}
+html.pro main.gp .gp-hero,html.pro main.gp .gp-regions,html.pro main.gp .gp-band{background:transparent!important}
+html.pro main.gp .gp-hero .gp-bg{display:none}
+html.pro main.gp .gp-hero .veil{background:linear-gradient(90deg,rgba(10,30,23,.45) 0%,rgba(10,30,23,.15) 50%,rgba(10,30,23,0) 100%)!important}
+/* les sections du bas gardent leur fond doux */
+html.pro main.gp > .band:not(.gp-band){position:relative;z-index:1}
+/* iPhone / iPad : pas de fond fixe (non géré) → photo étirée sur toute la zone, toujours fondue */
+@supports (-webkit-touch-callout:none){html.pro main.gp{background-attachment:scroll,scroll}}
+html.pro main.gp .gp-hero .veil{display:none!important}
