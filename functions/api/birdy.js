@@ -132,6 +132,9 @@ function reponseFinale(t, francais) {
     const en = (vis.match(/\b(the|and|you|your|with|within|offers|several|near|for|is|are|this|that)\b/gi) || []).length;
     const fr = (vis.match(/\b(le|la|les|des|vous|votre|pour|avec|est|sont|une|un|du|et)\b/gi) || []).length;
     if (en > 4 && en > fr) return "";
+    // Mélange de langues (anglais, chinois…) au milieu d'une phrase française : rejeté aussi
+    if (/[\u0400-\u04FF\u0590-\u06FF\u0E00-\u0E7F\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7AF]/.test(vis)) return "";
+    if (/\b(could you|would you|can you|how many|per person|what is|please|near (?=[A-Z]))/i.test(vis)) return "";
   }
   return t;
 }
