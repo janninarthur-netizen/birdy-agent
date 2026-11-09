@@ -172,7 +172,7 @@
   }
   function afficher(r, c) {
     dernier = r.res; list.textContent = "";
-    montreCarte(!!(r.zone && r.res.length));
+    montreCarte(true);
     if (window.BirdyGolf3D) BirdyGolf3D.surligne(r.res.map(function (o) { return o.g.i; }));
     if (!r.zone) { count.textContent = c.lieu ? "Lieu introuvable : essayez une ville, un département ou une région." : "Indiquez un lieu pour voir les parcours."; return; }
     var n = r.res.length, quoi = r.trous === 18 ? "parcours 18 trous" : r.trous === 9 ? "parcours 9 trous" : "golfs";
@@ -285,44 +285,59 @@
       .then(function () { btn.disabled = false; });
   });
 
-  // Demander à Birdy
-  var ask = document.getElementById("gp-ask"), say = document.getElementById("gp-say"), histo = [];
+  // Chat Birdy (en-tête de page) : conversation, réponses rapides, recherche des parcours
+  var ask = document.getElementById("gp-ask"), say = document.getElementById("gp-say"), sugg = document.getElementById("gp-sugg"), histo = [];
   function md(t) {
     var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
     h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) { return /^\/(golf|guides|parcours)\/[\w\/?=&%.-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + x + "</a>" : x; });
     return h.replace(/\n/g, "<br>");
   }
-  function appliquer(c, txt) {
-    remplir(c);
-    if (!F.lieu.value) { if (txt) say.innerHTML = md(txt) + "<br>Où souhaitez-vous jouer ?"; F.lieu.focus(); return; }
-    lancer().then(function () { document.getElementById("gp-count").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  function bulle(cls, html, texte) {
+    var d = document.createElement("div"); d.className = "gm " + cls;
+    if (texte) d.textContent = html; else d.innerHTML = html;
+    say.appendChild(d); say.scrollTop = say.scrollHeight; return d;
   }
-  ask.addEventListener("submit", function (ev) {
-    ev.preventDefault();
-    var q = document.getElementById("gp-q"), txt = q.value.trim(); if (!txt) return;
-    q.value = ""; say.hidden = false; say.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
+  function rapides(l) {
+    if (!sugg || !l || !l.length) return;
+    sugg.textContent = "";
+    l.slice(0, 4).forEach(function (x) { var b = document.createElement("button"); b.type = "button"; b.textContent = String(x); sugg.appendChild(b); });
+  }
+  function appliquer(c) {
+    remplir(c);
+    if (!F.lieu.value) { F.lieu.focus(); return; }
+    lancer().then(function () { setTimeout(function () { document.getElementById("gp-count").scrollIntoView({ behavior: "smooth", block: "start" }); }, 700); });
+  }
+  var occupe = false;
+  function envoie(txt) {
+    txt = (txt || "").trim(); if (!txt || occupe) return;
+    occupe = true;
+    bulle("u", txt, true);
+    var t = bulle("b", '<span class="typing"><i></i><i></i><i></i></span>');
     histo.push({ role: "user", content: "[Page réservation de parcours en France] " + txt });
-    var rep = "", golf = null, err = null;
+    var rep = "", golf = null, err = null, choix = null;
     fetch("/api/birdy", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: histo }) })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (b) {
         b.split("\n\n").forEach(function (l) {
           if (l.indexOf("data: ") !== 0) return;
-          try { var o = JSON.parse(l.slice(6)); if (o.t != null) rep += String(o.t); if (o.golf) golf = o.golf; if (o.erreur) err = o.erreur; } catch (e) {}
+          try { var o = JSON.parse(l.slice(6)); if (o.t != null) rep += String(o.t); if (o.golf) golf = o.golf; if (o.choix) choix = o.choix; if (o.erreur) err = o.erreur; } catch (e) {}
         });
         if (err || !rep.trim()) throw new Error(err || "vide");
         rep = rep.trim(); histo.push({ role: "assistant", content: rep });
-        say.innerHTML = md(rep);
+        t.innerHTML = md(rep); say.scrollTop = say.scrollHeight; rapides(choix);
         var c = golf || devine(txt), dt = dateDe(txt); if (dt) c.date = dt;
-        appliquer(c);
+        if (c.lieu) appliquer(c);
       })
       .catch(function () {
         histo.pop();
         var c = devine(txt), dt0 = dateDe(txt); if (dt0) c.date = dt0;
-        say.textContent = c.lieu ? "Voici les parcours qui correspondent à votre recherche." : "Dites-moi où vous souhaitez jouer (ville, département ou région).";
-        appliquer(c);
-      });
-  });
+        t.textContent = c.lieu ? "Voici les parcours qui correspondent à votre recherche, juste en dessous." : "Dites-moi où vous souhaitez jouer : une ville, un département ou une région.";
+        if (c.lieu) appliquer(c);
+      })
+      .then(function () { occupe = false; });
+  }
+  ask.addEventListener("submit", function (ev) { ev.preventDefault(); var q = document.getElementById("gp-q"); envoie(q.value); q.value = ""; });
+  if (sugg) sugg.addEventListener("click", function (ev) { var b = ev.target.closest && ev.target.closest("button"); if (b) envoie(b.textContent); });
 
   // Démarrage : critères dans l'adresse, liste des villes
   var P = new URLSearchParams(location.search), c0 = {};
@@ -355,6 +370,8 @@
     if (c0.lieu) lancer(); else {
       accueil(D);
       count.textContent = "";
+      montreCarte(true);
+      if (window.L) apercu(D); else addEventListener("load", function () { apercu(D); });
     }
     var id = P.get("golf");
     if (id) { var g = D.golfs.find(function (x) { return x.i === id; }); if (g) ouvrir(g); }

@@ -52,9 +52,9 @@
   var vise = { x: 0, y: 0, s: 1 }, actuel = { x: 0, y: 0, s: 1 }, glisse = 0, tourne = 0, depart = null;
 
   Promise.all([BirdyGolf.charger(), fetch("/data/france-points.json").then(function (r) { return r.json(); })]).then(function (x) {
-    fond = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), CLAIR ? { taille: 2.8, c1: "#7FAE97", base: 0.95 } : { taille: 2.7, c1: "#7FBFA3", base: 0.95 });
+    fond = nuage(x[1].map(function (v) { var p = xy(v[0], v[1]); return [p[0], p[1], 0, 1]; }), CLAIR ? { taille: 2.8, c1: "#7FAE97", base: 0.95 } : { taille: 3.1, c1: "#9AD6BC", base: 1.0 });
     liste = x[0].golfs.filter(function (g) { return metro(g.la, g.lo); });
-    golfs = nuage(liste.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), CLAIR ? { taille: 5.2, c1: "#2F7A55", c2: "#0E3A31", base: 0.75 } : { taille: 5.4, c1: "#E2F2EA", c2: "#FFFFFF", base: 0.6 });
+    golfs = nuage(liste.map(function (g) { var p = xy(g.la, g.lo); return [p[0], p[1], 0.06, g.t18 ? 1.25 : 0.8]; }), CLAIR ? { taille: 5.2, c1: "#2F7A55", c2: "#0E3A31", base: 0.75 } : { taille: 6.4, c1: "#F4FFF9", c2: "#FFFFFF", base: 0.75 });
     taille(); cv.classList.add("on"); depart = performance.now();
   }).catch(function () {});
 
@@ -140,7 +140,7 @@
     renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height;
     // Cadrage : la France remplit la zone, centrée (un peu plus loin sur écran étroit)
     var loin = r.width / r.height < 0.9 ? 10.8 : 9.3;
-    cam.position.set(0, -4.4, loin); cam.lookAt(0, 0.05, 0); cam.updateProjectionMatrix();
+    cam.position.set(0, -4.4, loin); cam.lookAt(0, 0.05, 0); pivot.position.x = r.width > 520 ? -0.55 : 0; cam.updateProjectionMatrix();
   }
   addEventListener("resize", taille);
   if (window.IntersectionObserver) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);

@@ -182,6 +182,16 @@ def page_app(golfs, maj):
                        "serviceType": "Réservation de départs de golf", "areaServed": "FR", "url": SITE + "parcours/",
                        "provider": {"@type": "TravelAgency", "name": "Birdy Agent", "url": SITE, "telephone": "+33616213447"},
                        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Demande de départ gratuite et sans engagement"}})
+    MOSA = [("Bretagne", "/assets/img/p/19896675-960.webp", "Links et parcours face à l’océan"),
+            ("Provence-Alpes-Côte d'Azur", "/assets/img/p/14504325-960.webp", "Le golf entre mer et collines"),
+            ("Île-de-France", "/assets/img/green-coucher-soleil.webp", "Les parcours autour de Paris"),
+            ("Nouvelle-Aquitaine", "/assets/img/p/11662240-960.webp", "Du Pays basque à Bordeaux"),
+            ("Auvergne-Rhône-Alpes", "/assets/img/golfeur-bunker.webp", "Lyon, Annecy et les Alpes"),
+            ("Corse", "/assets/img/p/31384821-960.webp", "Des parcours spectaculaires")]
+    mosaique = "".join(
+        f'<a class="gp-tuile" href="/parcours/region/{pages.slug(r)}.html"><img src="{im}" alt="" loading="lazy">'
+        f'<span class="gp-tv"></span><span class="gp-tt"><small>{sum(1 for g in golfs if g["r"] == r and g["t18"])} parcours 18 trous</small>'
+        f'<b>{e(r)}</b><em>{e(t)}</em><i>Voir les golfs →</i></span></a>' for r, im, t in MOSA)
     chips = "".join(f'<button type="button" data-lieu="{e(l)}">{e(t)}</button>' for t, l in
                     [("Paris", "Paris"), ("Lyon", "Lyon"), ("Bordeaux", "Bordeaux"), ("Côte d’Azur", "Côte d’Azur")])
     out = pages.head(title, desc, "parcours/", SITE + "og.jpg", extra)
@@ -190,15 +200,17 @@ def page_app(golfs, maj):
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Réserver un parcours</span></nav>
   <p class="tag">Birdy Golf · Réserver un parcours en France</p>
   <h1 class="gp-slogan">Du clic au <em>tee</em>, en un swing.</h1>
-  <p class="lead">{n18} parcours 18 trous. Dites où et quand : Birdy s’occupe du départ.</p>
-  <form class="gp-ask" id="gp-ask" autocomplete="off">
-    <label class="sr" for="gp-q">Décrivez votre partie</label>
-    <input id="gp-q" maxlength="400" placeholder="Ex. : samedi matin à 4, près de Bordeaux">
-    <button class="btn gold" type="submit" aria-label="Demander à Birdy">Trouver</button>
-  </form>
-  <div class="gp-say" id="gp-say" hidden></div>
+  <div class="gp-chat" id="gp-chat">
+    <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="44" height="44"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre concierge golf · répond tout de suite</span></div></div>
+    <div class="gp-log" id="gp-say" aria-live="polite"><div class="gm b">Bonjour ! Dites-moi où et quand vous voulez jouer, et à combien : je vous trouve les parcours 18 trous et je transmets votre demande de départ.</div></div>
+    <div class="gp-sugg" id="gp-sugg"><button type="button">Samedi matin près de Paris</button><button type="button">Un 18 trous à Bordeaux pour 4</button><button type="button">Jouer près de Nice demain</button></div>
+    <form class="gp-ask" id="gp-ask" autocomplete="off">
+      <label class="sr" for="gp-q">Votre message à Birdy</label>
+      <input id="gp-q" maxlength="400" placeholder="Votre partie, une question golf…">
+      <button class="btn gold" type="submit" aria-label="Envoyer">→</button>
+    </form>
+  </div>
   <div class="gp-chips" id="gp-chips" role="group" aria-label="Recherches rapides"><button type="button" id="gp-moi">◎ Près de moi</button>{chips}</div>
-  <ol class="gp-strip" aria-label="Comment ça marche"><li><i>1</i>Choisissez un parcours</li><li><i>2</i>Envoyez votre demande</li><li><i>3</i>Un conseiller confirme</li></ol>
 </div>
   <div class="gp-viz" aria-hidden="true"><canvas class="gp-3d" id="gp-3d"></canvas><div class="gp-tip" id="gp-tip" hidden></div></div>
   <p class="gp-cap"><span class="gp-dot"></span>Touchez un golf sur la carte</p>
@@ -218,13 +230,19 @@ def page_app(golfs, maj):
     <label>Joueurs<select name="joueurs"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
     <button class="btn gold" type="submit">Rechercher</button>
   </form>
-  <div class="gp-res vide" id="gp-res">
+  <div class="gp-res" id="gp-res">
     <div><p class="gp-count" id="gp-count" aria-live="polite">Indiquez un lieu pour voir les parcours.</p><div class="gp-list gp-grid" id="gp-list"></div>
       <button class="btn ghost gp-plus" id="gp-plus" type="button" hidden>Voir plus de parcours</button></div>
     <div class="gp-map" id="gp-map" aria-label="Carte des parcours"></div>
   </div>
   </div>
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>
+</div></section>
+
+<section class="gp-regions"><div class="in">
+  <p class="gp-k">Explorer par région</p>
+  <h2>Où jouer en France ?</h2>
+  <div class="gp-mosa">{mosaique}</div>
 </div></section>
 
 <section class="band"><div class="in">
