@@ -121,3 +121,4 @@ html.pro main.gp .others a{background:#FFFFFF}
   html.pro .gp-list.static .gc{grid-template-columns:1fr;grid-template-areas:"h" "v" "b" "cta"}
   html.pro .gp-list.static .gc-cta{flex-direction:row;align-items:center;margin-top:10px;gap:14px}
 }
+html.pro .gp-list.static .btn.ghost,html.pro .gp-band .gp-grid .gc-cta .btn.ghost{padding:9px 4px;min-height:34px}

@@ -508,6 +508,7 @@
           if (!golfC && window.BirdyGolf && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
             var dv = BirdyGolf.devine(txt); if (dv.lieu) golfC = dv;
           }
+          if (golfC && window.BirdyGolf && BirdyGolf.dateDe) { var dt = BirdyGolf.dateDe(txt); if (dt) golfC.date = dt; }
           if (golfC && window.BirdyGolf) golfs(golfC);
           else { apres(rep); majProjet(fiche); carteProjet(); }
           choixRapides(choix);

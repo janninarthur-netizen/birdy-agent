@@ -99,7 +99,17 @@
     if (m) c.lieu = m[1].trim();
     return c;
   }
-  window.BirdyGolf = { charger: charger, lieu: lieu, chercher: chercher, url: url, trousTxt: trousTxt, devine: devine, norm: norm };
+  // Date tirée de la phrase du visiteur (plus fiable que l'IA) : aujourd'hui, demain, samedi, ce week-end…
+  function dateDe(txt) {
+    var t = norm(txt), d = new Date(), j = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"], k = -1;
+    if (/apres demain/.test(t)) k = 2; else if (/demain/.test(t)) k = 1; else if (/aujourd hui|ce jour/.test(t)) k = 0;
+    else if (/week.?end/.test(t)) k = (6 - d.getDay() + 7) % 7;
+    else for (var i = 0; i < 7; i++) if (new RegExp("\\b" + j[i] + "\\b").test(t)) { k = (i - d.getDay() + 7) % 7; break; }
+    if (k < 0) return null;
+    d.setDate(d.getDate() + k); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+    return d.toISOString().slice(0, 10);
+  }
+  window.BirdyGolf = { charger: charger, lieu: lieu, chercher: chercher, url: url, trousTxt: trousTxt, devine: devine, norm: norm, dateDe: dateDe };
 
   /* ---------- Page /parcours/ ---------- */
   var F = document.getElementById("gp-f");
@@ -303,11 +313,12 @@
         if (err || !rep.trim()) throw new Error(err || "vide");
         rep = rep.trim(); histo.push({ role: "assistant", content: rep });
         say.innerHTML = md(rep);
-        appliquer(golf || devine(txt));
+        var c = golf || devine(txt), dt = dateDe(txt); if (dt) c.date = dt;
+        appliquer(c);
       })
       .catch(function () {
         histo.pop();
-        var c = devine(txt);
+        var c = devine(txt), dt0 = dateDe(txt); if (dt0) c.date = dt0;
         say.textContent = c.lieu ? "Voici les parcours qui correspondent à votre recherche." : "Dites-moi où vous souhaitez jouer (ville, département ou région).";
         appliquer(c);
       });

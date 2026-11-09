@@ -276,7 +276,9 @@ def page_ville(nom, rayon, golfs, villes, maj):
     n18 = sum(1 for _, g in proches if g["t18"])
     s = pages.slug(nom)
     path = f"parcours/{s}.html"
-    title = f"Golf autour de {nom} : {n18} parcours 18 trous à moins de {rayon} km | Birdy Agent"
+    title = f"Golf autour de {nom} : {n18} parcours 18 trous | Birdy Agent"
+    if len(title) > 65:
+        title = f"Golf autour de {nom} : {n18} parcours 18 trous"
     desc = (f"Les {len(proches)} golfs à moins de {rayon} km de {nom}, dont {n18} avec un parcours 18 trous : distance, adresse, "
             "site web. Demande de départ gratuite, confirmée par un conseiller Birdy Agent.")
     faq = [(f"Combien y a-t-il de golfs 18 trous autour de {nom} ?",
@@ -367,6 +369,10 @@ def page_golf(g, golfs, villes, maj):
         title = f"{g['n']} : réserver un départ"
     desc = (f"{g['n']}, golf {('de ' + trtxt) if tr else ''} à {g['v']} ({g['d']}), {situ}. Adresse, itinéraire, golfs à proximité. "
             "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.").replace("  ", " ")
+    if len(desc) > 160:
+        desc = f"{g['n']} à {g['v']} ({g['d']}) : {trtxt}. Adresse, itinéraire, golfs proches. Demande de départ gratuite."
+    if len(desc) > 160:
+        desc = desc[:157].rsplit(" ", 1)[0] + "…"
     fil, ld_fil = ariane([("Accueil", ""), ("Réserver un parcours", "parcours/"), (g["r"], chemin_reg(g["r"])),
                           (f"{g['dn']} ({g['d']})", chemin_dep(g)), (g["n"], path)])
     faq = [(f"Comment réserver un départ au {g['n']} ?",
@@ -431,6 +437,10 @@ def page_golf(g, golfs, villes, maj):
 def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
     n18 = sum(1 for g in liste if g["t18"])
     title = f"Golf {titre_zone} : {len(liste)} golfs, {n18} parcours 18 trous | Birdy Agent"
+    if len(title) > 65:
+        title = f"Golf {titre_zone} : {n18} parcours 18 trous | Birdy Agent"
+    if len(title) > 65:
+        title = f"Golf {titre_zone} : {n18} parcours 18 trous"
     desc = (f"Les {len(liste)} golfs {intro_lieu}, dont {n18} avec un parcours 18 trous : adresse, nombre de trous, site web. "
             "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.")
     fil, ld_fil = ariane(fil_liens)
