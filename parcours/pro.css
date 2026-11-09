@@ -188,3 +188,40 @@ html.pro .gp-band .gp-map{height:min(560px,calc(100vh - 120px))}
 @media (max-width:980px){.gp-tuile:nth-child(6){grid-column:span 2}}
 .gp-tuile:nth-child(5){grid-column:span 2}
 @media (max-width:980px){.gp-tuile:nth-child(5){grid-column:span 1}.gp-tuile:nth-child(6){grid-column:span 1}}
+
+/* ===== Ordre : régions puis outil ; outil sans fond blanc, sur le même fond photo fondu ===== */
+html.pro .gp-regions{padding:56px 0 40px;background:linear-gradient(180deg,#0A1E17 0%,#0A1E17 70%,rgba(10,30,23,.96) 100%)}
+html.pro .gp-band{padding-top:30px!important;background:
+  linear-gradient(180deg,#0A1E17 0%,rgba(10,30,23,.78) 22%,rgba(14,48,38,.74) 70%,#0A1E17 100%),
+  url(/assets/img/parcours-vue-aerienne.webp) center/cover!important}
+html.pro .gp-app{margin-top:0!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+html.pro .gp-app-h h2{color:#FFFFFF!important}
+html.pro .gp-k{color:#A3C9B8}
+html.pro .gp-app-note{color:rgba(232,241,236,.75)!important}
+html.pro .gp-band .gp-f{background:rgba(10,30,23,.55)!important;border:1px solid rgba(208,228,220,.2)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
+html.pro .gp-band .gp-f label{color:rgba(232,241,236,.75)!important}
+html.pro .gp-band .gp-f input,html.pro .gp-band .gp-f select{background:rgba(255,255,255,.08)!important;border-color:rgba(208,228,220,.25)!important;color:#FFFFFF!important;color-scheme:dark}
+html.pro .gp-band .gp-f select option{color:#0A1E17}
+html.pro .gp-band .gp-f input::placeholder{color:rgba(232,241,236,.55)!important}
+html.pro .gp-band .gp-f .btn.gold{background:#FFFFFF!important;color:#0A1E17!important;border-color:#FFFFFF!important}
+html.pro .gp-band .gp-count{color:#FFFFFF!important}
+/* Accueil (logo + villes) et liste de résultats en clair sur fond sombre */
+html.pro .gp-band .gp-start-h b{color:#FFFFFF}
+html.pro .gp-band .gp-start-h span{color:rgba(232,241,236,.72)}
+html.pro .gp-band .gp-villes button{color:#FFFFFF!important;border-bottom-color:rgba(208,228,220,.16)!important}
+html.pro .gp-band .gp-villes button:hover{background:rgba(163,201,184,.12)!important}
+html.pro .gp-band .gp-villes small,html.pro .gp-band .gp-villes button::after{color:#A3C9B8!important}
+html.pro .gp-band .gp-grid .gc{color:#E8F1EC!important;border-bottom-color:rgba(208,228,220,.16)!important}
+html.pro .gp-band .gp-grid .gc:hover,html.pro .gp-band .gp-grid .gc.on{background:rgba(163,201,184,.1)!important}
+html.pro .gp-band .gp-grid .gc h3,html.pro .gp-band .gp-grid .gc h3 a{color:#FFFFFF!important}
+html.pro .gp-band .gp-grid .gc-v{color:rgba(232,241,236,.68)!important}
+html.pro .gp-band .gp-grid .gd{background:rgba(163,201,184,.16)!important;color:#D0E4DC!important}
+html.pro .gp-band .gb{background:#A3C9B8!important;color:#0A1E17!important}
+html.pro .gp-band .gg{background:rgba(255,255,255,.08)!important;color:rgba(232,241,236,.78)!important}
+html.pro .gp-band .gp-grid .gc .btn.gold{background:#FFFFFF!important;color:#0A1E17!important;border-color:#FFFFFF!important}
+html.pro .gp-band .gp-grid .gc-cta .btn.ghost{color:#D0E4DC!important}
+html.pro .gp-band .btn.ghost{color:#FFFFFF;border-color:rgba(208,228,220,.35)}
+html.pro .gp-band .gp-map{border:1px solid rgba(208,228,220,.22)!important;box-shadow:0 30px 70px -35px rgba(0,0,0,.8)!important}
+html.pro .gp-hin{padding-block:34px 44px!important}
+html.pro .gp-cap{bottom:24px}
+@media (max-width:980px){html.pro .gp-hin{padding-block:24px 30px!important}}

@@ -217,6 +217,12 @@ def page_app(golfs, maj):
 </div></section>
 
 
+<section class="gp-regions"><div class="in">
+  <p class="gp-k">Explorer par région</p>
+  <h2>Où jouer en France ?</h2>
+  <div class="gp-mosa">{mosaique}</div>
+</div></section>
+
 <section class="band gp-band"><img class="gp-bg2" src="/assets/img/golfeur-bunker.webp" alt="" loading="lazy"><img class="gp-bg3" src="/assets/img/parcours-vue-aerienne.webp" alt="" loading="lazy"><div class="in">
   <div class="gp-app">
   <div class="gp-app-h"><div><p class="gp-k">Birdy Golf</p><h2>Trouvez votre départ</h2></div><p class="gp-app-note">Demande gratuite · un conseiller réserve et confirme l’horaire et le prix</p></div>
@@ -239,11 +245,7 @@ def page_app(golfs, maj):
   <p class="gp-src">Liste des parcours : {e(SOURCE_TXT)}, mise à jour le {maj}. Un golf manque ou une information est fausse ? Appelez le {TEL}.</p>
 </div></section>
 
-<section class="gp-regions"><div class="in">
-  <p class="gp-k">Explorer par région</p>
-  <h2>Où jouer en France ?</h2>
-  <div class="gp-mosa">{mosaique}</div>
-</div></section>
+
 
 <section class="band"><div class="in">
   <h2>Questions fréquentes</h2>
