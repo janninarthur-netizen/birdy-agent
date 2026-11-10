@@ -263,6 +263,8 @@ def page_pays(p, D):
     path = f"golf/pays/{s}.html"
     items = [d for d in D if d["nom"] in noms]
     title = f"Séjour golf {prep} en groupe : {len(items)} destinations | Birdy Agent"
+    if len(title) > 65:
+        title = f"Séjour golf {prep} en groupe : {len(items)} destinations"
     desc = (f"Séjours golf de groupe sur mesure {prep} : {', '.join(noms)}. {intro.split('. ')[0].rstrip('.')}. "
             "Demande gratuite et sans engagement.")
     if len(desc) > 160:

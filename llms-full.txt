@@ -136,7 +136,7 @@ Birdy, notre assistant IA
 Birdy comprend vos messages, répond à vos questions sur le golf, conseille des destinations et des parcours, puis prépare votre demande. Comme toute intelligence artificielle, il peut se tromper : un conseiller vérifie chaque proposition.
 Nos sources
 Destinations : informations publiées par Parcours & Voyages.
-Golfs de France : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 2026-11-09.
+Golfs de France : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 2026-11-10.
 Cartes : © les contributeurs d’OpenStreetMap.
 Photos : Pexels et Unsplash, selon leurs licences.
 Nous contacter
@@ -154,13 +154,13 @@ La réservation d’un parcours est-elle immédiate ?
 Pas encore. Vous envoyez une demande de départ ; un conseiller réserve auprès du golf et vous rappelle pour confirmer l’horaire et le tarif. Rien n’est réservé avant sa confirmation.
 Birdy est-il une vraie intelligence artificielle ?
 Oui. Birdy comprend vos messages, conseille des destinations et des parcours, et prépare votre demande. Comme toute IA, il peut se tromper : un conseiller vérifie chaque proposition avant de vous l’envoyer.
-Page mise à jour le 09/11/2026.
+Page mise à jour le 10/11/2026.
 WhatsApp
 
 # Guides
 
 ## https://birdy-agent.pages.dev/guides/enterrement-de-vie-de-garcon-golf
-EVG golf : un enterrement de vie de garçon au soleil | Birdy Agent
+EVG golf : un enterrement de vie de garçon au soleil
 Un enterrement de vie de garçon autour du golf
 Le futur marié aime le golf ? Offrez-lui un week-end entre amis au soleil, avec une compétition pour rire, de bons dîners et zéro organisation de votre côté.
 Recevoir une proposition  Écrire sur WhatsApp
@@ -231,7 +231,7 @@ Week-end golf entre amis au Portugal  Enterrement de vie de garçon au golf  Sé
 WhatsApp
 
 ## https://birdy-agent.pages.dev/guides/
-Idées de séjours golf en groupe : amis, EVG, séminaire, hiver | Birdy Agent
+Idées de séjours golf en groupe : amis, EVG, hiver | Birdy Agent
 Idées de séjours golf
 Entre amis, pour un enterrement de vie de garçon, avec vos collègues ou votre club : trouvez le séjour qui vous ressemble.
 Week-end golf entre amis au Portugal  Vous êtes 4, 8 ou 12 copains, vous voulez du soleil, de beaux parcours et une bonne table le soir ? Le Portugal coche toutes les cases, à environ 2 h 30 de vol de Paris.       Enterrement de vie de garçon au golf  Le futur marié aime le golf ? Offrez-lui un week-end entre amis au soleil, avec une compétition pour rire, de bons dîners et zéro organisation de votre côté.       Séminaire golf d’entreprise  Réunir vos équipes autour du golf, c’est créer des souvenirs communs, entre joueurs confirmés et débutants. Nous organisons tout : hôtel, parcours, cours, dîners et transferts.       Voyage golf pour club ou association  Le voyage annuel du club, c’est le moment que tout le monde attend. Nous nous occupons de l’organisation, vous profitez du jeu et de la compétition.       Golf au soleil en hiver  Quand les parcours sont détrempés en France, d’autres golfs vous attendent au soleil. À quelques heures de vol pour un long week-end, ou plus loin pour une vraie semaine de golf.       Séjour golf tout compris  Un seul interlocuteur, un seul devis : l’hôtel, les parcours, les transferts et les dîners sont organisés pour tout le groupe. Vous n’avez plus qu’à jouer.       Séjour golf pour débutants  Pas besoin d’avoir un index pour partir. Avec des cours, des parcours adaptés et un groupe bienveillant, un séjour golf est la meilleure façon de commencer.
@@ -456,7 +456,7 @@ Golf au Portugal  Golf au Maroc  Golf en Écosse  Golf en Irlande  Golf en Itali
 WhatsApp
 
 ## https://birdy-agent.pages.dev/golf/pays/etats-unis
-Séjour golf aux États-Unis en groupe : 5 destinations | Birdy Agent
+Séjour golf aux États-Unis en groupe : 5 destinations
 5 destinations golf
 Séjour golf aux États-Unis
 La Floride, destination golf phare, la Californie et Pebble Beach, la Caroline du Sud, la Virginie et le Texas.
@@ -2852,7 +2852,7 @@ Golf d'Aix-en-Provence
 9 trous  Golf privé    Demander un départ  Site du golf       Golf Country Club de la Salette
 27 km   Marseille 11e Arrondissement (13) · Bouches-du-Rhône
 2 × 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Aix-en-Provence ?
 Nous recensons 6 golfs avec au moins un parcours 18 trous à moins de 30 km de Aix-en-Provence, et 8 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2895,7 +2895,7 @@ Golf du Belvedere
 9 trous  Golf privé    Demander un départ       Golf du Mont d'Arbois
 40 km   Megève (74) · Haute-Savoie
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Annecy ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Annecy, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2934,7 +2934,7 @@ Golf du Grand Avignon
 9 trous  Golf public    Demander un départ       Golf de Pont Royal en Provence
 40 km   Mallemort (13) · Bouches-du-Rhône
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Avignon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Avignon, et 9 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2975,7 +2975,7 @@ Golf d'Ilbarritz
 18 trous  Golf associatif    Demander un départ       Golf de Seignosse
 27 km   Seignosse (40) · Landes
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Biarritz ?
 Nous recensons 9 golfs avec au moins un parcours 18 trous à moins de 30 km de Biarritz, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3008,7 +3008,7 @@ Golf International de Bordeaux Lac
 18 trous  Golf associatif    Demander un départ       Golf des Aiguilles Vertes
 39 km   Lanton (33) · Gironde
 9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Bordeaux ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Bordeaux, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3065,7 +3065,7 @@ Royal Mougins Golf Club
 18 trous  9 trous  Golf privé    Demander un départ       Domaine Golf de Terre Blanche
 23 km   Tourrettes (83) · Var
 2 × 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Cannes ?
 Nous recensons 14 golfs avec au moins un parcours 18 trous à moins de 30 km de Cannes, et 18 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3096,7 +3096,7 @@ Golf de Royat-Charade
 9 trous  Golf privé    Demander un départ       Golf Vichy Forêt De Montpensier
 40 km   Serbannes (03) · Allier
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Clermont-Ferrand ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Clermont-Ferrand, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3141,7 +3141,7 @@ Golf Hôtel Barrière de Deauville
 18 trous  Golf privé    Demander un départ       Golf d'Etretat
 40 km   Étretat (76) · Seine-Maritime
 18 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Deauville ?
 Nous recensons 10 golfs avec au moins un parcours 18 trous à moins de 40 km de Deauville, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3172,7 +3172,7 @@ Golf de Quetigny - Grand Dijon
 9 trous  Golf privé    Demander un départ  Site du golf       Golf de Beaune-Levernois
 39 km   Levernois (21) · Côte-d'Or
 18 trous  9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Dijon ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Dijon, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3207,7 +3207,7 @@ Golf Bluegreen Grenoble Seyssins
 9 trous  Golf public    Demander un départ  Site du golf       Golf des 2 alpes
 38 km   Les Deux Alpes (38) · Isère
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Grenoble ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Grenoble, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3221,7 +3221,7 @@ Envie de partir à l’étranger ? Nos 55 destinations de voyages golf
 WhatsApp
 
 ## https://birdy-agent.pages.dev/parcours/
-Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent
+Réserver un 18 trous en France : 621 golfs | Birdy Agent
 Birdy Golf · Réserver un parcours en France
 Du clic au  tee , en un swing.
 Birdy    Votre concierge golf · répond tout de suite
@@ -3245,7 +3245,7 @@ Joueurs  1  2  3  4  5  6  7  8
 Rechercher
 Indiquez un lieu pour voir les parcours.
 Voir plus de parcours
-Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.
+Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.
 Questions fréquentes
 Comment réserver un parcours de golf avec Birdy Agent ?
 Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer.
@@ -3282,7 +3282,7 @@ Golf de la Prée de la Rochelle
 9 trous  Golf associatif    Demander un départ       Golf de Port Bourgenay
 50 km   Talmont-Saint-Hilaire (85) · Vendée
 2 × 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de La Rochelle ?
 Nous recensons 2 golfs avec au moins un parcours 18 trous à moins de 50 km de La Rochelle, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3315,7 +3315,7 @@ Golf du Touquet
 2 × 18 trous  Golf privé    Demander un départ       Golf de Wimereux
 31 km   Wimereux (62) · Pas-de-Calais
 18 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Le Touquet-Paris-Plage ?
 Nous recensons 6 golfs avec au moins un parcours 18 trous à moins de 40 km de Le Touquet-Paris-Plage, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3360,7 +3360,7 @@ Hippodrome de Marcq en Baroeul
 18 trous  9 trous  Golf public    Demander un départ       Golf du Parc d’Olhain
 39 km   Fresnicourt-le-Dolmen (62) · Pas-de-Calais
 9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lille ?
 Nous recensons 8 golfs avec au moins un parcours 18 trous à moins de 40 km de Lille, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3397,7 +3397,7 @@ Golf de Lyon Chassieu
 18 trous  Golf privé    Demander un départ  Site du golf       Golf des Trois Vallons Ugolf
 34 km   L'Isle-d'Abeau (38) · Isère
 9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lyon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Lyon, et 8 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3440,7 +3440,7 @@ Daily Golf de Marseille Borrely
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de la Sainte Baume
 35 km   Nans-les-Pins (83) · Var
 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Marseille ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Marseille, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3469,7 +3469,7 @@ Golf Montpellier Fontcaude
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de la Grande Motte
 19 km   La Grande-Motte (34) · Hérault
 2 × 18 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Montpellier ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Montpellier, et 4 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3504,7 +3504,7 @@ Golf Nantes Erdre
 18 trous  9 trous  Golf privé    Demander un départ       Golf de Savenay
 30 km   Savenay (44) · Loire-Atlantique
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nantes ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Nantes, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3555,7 +3555,7 @@ Golf De La Vanade
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Old Course - CANNES MANDELIEU
 32 km   Mandelieu-la-Napoule (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nice ?
 Nous recensons 12 golfs avec au moins un parcours 18 trous à moins de 40 km de Nice, et 15 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3670,7 +3670,7 @@ Golf Parislongchamp
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Isle d'Adam
 30 km   L'Isle-Adam (95) · Val-d'Oise
 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3701,7 +3701,7 @@ Golf de Reims Champagne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Ailette
 36 km   Cerny-en-Laonnois (02) · Aisne
 18 trous  9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Reims ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Reims, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3732,7 +3732,7 @@ Golf de la Freslonnière
 18 trous  Golf privé    Demander un départ       Golf des Rochers Sévigné
 39 km   Vitré (35) · Ille-et-Vilaine
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rennes ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Rennes, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3775,7 +3775,7 @@ Golf de Rouen Mont-Saint-Aignan
 9 trous  Golf associatif    Demander un départ       Golf Evasion
 38 km   La Frénaye (76) · Seine-Maritime
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rouen ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Rouen, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3806,7 +3806,7 @@ Golf du Fort
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Soufflenheim-Baden-baden
 30 km   Soufflenheim (67) · Bas-Rhin
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Strasbourg ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Strasbourg, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3847,7 +3847,7 @@ Golf de Garonne
 18 trous  Golf associatif    Demander un départ       Ugolf - Las Martines
 27 km   L'Isle-Jourdain (32) · Gers
 9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Toulouse ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Toulouse, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3878,7 +3878,7 @@ Golf de la Gloriette
 18 trous  Golf privé    Demander un départ       Golf de Fleuray - Amboise
 30 km   Cangey (37) · Indre-et-Loire
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 09/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Tours ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Tours, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).

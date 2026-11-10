@@ -343,8 +343,8 @@ def page_guide(g):
     corps = "".join(f'<section class="block">{section_html(*s)}</section>' for s in g["sections"])
     liens = "".join(f'<a href="/golf/{pages.slug(n)}.html">{e(n)}<small>{e(DEST[n]["pays"])}</small></a>' for n in g["liens"])
     autres = "".join(f'<a href="/guides/{o["slug"]}.html">{e(o["court"])}</a>' for o in GUIDES if o is not g)
-    titre = g["titre"] + " | Birdy Agent" if len(g["titre"]) <= 52 else g["titre"]
-    out = pages.head(titre, g["desc"][:160], path, img, extra)
+    titre = g["titre"] + " | Birdy Agent" if len(g["titre"]) <= 51 else g["titre"]
+    out = pages.head(titre, g["desc"] if len(g["desc"]) <= 160 else g["desc"][:158].rsplit(" ", 1)[0].rstrip(",;:") + "…", path, img, extra)
     out += f"""<main>
 <section class="hero">
   <img class="ph" src="{pages.photo(g['photo'], 1600)}" srcset="{pages.photo(g['photo'], 960)} 960w, {pages.photo(g['photo'], 1600)} 1600w" sizes="100vw" fetchpriority="high" alt="" onerror="this.remove()"><div class="veil"></div>
@@ -381,7 +381,7 @@ def page_guide(g):
 
 def page_hub():
     path = "guides/index.html"
-    title = "Idées de séjours golf en groupe : amis, EVG, séminaire, hiver | Birdy Agent"
+    title = "Idées de séjours golf en groupe : amis, EVG, hiver | Birdy Agent"
     desc = ("Week-end entre amis, EVG, séminaire, voyage de club, golf au soleil en hiver, tout compris ou débutants : "
             "nos idées de séjours golf de groupe.")
     out = pages.head(title, desc, "guides/", SITE + "og.jpg", "")

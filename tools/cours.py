@@ -44,9 +44,9 @@ def carte_pro(p):
 def page():
     n18 = sum(1 for g in G["golfs"] if g["t18"])
     path = "cours/"
-    title = "Cours de golf et pros en France : trouvez votre enseignant | Birdy Agent"
-    desc = (f"Cours de golf individuels, collectifs, stages, parcours accompagnés ou analyse vidéo dans {len(G['golfs'])} golfs de France. "
-            "Demande gratuite : un conseiller trouve le pro et confirme.")[:160]
+    title = "Cours de golf et pros en France | Birdy Agent"
+    desc = (f"Cours de golf individuels, stages, parcours accompagnés, analyse vidéo ou Trackman dans {len(G['golfs'])} golfs de France. "
+            "Demande gratuite, un conseiller trouve le pro.")
     faq = [("Comment prendre un cours de golf avec Birdy Agent ?",
             "Choisissez un golf, votre niveau et le type de cours, indiquez vos disponibilités dans le calendrier, puis envoyez votre demande. "
             "Un conseiller trouve l’enseignant et vous rappelle pour confirmer l’horaire et le tarif."),

@@ -39,8 +39,8 @@ extra += pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEn
 extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Accueil", "item": S},
     {"@type": "ListItem", "position": 2, "name": "À propos", "item": S + "a-propos/"}]})
-out = pages.head("À propos de Birdy Agent : le golf sur mesure", "Qui est Birdy Agent : séjours golf de groupe, réservation de parcours en France, "
-                 "assistant IA Birdy, lien avec Parcours & Voyages, sources des données et contact.", "a-propos/", S + "og.jpg", extra)
+out = pages.head("À propos de Birdy Agent : le golf sur mesure", "Qui est Birdy Agent : séjours golf de groupe, parcours et cours de golf en France, "
+                 "assistant IA Birdy, Parcours & Voyages, sources et contact.", "a-propos/", S + "og.jpg", extra)
 out += f"""<main>
 <section class="hero short"><div class="veil"></div><div class="in">
   <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>À propos</span></nav>

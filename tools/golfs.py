@@ -153,9 +153,9 @@ EXTRA_CSS = '<link rel="stylesheet" href="/parcours/parcours.css">\n<link rel="s
 
 def page_app(golfs, maj):
     n18 = sum(1 for g in golfs if g["t18"])
-    title = "Réserver un parcours de golf en France : 18 trous près de chez vous | Birdy Agent"
+    title = f"Réserver un 18 trous en France : {len(golfs)} golfs | Birdy Agent"
     desc = (f"Trouvez et réservez votre départ sur l’un des {len(golfs)} golfs de France, dont {n18} avec un parcours 18 trous. "
-            "Recherche par ville et distance, demande de départ gratuite, confirmée par un conseiller.")
+            "Recherche par ville, demande gratuite.")
     extra = EXTRA_CSS + '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">\n'
     extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
@@ -301,6 +301,11 @@ def page_ville(nom, rayon, golfs, villes, maj):
         title = f"Golf autour de {nom} : {n18} parcours 18 trous"
     desc = (f"Les {len(proches)} golfs à moins de {rayon} km de {nom}, dont {n18} avec un parcours 18 trous : distance, adresse, "
             "site web. Demande de départ gratuite, confirmée par un conseiller Birdy Agent.")
+    if len(desc) > 160:
+        desc = (f"{len(proches)} golfs à moins de {rayon} km de {nom}, dont {n18} en 18 trous : distance, adresse, site web. "
+                "Demande de départ gratuite.")
+    if len(desc) > 160:
+        desc = f"{len(proches)} golfs à moins de {rayon} km de {nom} : distance, adresse, site web. Demande de départ gratuite."
     faq = [(f"Combien y a-t-il de golfs 18 trous autour de {nom} ?",
             f"Nous recensons {n18} golfs avec au moins un parcours 18 trous à moins de {rayon} km de {nom}, "
             f"et {len(proches)} golfs en comptant les parcours 9 trous (source : {SOURCE_TXT})."),
@@ -387,6 +392,8 @@ def page_golf(g, golfs, villes, maj):
         title = f"{g['n']} ({g['v']}) : réserver un départ"
     if len(title) > 65:
         title = f"{g['n']} : réserver un départ"
+    if len(title) > 65:
+        title = g['n']
     desc = (f"{g['n']}, golf {('de ' + trtxt) if tr else ''} à {g['v']} ({g['d']}), {situ}. Adresse, itinéraire, golfs à proximité. "
             "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.").replace("  ", " ")
     if len(desc) > 160:
@@ -463,6 +470,10 @@ def page_zone(titre_zone, path, liste, fil_liens, sous, maj, intro_lieu):
         title = f"Golf {titre_zone} : {n18} parcours 18 trous"
     desc = (f"Les {len(liste)} golfs {intro_lieu}, dont {n18} avec un parcours 18 trous : adresse, nombre de trous, site web. "
             "Demande de départ gratuite, confirmée par un conseiller Birdy Agent.")
+    if len(desc) > 160:
+        desc = f"{len(liste)} golfs {intro_lieu}, dont {n18} en 18 trous : adresse, nombre de trous, site web. Demande de départ gratuite."
+    if len(desc) > 160:
+        desc = f"{len(liste)} golfs {intro_lieu} : adresse, nombre de trous, site web. Demande de départ gratuite."
     fil, ld_fil = ariane(fil_liens)
     liste = sorted(liste, key=lambda g: (-min(g["t18"], 1), g["n"]))
     extra = EXTRA_CSS + ld_fil + pages.ld({"@context": "https://schema.org", "@type": "ItemList", "name": f"Golfs {intro_lieu}",
