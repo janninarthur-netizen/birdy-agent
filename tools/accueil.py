@@ -94,7 +94,7 @@ faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q
 out += f"""<main class="gp home" id="accueil">
 
 <section class="ha-hero"><div class="in">
-  <div class="ha-logo" id="ha-logo"><img src="/logo.webp" alt="Birdy Agent" width="132" height="132"></div>
+  <div class="ha-logo" id="ha-logo"><img src="/logo.webp" alt="Birdy Agent" width="118" height="118"></div>
   <p class="ha-k"><i class="gp-dot"></i>L’assistant IA du golf</p>
   <h1 class="ha-h1">Le golf <em>sans handicap.</em></h1>
   <p class="ha-lead">Apprendre, progresser, jouer, partir : un seul assistant pour tout votre golf.</p>
