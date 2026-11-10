@@ -38,11 +38,11 @@
 
   /* ---------- Cartes sous la réponse ---------- */
   // Parcours : les vrais golfs de la zone (annuaire officiel), comme sur la page Réserver un parcours
-  function carteGolfs(c, deduit) {
+  function carteGolfs(c, deduit, sinon) {
     if (!BG) return;
     BG.chercher(c).then(function (r) {
-      // Lieu deviné à partir de la phrase et introuvable : on ne dit rien (ce n'était sans doute pas une recherche de parcours)
-      if (!r.zone) { if (!deduit) bulle("b", "Je n’ai pas trouvé ce lieu. Pouvez-vous préciser la ville ou le département ?", true); return; }
+      // Lieu deviné à partir de la phrase et introuvable : ce n'était pas une recherche de parcours, on traite la réponse comme un voyage
+      if (!r.zone) { if (!deduit) bulle("b", "Je n’ai pas trouvé ce lieu. Pouvez-vous préciser la ville ou le département ?", true); else if (sinon) sinon(); return; }
       var w = el("div", "ha-res");
       r.res.slice(0, 3).forEach(function (o) {
         var a = el("a", "ha-g"); a.href = BG.url(Object.assign({}, c, { golf: o.g.i }));
@@ -114,18 +114,19 @@
         rep = rep.trim(); histo.push({ role: "assistant", content: rep });
         var dests = []; t.innerHTML = md(rep, dests); bas();
         // Secours : Birdy parle de parcours sans donner de critères → on déduit le lieu de la phrase du visiteur
-        var voyage = dests.length || (fiche && (fiche.nb || fiche.groupe || fiche.periode || fiche.budget || fiche.destination));
+        // Voyage : Birdy cite des destinations (liens /golf/…) ou remplit la fiche du séjour
+        var aDest = dests.length > 0;
+        var ficheVoyage = fiche && (fiche.nb || fiche.groupe || fiche.periode || fiche.budget || fiche.destination);
+        function voyage() { majProjet(fiche, dests); if (aDest || ficheVoyage) carteVoyage(); }
         var deduit = false;
-        if (voyage) golf = null;
-        if (!golf && !cours && !voyage && BG && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
+        if (aDest) golf = null; // des destinations de voyage : ce n'est pas une recherche de parcours en France
+        // Secours : Birdy parle de parcours sans donner de critères → on déduit le lieu de la phrase du visiteur
+        if (!golf && !cours && !aDest && BG && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
           var dv = BG.devine(txt); if (dv.lieu) { golf = dv; deduit = true; }
         }
         if (cours) carteCours(cours);
-        else if (golf && BG) { var dt = BG.dateDe && BG.dateDe(txt); if (dt) golf.date = dt; carteGolfs(golf, deduit); }
-        else {
-          // La carte « séjour » n'apparaît que si cette réponse parle bien d'un voyage
-          majProjet(fiche, dests); if (voyage) carteVoyage();
-        }
+        else if (golf && BG) { var dt = BG.dateDe && BG.dateDe(txt); if (dt) golf.date = dt; carteGolfs(golf, deduit, voyage); }
+        else voyage();
         rapides(choix);
       })
       .catch(function () {
