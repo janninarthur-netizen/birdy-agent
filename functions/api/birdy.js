@@ -144,11 +144,25 @@ function reponseFinale(t, francais) {
   return t;
 }
 
+// L'IA gratuite invente parfois des noms de golfs français. On repère « Golf de X », « Golf du X », « Golf Club X »… :
+// X doit venir du visiteur ou de nos propres données (destinations, exemples), sinon la réponse est rejetée.
+function golfInvente(t, messages) {
+  const vis = t.split("<")[0];
+  const connu = (SYSTEM + " " + messages.filter((m) => m.role === "user").map((m) => m.content).join(" ")).toLowerCase();
+  const re = /\bGolf\s+(?:(?:de la|de l['’]|du|des|de|d['’]|Club|National|International|Resort|&|et)\s*)*([A-ZÀ-Ü][\wÀ-ÿ-]+)/g;
+  let m;
+  while ((m = re.exec(vis))) if (!connu.includes(m[1].toLowerCase())) return true;
+  return false;
+}
+const SANS_NOMS = "Pour les parcours français, je préfère ne pas vous citer de noms de mémoire : je risquerais de me tromper. " +
+  "Dites-moi plutôt la ville ou la région qui vous tente, et je vous affiche les vrais parcours de l’annuaire officiel, avec la distance et le nombre de trous.\n" +
+  "<choix>Côte basque|Bretagne|Île-de-France|Côte d’Azur</choix>\n<fiche>{}</fiche>";
+
 // IA gratuite de Cloudflare. Génération en un bloc (le mode flux perd des espaces devant les nombres).
 // Si un modèle échoue (quota, indisponible), on essaie le suivant.
 async function cloudflareIA(env, messages) {
   const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
-  let texte = "";
+  let texte = "", invente = false;
   // Le visiteur écrit-il en français ? (dernier message)
   const dernier = messages[messages.length - 1].content;
   const francais = !/\b(the|and|you|what|where|how|please|golf course near)\b/i.test(dernier) || /[éèàçù]|\b(le|la|les|un|une|pour|près|vers)\b/i.test(dernier);
@@ -158,12 +172,14 @@ async function cloudflareIA(env, messages) {
         ? await env.AI.run(m, { instructions: SYSTEM + aujourdhui(), input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
         : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM + aujourdhui() }, ...messages], max_tokens: 900, temperature: 0.3 });
       texte = reponseFinale(texteDe(r).trim(), francais);
+      if (texte && golfInvente(texte, messages)) { console.log("Workers AI : nom de golf inventé", m); texte = ""; invente = true; continue; }
       if (texte) break;
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
     } catch (e) {
       console.log("Workers AI", m, String(e).slice(0, 300));
     }
   }
+  if (!texte && invente) texte = SANS_NOMS;
   if (!texte) return json({ erreur: "occupe" }, 429);
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
