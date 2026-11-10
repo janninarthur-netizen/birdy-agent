@@ -637,8 +637,14 @@
   window.birdyChoisir = function (n) { var i = idx(n); if (i < 0) return; if (GL) GL.select(i); if (W) W.prefill({ destination: n }); };
   var start = idx("Algarve");
   try {
-    var qd = new URLSearchParams(location.search).get("dest");
-    if (qd && idx(qd) >= 0) { start = idx(qd); if (W) W.prefill({ destination: qd }, false); }
+    var QS = new URLSearchParams(location.search), qd = QS.get("dest"), pre = {};
+    if (qd && idx(qd) >= 0) { start = idx(qd); pre.destination = qd; }
+    // Venu du chat de la page d'accueil : groupe, période et budget déjà compris par Birdy
+    [["groupe", ["2 à 4 personnes", "5 à 8 personnes", "9 à 16 personnes", "17 personnes ou plus"]],
+     ["periode", ["au printemps", "en été", "en automne", "en hiver", "à des dates flexibles"]],
+     ["budget", ["moins de 800 €", "800 à 1 500 €", "1 500 à 2 500 €", "plus de 2 500 €", "à définir ensemble"]]
+    ].forEach(function (x) { var v = QS.get(x[0]); if (v && x[1].indexOf(v) > -1) pre[x[0]] = v; });
+    if (W && Object.keys(pre).length) W.prefill(pre, false);
   } catch (e) {}
   if (GL) { GL.select(start); setTimeout(function () { GL.fly(start); }, 600); }
 })();
