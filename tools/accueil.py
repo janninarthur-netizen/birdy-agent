@@ -96,8 +96,8 @@ out += f"""<main class="gp home" id="accueil">
 <section class="ha-hero"><div class="in">
   <div class="ha-logo" id="ha-logo"><img src="/logo.webp" alt="Birdy Agent" width="132" height="132"></div>
   <p class="ha-k"><i class="gp-dot"></i>L’assistant IA du golf</p>
-  <h1 class="ha-h1">Tout le golf, <em>en une conversation.</em></h1>
-  <p class="ha-lead">Voyage, parcours, cours ou simple question : dites-le à Birdy, que vous débutiez ou que vous jouiez depuis vingt ans.</p>
+  <h1 class="ha-h1">Le golf <em>sans handicap.</em></h1>
+  <p class="ha-lead">Birdy simplifie tout, du premier swing au grand voyage. Voyage, parcours, cours ou simple question : dites-le-lui.</p>
 
   <div class="gp-chat ha-chat" id="ha-chat">
     <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="52" height="52"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre assistant golf · répond tout de suite</span></div></div>
