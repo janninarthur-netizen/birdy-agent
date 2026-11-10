@@ -13,7 +13,12 @@ function aujourdhui() {
   const d = new Date();
   const long = d.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long", year: "numeric" });
   const iso = d.toLocaleDateString("sv-SE", { timeZone: "Europe/Paris" });
-  return "\n\n# Date du jour\nNous sommes le " + long + " (" + iso + ").";
+  const jours = [];
+  for (let i = 1; i <= 9; i++) {
+    jours.push(new Date(d.getTime() + i * 864e5).toLocaleDateString("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" }));
+  }
+  return "\n\n# Date du jour\nNous sommes le " + long + " (" + iso + "). Les prochains jours : " + jours.join(", ") +
+    ". Si tu cites une date, prends-la dans cette liste sans la calculer ; dans le doute, écris seulement le jour (« samedi »).";
 }
 
 const MAX_MSG = 16, MAX_LEN = 1200, MAX_TOTAL = 9000;

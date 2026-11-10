@@ -507,7 +507,7 @@
           if (err || !rep.trim()) throw new Error(err || "vide");
           rep = rep.trim(); b.innerHTML = md(rep); histo.push({ role: "assistant", content: rep }); occupe = false;
           // Secours : l'IA parle de parcours sans envoyer de critères → on déduit le lieu de la phrase du visiteur
-          if (!golfC && window.BirdyGolf && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
+          if (!golfC && !coursC && !/\]\(\/golf\//.test(rep) && window.BirdyGolf && /18 trous|9 trous|parcours|partie|jouer|green.?fee|d[ée]part/i.test(txt) && /parcours/i.test(rep)) {
             var dv = BirdyGolf.devine(txt); if (dv.lieu) golfC = dv;
           }
           if (coursC) {
