@@ -289,7 +289,7 @@
   var ask = document.getElementById("gp-ask"), say = document.getElementById("gp-say"), sugg = document.getElementById("gp-sugg"), histo = [];
   function md(t) {
     var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
-    h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) { return /^\/(golf|guides|parcours)\/[\w\/?=&%.-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + x + "</a>" : x; });
+    h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) { if (u === "/#organiser") u = "/voyages/#organiser"; return /^\/(golf|guides|parcours|cours)\/[\w\/?=&%.-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + x + "</a>" : x; });
     return h.replace(/\n/g, "<br>");
   }
   function bulle(cls, html, texte) {

@@ -330,15 +330,16 @@ def page_guide(g):
     img = pages.photo_abs(g["photo"])
     extra = pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
-        {"@type": "ListItem", "position": 2, "name": "Idées de séjours", "item": SITE + "guides/"},
-        {"@type": "ListItem", "position": 3, "name": g["court"], "item": SITE + path}]})
+        {"@type": "ListItem", "position": 2, "name": "Voyages", "item": SITE + "voyages/"},
+        {"@type": "ListItem", "position": 3, "name": "Idées de séjours", "item": SITE + "guides/"},
+        {"@type": "ListItem", "position": 4, "name": g["court"], "item": SITE + path}]})
     extra += pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in g["faq"]]})
     extra += pages.ld({"@context": "https://schema.org", "@type": "Article", "headline": g["titre"], "description": g["desc"],
                        "image": img, "inLanguage": "fr-FR", "author": {"@type": "Organization", "name": "Birdy Agent", "url": SITE},
                        "publisher": {"@type": "Organization", "name": "Birdy Agent", "logo": {"@type": "ImageObject", "url": SITE + "logo.webp"}},
                        "mainEntityOfPage": SITE + path})
-    organiser = "/?dest=" + quote(g["dest"]) + "#organiser"
+    organiser = "/voyages/?dest=" + quote(g["dest"]) + "#organiser"
     wa = WA + quote(g["wa"])
     corps = "".join(f'<section class="block">{section_html(*s)}</section>' for s in g["sections"])
     liens = "".join(f'<a href="/golf/{pages.slug(n)}.html">{e(n)}<small>{e(DEST[n]["pays"])}</small></a>' for n in g["liens"])
@@ -349,7 +350,7 @@ def page_guide(g):
 <section class="hero">
   <img class="ph" src="{pages.photo(g['photo'], 1600)}" srcset="{pages.photo(g['photo'], 960)} 960w, {pages.photo(g['photo'], 1600)} 1600w" sizes="100vw" fetchpriority="high" alt="" onerror="this.remove()"><div class="veil"></div>
   <div class="in">
-    <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/guides/">Idées de séjours</a> › <span>{e(g['court'])}</span></nav>
+    <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/voyages/">Voyages</a> › <a href="/guides/">Idées de séjours</a> › <span>{e(g['court'])}</span></nav>
     <h1>{e(g['h1'])}</h1>
     <p class="lead">{e(g['lead'])}</p>
     <div class="cta"><a class="btn gold" href="{organiser}">Recevoir une proposition</a><a class="btn light" href="{wa}" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
@@ -390,7 +391,7 @@ def page_hub():
         f'<b>{e(g["court"])}</b><span class="t">{e(g["lead"])}</span></a>' for g in GUIDES)
     out += f"""<main>
 <section class="hero short"><div class="veil"></div><div class="in">
-  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Idées de séjours</span></nav>
+  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/voyages/">Voyages</a> › <span>Idées de séjours</span></nav>
   <h1>Idées de séjours golf</h1>
   <p class="lead">Entre amis, pour un enterrement de vie de garçon, avec vos collègues ou votre club : trouvez le séjour qui vous ressemble.</p>
 </div></section>
@@ -416,7 +417,8 @@ if __name__ == "__main__":
     parc = sorted(f for f in _glob.glob("parcours/**/*.html", recursive=True) if f != "parcours/index.html")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "apropos.py")], check=True)
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "cours.py")], check=True)
-    allp = ["", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["cours/index.html", "mentions-legales.html"]
+    __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "accueil.py")], check=True)
+    allp = ["", "voyages/index.html", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["cours/index.html", "mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)

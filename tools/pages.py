@@ -54,6 +54,17 @@ def carte(d, w=800):
             f'<span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a>')
 
 
+# Les 3 onglets du site : Voyages, Réserver un parcours, Cours avec un Pro
+ONGLETS = [("/voyages/", "Voyages", ("voyages/", "golf/", "guides/")),
+           ("/parcours/", "Réserver un parcours", ("parcours/",)),
+           ("/cours/", "Cours avec un Pro", ("cours/",))]
+
+
+def nav_onglets(path=""):
+    actif = ' aria-current="page"'
+    return "".join(f'<a href="{h}"{actif if path.startswith(pref) else ""}>{e(n)}</a>' for h, n, pref in ONGLETS)
+
+
 def head(title, desc, path, image, extra=""):
     url = SITE + path
     # Page web datée (fraîcheur du contenu, signal utilisé par Google et les moteurs de réponse IA)
@@ -61,6 +72,7 @@ def head(title, desc, path, image, extra=""):
     extra = ld({"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": url.replace("index.html", ""), "inLanguage": "fr-FR",
                 "dateModified": _d.today().isoformat(), "isPartOf": {"@type": "WebSite", "name": "Birdy Agent", "url": SITE},
                 "publisher": {"@type": "TravelAgency", "@id": SITE + "#agence", "name": "Birdy Agent"}}) + extra
+    onglets = nav_onglets(path)
     return f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -90,7 +102,7 @@ def head(title, desc, path, image, extra=""):
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="/"><img src="/logo.webp" alt="Birdy Agent" width="48" height="48"><span>BIRDY AGENT</span></a>
-  <nav><a href="/golf/">Voyages golf</a><a href="/parcours/">Réserver un parcours</a><a href="/cours/">Cours &amp; pros</a><a href="/guides/">Idées de séjours</a><a class="btn gold sm" href="/#organiser">Organiser mon séjour</a></nav>
+  <nav>{onglets}<a class="btn gold sm" href="/voyages/#organiser">Organiser mon séjour</a></nav>
 </div></header>
 """
 
@@ -100,7 +112,7 @@ def foot():
     return f"""<a class="wa" href="{wa}" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>
-  <div class="links"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/cours/">Cours de golf &amp; pros</a><a href="/guides/">Idées de séjours</a><a href="/a-propos/">À propos</a><a href="/mentions-legales.html">Mentions légales</a></div>
+  <div class="links"><a href="/">Accueil</a><a href="/voyages/">Voyages golf</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/cours/">Cours avec un Pro</a><a href="/guides/">Idées de séjours</a><a href="/a-propos/">À propos</a><a href="/mentions-legales.html">Mentions légales</a></div>
   <div class="tel">{TEL}</div>
 </div></footer>
 </body>
@@ -176,7 +188,7 @@ def page_destination(d, voisines):
     img = photo_abs(d["photo"]) if d["photo"] else SITE + "og.jpg"
     faq = faq_destination(d)
     hub = pays_de(n)
-    crumbs = [("Accueil", SITE), ("Destinations", SITE + "golf/")]
+    crumbs = [("Accueil", SITE), ("Voyages", SITE + "voyages/"), ("Destinations", SITE + "golf/")]
     if hub:
         crumbs.append((hub[1], SITE + f"golf/pays/{hub[0]}.html"))
     crumbs.append((n, SITE + path))
@@ -190,13 +202,13 @@ def page_destination(d, voisines):
     if d["photo"]:
         td["image"] = img
     extra += ld(td)
-    organiser = "/?dest=" + quote(n) + "#organiser"
+    organiser = "/voyages/?dest=" + quote(n) + "#organiser"
     wa = WA + quote(f"Bonjour Birdy Agent, je souhaite organiser un séjour golf en groupe ({n}).")
     hero_img = (f'<img class="ph" src="{photo(d["photo"], 1600)}" srcset="{photo(d["photo"], 480)} 480w, {photo(d["photo"], 960)} 960w, {photo(d["photo"], 1600)} 1600w" '
                 f'sizes="100vw" alt="Golf {e(prep)}, {e(d["pays"])}" fetchpriority="high" onerror="this.remove()">'
                 if d["photo"] else "")
     voisins = "".join(f'<a href="/golf/{slug(v["nom"])}.html">{e(v["nom"])}<small>{e(v["pays"])}</small></a>' for v in voisines)
-    fil = '<a href="/">Accueil</a> › <a href="/golf/">Destinations</a> › '
+    fil = '<a href="/">Accueil</a> › <a href="/voyages/">Voyages</a> › <a href="/golf/">Destinations</a> › '
     if hub:
         fil += f'<a href="/golf/pays/{hub[0]}.html">{e(hub[1])}</a> › '
     noms = [PROFILS[k][0].lower() for k in profils(d)]
@@ -286,8 +298,9 @@ def page_pays(p, D):
             f"Répondez à quatre questions sur notre site, ou écrivez-nous sur WhatsApp au {TEL}. Un conseiller vous recontacte avec une proposition.")]
     extra = ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": SITE},
-        {"@type": "ListItem", "position": 2, "name": "Destinations", "item": SITE + "golf/"},
-        {"@type": "ListItem", "position": 3, "name": titre, "item": SITE + path}]})
+        {"@type": "ListItem", "position": 2, "name": "Voyages", "item": SITE + "voyages/"},
+        {"@type": "ListItem", "position": 3, "name": "Destinations", "item": SITE + "golf/"},
+        {"@type": "ListItem", "position": 4, "name": titre, "item": SITE + path}]})
     extra += ld({"@context": "https://schema.org", "@type": "ItemList", "name": f"Destinations golf {prep}", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "url": SITE + "golf/" + slug(d["nom"]) + ".html", "name": d["nom"]}
         for i, d in enumerate(items)]})
@@ -298,11 +311,11 @@ def page_pays(p, D):
     cards = "".join(carte(d) for d in items)
     gl = "".join(f'<a href="/guides/{g}.html">{e(l)}</a>' for g, l in guides.items())
     autres = "".join(f'<a href="/golf/pays/{o[0]}.html">Golf {e(o[2])}</a>' for o in PAYS if o[0] != s)
-    organiser = "/?dest=" + quote(noms[0]) + "#organiser"
+    organiser = "/voyages/?dest=" + quote(noms[0]) + "#organiser"
     out = head(title, desc, path, img, extra)
     out += f"""<main>
 <section class="hero">{hero_img}<div class="veil"></div><div class="in">
-  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/golf/">Destinations</a> › <span>{e(titre)}</span></nav>
+  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/voyages/">Voyages</a> › <a href="/golf/">Destinations</a> › <span>{e(titre)}</span></nav>
   <p class="tag">{len(items)} destinations golf</p>
   <h1>Séjour golf {e(prep)}</h1>
   <p class="lead">{e(intro)}</p>
@@ -337,7 +350,7 @@ def page_index(D):
     out = head(title, desc, "golf/", SITE + "og.jpg", extra)
     out += f"""<main>
 <section class="hero short"><div class="veil"></div><div class="in">
-  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Destinations</span></nav>
+  <nav class="crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <a href="/voyages/">Voyages</a> › <span>Destinations</span></nav>
   <h1>Nos {len(D)} destinations golf</h1>
   <p class="lead">Des séjours golf de groupe sur mesure, en France, en Europe et dans le monde entier.</p>
 </div></section>

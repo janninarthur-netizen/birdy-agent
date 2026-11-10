@@ -77,7 +77,7 @@ out += f"""<main>
   <aside class="box">
     <h2>Nous contacter</h2>
     <p>Par téléphone ou sur WhatsApp, au même numéro.</p>
-    <a class="btn gold" href="/#organiser">Organiser mon séjour</a>
+    <a class="btn gold" href="/voyages/#organiser">Organiser mon séjour</a>
     <p class="call">Ou appelez-nous<br><b>{TEL}</b></p>
   </aside>
 </div></section>

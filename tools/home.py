@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refonte de la première page : Birdy (agent à règles) + globe 3D + récit + chiffres + Pour qui.
 
-Transformation unique de index.html (lancée une fois). Les données des destinations et
+Transformation unique de voyages/index.html (ancienne page d'accueil, devenue l'onglet Voyages) (lancée une fois). Les données des destinations et
 du globe sont injectées dans <script id="birdy-data">, le comportement est dans assets/birdy.js.
 """
 import html
@@ -58,7 +58,7 @@ def titre(t, gold_from=None):
     return out.strip()
 
 
-s = open("index.html", encoding="utf8").read()
+s = open("voyages/index.html", encoding="utf8").read()
 
 
 def rep(a, b, count=1):
@@ -122,5 +122,5 @@ rep("</body>", '<script id="birdy-data" type="application/json">' + payload + "<
 
 # 6. Styles
 rep("</style>", H.CSS + "</style>")
-open("index.html", "w", encoding="utf8").write(s)
+open("voyages/index.html", "w", encoding="utf8").write(s)
 print("Première page refaite :", len(s) // 1024, "Ko")

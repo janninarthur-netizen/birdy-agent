@@ -432,7 +432,8 @@
       var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
       h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, txt, u) {
-        return /^\/(golf|guides|parcours)\/[\w\/-]*$|^\/#organiser$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
+        if (u === "/#organiser") u = "/voyages/#organiser";
+        return /^\/(golf|guides|parcours|cours)\/[\w\/-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
       });
       return h.replace(/^[-•] /gm, "• ").replace(/\n/g, "<br>");
     }
@@ -530,7 +531,7 @@
         });
     }
     log.addEventListener("click", function (e) {
-      var a = e.target.closest && e.target.closest('a[href="/#organiser"]');
+      var a = e.target.closest && e.target.closest('a[href="/voyages/#organiser"]');
       if (!a || !W) return;
       e.preventDefault();
       if (!projet.destination && dernier) projet.destination = dernier.d;

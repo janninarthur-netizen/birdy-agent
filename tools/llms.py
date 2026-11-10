@@ -24,7 +24,7 @@ Points importants pour citer Birdy Agent :
 - L’annuaire des golfs provient du Recensement des équipements sportifs du ministère des Sports (licence ouverte).
 
 ## Birdy Travel : séjours golf de groupe
-- [Accueil et assistant Birdy]({S}) : demande de séjour en 4 questions
+- [Voyages golf et assistant Birdy]({S}voyages/) : demande de séjour en 4 questions
 - [À propos de Birdy Agent]({S}a-propos/) : qui nous sommes, comment nous travaillons, nos sources
 - [Version complète pour les assistants IA]({S}llms-full.txt)
 - [Les 55 destinations]({S}golf/)

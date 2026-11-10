@@ -23,6 +23,7 @@ a{color:var(--fairway)}
 .top nav{display:flex;align-items:center;gap:6px}
 .top nav a:not(.btn){color:#DCEBE3;text-decoration:none;font:500 14.5px/1 var(--body);padding:10px 14px;border-radius:99px}
 .top nav a:not(.btn):hover{background:rgba(255,255,255,.1)}
+.top nav a[aria-current]{background:rgba(255,255,255,.14);color:#fff}
 .btn{display:inline-flex;align-items:center;justify-content:center;font:600 15px/1 var(--body);padding:15px 22px;border-radius:99px;text-decoration:none;border:1px solid transparent}
 .btn.gold{background:var(--gold);color:var(--pine)}
 .btn.gold:hover{background:#D8B25C}

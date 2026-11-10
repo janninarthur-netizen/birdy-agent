@@ -17,7 +17,7 @@ def propre(t):
     t = re.sub(r'(https://birdy-agent\.pages\.dev/(?:[\w-]+/)*)index\.html', r'\1', t)
     t = re.sub(r'(https://birdy-agent\.pages\.dev/[\w/-]+)\.html', r'\1', t)
     # liens internes
-    t = re.sub(r'href="(/?(?:golf|guides|parcours)/)index\.html', r'href="/\1', t.replace('href="golf/', 'href="/golf/'))
+    t = re.sub(r'href="(/?(?:golf|guides|parcours|voyages|cours)/)index\.html', r'href="/\1', t.replace('href="golf/', 'href="/golf/'))
     t = re.sub(r'href="(/(?:golf|guides|parcours)/[\w/-]+)\.html', r'href="\1', t)
     t = re.sub(r'href="/?mentions-legales\.html"', 'href="/mentions-legales"', t)
     t = t.replace('href="//', 'href="/')
@@ -25,7 +25,7 @@ def propre(t):
 
 
 if __name__ == "__main__":
-    for f in ["index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html"]:
+    for f in ["index.html", "voyages/index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html"]:
         try:
             s = open(f, encoding="utf8").read()
         except FileNotFoundError:
@@ -36,10 +36,10 @@ if __name__ == "__main__":
     # Version du script dans l'adresse : les navigateurs rechargent birdy.js dès qu'il change
     import hashlib
     v = hashlib.md5(open("assets/birdy.js", "rb").read()).hexdigest()[:8]
-    ix = open("index.html", encoding="utf8").read()
+    ix = open("voyages/index.html", encoding="utf8").read()
     ix2 = re.sub(r'src="/assets/birdy\.js(\?v=\w+)?"', f'src="/assets/birdy.js?v={v}"', ix)
     if ix2 != ix:
-        open("index.html", "w", encoding="utf8").write(ix2)
+        open("voyages/index.html", "w", encoding="utf8").write(ix2)
     sm = open("sitemap.xml", encoding="utf8").read()
     sm = propre(sm)
     jour = date.today().isoformat()
