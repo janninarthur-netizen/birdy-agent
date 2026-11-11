@@ -188,7 +188,8 @@ def page():
         f'<div class="pk-g" data-g="{g}"{"" if n == 0 else " hidden"}><p class="pk-st">{e(st)}</p><div class="pk-items">'
         + "".join(f'<label class="pk-i"><input type="checkbox" data-id="{g}-{j}"><i>{ic}</i><b>{e(a)}</b><small>{e(b)}</small></label>'
                   for j, (ic, a, b) in enumerate(items))
-        + "</div></div>" for n, (g, _, st, items) in enumerate(PACK))
+        + "</div>" + (f'<p class="pk-non"><b>Inutile au début</b> {", ".join(e(a) for a in ATTENDRE)} : attendez d’avoir un swing régulier.</p>' if g == "plus-tard" else "")
+        + "</div>" for n, (g, _, st, items) in enumerate(PACK))
     total = sum(len(x[3]) for x in PACK)
     mots = "".join(f'<button type="button" class="lx-m" data-d="{e(d)}">{e(m)}</button>' for m, d in LEXIQUE)
     lex_txt = "".join(f"<dt>{e(m)}</dt><dd>{e(d)}</dd>" for m, d in LEXIQUE)
@@ -285,7 +286,6 @@ def page():
     <div class="pk-top"><div class="pk-tabs" id="pk-tabs" role="tablist" aria-label="Moment">{onglets}</div>
       <div class="pk-prog" aria-live="polite"><div class="pk-bar"><i id="pk-bar"></i></div><span id="pk-compte">0 sur {total}</span></div></div>
     {packs}
-    <p class="pk-non"><b>Pas tout de suite</b> {" · ".join(e(a) for a in ATTENDRE)}</p>
   </div>
   <p class="db-note">Cochez ce que vous avez : la liste est gardée sur cet appareil. Pas de prix affichés, ils varient selon la marque et l’état.</p>
 </div></section>
