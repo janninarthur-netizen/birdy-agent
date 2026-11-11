@@ -15,7 +15,8 @@
   // au doigt, le premier toucher choisit le pôle (le second ouvre la page)
   addEventListener("pointerdown", function (e) { if (e.pointerType === "touch") tactile = true; else if (e.pointerType === "mouse") tactile = matchMedia("(hover: none)").matches; }, true);
   box.hidden = false; sec.classList.add("en3d");
-  r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); r.outputEncoding = T.sRGBEncoding; r.toneMapping = T.ACESFilmicToneMapping; r.toneMappingExposure = 1.12;
+  var DPR = Math.min(window.devicePixelRatio || 1, tactile ? 1.75 : 2), qualite = DPR;      // résolution du rendu, abaissée toute seule si l'appareil peine
+  r.setPixelRatio(DPR); r.outputEncoding = T.sRGBEncoding; r.toneMapping = T.ACESFilmicToneMapping; r.toneMappingExposure = 1.12;
   var halo = document.getElementById("h3-halo");
   box.insertBefore(r.domElement, halo ? halo.nextSibling : box.firstChild);
   function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
@@ -75,7 +76,7 @@
     var t = tex(c); if (!relief) t.encoding = T.sRGBEncoding; return t;
   }
   var BALLE = mp(0xffffff, { map: alveoles(false), bumpMap: alveoles(true), bumpScale: 0.022, roughness: 0.28, clearcoat: 0.6, clearcoatRoughness: 0.28, envMapIntensity: 0.9 });
-  function balle(rayon, x, y, z, parent) { var b = mesh(new T.SphereGeometry(rayon, 64, 44), BALLE, x, y, z, parent); b.rotation.set(0.4, 0.8, 0.2); return b; }
+  function balle(rayon, x, y, z, parent) { var b = mesh(new T.SphereGeometry(rayon, rayon > 0.2 ? 56 : 24, rayon > 0.2 ? 40 : 16), BALLE, x, y, z, parent); b.rotation.set(0.4, 0.8, 0.2); return b; }
   // métal brossé (fines rayures), gazon tondu en bandes, grain du sable, ombre de contact
   var BROSSE = (function () { var c = toile(256, 256), g = c.getContext("2d"); g.fillStyle = "#808080"; g.fillRect(0, 0, 256, 256); for (var i = 0; i < 900; i++) { var v = 90 + Math.random() * 110 | 0; g.fillStyle = "rgba(" + v + "," + v + "," + v + ",.5)"; g.fillRect(0, Math.random() * 256, 256, 0.6 + Math.random()); } return tex(c, true); })();
   function gazon(base, clair) {
@@ -248,13 +249,16 @@
   if (window.IntersectionObserver) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { rootMargin: "120px" }).observe(box);
 
   /* ----- Boucle ----- */
+  var lent = 0.016, vues = 0;
   var t0 = performance.now(), dernier = 0, v3 = V(0, 0, 0), camPos = V(0, 2.4, D), cible = V(0, LY, 0), tmp = V(0, 0, 0), ctmp = V(0, 0, 0), milieu = V(0, 0, 0), KT = window.BirdyGolfeur ? window.BirdyGolfeur.KT : null;
   function ecran(p, hauteur, o) { v3.copy(p); v3.y += hauteur; v3.project(cam); o.x = (v3.x * 0.5 + 0.5) * W; o.y = (-v3.y * 0.5 + 0.5) * H; o.z = v3.z; return o; }
   var e1 = {}, e2 = {};
   (function boucle(now) {
     requestAnimationFrame(boucle);
     if (!visible || document.hidden) return;
-    var t = ((now || t0) - t0) / 1000, dt = Math.min(0.05, t - dernier); dernier = t;
+    var t = ((now || t0) - t0) / 1000, brut = t - dernier, dt = Math.min(0.05, brut); dernier = t;
+    // fluidité : si les images mettent trop de temps, on baisse la résolution par paliers (jamais sous 0,6)
+    if (brut < 1) { lent = lent * 0.8 + brut * 0.2; if (++vues > 12 && lent > 0.04 && qualite > 0.6) { qualite = Math.max(0.6, qualite - 0.3); r.setPixelRatio(qualite); r.setSize(W, H, false); vues = 0; lent = 0.016; } }
     // orbite : tourne doucement ; si un pôle est choisi, il vient devant par le plus court chemin
     if (actif >= 0 && !bas) { var d = AV - (rot + actif * Math.PI / 2); d = Math.atan2(Math.sin(d), Math.cos(d)); rot += d * Math.min(1, dt * 3.2); }
     else if (!bas && !calme) rot += dt * 0.11;
