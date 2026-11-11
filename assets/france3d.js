@@ -149,9 +149,10 @@
   function dessine(now) {
     var t = (now - t0) / 1000, lev = depart ? (calme ? 1 : ease((now - depart) / 2200)) : 0;
     [fond, golfs].forEach(function (o) { if (o) { var u = o.material.uniforms; u.t.value = t; u.lev.value = lev; u.zoom.value = Math.pow(actuel.s, o === fond ? 0.75 : 0.45); } });
-    // Arrivée : la carte s'incline et se pose ; ensuite léger balancement + parallaxe souris + rotation à la main
-    pivot.rotation.x = -0.9 * (1 - lev) - 0.1 + my * 0.1;
-    pivot.rotation.z = (calme ? 0 : Math.sin(t * 0.12) * 0.18) + mx * 0.2 + tourne + (1 - lev) * 0.6;
+    // Arrivée : la carte s'incline et se pose. Ensuite elle reste immobile (pas de balancement) :
+    // seuls un très léger effet de profondeur à la souris et la rotation à la main la font bouger.
+    pivot.rotation.x = -0.9 * (1 - lev) - 0.1 + my * 0.03;
+    pivot.rotation.z = mx * 0.04 + tourne + (1 - lev) * 0.6;
     tourne *= 0.985;
     actuel.x += (vise.x - actuel.x) * 0.06; actuel.y += (vise.y - actuel.y) * 0.06; actuel.s += (vise.s - actuel.s) * 0.06;
     carte.position.set(actuel.x * actuel.s, actuel.y * actuel.s, 0); carte.scale.setScalar(actuel.s);
