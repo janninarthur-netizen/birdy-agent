@@ -162,7 +162,7 @@ const SANS_NOMS = "Pour les parcours français, je préfère ne pas vous citer d
 // Si un modèle échoue (quota, indisponible), on essaie le suivant.
 async function cloudflareIA(env, messages) {
   const modeles = [env.CF_AI_MODEL, "@cf/openai/gpt-oss-120b", "@cf/openai/gpt-oss-120b", "@cf/meta/llama-3.3-70b-instruct-fp8-fast"].filter(Boolean);
-  let texte = "", invente = false;
+  let texte = "", invente = false, cause = "";
   // Le visiteur écrit-il en français ? (dernier message)
   const dernier = messages[messages.length - 1].content;
   const francais = !/\b(the|and|you|what|where|how|please|golf course near)\b/i.test(dernier) || /[éèàçù]|\b(le|la|les|un|une|pour|près|vers)\b/i.test(dernier);
@@ -177,10 +177,13 @@ async function cloudflareIA(env, messages) {
       console.log("Workers AI vide", m, JSON.stringify(r).slice(0, 300));
     } catch (e) {
       console.log("Workers AI", m, String(e).slice(0, 300));
+      // Quota gratuit du jour épuisé (10 000 « neurones » par jour) : inutile d'insister, tous les modèles répondront pareil
+      if (/neuron|allocation|quota|4006|limit/i.test(String(e))) { cause = "quota"; break; }
+      cause = cause || "panne";
     }
   }
   if (!texte && invente) texte = SANS_NOMS;
-  if (!texte) return json({ erreur: "occupe" }, 429);
+  if (!texte) return json({ erreur: "occupe", cause: cause || "vide" }, 429);
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();
   const s = sortie(w);
