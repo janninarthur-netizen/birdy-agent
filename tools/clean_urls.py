@@ -24,22 +24,34 @@ def propre(t):
     return t
 
 
+_H = {}
+
+
+def version(t):
+    """Ajoute ?v=<empreinte> à chaque script et feuille de style du site.
+    Les navigateurs gardent ces fichiers en mémoire : avec l'empreinte, toute modification change l'adresse et la nouvelle version est chargée."""
+    import hashlib
+    import os
+
+    def rep(m):
+        f = m.group(2).lstrip("/")
+        if not os.path.exists(f):
+            return m.group(0)
+        if f not in _H:
+            _H[f] = hashlib.md5(open(f, "rb").read()).hexdigest()[:8]
+        return f'{m.group(1)}="{m.group(2)}?v={_H[f]}"'
+    return re.sub(r'(src|href)="(/(?:assets|parcours|cours|debuter|golf)/[\w./-]+\.(?:js|css))(?:\?v=\w+)?"', rep, t)
+
+
 if __name__ == "__main__":
-    for f in ["index.html", "voyages/index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html", "debuter/index.html"]:
+    for f in ["index.html", "voyages/index.html", "404.html", "mentions-legales.html", "suivi/index.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html", "debuter/index.html"]:
         try:
             s = open(f, encoding="utf8").read()
         except FileNotFoundError:
             continue
-        n = propre(s)
+        n = version(propre(s))
         if n != s:
             open(f, "w", encoding="utf8").write(n)
-    # Version du script dans l'adresse : les navigateurs rechargent birdy.js dès qu'il change
-    import hashlib
-    v = hashlib.md5(open("assets/birdy.js", "rb").read()).hexdigest()[:8]
-    ix = open("voyages/index.html", encoding="utf8").read()
-    ix2 = re.sub(r'src="/assets/birdy\.js(\?v=\w+)?"', f'src="/assets/birdy.js?v={v}"', ix)
-    if ix2 != ix:
-        open("voyages/index.html", "w", encoding="utf8").write(ix2)
     sm = open("sitemap.xml", encoding="utf8").read()
     sm = propre(sm)
     jour = date.today().isoformat()
