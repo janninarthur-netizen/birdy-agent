@@ -1,4 +1,4 @@
-/* Menu mobile commun à toutes les pages : bouton ☰ dans l'en-tête, panneau avec les quatre onglets (Débuter, Cours, Parcours, Voyages). */
+/* Menu mobile commun à toutes les pages : bouton ☰ dans l'en-tête, panneau avec les quatre onglets (Parcours, Voyages, Débuter, Cours). */
 (function () {
   "use strict";
   var top = document.querySelector(".top .in");
@@ -30,10 +30,10 @@
   pan.id = "mb-pan"; pan.className = "mb-pan"; pan.setAttribute("aria-label", "Menu principal");
   var voyages = /^\/voyages(\/|\/index\.html)?$/.test(location.pathname);
   pan.innerHTML =
-    '<a class="mb-pole" href="/debuter/"><small>Birdy Start</small><b>Débuter le golf</b><em>Les étapes, les bases et le starter pack.</em></a>' +
-    '<a class="mb-pole" href="/cours/"><small>Birdy Pro</small><b>Cours avec un Pro</b><em>Le bon pro, pour chaque swing.</em></a>' +
     '<a class="mb-pole" href="/parcours/"><small>Birdy Golf</small><b>Réserver un parcours en France</b><em>Du clic au tee, en un swing.</em></a>' +
-    '<a class="mb-pole" href="' + (voyages ? "#organiser" : "/voyages/") + '"><small>Birdy Travel</small><b>Voyages golf de groupe</b><em>55 destinations, un conseiller obtient les vrais tarifs</em></a><div class="mb-l"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
+    '<a class="mb-pole" href="' + (voyages ? "#organiser" : "/voyages/") + '"><small>Birdy Travel</small><b>Voyages golf de groupe</b><em>55 destinations, un conseiller obtient les vrais tarifs</em></a>' +
+    '<a class="mb-pole" href="/debuter/"><small>Birdy Start</small><b>Débuter le golf</b><em>Les étapes, les bases et le starter pack.</em></a>' +
+    '<a class="mb-pole" href="/cours/"><small>Birdy Pro</small><b>Cours avec un Pro</b><em>Le bon pro, pour chaque swing.</em></a><div class="mb-l"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
     '<div class="mb-c"><a href="tel:+33616213447">Appeler</a><a class="mb-wa" href="https://wa.me/33616213447?text=' + encodeURIComponent("Bonjour Birdy Agent, je souhaite organiser une partie ou un séjour golf.") + '" target="_blank" rel="noopener">WhatsApp</a></div>';
   top.appendChild(btn);
   document.body.appendChild(pan);
