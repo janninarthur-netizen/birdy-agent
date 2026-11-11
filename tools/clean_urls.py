@@ -17,7 +17,7 @@ def propre(t):
     t = re.sub(r'(https://birdy-agent\.pages\.dev/(?:[\w-]+/)*)index\.html', r'\1', t)
     t = re.sub(r'(https://birdy-agent\.pages\.dev/[\w/-]+)\.html', r'\1', t)
     # liens internes
-    t = re.sub(r'href="(/?(?:golf|guides|parcours|voyages|cours)/)index\.html', r'href="/\1', t.replace('href="golf/', 'href="/golf/'))
+    t = re.sub(r'href="(/?(?:golf|guides|parcours|voyages|cours|debuter)/)index\.html', r'href="/\1', t.replace('href="golf/', 'href="/golf/'))
     t = re.sub(r'href="(/(?:golf|guides|parcours)/[\w/-]+)\.html', r'href="\1', t)
     t = re.sub(r'href="/?mentions-legales\.html"', 'href="/mentions-legales"', t)
     t = t.replace('href="//', 'href="/')
@@ -25,7 +25,7 @@ def propre(t):
 
 
 if __name__ == "__main__":
-    for f in ["index.html", "voyages/index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html"]:
+    for f in ["index.html", "voyages/index.html", "404.html", "mentions-legales.html"] + glob.glob("golf/*.html") + glob.glob("golf/pays/*.html") + glob.glob("guides/*.html") + glob.glob("parcours/**/*.html", recursive=True) + ["a-propos/index.html", "cours/index.html", "debuter/index.html"]:
         try:
             s = open(f, encoding="utf8").read()
         except FileNotFoundError:

@@ -29,7 +29,7 @@
     var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
     h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) {
       if (u === "/#organiser") u = "/voyages/#organiser";
-      if (!/^\/(golf|guides|parcours|cours)\/[\w\/?=&%.-]*$|^\/voyages\/(#organiser)?$/.test(u)) return x;
+      if (!/^\/(golf|guides|parcours|cours|debuter)\/[\w\/?=&%.-]*$|^\/voyages\/(#organiser)?$/.test(u)) return x;
       if (dests && /^\/golf\/[\w-]+$/.test(u)) dests.push(x.replace(/<[^>]+>/g, ""));
       return '<a href="' + u + '">' + x + "</a>";
     });

@@ -1,0 +1,97 @@
+/* Pôle « Débuter » : même mise en page que Cours (chat Birdy ancré à gauche, cours.css), cartes en verre sur le fond photo fondu (pro.css) */
+.db .cp-main{gap:26px}
+.db-h1{max-width:16ch}
+.db-sec{display:flex;flex-direction:column;gap:12px;scroll-margin-top:90px}
+.db-sec h2{font:700 clamp(28px,3vw,40px)/1.05 var(--display);color:#fff;margin:0}
+.db-sec .gp-k{color:#A3C9B8;margin:0}
+.db-sub{font-size:14.5px;color:rgba(232,241,236,.72);margin:0;max-width:62ch}
+/* Les 5 étapes : frise de cartes 3D */
+.db-steps{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;perspective:1200px}
+.db-step{grid-column:span 2}
+.db-step:nth-child(n+4){grid-column:span 3}
+.db-step{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:22px;color:#E8F1EC;
+  background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.03));border:1px solid rgba(208,228,220,.22);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 26px 50px -28px rgba(0,0,0,.85);
+  opacity:0;animation:dbIn .5s ease forwards;animation-delay:calc(var(--k,0) * 70ms)}
+@keyframes dbIn{to{opacity:1}}
+.db-step:hover{border-color:rgba(208,228,220,.55)}
+.db-step>i{font-style:normal;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#A3C9B8;color:#0A1E17;font:700 16px/1 var(--body);transform:translateZ(22px)}
+.db-step small{font:600 11.5px/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#A3C9B8;margin-top:4px}
+.db-step b{font:700 22px/1.1 var(--display);color:#fff;transform:translateZ(14px)}
+.db-step p{font-size:13.5px;line-height:1.5;color:rgba(232,241,236,.78);margin:0 0 6px}
+.db-step .btn{margin-top:auto;align-self:flex-start;background:#fff;color:#0A1E17;border-color:#fff;padding:10px 14px;font-size:13.5px;cursor:pointer}
+/* Fiches des bases : cartes dépliables */
+.db-fiches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.db-col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.db-fiche{border-radius:18px;background:rgba(10,30,23,.5);border:1px solid rgba(208,228,220,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);scroll-margin-top:90px;transition:border-color .2s}
+.db-fiche:hover,.db-fiche[open]{border-color:rgba(208,228,220,.45)}
+.db-fiche summary{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;list-style:none}
+.db-fiche summary::-webkit-details-marker{display:none}
+.db-fiche summary::after{content:"+";margin-left:auto;flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:500 18px/1 var(--body);color:#fff;border:1px solid rgba(208,228,220,.35)}
+.db-fiche[open] summary::after{content:"–"}
+.db-fiche summary i{font-style:normal;font-size:22px;flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(163,201,184,.16)}
+.db-fiche summary b{display:block;font:700 19px/1.15 var(--display);color:#fff}
+.db-fiche summary small{display:block;font-size:13px;line-height:1.35;color:rgba(232,241,236,.7);margin-top:2px}
+.db-fiche-c{padding:0 16px 16px}
+.db-fiche-c ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.db-fiche-c li{position:relative;padding-left:22px;font-size:14px;line-height:1.5;color:rgba(232,241,236,.88)}
+.db-fiche-c li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:#A3C9B8}
+.db-err{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.06);font-size:13.5px;line-height:1.45;color:rgba(232,241,236,.82)}
+.db-err b{display:block;font:600 11.5px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#E9C98A;margin-bottom:3px}
+.db-plus,.db-lien{margin-top:12px;font:600 13.5px/1 var(--body);color:#fff;background:transparent;border:1px solid rgba(208,228,220,.35);border-radius:99px;padding:10px 14px;cursor:pointer}
+.db-plus:hover,.db-lien:hover{border-color:#D0E4DC;background:rgba(163,201,184,.15)}
+.db-plus::after{content:" →";color:#A3C9B8}
+/* Lexique */
+.db-cherche input{width:100%;font:500 15.5px/1.2 var(--body);color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(208,228,220,.25);border-radius:14px;padding:13px 14px;color-scheme:dark}
+.db-cherche input::placeholder{color:rgba(232,241,236,.55)}
+.db-lexique{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.db-mot{padding:11px 14px;border-radius:14px;background:rgba(10,30,23,.45);border:1px solid rgba(208,228,220,.12)}
+.db-mot[hidden]{display:none}
+.db-mot dt{font:700 15px/1.2 var(--body);color:#fff}
+.db-mot dd{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:rgba(232,241,236,.75)}
+.db-lexique.court:not(.cherche) .db-mot:nth-child(n+9){display:none}
+.db-tout{align-self:flex-start;font:600 13.5px/1 var(--body);color:#fff;background:transparent;border:1px solid rgba(208,228,220,.35);border-radius:99px;padding:11px 15px;cursor:pointer}
+.db-tout:hover{border-color:#D0E4DC;background:rgba(163,201,184,.15)}
+.db-tout[hidden]{display:none}
+.db-vide{font-size:14px;color:rgba(232,241,236,.8);margin:0}.db-vide[hidden]{display:none}
+.db-lien{margin:0 0 0 6px;padding:7px 12px}
+/* Starter pack */
+.db-prog{display:flex;align-items:center;gap:12px;font:600 13.5px/1 var(--body);color:#fff}
+.db-bar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+.db-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#A3C9B8,#5BC08A);transition:width .35s ease}
+.db-packs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.db-pack{padding:18px;border-radius:20px;background:rgba(10,30,23,.5);border:1px solid rgba(208,228,220,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.db-pack h3{font:700 22px/1.1 var(--display);color:#fff;margin:0}
+.db-pack>p{font-size:13.5px;color:rgba(232,241,236,.7);margin:4px 0 12px}
+.db-pack ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.db-pack label{display:flex;gap:11px;align-items:flex-start;padding:8px;border-radius:12px;cursor:pointer}
+.db-pack label:hover{background:rgba(255,255,255,.05)}
+.db-pack input{flex:none;appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:1px 0 0;border-radius:7px;border:1.5px solid rgba(208,228,220,.5);background:transparent;cursor:pointer;display:grid;place-items:center}
+.db-pack input:checked{background:#A3C9B8;border-color:#A3C9B8}
+.db-pack input:checked::after{content:"";width:6px;height:11px;border:solid #0A1E17;border-width:0 2.4px 2.4px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.db-pack input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.db-pack label b{display:block;font:600 14.5px/1.3 var(--body);color:#fff}
+.db-pack label small{display:block;font-size:12.5px;line-height:1.4;color:rgba(232,241,236,.68)}
+.db-pack input:checked + span b{text-decoration:line-through;text-decoration-color:rgba(163,201,184,.8);color:rgba(232,241,236,.75)}
+.db-non{background:rgba(60,34,20,.35);border-color:rgba(233,201,138,.28)}
+.db-non li{position:relative;padding:6px 8px 6px 30px;font-size:14px;color:rgba(232,241,236,.85)}
+.db-non li::before{content:"✕";position:absolute;left:8px;color:#E9C98A;font-weight:700}
+.db-note{font-size:12.5px;color:rgba(232,241,236,.6);margin:0}
+/* Suite */
+.db-suite{align-items:flex-start;padding:22px;border-radius:24px;background:linear-gradient(160deg,rgba(163,201,184,.3),rgba(163,201,184,.08));border:1px solid rgba(208,228,220,.3)}
+.db-cta{display:flex;flex-wrap:wrap;gap:10px}
+.db-cta .btn.gold{background:#fff;color:#0A1E17;border-color:#fff}
+.db-ghost{color:#fff!important;border-color:rgba(208,228,220,.45)!important}
+/* Réponses riches du chat : golfs et liens (comme sur l'accueil) */
+.ha-res{display:grid;gap:8px;width:100%}
+.ha-g{display:grid;gap:2px;padding:10px 12px;border-radius:13px;text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(208,228,220,.2);color:#fff}
+.ha-g:hover{border-color:#D0E4DC;background:rgba(163,201,184,.16)}
+.ha-g b{font:700 14px/1.25 var(--body);color:#fff}.ha-g small{font-size:12px;color:rgba(232,241,236,.7)}
+.ha-g i{font-style:normal;font:600 12px/1 var(--body);color:#0A1E17;background:#fff;border-radius:99px;padding:7px 10px;justify-self:start;margin-top:5px}
+.ha-go{display:inline-flex;justify-self:start;font:600 13.5px/1.2 var(--body);color:#0A1E17!important;background:#fff;border-radius:99px;padding:10px 14px;text-decoration:none}
+html.pro .gm.ha-wrap{background:transparent;border:0;padding:0;max-width:100%}
+@media (max-width:1100px){.db-fiches,.db-lexique,.db-packs{grid-template-columns:1fr}.db-fiches{display:flex;flex-direction:column}.db-col{display:contents}.db-fiche{order:var(--o)}}
+@media (max-width:860px){.db-fiches,.db-lexique,.db-packs{grid-template-columns:repeat(2,minmax(0,1fr))}.db-fiches{display:grid}.db-col{display:flex}.db-fiche{order:0}}
+@media (max-width:1100px){.db-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.db-step,.db-step:nth-child(n+4){grid-column:auto}.db-step:last-child{grid-column:1/-1}}
+@media (max-width:640px){.db-steps{grid-template-columns:1fr}.db-step:last-child{grid-column:auto}.db-fiches,.db-lexique,.db-packs{grid-template-columns:1fr}.db-fiches{display:flex;flex-direction:column}.db-col{display:contents}.db-fiche{order:var(--o)}.db-step{padding:16px}.db-cta .btn{width:100%;text-align:center;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.db-step{animation:none;opacity:1}}

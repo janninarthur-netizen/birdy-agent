@@ -54,10 +54,11 @@ def carte(d, w=800):
             f'<span class="mc-cta">Découvrir la destination <i aria-hidden="true">→</i></span></span></a>')
 
 
-# Les 3 onglets du site : Voyages, Réserver un parcours, Cours avec un Pro
-ONGLETS = [("/voyages/", "Voyages", ("voyages/", "golf/", "guides/")),
+# Les 4 onglets du site : Débuter, Cours avec un Pro, Réserver un parcours, Voyages (apprendre, progresser, jouer, partir)
+ONGLETS = [("/debuter/", "Débuter", ("debuter/",)),
+           ("/cours/", "Cours avec un Pro", ("cours/",)),
            ("/parcours/", "Réserver un parcours", ("parcours/",)),
-           ("/cours/", "Cours avec un Pro", ("cours/",))]
+           ("/voyages/", "Voyages", ("voyages/", "golf/", "guides/"))]
 
 
 def nav_onglets(path=""):
@@ -112,7 +113,7 @@ def foot():
     return f"""<a class="wa" href="{wa}" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>
-  <div class="links"><a href="/">Accueil</a><a href="/voyages/">Voyages golf</a><a href="/golf/">Toutes les destinations</a><a href="/parcours/">Réserver un parcours en France</a><a href="/cours/">Cours avec un Pro</a><a href="/guides/">Idées de séjours</a><a href="/a-propos/">À propos</a><a href="/mentions-legales.html">Mentions légales</a></div>
+  <div class="links"><a href="/">Accueil</a><a href="/debuter/">Débuter le golf</a><a href="/cours/">Cours avec un Pro</a><a href="/parcours/">Réserver un parcours en France</a><a href="/voyages/">Voyages golf</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/a-propos/">À propos</a><a href="/mentions-legales.html">Mentions légales</a></div>
   <div class="tel">{TEL}</div>
 </div></footer>
 </body>

@@ -69,6 +69,7 @@ html.pro .gm.ha-wrap{background:transparent;border:0;padding:0;max-width:100%}
 .ha-qui>div{display:flex;flex-direction:column;gap:8px;padding:22px 20px;border-radius:22px;background:rgba(10,30,23,.5);border:1px solid rgba(208,228,220,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .ha-qui b{font:700 24px/1.1 var(--display);color:#fff}
 .ha-qui p{font-size:14.5px;line-height:1.55;color:rgba(232,241,236,.8);margin:0}
+.ha-qui p a{color:#D0E4DC;font-weight:600;white-space:nowrap}
 .ha-ex{margin-top:auto;align-self:flex-start;text-align:left;font:500 13.5px/1.35 var(--body);color:#E8F1EC;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:10px 13px;cursor:pointer}
 .ha-ex::before{content:"« "}.ha-ex::after{content:" » →";color:#A3C9B8}
 .ha-ex:hover{border-color:#D0E4DC;background:rgba(163,201,184,.15)}

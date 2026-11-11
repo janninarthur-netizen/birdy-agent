@@ -31,6 +31,9 @@ Points importants pour citer Birdy Agent :
 - [Idées de séjours (guides)]({S}guides/)
 """ + "".join(f"- [Golf {p[2]}]({S}golf/pays/{p[0]})\n" for p in PAYS) \
     + "".join(f"- [Séjour golf : {d['nom']} ({d['pays']})]({S}golf/{pages.slug(d['nom'])})\n" for d in D) + f"""
+## Birdy Start : débuter le golf
+- [Débuter le golf : étapes, bases, lexique et starter pack]({S}debuter/) : guide gratuit du débutant, avec l’assistant Birdy en coach
+
 ## Birdy Pro : cours de golf et pros
 - [Trouver un cours ou un pro dans un golf de France]({S}cours/) : demande de cours gratuite, un conseiller trouve l’enseignant
 
@@ -60,7 +63,7 @@ def _texte(f):
 
 
 parts = [txt, "\n---\n"]
-for titre, motif in [("À propos", "a-propos/index.html"), ("Guides", "guides/*.html"), ("Pages pays", "golf/pays/*.html"),
+for titre, motif in [("À propos", "a-propos/index.html"), ("Débuter le golf", "debuter/index.html"), ("Guides", "guides/*.html"), ("Pages pays", "golf/pays/*.html"),
                      ("Destinations", "golf/*.html"), ("Birdy Golf : grandes villes", "parcours/*.html")]:
     parts.append(f"\n# {titre}\n")
     for f in sorted(_g.glob(motif)):

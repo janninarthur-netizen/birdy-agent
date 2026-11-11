@@ -433,7 +433,7 @@
       h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
       h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, txt, u) {
         if (u === "/#organiser") u = "/voyages/#organiser";
-        return /^\/(golf|guides|parcours|cours)\/[\w\/-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
+        return /^\/(golf|guides|parcours|cours|debuter)\/[\w\/-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + txt + "</a>" : txt;
       });
       return h.replace(/^[-•] /gm, "• ").replace(/\n/g, "<br>");
     }

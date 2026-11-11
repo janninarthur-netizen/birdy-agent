@@ -2,7 +2,7 @@
 """Page d'accueil du site (index.html) : à quoi sert Birdy Agent.
 
 Page générale qui réunit tout : l'assistant IA Birdy au centre (logo en grand, grand titre,
-grand chat), puis les pôles (Birdy l'assistant, Voyages, Réserver un parcours, Cours avec un Pro),
+grand chat), puis les 4 pôles (Débuter, Cours avec un Pro, Réserver un parcours, Voyages),
 pour qui, et comment ça marche. Comportement : assets/accueil.js. Styles : assets/accueil.css.
 L'ancienne page d'accueil (séjours golf de groupe) est l'onglet Voyages : voyages/index.html.
 Lancé par tools/guides.py.
@@ -35,7 +35,8 @@ AGENCE = {'@context': 'https://schema.org',
  'alternateName': ['Birdy-Agent', 'BirdyAgent', 'Birdy Agent golf', 'Birdy Agent – Le golf sur mesure'],
  'hasOfferCatalog': {'@type': 'OfferCatalog',
                      'name': 'Services Birdy Agent',
-                     'itemListElement': [{'@type': 'Offer',
+                     'itemListElement': [{'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': 'Birdy Start : débuter le golf (étapes, bases, starter pack)', 'url': 'https://birdy-agent.pages.dev/debuter/'}, 'price': '0', 'priceCurrency': 'EUR', 'description': 'Guide gratuit du débutant'},
+ {'@type': 'Offer',
                                           'itemOffered': {'@type': 'Service',
                                                           'name': 'Birdy Travel : séjours golf de groupe sur mesure',
                                                           'url': 'https://birdy-agent.pages.dev/voyages/'},
@@ -114,14 +115,14 @@ out += f"""<main class="gp home" id="accueil">
   <h2 class="ha-h2">Un seul assistant, tout votre golf</h2>
   <p class="ha-sub">Birdy comprend ce que vous cherchez et vous emmène au bon endroit. Vous pouvez aussi y aller directement.</p>
   <div class="ha-poles">
-    <a class="ha-pole t3d ha-ia" href="#ha-chat" id="ha-parler"><i>💬</i><small>Birdy · assistant IA</small><b>Poser une question de golf</b>
-      <span>Règles, vocabulaire, matériel, premiers pas : Birdy répond simplement, à toute heure, et vous oriente.</span><em>Parler à Birdy →</em></a>
-    <a class="ha-pole t3d" href="/voyages/"><i>✈️</i><small>Voyages</small><b>Partir jouer en groupe</b>
-      <span>{ND} destinations dans le monde, entre amis, en club ou en séminaire. Un conseiller obtient les vrais tarifs.</span><em>Organiser un séjour →</em></a>
+    <a class="ha-pole t3d ha-ia" href="/debuter/"><i>🌱</i><small>Débuter</small><b>Apprendre les bases</b>
+      <span>Les 5 étapes du débutant, les bases du swing, le lexique et le starter pack pour bien commencer.</span><em>Débuter le golf →</em></a>
+    <a class="ha-pole t3d" href="/cours/"><i>🎓</i><small>Cours avec un Pro</small><b>Progresser avec un pro</b>
+      <span>Initiation, cours individuels, stages ou analyse vidéo, dans le golf de votre choix.</span><em>Trouver un cours →</em></a>
     <a class="ha-pole t3d" href="/parcours/"><i>⛳</i><small>Réserver un parcours</small><b>Jouer près de chez vous</b>
       <span>{NB} golfs de France, dont {N18} avec un parcours 18 trous. Choisissez, demandez votre départ.</span><em>Trouver un parcours →</em></a>
-    <a class="ha-pole t3d" href="/cours/"><i>🎓</i><small>Cours avec un Pro</small><b>Apprendre et progresser</b>
-      <span>Initiation, cours individuels, stages ou analyse vidéo, dans le golf de votre choix.</span><em>Trouver un cours →</em></a>
+    <a class="ha-pole t3d" href="/voyages/"><i>✈️</i><small>Voyages</small><b>Partir jouer en groupe</b>
+      <span>{ND} destinations dans le monde, entre amis, en club ou en séminaire. Un conseiller obtient les vrais tarifs.</span><em>Organiser un séjour →</em></a>
   </div>
 </div></section>
 
@@ -129,7 +130,7 @@ out += f"""<main class="gp home" id="accueil">
   <p class="ha-k">Pour tous les golfeurs</p>
   <h2 class="ha-h2">Débutant ou confirmé, Birdy parle votre golf</h2>
   <div class="ha-qui">
-    <div><b>Vous débutez</b><p>Birdy explique sans jargon, conseille une initiation et trouve un golf accueillant près de chez vous.</p><button type="button" class="ha-ex">Je n’ai jamais joué, comment débuter ?</button></div>
+    <div><b>Vous débutez</b><p>Birdy explique sans jargon, conseille une initiation et trouve un golf accueillant près de chez vous. <a href="/debuter/">Le guide du débutant</a></p><button type="button" class="ha-ex">Je n’ai jamais joué, comment débuter ?</button></div>
     <div><b>Vous jouez régulièrement</b><p>Un départ ce week-end, un nouveau parcours à découvrir, un pro pour gagner en régularité.</p><button type="button" class="ha-ex">Un 18 trous autour de Nantes dimanche matin</button></div>
     <div><b>Vous partez en groupe</b><p>Amis, club, association ou entreprise : Birdy trouve la destination, un conseiller s’occupe du reste.</p><button type="button" class="ha-ex">Séminaire golf pour 20 personnes au printemps</button></div>
   </div>

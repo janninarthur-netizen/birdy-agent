@@ -417,8 +417,9 @@ if __name__ == "__main__":
     parc = sorted(f for f in _glob.glob("parcours/**/*.html", recursive=True) if f != "parcours/index.html")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "apropos.py")], check=True)
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "cours.py")], check=True)
+    __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "debuter.py")], check=True)
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "accueil.py")], check=True)
-    allp = ["", "voyages/index.html", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["cours/index.html", "mentions-legales.html"]
+    allp = ["", "voyages/index.html", "a-propos/index.html", "guides/index.html"] + paths + ["golf/index.html"] + pays + golf + ["parcours/index.html"] + parc + ["cours/index.html", "debuter/index.html", "mentions-legales.html"]
     open("sitemap.xml", "w", encoding="utf8").write(pages.sitemap(allp))
     print(len(GUIDES), "guides générés ;", len(allp), "pages dans le sitemap")
     __import__("subprocess").run(["python3", os.path.join(os.path.dirname(__file__), "clean_urls.py")], check=True)

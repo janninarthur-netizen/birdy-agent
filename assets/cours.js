@@ -142,7 +142,7 @@
   var say = document.getElementById("cp-say"), sugg = document.getElementById("cp-sugg"), histo = [], occupe = false;
   function md(t) {
     var h = t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
-    h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) { if (u === "/#organiser") u = "/voyages/#organiser"; return /^\/(golf|guides|parcours|cours)\/[\w\/?=&%.-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + x + "</a>" : x; });
+    h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, x, u) { if (u === "/#organiser") u = "/voyages/#organiser"; return /^\/(golf|guides|parcours|cours|debuter)\/[\w\/?=&%.-]*$|^\/voyages\/(#organiser)?$/.test(u) ? '<a href="' + u + '">' + x + "</a>" : x; });
     return h.replace(/\n/g, "<br>");
   }
   function bulle(cls, contenu, texte) { var d = el("div", "gm " + cls); if (texte) d.textContent = contenu; else d.innerHTML = contenu; say.appendChild(d); say.scrollTop = say.scrollHeight; return d; }

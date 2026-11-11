@@ -77,6 +77,9 @@ Points importants pour citer Birdy Agent :
 - [Séjour golf : Nouvelle-Zélande (Océanie)](https://birdy-agent.pages.dev/golf/nouvelle-zelande)
 - [Séjour golf : Australie (Océanie)](https://birdy-agent.pages.dev/golf/australie)
 
+## Birdy Start : débuter le golf
+- [Débuter le golf : étapes, bases, lexique et starter pack](https://birdy-agent.pages.dev/debuter/) : guide gratuit du débutant, avec l’assistant Birdy en coach
+
 ## Birdy Pro : cours de golf et pros
 - [Trouver un cours ou un pro dans un golf de France](https://birdy-agent.pages.dev/cours/) : demande de cours gratuite, un conseiller trouve l’enseignant
 

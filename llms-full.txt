@@ -77,6 +77,9 @@ Points importants pour citer Birdy Agent :
 - [Séjour golf : Nouvelle-Zélande (Océanie)](https://birdy-agent.pages.dev/golf/nouvelle-zelande)
 - [Séjour golf : Australie (Océanie)](https://birdy-agent.pages.dev/golf/australie)
 
+## Birdy Start : débuter le golf
+- [Débuter le golf : étapes, bases, lexique et starter pack](https://birdy-agent.pages.dev/debuter/) : guide gratuit du débutant, avec l’assistant Birdy en coach
+
 ## Birdy Pro : cours de golf et pros
 - [Trouver un cours ou un pro dans un golf de France](https://birdy-agent.pages.dev/cours/) : demande de cours gratuite, un conseiller trouve l’enseignant
 
@@ -136,7 +139,7 @@ Birdy, notre assistant IA
 Birdy comprend vos messages, répond à vos questions sur le golf, conseille des destinations et des parcours, puis prépare votre demande. Comme toute intelligence artificielle, il peut se tromper : un conseiller vérifie chaque proposition.
 Nos sources
 Destinations : informations publiées par Parcours & Voyages.
-Golfs de France : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 2026-11-10.
+Golfs de France : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 2026-11-11.
 Cartes : © les contributeurs d’OpenStreetMap.
 Photos : Pexels et Unsplash, selon leurs licences.
 Nous contacter
@@ -154,7 +157,189 @@ La réservation d’un parcours est-elle immédiate ?
 Pas encore. Vous envoyez une demande de départ ; un conseiller réserve auprès du golf et vous rappelle pour confirmer l’horaire et le tarif. Rien n’est réservé avant sa confirmation.
 Birdy est-il une vraie intelligence artificielle ?
 Oui. Birdy comprend vos messages, conseille des destinations et des parcours, et prépare votre demande. Comme toute IA, il peut se tromper : un conseiller vérifie chaque proposition avant de vous l’envoyer.
-Page mise à jour le 10/11/2026.
+Page mise à jour le 11/11/2026.
+WhatsApp
+
+# Débuter le golf
+
+## https://birdy-agent.pages.dev/debuter/
+Débuter le golf : étapes, bases et starter pack | Birdy Agent
+Birdy    Votre coach pour débuter · répond tout de suite
+Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.
+Par où commencer ?  C’est quoi la carte verte ?  Je suis gaucher, ça change quoi ?  Quels clubs pour débuter ?
+Votre question à Birdy
+Gratuit · sans inscription · Birdy explique simplement
+Birdy Start · Débuter le golf
+Débuter le golf,  du bon pied.
+Les étapes, les bases et le matériel pour commencer, expliqués simplement. Et Birdy répond à toutes vos questions de débutant.
+Le parcours du débutant
+De la première balle au premier parcours
+1  Découvrir  L’initiation  Une à deux heures avec un enseignant. On vous prête les clubs, vous tapez vos premières balles au practice et vous essayez le putting. Aucun matériel ni niveau requis.
+Trouver une initiation
+2  Apprendre  Les bases du swing  Quelques cours pour installer la tenue du club, la posture et un geste régulier. Entre deux cours, un seau de balles au practice suffit pour progresser.
+Voir les fiches
+3  Comprendre  Les règles et l’étiquette  Compter son score, savoir quoi faire quand la balle est perdue ou dans l’eau, et bien se comporter sur le parcours. C’est plus simple qu’il n’y paraît.
+Lire l’étiquette
+4  Valider  La carte verte  Un petit examen passé avec un enseignant : quelques questions de règles et d’étiquette, puis quelques trous joués. De nombreux golfs la demandent pour accéder au grand parcours.
+Demander à Birdy
+5  Jouer  Le premier parcours  Commencez par un 9 trous, aux heures calmes, si possible avec un joueur plus expérimenté. 302 golfs de France ont un parcours 9 trous.
+Trouver un 9 trous
+Les bases
+L’essentiel, en une minute par fiche
+Les conseils sont donnés pour un droitier : inversez gauche et droite si vous êtes gaucher. Rien ne remplace un cours avec un enseignant.
+🤝   Tenir le club  Les deux mains travaillent ensemble, sans serrer.
+Pour un droitier, la main gauche est en haut du manche, la droite juste en dessous (l’inverse pour un gaucher).
+Le club se tient dans les doigts plus que dans la paume, les deux mains bien collées.
+Pression légère : comme un tube de dentifrice ouvert qu’on ne veut pas vider.
+L’erreur classique Serrer trop fort : les poignets se bloquent et la balle part moins loin.
+Demander plus de détails à Birdy
+🎯   Viser  On vise avec le club, puis on aligne le corps.
+Posez d’abord la face du club vers la cible, ensuite placez-vous.
+Pieds, hanches et épaules sont parallèles à la ligne de jeu, comme deux rails de train.
+La balle est au milieu des pieds pour les clubs courts, plus vers le pied avant pour les clubs longs.
+L’erreur classique Viser la cible avec les épaules : on se retrouve aligné trop à droite (pour un droitier).
+Demander plus de détails à Birdy
+🌿   Les approches  Près du green, un petit geste précis vaut mieux qu’un grand.
+Le poids est côté cible et y reste pendant tout le geste.
+Les mains sont un peu en avant de la balle, le mouvement vient des épaules.
+Faites rouler la balle dès que possible : c’est plus facile à doser.
+L’erreur classique Donner un coup de poignet pour lever la balle : elle part trop loin ou reste sur place.
+Demander plus de détails à Birdy
+🔢   Compter son score  Chaque coup compte un point, le moins possible gagne.
+Chaque trou a un par : le nombre de coups prévu (3, 4 ou 5).
+Un coup de moins que le par, c’est un birdie ; un de plus, un bogey.
+L’index mesure votre niveau : il démarre à 54 et baisse quand vous progressez.
+L’erreur classique S’acharner sur un trou raté : en partie amicale, relevez la balle et passez au suivant.
+Demander plus de détails à Birdy
+🧍   Se placer  Une position stable et détendue, prête à tourner.
+Pieds écartés de la largeur des épaules, genoux légèrement fléchis.
+Le dos reste droit et s’incline depuis les hanches, les bras pendent naturellement.
+Le poids est au milieu des pieds, ni sur les talons ni sur les pointes.
+L’erreur classique Le dos rond et les jambes raides : le corps ne peut plus tourner.
+Demander plus de détails à Birdy
+🏌️   Le swing  Une rotation fluide, pas un coup de force.
+À la montée, les épaules tournent et le poids passe côté arrière.
+À la descente, le poids revient vers l’avant et le corps tourne vers la cible.
+On termine en équilibre, face à la cible, sur le pied avant.
+L’erreur classique Vouloir lever la balle ou frapper fort : c’est l’inclinaison du club qui la fait monter, pas vous.
+Demander plus de détails à Birdy
+⛳   Le putting  Sur le green, le dosage compte plus que la ligne.
+Les yeux sont au-dessus de la balle, les poignets restent fermes.
+Le geste est un balancier des épaules, aussi long à l’aller qu’au retour.
+Gardez la tête immobile et écoutez la balle tomber dans le trou.
+L’erreur classique Relever la tête trop tôt pour suivre la balle.
+Demander plus de détails à Birdy
+🤫   L’étiquette  Les bons réflexes pour jouer en sécurité et sans gêner.
+Silence et immobilité quand quelqu’un joue ; ne jouez jamais si un joueur est à portée de balle.
+Gardez le rythme et laissez passer la partie suivante si vous êtes plus lents.
+Réparez le terrain : relevez vos pitchs sur le green, replacez les mottes, ratissez le bunker.
+L’erreur classique Oublier de crier « Balle ! » quand un coup part vers d’autres joueurs.
+Demander plus de détails à Birdy
+Le lexique
+Les mots du golf, sans jargon
+Chercher un mot
+Par
+Le nombre de coups prévu pour finir un trou : 3, 4 ou 5.
+Birdie
+Un coup de moins que le par sur un trou.
+Eagle
+Deux coups de moins que le par.
+Bogey
+Un coup de plus que le par. Deux de plus : double bogey.
+Départ (tee)
+La zone d’où l’on joue le premier coup d’un trou. Le tee est aussi la petite cheville qui porte la balle.
+Fairway
+La partie tondue court entre le départ et le green : là où il faut viser.
+Rough
+L’herbe haute qui borde le fairway, plus difficile à jouer.
+Green
+La surface très rase où se trouve le trou, sur laquelle on putte.
+Bunker
+Un obstacle de sable.
+Practice
+La zone d’entraînement où l’on tape des balles.
+Putt
+Un coup roulé sur le green, joué avec le putter.
+Approche
+Un coup court joué vers le green.
+Drive
+Le long coup de départ, souvent joué avec le driver.
+Fer
+Un club à tête fine en métal, numéroté : plus le chiffre est grand, plus la balle monte et moins elle va loin.
+Bois
+Un club à grosse tête pour les longs coups. Le plus long est le driver.
+Hybride
+Un club entre le fer et le bois, plus facile à jouer qu’un long fer.
+Wedge
+Un fer très ouvert pour les coups courts et les sorties de bunker (sand wedge).
+Loft
+L’inclinaison de la face du club : c’est elle qui fait monter la balle.
+Index
+Le chiffre qui mesure votre niveau. Il démarre à 54 ; plus il est bas, meilleur est le joueur.
+Carte verte
+Le petit examen qui valide que vous pouvez jouer sur un parcours en autonomie.
+Green-fee
+Le droit de jeu payé pour jouer un parcours.
+Pitch
+La marque laissée par la balle en tombant sur le green, à réparer avec un relève-pitch.
+Divot
+La motte de gazon arrachée par le club, à replacer.
+Mulligan
+Un coup rejoué par tolérance entre amis. Il n’existe pas dans les règles.
+Stableford
+Une formule de jeu où l’on marque des points par trou : idéale pour débuter, car un trou raté ne gâche pas la partie.
+Scramble
+Une formule par équipe : chacun joue, on garde la meilleure balle et tout le monde rejoue de là.
+Voir les 26 mots du lexique
+Ce mot n’est pas dans le lexique.  Demander à Birdy
+Le starter pack
+Le matériel, au bon moment
+Cochez ce que vous avez déjà : votre liste est gardée sur cet appareil.
+0 sur 15
+Le premier jour
+Rien à acheter : venez comme vous êtes.
+Une tenue confortable  pantalon ou bermuda, polo ou tee-shirt simple
+Des baskets à semelle plate  pas besoin de chaussures de golf pour une initiation
+Une bouteille d’eau  et une casquette s’il fait beau
+Les clubs et les balles prêtés  à confirmer avec le golf au moment de réserver
+Quand vous êtes mordu
+L’essentiel pour jouer régulièrement.
+Une demi-série  un bois ou un hybride, deux fers (7 et 9), un sand wedge et un putter
+Un sac léger  avec des bretelles ou un trépied
+Des balles  d’occasion ou recyclées : on en perd beaucoup au début
+Des tees  en bois ou en plastique
+Un gant  à la main gauche pour un droitier, à la droite pour un gaucher
+Un relève-pitch et un marque-balle  pour réparer le green et marquer sa balle
+Des chaussures de golf  à crampons souples, pour l’adhérence sur l’herbe humide
+Plus tard
+Quand vous jouez sur le parcours.
+La licence de golf  nécessaire pour avoir un index officiel et jouer en compétition
+La série complète  14 clubs au maximum dans le sac
+Un chariot  pour ne plus porter le sac sur 18 trous
+Un essai de clubs sur mesure (fitting)  quand votre swing est devenu régulier
+À ne pas acheter tout de suite
+Attendez d’avoir un swing régulier.
+Un driver haut de gamme
+Une série complète neuve
+Des balles de compétition
+Les gadgets d’entraînement
+Nous n’affichons pas de prix : ils varient selon les marques et l’état (neuf ou occasion). Le pro de votre golf saura vous conseiller.
+Prêt à taper vos premières balles ?
+Trouver une initiation près de chez moi  Voir les golfs 9 trous
+Questions de débutant
+Combien de temps faut-il pour savoir jouer au golf ?
+Quelques séances suffisent pour taper la balle au practice et prendre du plaisir. Pour jouer un parcours avec aisance, comptez de quelques semaines à quelques mois selon la fréquence de vos cours et de vos entraînements.
+Faut-il acheter du matériel pour commencer ?
+Non. Pour une initiation, les clubs et les balles sont en général prêtés par le golf ou l’enseignant. Attendez d’être sûr d’aimer le golf, puis commencez par une demi-série, neuve ou d’occasion.
+C’est quoi la carte verte ?
+C’est un petit examen passé avec un enseignant : des questions de règles et d’étiquette, puis quelques trous joués. Elle valide que vous pouvez jouer sur un parcours en autonomie ; de nombreux golfs la demandent pour accéder au grand parcours.
+Je suis gaucher : qu’est-ce que ça change ?
+Presque rien : il existe des clubs pour gauchers et les conseils s’inversent simplement. Certains gauchers préfèrent jouer en droitier ; essayez les deux pendant l’initiation et gardez le côté le plus naturel.
+À quel âge peut-on commencer le golf ?
+À tout âge. Les enfants débutent dans les écoles de golf, et beaucoup de joueurs commencent à l’âge adulte ou à la retraite. Le golf se pratique à son rythme.
+Combien coûte le golf quand on débute ?
+Cela dépend du golf, de l’enseignant et du matériel choisi. Birdy Agent ne publie pas de prix : envoyez une demande gratuite, un conseiller vous donne les vrais tarifs près de chez vous.
+Cours avec un pro  ·  Réserver un parcours  ·  Voyages golf
 WhatsApp
 
 # Guides
@@ -2852,7 +3037,7 @@ Golf d'Aix-en-Provence
 9 trous  Golf privé    Demander un départ  Site du golf       Golf Country Club de la Salette
 27 km   Marseille 11e Arrondissement (13) · Bouches-du-Rhône
 2 × 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Aix-en-Provence ?
 Nous recensons 6 golfs avec au moins un parcours 18 trous à moins de 30 km de Aix-en-Provence, et 8 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2895,7 +3080,7 @@ Golf du Belvedere
 9 trous  Golf privé    Demander un départ       Golf du Mont d'Arbois
 40 km   Megève (74) · Haute-Savoie
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Annecy ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Annecy, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2934,7 +3119,7 @@ Golf du Grand Avignon
 9 trous  Golf public    Demander un départ       Golf de Pont Royal en Provence
 40 km   Mallemort (13) · Bouches-du-Rhône
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Avignon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Avignon, et 9 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -2975,7 +3160,7 @@ Golf d'Ilbarritz
 18 trous  Golf associatif    Demander un départ       Golf de Seignosse
 27 km   Seignosse (40) · Landes
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Biarritz ?
 Nous recensons 9 golfs avec au moins un parcours 18 trous à moins de 30 km de Biarritz, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3008,7 +3193,7 @@ Golf International de Bordeaux Lac
 18 trous  Golf associatif    Demander un départ       Golf des Aiguilles Vertes
 39 km   Lanton (33) · Gironde
 9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Bordeaux ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Bordeaux, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3065,7 +3250,7 @@ Royal Mougins Golf Club
 18 trous  9 trous  Golf privé    Demander un départ       Domaine Golf de Terre Blanche
 23 km   Tourrettes (83) · Var
 2 × 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Cannes ?
 Nous recensons 14 golfs avec au moins un parcours 18 trous à moins de 30 km de Cannes, et 18 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3096,7 +3281,7 @@ Golf de Royat-Charade
 9 trous  Golf privé    Demander un départ       Golf Vichy Forêt De Montpensier
 40 km   Serbannes (03) · Allier
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Clermont-Ferrand ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Clermont-Ferrand, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3141,7 +3326,7 @@ Golf Hôtel Barrière de Deauville
 18 trous  Golf privé    Demander un départ       Golf d'Etretat
 40 km   Étretat (76) · Seine-Maritime
 18 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Deauville ?
 Nous recensons 10 golfs avec au moins un parcours 18 trous à moins de 40 km de Deauville, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3172,7 +3357,7 @@ Golf de Quetigny - Grand Dijon
 9 trous  Golf privé    Demander un départ  Site du golf       Golf de Beaune-Levernois
 39 km   Levernois (21) · Côte-d'Or
 18 trous  9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Dijon ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Dijon, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3207,7 +3392,7 @@ Golf Bluegreen Grenoble Seyssins
 9 trous  Golf public    Demander un départ  Site du golf       Golf des 2 alpes
 38 km   Les Deux Alpes (38) · Isère
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Grenoble ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Grenoble, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3245,7 +3430,7 @@ Joueurs  1  2  3  4  5  6  7  8
 Rechercher
 Indiquez un lieu pour voir les parcours.
 Voir plus de parcours
-Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.
+Liste des parcours : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026. Un golf manque ou une information est fausse ? Appelez le 06 16 21 34 47.
 Questions fréquentes
 Comment réserver un parcours de golf avec Birdy Agent ?
 Cherchez un golf par ville, département ou région, ou décrivez votre partie à Birdy. Choisissez le parcours, la date, le créneau et le nombre de joueurs, puis envoyez votre demande de départ. Un conseiller réserve auprès du golf et vous rappelle pour confirmer.
@@ -3282,7 +3467,7 @@ Golf de la Prée de la Rochelle
 9 trous  Golf associatif    Demander un départ       Golf de Port Bourgenay
 50 km   Talmont-Saint-Hilaire (85) · Vendée
 2 × 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de La Rochelle ?
 Nous recensons 2 golfs avec au moins un parcours 18 trous à moins de 50 km de La Rochelle, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3315,7 +3500,7 @@ Golf du Touquet
 2 × 18 trous  Golf privé    Demander un départ       Golf de Wimereux
 31 km   Wimereux (62) · Pas-de-Calais
 18 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Le Touquet-Paris-Plage ?
 Nous recensons 6 golfs avec au moins un parcours 18 trous à moins de 40 km de Le Touquet-Paris-Plage, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3360,7 +3545,7 @@ Hippodrome de Marcq en Baroeul
 18 trous  9 trous  Golf public    Demander un départ       Golf du Parc d’Olhain
 39 km   Fresnicourt-le-Dolmen (62) · Pas-de-Calais
 9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lille ?
 Nous recensons 8 golfs avec au moins un parcours 18 trous à moins de 40 km de Lille, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3397,7 +3582,7 @@ Golf de Lyon Chassieu
 18 trous  Golf privé    Demander un départ  Site du golf       Golf des Trois Vallons Ugolf
 34 km   L'Isle-d'Abeau (38) · Isère
 9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lyon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Lyon, et 8 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3440,7 +3625,7 @@ Daily Golf de Marseille Borrely
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de la Sainte Baume
 35 km   Nans-les-Pins (83) · Var
 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Marseille ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Marseille, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3469,7 +3654,7 @@ Golf Montpellier Fontcaude
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de la Grande Motte
 19 km   La Grande-Motte (34) · Hérault
 2 × 18 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Montpellier ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Montpellier, et 4 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3504,7 +3689,7 @@ Golf Nantes Erdre
 18 trous  9 trous  Golf privé    Demander un départ       Golf de Savenay
 30 km   Savenay (44) · Loire-Atlantique
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nantes ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Nantes, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3555,7 +3740,7 @@ Golf De La Vanade
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Old Course - CANNES MANDELIEU
 32 km   Mandelieu-la-Napoule (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nice ?
 Nous recensons 12 golfs avec au moins un parcours 18 trous à moins de 40 km de Nice, et 15 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3670,7 +3855,7 @@ Golf Parislongchamp
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Isle d'Adam
 30 km   L'Isle-Adam (95) · Val-d'Oise
 18 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3701,7 +3886,7 @@ Golf de Reims Champagne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Ailette
 36 km   Cerny-en-Laonnois (02) · Aisne
 18 trous  9 trous  Golf public    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Reims ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Reims, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3732,7 +3917,7 @@ Golf de la Freslonnière
 18 trous  Golf privé    Demander un départ       Golf des Rochers Sévigné
 39 km   Vitré (35) · Ille-et-Vilaine
 18 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rennes ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Rennes, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3775,7 +3960,7 @@ Golf de Rouen Mont-Saint-Aignan
 9 trous  Golf associatif    Demander un départ       Golf Evasion
 38 km   La Frénaye (76) · Seine-Maritime
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rouen ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Rouen, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3806,7 +3991,7 @@ Golf du Fort
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Soufflenheim-Baden-baden
 30 km   Soufflenheim (67) · Bas-Rhin
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Strasbourg ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Strasbourg, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3847,7 +4032,7 @@ Golf de Garonne
 18 trous  Golf associatif    Demander un départ       Ugolf - Las Martines
 27 km   L'Isle-Jourdain (32) · Gers
 9 trous  Golf privé    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Toulouse ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Toulouse, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
@@ -3878,7 +4063,7 @@ Golf de la Gloriette
 18 trous  Golf privé    Demander un départ       Golf de Fleuray - Amboise
 30 km   Cangey (37) · Indre-et-Loire
 9 trous  Golf associatif    Demander un départ
-Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 10/11/2026.
+Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 11/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Tours ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Tours, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).

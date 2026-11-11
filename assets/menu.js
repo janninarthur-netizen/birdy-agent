@@ -1,4 +1,4 @@
-/* Menu mobile commun à toutes les pages : bouton ☰ dans l'en-tête, panneau avec les trois onglets (Voyages, Parcours, Cours). */
+/* Menu mobile commun à toutes les pages : bouton ☰ dans l'en-tête, panneau avec les quatre onglets (Débuter, Cours, Parcours, Voyages). */
 (function () {
   "use strict";
   var top = document.querySelector(".top .in");
@@ -12,9 +12,9 @@
     ".mb-pan{position:fixed;inset:0;z-index:30;background:rgba(8,24,18,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:10px;padding:calc(96px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 28px max(20px,env(safe-area-inset-left,0px));overflow:auto;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}" +
     ".mb-pan.on{opacity:1;visibility:visible}" +
     ".mb-pan a{color:#fff;text-decoration:none}" +
-    ".mb-pole{display:block;border:1px solid rgba(208,228,220,.22);border-radius:18px;padding:16px 18px;background:linear-gradient(160deg,rgba(163,201,184,.14),rgba(255,255,255,.03))}" +
+    ".mb-pole{display:block;border:1px solid rgba(208,228,220,.22);border-radius:18px;padding:13px 16px;background:linear-gradient(160deg,rgba(163,201,184,.14),rgba(255,255,255,.03))}" +
     ".mb-pole small{display:block;font:600 11.5px/1.2 'Instrument Sans',system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#A3C9B8;margin-bottom:4px}" +
-    ".mb-pole b{display:block;font:700 24px/1.15 'Cormorant Garamond',Georgia,serif}" +
+    ".mb-pole b{display:block;font:700 22px/1.15 'Cormorant Garamond',Georgia,serif}" +
     ".mb-pole em{display:block;font-style:normal;font-size:14px;color:rgba(232,241,236,.75);margin-top:3px}" +
     ".mb-l{display:flex;flex-direction:column;margin-top:6px}.mb-l a{font:500 17px/1 'Instrument Sans',system-ui,sans-serif;padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.08)}" +
     ".mb-c{display:flex;gap:10px;margin-top:auto;padding-top:18px}.mb-c a{flex:1;text-align:center;font:600 15px/1 'Instrument Sans',system-ui,sans-serif;padding:15px;border-radius:99px;border:1px solid rgba(255,255,255,.25)}.mb-c a.mb-wa{background:#25D366;border-color:#25D366}" +
@@ -30,9 +30,10 @@
   pan.id = "mb-pan"; pan.className = "mb-pan"; pan.setAttribute("aria-label", "Menu principal");
   var voyages = /^\/voyages(\/|\/index\.html)?$/.test(location.pathname);
   pan.innerHTML =
-    '<a class="mb-pole" href="' + (voyages ? "#organiser" : "/voyages/") + '"><small>Birdy Travel</small><b>Voyages golf de groupe</b><em>55 destinations, un conseiller obtient les vrais tarifs</em></a>' +
+    '<a class="mb-pole" href="/debuter/"><small>Birdy Start</small><b>Débuter le golf</b><em>Les étapes, les bases et le starter pack.</em></a>' +
+    '<a class="mb-pole" href="/cours/"><small>Birdy Pro</small><b>Cours avec un Pro</b><em>Le bon pro, pour chaque swing.</em></a>' +
     '<a class="mb-pole" href="/parcours/"><small>Birdy Golf</small><b>Réserver un parcours en France</b><em>Du clic au tee, en un swing.</em></a>' +
-    '<a class="mb-pole" href="/cours/"><small>Birdy Pro</small><b>Cours avec un Pro</b><em>Le bon pro, pour chaque swing.</em></a><div class="mb-l"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
+    '<a class="mb-pole" href="' + (voyages ? "#organiser" : "/voyages/") + '"><small>Birdy Travel</small><b>Voyages golf de groupe</b><em>55 destinations, un conseiller obtient les vrais tarifs</em></a><div class="mb-l"><a href="/">Accueil</a><a href="/golf/">Toutes les destinations</a><a href="/guides/">Idées de séjours</a><a href="/parcours/region/ile-de-france">Golfs en Île-de-France</a><a href="/a-propos/">À propos de Birdy Agent</a></div>' +
     '<div class="mb-c"><a href="tel:+33616213447">Appeler</a><a class="mb-wa" href="https://wa.me/33616213447?text=' + encodeURIComponent("Bonjour Birdy Agent, je souhaite organiser une partie ou un séjour golf.") + '" target="_blank" rel="noopener">WhatsApp</a></div>';
   top.appendChild(btn);
   document.body.appendChild(pan);
