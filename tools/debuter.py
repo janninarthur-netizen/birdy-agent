@@ -3,9 +3,14 @@
 
     python3 tools/debuter.py      (lancé aussi par tools/guides.py)
 
-Contenu : le parcours du débutant en 5 étapes, les fiches des bases, le lexique, le starter pack
-à cocher et Birdy en coach. Aucun prix : le budget dépend du golf, de l'enseignant et du matériel.
-Comportement : assets/debuter.js. Styles : debuter/debuter.css (mise en page partagée avec cours/cours.css).
+Page visuelle, peu de texte : on apprend en manipulant.
+  - un trou de golf en 3D : on « joue » les 5 étapes du débutant, le vocabulaire s'affiche sur le terrain ;
+  - le swing en 3D : un personnage exécute le geste phase par phase ;
+  - les clubs : la trajectoire de la balle selon le club choisi ;
+  - le score (compteur), l'étiquette (cartes qui se retournent), le starter pack (à cocher), le lexique ;
+  - Birdy en coach, dans un panneau flottant.
+Aucun prix : le budget dépend du golf, de l'enseignant et du matériel.
+Comportement : assets/debuter.js (interface) et assets/debuter3d.js (scènes 3D, Three.js). Styles : debuter/debuter.css.
 """
 import json
 import os
@@ -18,77 +23,65 @@ S, e = pages.SITE, pages.e
 G = json.load(open("data/golfs.json", encoding="utf8"))["golfs"]
 NB, N9 = len(G), sum(1 for g in G if g["t9"])
 
-# (numéro, titre, texte, libellé du bouton, lien ou question pour Birdy)
+# Les 5 étapes, jouées comme un trou : (mot, titre, une phrase, libellé du bouton, lien / « ?question pour Birdy »)
 ETAPES = [
-    ("Découvrir", "L’initiation",
-     "Une à deux heures avec un enseignant. On vous prête les clubs, vous tapez vos premières balles au practice et vous essayez le putting. "
-     "Aucun matériel ni niveau requis.",
+    ("Découvrir", "L’initiation", "Une à deux heures avec un enseignant. Clubs prêtés, aucun niveau requis.",
      "Trouver une initiation", "/cours/?type=Initiation"),
-    ("Apprendre", "Les bases du swing",
-     "Quelques cours pour installer la tenue du club, la posture et un geste régulier. Entre deux cours, un seau de balles au practice suffit pour progresser.",
-     "Voir les fiches", "#bases"),
-    ("Comprendre", "Les règles et l’étiquette",
-     "Compter son score, savoir quoi faire quand la balle est perdue ou dans l’eau, et bien se comporter sur le parcours. C’est plus simple qu’il n’y paraît.",
-     "Lire l’étiquette", "#fiche-etiquette"),
-    ("Valider", "La carte verte",
-     "Un petit examen passé avec un enseignant : quelques questions de règles et d’étiquette, puis quelques trous joués. "
-     "De nombreux golfs la demandent pour accéder au grand parcours.",
+    ("Apprendre", "Les bases du swing", "Quelques cours et un seau de balles au practice pour installer un geste régulier.",
+     "Voir le swing en 3D", "#swing"),
+    ("Comprendre", "Les règles et l’étiquette", "Compter ses coups, savoir quoi faire dans le sable ou dans l’eau, respecter les autres joueurs.",
+     "Voir les bons réflexes", "#parcours"),
+    ("Valider", "La carte verte", "Un petit examen avec un enseignant : il valide que vous pouvez jouer en autonomie.",
      "Demander à Birdy", "?C’est quoi la carte verte et comment la passer ?"),
-    ("Jouer", "Le premier parcours",
-     f"Commencez par un 9 trous, aux heures calmes, si possible avec un joueur plus expérimenté. {N9} golfs de France ont un parcours 9 trous.",
+    ("Jouer", "Le premier parcours", f"Commencez par un 9 trous, aux heures calmes. {N9} golfs de France en proposent un.",
      "Trouver un 9 trous", "/parcours/?trous=9"),
 ]
 
-# (identifiant, icône, titre, l'idée en une phrase, 3 points clés, l'erreur classique, question pour Birdy)
-FICHES = [
-    ("grip", "🤝", "Tenir le club", "Les deux mains travaillent ensemble, sans serrer.",
-     ["Pour un droitier, la main gauche est en haut du manche, la droite juste en dessous (l’inverse pour un gaucher).",
-      "Le club se tient dans les doigts plus que dans la paume, les deux mains bien collées.",
-      "Pression légère : comme un tube de dentifrice ouvert qu’on ne veut pas vider."],
-     "Serrer trop fort : les poignets se bloquent et la balle part moins loin.",
-     "Comment bien tenir mon club de golf ?"),
-    ("posture", "🧍", "Se placer", "Une position stable et détendue, prête à tourner.",
-     ["Pieds écartés de la largeur des épaules, genoux légèrement fléchis.",
-      "Le dos reste droit et s’incline depuis les hanches, les bras pendent naturellement.",
-      "Le poids est au milieu des pieds, ni sur les talons ni sur les pointes."],
-     "Le dos rond et les jambes raides : le corps ne peut plus tourner.",
-     "Quelle est la bonne posture au golf ?"),
-    ("alignement", "🎯", "Viser", "On vise avec le club, puis on aligne le corps.",
-     ["Posez d’abord la face du club vers la cible, ensuite placez-vous.",
-      "Pieds, hanches et épaules sont parallèles à la ligne de jeu, comme deux rails de train.",
-      "La balle est au milieu des pieds pour les clubs courts, plus vers le pied avant pour les clubs longs."],
-     "Viser la cible avec les épaules : on se retrouve aligné trop à droite (pour un droitier).",
-     "Comment bien m’aligner vers la cible ?"),
-    ("swing", "🏌️", "Le swing", "Une rotation fluide, pas un coup de force.",
-     ["À la montée, les épaules tournent et le poids passe côté arrière.",
-      "À la descente, le poids revient vers l’avant et le corps tourne vers la cible.",
-      "On termine en équilibre, face à la cible, sur le pied avant."],
-     "Vouloir lever la balle ou frapper fort : c’est l’inclinaison du club qui la fait monter, pas vous.",
-     "Quels sont les bases du swing pour un débutant ?"),
-    ("petit-jeu", "🌿", "Les approches", "Près du green, un petit geste précis vaut mieux qu’un grand.",
-     ["Le poids est côté cible et y reste pendant tout le geste.",
-      "Les mains sont un peu en avant de la balle, le mouvement vient des épaules.",
-      "Faites rouler la balle dès que possible : c’est plus facile à doser."],
-     "Donner un coup de poignet pour lever la balle : elle part trop loin ou reste sur place.",
-     "Comment réussir mes approches autour du green ?"),
-    ("putting", "⛳", "Le putting", "Sur le green, le dosage compte plus que la ligne.",
-     ["Les yeux sont au-dessus de la balle, les poignets restent fermes.",
-      "Le geste est un balancier des épaules, aussi long à l’aller qu’au retour.",
-      "Gardez la tête immobile et écoutez la balle tomber dans le trou."],
-     "Relever la tête trop tôt pour suivre la balle.",
-     "Comment mieux putter quand on débute ?"),
-    ("score", "🔢", "Compter son score", "Chaque coup compte un point, le moins possible gagne.",
-     ["Chaque trou a un par : le nombre de coups prévu (3, 4 ou 5).",
-      "Un coup de moins que le par, c’est un birdie ; un de plus, un bogey.",
-      "L’index mesure votre niveau : il démarre à 54 et baisse quand vous progressez."],
-     "S’acharner sur un trou raté : en partie amicale, relevez la balle et passez au suivant.",
-     "Comment compter mon score au golf ?"),
-    ("etiquette", "🤫", "L’étiquette", "Les bons réflexes pour jouer en sécurité et sans gêner.",
-     ["Silence et immobilité quand quelqu’un joue ; ne jouez jamais si un joueur est à portée de balle.",
-      "Gardez le rythme et laissez passer la partie suivante si vous êtes plus lents.",
-      "Réparez le terrain : relevez vos pitchs sur le green, replacez les mottes, ratissez le bunker."],
-     "Oublier de crier « Balle ! » quand un coup part vers d’autres joueurs.",
-     "Quelles sont les règles de politesse sur un parcours de golf ?"),
+# Le vocabulaire affiché sur le trou en 3D : (identifiant du repère dans la scène, mot, définition)
+TERRAIN = [
+    ("depart", "Départ", "La zone d’où l’on joue le premier coup du trou."),
+    ("fairway", "Fairway", "L’herbe tondue court : là où il faut viser."),
+    ("rough", "Rough", "L’herbe haute sur les côtés, plus difficile à jouer."),
+    ("bunker", "Bunker", "Un obstacle de sable."),
+    ("eau", "Obstacle d’eau", "Si la balle y tombe : un coup de pénalité."),
+    ("green", "Green", "L’herbe très rase autour du trou, où l’on putte."),
+    ("drapeau", "Drapeau", "Il indique où se trouve le trou."),
+]
+
+# Le swing, phase par phase : (nom, la phrase à retenir)
+SWING = [
+    ("L’adresse", "Stable et détendu : dos droit, genoux souples, bras relâchés."),
+    ("La montée", "Les épaules tournent, les bras suivent."),
+    ("Le sommet", "Dos à la cible, le poids côté arrière."),
+    ("La descente", "Les hanches lancent le mouvement, les bras suivent."),
+    ("L’impact", "Le poids passe à l’avant, les mains devant la balle."),
+    ("Le finish", "En équilibre, face à la cible."),
+]
+# Gros plans : (identifiant, nom, la phrase)
+ZOOMS = [
+    ("grip", "Le grip", "Les deux mains collées, dans les doigts. Pression légère, comme un tube de dentifrice."),
+    ("posture", "La posture", "On s’incline depuis les hanches, dos droit, poids au milieu des pieds."),
+    ("alignement", "L’alignement", "Pieds et épaules parallèles à la ligne de jeu, comme deux rails de train."),
+]
+
+# Les clubs : (identifiant, nom, rôle en quelques mots, inclinaison approximative de la face en degrés, portée relative, hauteur relative)
+CLUBS = [
+    ("bois", "Bois", "Le plus long : pour le départ des grands trous.", 15, 1.0, 0.52),
+    ("hybride", "Hybride", "Long et facile : l’ami du débutant.", 22, 0.82, 0.62),
+    ("fer7", "Fer 7", "Le club à tout faire, celui des premiers cours.", 33, 0.62, 0.78),
+    ("fer9", "Fer 9", "Plus court et plus haut : pour viser le green.", 41, 0.47, 0.9),
+    ("wedge", "Sand wedge", "Très haut, très court : approches et sorties de bunker.", 56, 0.23, 0.84),
+    ("putter", "Putter", "Sur le green : la balle roule jusqu’au trou.", 3, 0.13, 0.0),
+]
+
+# L'étiquette : (pictogramme, titre, la règle en une phrase)
+ETIQUETTE = [
+    ("🤫", "Silence", "On ne parle pas et on ne bouge pas quand quelqu’un joue."),
+    ("⚠️", "Sécurité", "On ne joue jamais si un joueur est à portée. En cas de danger, on crie « Balle ! »."),
+    ("⏱️", "Rythme", "On avance sans traîner et on laisse passer les plus rapides."),
+    ("🟢", "Le green", "On relève ses pitchs : la marque que la balle laisse en tombant."),
+    ("🏖️", "Le bunker", "On ratisse le sable après son coup."),
+    ("🌱", "Le fairway", "On replace la motte de gazon arrachée par le club."),
 ]
 
 LEXIQUE = [
@@ -120,28 +113,21 @@ LEXIQUE = [
     ("Scramble", "Une formule par équipe : chacun joue, on garde la meilleure balle et tout le monde rejoue de là."),
 ]
 
-# (identifiant, titre, sous-titre, [éléments]) : chaque élément est (libellé, précision)
+# Le starter pack : (identifiant, onglet, phrase, [(pictogramme, objet, précision)])
 PACK = [
     ("jour1", "Le premier jour", "Rien à acheter : venez comme vous êtes.",
-     [("Une tenue confortable", "pantalon ou bermuda, polo ou tee-shirt simple"),
-      ("Des baskets à semelle plate", "pas besoin de chaussures de golf pour une initiation"),
-      ("Une bouteille d’eau", "et une casquette s’il fait beau"),
-      ("Les clubs et les balles prêtés", "à confirmer avec le golf au moment de réserver")]),
+     [("👕", "Tenue confortable", "pantalon ou bermuda, polo"), ("👟", "Baskets", "à semelle plate"),
+      ("💧", "Bouteille d’eau", "et une casquette"), ("🏌️", "Clubs prêtés", "à confirmer avec le golf")]),
     ("essentiel", "Quand vous êtes mordu", "L’essentiel pour jouer régulièrement.",
-     [("Une demi-série", "un bois ou un hybride, deux fers (7 et 9), un sand wedge et un putter"),
-      ("Un sac léger", "avec des bretelles ou un trépied"),
-      ("Des balles", "d’occasion ou recyclées : on en perd beaucoup au début"),
-      ("Des tees", "en bois ou en plastique"),
-      ("Un gant", "à la main gauche pour un droitier, à la droite pour un gaucher"),
-      ("Un relève-pitch et un marque-balle", "pour réparer le green et marquer sa balle"),
-      ("Des chaussures de golf", "à crampons souples, pour l’adhérence sur l’herbe humide")]),
+     [("⛳", "Demi-série", "bois ou hybride, fers 7 et 9, sand wedge, putter"), ("🎒", "Sac léger", "à bretelles ou trépied"),
+      ("⚪", "Balles", "d’occasion : on en perd"), ("📍", "Tees", "bois ou plastique"),
+      ("🧤", "Gant", "main gauche pour un droitier"), ("🔧", "Relève-pitch", "et marque-balle"),
+      ("👞", "Chaussures de golf", "à crampons souples")]),
     ("plus-tard", "Plus tard", "Quand vous jouez sur le parcours.",
-     [("La licence de golf", "nécessaire pour avoir un index officiel et jouer en compétition"),
-      ("La série complète", "14 clubs au maximum dans le sac"),
-      ("Un chariot", "pour ne plus porter le sac sur 18 trous"),
-      ("Un essai de clubs sur mesure (fitting)", "quand votre swing est devenu régulier")]),
+     [("🪪", "Licence", "pour l’index et les compétitions"), ("🏌️‍♂️", "Série complète", "14 clubs au maximum"),
+      ("🛒", "Chariot", "pour 18 trous"), ("📐", "Essai sur mesure", "le fitting")]),
 ]
-ATTENDRE = ["Un driver haut de gamme", "Une série complète neuve", "Des balles de compétition", "Les gadgets d’entraînement"]
+ATTENDRE = ["driver haut de gamme", "série complète neuve", "balles de compétition", "gadgets d’entraînement"]
 
 FAQ = [
     ("Combien de temps faut-il pour savoir jouer au golf ?",
@@ -165,20 +151,13 @@ FAQ = [
 ]
 
 
-def bouton(lib, cible, cls="btn gold sm"):
-    """Lien normal, ou question envoyée à Birdy quand la cible commence par « ? »."""
-    if cible.startswith("?"):
-        return f'<button type="button" class="{cls} db-ask" data-q="{e(cible[1:])}">{e(lib)}</button>'
-    return f'<a class="{cls}" href="{e(cible)}">{e(lib)}</a>'
-
-
 def page():
     path = "debuter/"
     title = "Débuter le golf : étapes, bases et starter pack | Birdy Agent"
-    desc = ("Débuter le golf simplement : les 5 étapes du débutant, les bases du swing, les règles, le lexique et le matériel pour commencer. "
+    desc = ("Débuter le golf simplement : les 5 étapes sur un trou en 3D, le swing animé phase par phase, les clubs, les règles et le matériel. "
             "Birdy répond à vos questions.")
     extra = ('<link rel="stylesheet" href="/parcours/parcours.css">\n<link rel="stylesheet" href="/parcours/pro.css">\n'
-             '<link rel="stylesheet" href="/cours/cours.css">\n<link rel="stylesheet" href="/debuter/debuter.css">\n')
+             '<link rel="stylesheet" href="/debuter/debuter.css">\n<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>\n')
     extra += pages.ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": S},
         {"@type": "ListItem", "position": 2, "name": "Débuter", "item": S + path}]})
@@ -189,75 +168,144 @@ def page():
     extra += pages.ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in FAQ]})
 
-    etapes = "".join(
-        f'<li class="db-step t3d" style="--k:{i}"><i>{i + 1}</i><small>{e(k)}</small><b>{e(t)}</b><p>{e(x)}</p>{bouton(lib, c)}</li>'
-        for i, (k, t, x, lib, c) in enumerate(ETAPES))
-    def fiche(n, i, ic, t, idee, pts, err, q):
-        return (f'<details class="db-fiche" id="fiche-{i}" style="--o:{n}"><summary><i>{ic}</i><span><b>{e(t)}</b><small>{e(idee)}</small></span></summary>'
-                f'<div class="db-fiche-c"><ul>{"".join(f"<li>{e(p)}</li>" for p in pts)}</ul>'
-                f'<p class="db-err"><b>L’erreur classique</b>{e(err)}</p>'
-                f'<button type="button" class="db-plus db-ask" data-q="{e(q)}">Demander plus de détails à Birdy</button></div></details>')
-    # Deux colonnes indépendantes (ouvrir une fiche ne crée pas de trou à côté) ; l'ordre de lecture est gardé sur mobile
-    cols = ["".join(fiche(n, *f) for n, f in enumerate(FICHES) if n % 2 == k) for k in (0, 1)]
-    fiches_cols = "".join(f'<div class="db-col">{c}</div>' for c in cols)
-    lexique = "".join(f'<div class="db-mot"><dt>{e(m)}</dt><dd>{e(d)}</dd></div>' for m, d in LEXIQUE)
-    pack = "".join(
-        f'<section class="db-pack" data-g="{g}"><h3>{e(t)}</h3><p>{e(st)}</p><ul>'
-        + "".join(f'<li><label><input type="checkbox" data-id="{g}-{j}"><span><b>{e(a)}</b><small>{e(b)}</small></span></label></li>' for j, (a, b) in enumerate(items))
-        + "</ul></section>" for g, t, st, items in PACK)
-    attendre = "".join(f"<li>{e(a)}</li>" for a in ATTENDRE)
+    # Données lues par les scripts de la page
+    data = {"etapes": [{"k": k, "t": t, "x": x, "lib": lib, "c": c} for k, t, x, lib, c in ETAPES],
+            "terrain": [{"id": i, "n": n, "d": d} for i, n, d in TERRAIN],
+            "swing": [{"n": n, "x": x} for n, x in SWING], "zooms": [{"id": i, "n": n, "x": x} for i, n, x in ZOOMS],
+            "clubs": [{"id": i, "n": n, "x": x, "loft": lo, "d": d, "h": h} for i, n, x, lo, d, h in CLUBS]}
+
+    points = "".join(f'<button type="button" data-i="{i}" aria-label="Étape {i + 1} : {e(t)}"></button>' for i, (_, t, _, _, _) in enumerate(ETAPES))
+    etapes_txt = "".join(f"<li><b>{e(t)}</b> : {e(x)}</li>" for _, t, x, _, _ in ETAPES)
+    phases = "".join(f'<button type="button" role="tab" data-i="{i}" aria-selected="{"true" if i == 0 else "false"}"><i>{i + 1}</i>{e(n)}</button>'
+                     for i, (n, _) in enumerate(SWING))
+    zooms = "".join(f'<button type="button" data-z="{i}">{e(n)}</button>' for i, n, _ in ZOOMS)
+    clubs = "".join(f'<button type="button" role="tab" data-c="{i}" aria-selected="{"true" if i == "fer7" else "false"}">{e(n)}</button>' for i, n, _, _, _, _ in CLUBS)
+    cartes = "".join(f'<button type="button" class="et-c" aria-pressed="false"><span class="et-in"><span class="et-f"><i>{ic}</i><b>{e(t)}</b></span>'
+                     f'<span class="et-b">{e(x)}</span></span></button>' for ic, t, x in ETIQUETTE)
+    onglets = "".join(f'<button type="button" role="tab" data-g="{g}" aria-selected="{"true" if n == 0 else "false"}">{e(t)}</button>'
+                      for n, (g, t, _, _) in enumerate(PACK))
+    packs = "".join(
+        f'<div class="pk-g" data-g="{g}"{"" if n == 0 else " hidden"}><p class="pk-st">{e(st)}</p><div class="pk-items">'
+        + "".join(f'<label class="pk-i"><input type="checkbox" data-id="{g}-{j}"><i>{ic}</i><b>{e(a)}</b><small>{e(b)}</small></label>'
+                  for j, (ic, a, b) in enumerate(items))
+        + "</div></div>" for n, (g, _, st, items) in enumerate(PACK))
     total = sum(len(x[3]) for x in PACK)
+    mots = "".join(f'<button type="button" class="lx-m" data-d="{e(d)}">{e(m)}</button>' for m, d in LEXIQUE)
+    lex_txt = "".join(f"<dt>{e(m)}</dt><dd>{e(d)}</dd>" for m, d in LEXIQUE)
 
     out = pages.head(title, desc, path, S + "og.jpg", extra)
-    out += f"""<main class="gp cp db">
-<div class="in cp-grid">
-  <aside class="cp-side">
-    <div class="gp-chat cp-chat">
-      <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="44" height="44"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre coach pour débuter · répond tout de suite</span></div></div>
-      <div class="gp-log" id="db-say" aria-live="polite"><div class="gm b">Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.</div></div>
-      <div class="gp-sugg" id="db-sugg"><button type="button">Par où commencer ?</button><button type="button">C’est quoi la carte verte ?</button><button type="button">Je suis gaucher, ça change quoi ?</button><button type="button">Quels clubs pour débuter ?</button></div>
-      <form class="gp-ask" id="db-form" autocomplete="off"><label class="sr" for="db-q">Votre question à Birdy</label>
-        <input id="db-q" maxlength="400" placeholder="Votre question de débutant…"><button class="btn gold" type="submit" aria-label="Envoyer">→</button></form>
-    </div>
-    <p class="cp-side-note">Gratuit · sans inscription · Birdy explique simplement</p>
-  </aside>
+    out += f"""<main class="gp db">
 
-  <div class="cp-main">
-    <nav class="crumbs cp-crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Débuter</span></nav>
-    <p class="tag cp-tag">Birdy Start · Débuter le golf</p>
-    <h1 class="cp-h1 db-h1">Débuter le golf, <em>du bon pied.</em></h1>
-    <p class="cp-lead">Les étapes, les bases et le matériel pour commencer, expliqués simplement. Et Birdy répond à toutes vos questions de débutant.</p>
-
-    <section class="db-sec" id="etapes"><p class="gp-k">Le parcours du débutant</p><h2>De la première balle au premier parcours</h2>
-      <ol class="db-steps">{etapes}</ol>
-    </section>
-
-    <section class="db-sec" id="bases"><p class="gp-k">Les bases</p><h2>L’essentiel, en une minute par fiche</h2>
-      <p class="db-sub">Les conseils sont donnés pour un droitier : inversez gauche et droite si vous êtes gaucher. Rien ne remplace un cours avec un enseignant.</p>
-      <div class="db-fiches">{fiches_cols}</div>
-    </section>
-
-    <section class="db-sec" id="lexique"><p class="gp-k">Le lexique</p><h2>Les mots du golf, sans jargon</h2>
-      <label class="db-cherche"><span class="sr">Chercher un mot</span><input id="db-mot" type="search" placeholder="Chercher un mot : birdie, green, index…" autocomplete="off"></label>
-      <dl class="db-lexique court" id="db-lexique">{lexique}</dl>
-      <button type="button" class="db-tout" id="db-tout">Voir les {len(LEXIQUE)} mots du lexique</button>
-      <p class="db-vide" id="db-vide" hidden>Ce mot n’est pas dans le lexique. <button type="button" class="db-lien db-ask" id="db-vide-ask">Demander à Birdy</button></p>
-    </section>
-
-    <section class="db-sec" id="starter-pack"><p class="gp-k">Le starter pack</p><h2>Le matériel, au bon moment</h2>
-      <p class="db-sub">Cochez ce que vous avez déjà : votre liste est gardée sur cet appareil.</p>
-      <div class="db-prog" aria-live="polite"><div class="db-bar"><i id="db-bar"></i></div><span id="db-compte">0 sur {total}</span></div>
-      <div class="db-packs">{pack}
-        <section class="db-pack db-non"><h3>À ne pas acheter tout de suite</h3><p>Attendez d’avoir un swing régulier.</p><ul>{attendre}</ul></section>
-      </div>
-      <p class="db-note">Nous n’affichons pas de prix : ils varient selon les marques et l’état (neuf ou occasion). Le pro de votre golf saura vous conseiller.</p>
-    </section>
-
-    <section class="db-sec db-suite"><h2>Prêt à taper vos premières balles ?</h2>
-      <div class="db-cta"><a class="btn gold" href="/cours/?type=Initiation">Trouver une initiation près de chez moi</a><a class="btn ghost db-ghost" href="/parcours/?trous=9">Voir les golfs 9 trous</a></div>
-    </section>
+<section class="dh"><div class="in">
+  <nav class="crumbs dh-crumbs" aria-label="Fil d’Ariane"><a href="/">Accueil</a> › <span>Débuter</span></nav>
+  <div class="dh-head">
+    <p class="db-k">Birdy Start · Débuter le golf</p>
+    <h1 class="dh-h1">Débuter le golf, <em>du bon pied.</em></h1>
+    <p class="dh-lead">Jouez ce trou : chaque coup est une étape de vos débuts.</p>
   </div>
-</div>
+  <div class="dh-wrap">
+    <div class="dh-scene" id="dh-scene">
+      <div class="dh-pins" id="dh-pins"></div>
+      <button type="button" class="dh-voc" id="dh-voc" aria-pressed="false"><i></i>Vocabulaire</button>
+      <p class="dh-def" id="dh-def" hidden></p>
+      <p class="dh-hint" aria-hidden="true">Faites glisser pour tourner</p>
+    </div>
+    <div class="dh-card" id="dh-card">
+      <small id="dh-k"></small><b id="dh-t"></b><p id="dh-x"></p>
+      <div id="dh-act" class="dh-act"></div>
+      <div class="dh-nav"><button type="button" id="dh-prev" aria-label="Étape précédente">←</button><div class="dh-dots" id="dh-dots">{points}</div><button type="button" id="dh-next" class="dh-next">Coup suivant →</button></div>
+    </div>
+  </div>
+  <ol class="sr">{etapes_txt}</ol>
+</div></section>
+
+<section class="db-sec" id="swing"><div class="in db-two">
+  <div class="db-txt">
+    <div class="db-tete"><p class="db-k">Le swing en 3D</p>
+    <h2>Le geste, image par image</h2></div>
+    <div class="sw-phases" id="sw-phases" role="tablist" aria-label="Phases du swing">{phases}</div>
+    <p class="sw-cap" id="sw-cap" aria-live="polite"></p>
+    <div class="sw-zooms" id="sw-zooms"><span>Gros plan</span>{zooms}</div>
+    <p class="db-note">Geste d’un droitier ; pour un gaucher, tout s’inverse. Rien ne remplace un cours avec un enseignant.</p>
+  </div>
+  <div class="sw-scene" id="sw-scene">
+    <div class="sw-ctrl">
+      <button type="button" class="sw-play" id="sw-play" aria-label="Lancer le swing">▶</button>
+      <input type="range" id="sw-t" min="0" max="1000" value="0" aria-label="Avancer dans le swing">
+      <div class="sw-vues" id="sw-vues"><button type="button" data-v="face" aria-pressed="true">Face</button><button type="button" data-v="profil" aria-pressed="false">Profil</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="db-sec" id="clubs"><div class="in">
+  <p class="db-k">Les clubs</p>
+  <h2>Un club, une trajectoire</h2>
+  <div class="cl-box">
+    <div class="cl-tabs" id="cl-tabs" role="tablist" aria-label="Choisir un club">{clubs}</div>
+    <div class="cl-vue">
+      <svg id="cl-svg" viewBox="0 0 800 300" role="img" aria-label="Trajectoire de la balle selon le club">
+        <defs><linearGradient id="cl-sol" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3E9461"/><stop offset="1" stop-color="#1F5A3F"/></linearGradient></defs>
+        <path d="M0 258 Q400 244 800 258 L800 300 L0 300Z" fill="url(#cl-sol)"/>
+        <g id="cl-fant"></g>
+        <path id="cl-arc" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 9"/>
+        <ellipse id="cl-ombre" cx="60" cy="256" rx="7" ry="2.4" fill="rgba(0,0,0,.35)"/>
+        <g id="cl-drap"><line x1="0" y1="0" x2="0" y2="-46" stroke="#E8F1EC" stroke-width="2"/><path d="M0 -46 L20 -39 L0 -32Z" fill="#E5484D"/></g>
+        <circle id="cl-balle" cx="60" cy="250" r="6" fill="#fff"/>
+      </svg>
+      <div class="cl-info">
+        <svg class="cl-face" viewBox="0 0 90 90" aria-hidden="true"><line x1="14" y1="76" x2="80" y2="76" stroke="rgba(232,241,236,.4)" stroke-width="2"/><line x1="30" y1="76" x2="30" y2="14" stroke="rgba(232,241,236,.25)" stroke-width="2" stroke-dasharray="3 5"/><line id="cl-loft" x1="30" y1="76" x2="30" y2="14" stroke="#A3C9B8" stroke-width="6" stroke-linecap="round"/></svg>
+        <div><b id="cl-n"></b><p id="cl-x"></p><small id="cl-l"></small></div>
+      </div>
+    </div>
+  </div>
+  <p class="db-note">Les portées sont comparées entre elles : la distance réelle dépend de chaque joueur.</p>
+</div></section>
+
+<section class="db-sec" id="parcours"><div class="in db-duo">
+  <div class="sc-box">
+    <p class="db-k">Le score</p>
+    <h2>Comptez vos coups</h2>
+    <p class="sc-par">Ce trou est un <b>par 4</b> : quatre coups prévus.</p>
+    <div class="sc-jeu"><button type="button" id="sc-moins" aria-label="Un coup de moins">−</button><div class="sc-n"><b id="sc-n">4</b><small>coups</small></div><button type="button" id="sc-plus" aria-label="Un coup de plus">+</button></div>
+    <p class="sc-nom" id="sc-nom" aria-live="polite">Par</p>
+    <p class="sc-x" id="sc-x">Pile le score prévu.</p>
+  </div>
+  <div class="et-box">
+    <p class="db-k">L’étiquette</p>
+    <h2>Les bons réflexes</h2>
+    <div class="et-grid">{cartes}</div>
+    <p class="db-note">Touchez une carte pour la retourner.</p>
+  </div>
+</div></section>
+
+<section class="db-sec" id="starter-pack"><div class="in">
+  <p class="db-k">Le starter pack</p>
+  <h2>Le matériel, au bon moment</h2>
+  <div class="pk-box">
+    <div class="pk-top"><div class="pk-tabs" id="pk-tabs" role="tablist" aria-label="Moment">{onglets}</div>
+      <div class="pk-prog" aria-live="polite"><div class="pk-bar"><i id="pk-bar"></i></div><span id="pk-compte">0 sur {total}</span></div></div>
+    {packs}
+    <p class="pk-non"><b>Pas tout de suite</b> {" · ".join(e(a) for a in ATTENDRE)}</p>
+  </div>
+  <p class="db-note">Cochez ce que vous avez : la liste est gardée sur cet appareil. Pas de prix affichés, ils varient selon la marque et l’état.</p>
+</div></section>
+
+<section class="db-sec" id="lexique"><div class="in">
+  <p class="db-k">Le lexique</p>
+  <h2>Un mot vous échappe ?</h2>
+  <div class="lx-box">
+    <label class="lx-ch"><span class="sr">Chercher un mot</span><input id="lx-q" type="search" placeholder="birdie, green, index…" autocomplete="off"></label>
+    <div class="lx-mots" id="lx-mots">{mots}</div>
+    <p class="lx-def" id="lx-def" aria-live="polite"><b>Touchez un mot</b>pour voir ce qu’il veut dire.</p>
+    <p class="lx-vide" id="lx-vide" hidden>Pas dans le lexique. <button type="button" class="db-ask" id="lx-ask">Demander à Birdy</button></p>
+  </div>
+  <dl class="sr">{lex_txt}</dl>
+</div></section>
+
+<section class="db-sec db-fin"><div class="in"><div class="db-fin-b">
+  <h2>Prêt à taper vos premières balles ?</h2>
+  <div class="db-cta"><a class="btn gold" href="/cours/?type=Initiation">Trouver une initiation</a><a class="btn ghost db-ghost" href="/parcours/?trous=9">Voir les golfs 9 trous</a></div>
+</div></div></section>
 
 <section class="band tint"><div class="in">
   <h2>Questions de débutant</h2>
@@ -265,13 +313,27 @@ def page():
   <p class="more"><a href="/cours/">Cours avec un pro</a> · <a href="/parcours/">Réserver un parcours</a> · <a href="/voyages/">Voyages golf</a></p>
 </div></section>
 </main>
+
+<button type="button" class="bc-btn" id="bc-btn" aria-expanded="false" aria-controls="bc-pan"><img src="/favicon-96.png" alt="" width="44" height="44"><span><b>Birdy</b><small>Une question ?</small></span></button>
+<div class="bc-pan" id="bc-pan" role="dialog" aria-label="Birdy, votre coach pour débuter" hidden>
+  <div class="gp-chat">
+    <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="44" height="44"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre coach pour débuter</span></div><button type="button" class="bc-x" id="bc-x" aria-label="Fermer">×</button></div>
+    <div class="gp-log" id="db-say" aria-live="polite"><div class="gm b">Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.</div></div>
+    <div class="gp-sugg" id="db-sugg"><button type="button">Par où commencer ?</button><button type="button">C’est quoi la carte verte ?</button><button type="button">Je suis gaucher, ça change quoi ?</button><button type="button">Quels clubs pour débuter ?</button></div>
+    <form class="gp-ask" id="db-form" autocomplete="off"><label class="sr" for="db-q">Votre question à Birdy</label>
+      <input id="db-q" maxlength="400" placeholder="Votre question de débutant…"><button class="btn gold" type="submit" aria-label="Envoyer">→</button></form>
+  </div>
+</div>
+<script id="db-data" type="application/json">{json.dumps(data, ensure_ascii=False).replace("</", "<\\/")}</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="/assets/parcours.js"></script>
 <script defer src="/assets/debuter.js"></script>
+<script defer src="/assets/debuter3d.js"></script>
 """
     out = out.replace('<html lang="fr">', '<html lang="fr" class="pro">', 1)
     os.makedirs("debuter", exist_ok=True)
     open("debuter/index.html", "w", encoding="utf8").write(out + pages.foot())
-    print("debuter/index.html :", len(ETAPES), "étapes,", len(FICHES), "fiches,", len(LEXIQUE), "mots,", total, "éléments du starter pack")
+    print("debuter/index.html :", len(ETAPES), "étapes,", len(SWING), "phases du swing,", len(CLUBS), "clubs,", len(LEXIQUE), "mots,", total, "éléments du starter pack")
 
 
 if __name__ == "__main__":

@@ -164,80 +164,53 @@ WhatsApp
 
 ## https://birdy-agent.pages.dev/debuter/
 Débuter le golf : étapes, bases et starter pack | Birdy Agent
-Birdy    Votre coach pour débuter · répond tout de suite
-Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.
-Par où commencer ?  C’est quoi la carte verte ?  Je suis gaucher, ça change quoi ?  Quels clubs pour débuter ?
-Votre question à Birdy
-Gratuit · sans inscription · Birdy explique simplement
 Birdy Start · Débuter le golf
 Débuter le golf,  du bon pied.
-Les étapes, les bases et le matériel pour commencer, expliqués simplement. Et Birdy répond à toutes vos questions de débutant.
-Le parcours du débutant
-De la première balle au premier parcours
-1  Découvrir  L’initiation  Une à deux heures avec un enseignant. On vous prête les clubs, vous tapez vos premières balles au practice et vous essayez le putting. Aucun matériel ni niveau requis.
-Trouver une initiation
-2  Apprendre  Les bases du swing  Quelques cours pour installer la tenue du club, la posture et un geste régulier. Entre deux cours, un seau de balles au practice suffit pour progresser.
-Voir les fiches
-3  Comprendre  Les règles et l’étiquette  Compter son score, savoir quoi faire quand la balle est perdue ou dans l’eau, et bien se comporter sur le parcours. C’est plus simple qu’il n’y paraît.
-Lire l’étiquette
-4  Valider  La carte verte  Un petit examen passé avec un enseignant : quelques questions de règles et d’étiquette, puis quelques trous joués. De nombreux golfs la demandent pour accéder au grand parcours.
-Demander à Birdy
-5  Jouer  Le premier parcours  Commencez par un 9 trous, aux heures calmes, si possible avec un joueur plus expérimenté. 302 golfs de France ont un parcours 9 trous.
-Trouver un 9 trous
-Les bases
-L’essentiel, en une minute par fiche
-Les conseils sont donnés pour un droitier : inversez gauche et droite si vous êtes gaucher. Rien ne remplace un cours avec un enseignant.
-🤝   Tenir le club  Les deux mains travaillent ensemble, sans serrer.
-Pour un droitier, la main gauche est en haut du manche, la droite juste en dessous (l’inverse pour un gaucher).
-Le club se tient dans les doigts plus que dans la paume, les deux mains bien collées.
-Pression légère : comme un tube de dentifrice ouvert qu’on ne veut pas vider.
-L’erreur classique Serrer trop fort : les poignets se bloquent et la balle part moins loin.
-Demander plus de détails à Birdy
-🎯   Viser  On vise avec le club, puis on aligne le corps.
-Posez d’abord la face du club vers la cible, ensuite placez-vous.
-Pieds, hanches et épaules sont parallèles à la ligne de jeu, comme deux rails de train.
-La balle est au milieu des pieds pour les clubs courts, plus vers le pied avant pour les clubs longs.
-L’erreur classique Viser la cible avec les épaules : on se retrouve aligné trop à droite (pour un droitier).
-Demander plus de détails à Birdy
-🌿   Les approches  Près du green, un petit geste précis vaut mieux qu’un grand.
-Le poids est côté cible et y reste pendant tout le geste.
-Les mains sont un peu en avant de la balle, le mouvement vient des épaules.
-Faites rouler la balle dès que possible : c’est plus facile à doser.
-L’erreur classique Donner un coup de poignet pour lever la balle : elle part trop loin ou reste sur place.
-Demander plus de détails à Birdy
-🔢   Compter son score  Chaque coup compte un point, le moins possible gagne.
-Chaque trou a un par : le nombre de coups prévu (3, 4 ou 5).
-Un coup de moins que le par, c’est un birdie ; un de plus, un bogey.
-L’index mesure votre niveau : il démarre à 54 et baisse quand vous progressez.
-L’erreur classique S’acharner sur un trou raté : en partie amicale, relevez la balle et passez au suivant.
-Demander plus de détails à Birdy
-🧍   Se placer  Une position stable et détendue, prête à tourner.
-Pieds écartés de la largeur des épaules, genoux légèrement fléchis.
-Le dos reste droit et s’incline depuis les hanches, les bras pendent naturellement.
-Le poids est au milieu des pieds, ni sur les talons ni sur les pointes.
-L’erreur classique Le dos rond et les jambes raides : le corps ne peut plus tourner.
-Demander plus de détails à Birdy
-🏌️   Le swing  Une rotation fluide, pas un coup de force.
-À la montée, les épaules tournent et le poids passe côté arrière.
-À la descente, le poids revient vers l’avant et le corps tourne vers la cible.
-On termine en équilibre, face à la cible, sur le pied avant.
-L’erreur classique Vouloir lever la balle ou frapper fort : c’est l’inclinaison du club qui la fait monter, pas vous.
-Demander plus de détails à Birdy
-⛳   Le putting  Sur le green, le dosage compte plus que la ligne.
-Les yeux sont au-dessus de la balle, les poignets restent fermes.
-Le geste est un balancier des épaules, aussi long à l’aller qu’au retour.
-Gardez la tête immobile et écoutez la balle tomber dans le trou.
-L’erreur classique Relever la tête trop tôt pour suivre la balle.
-Demander plus de détails à Birdy
-🤫   L’étiquette  Les bons réflexes pour jouer en sécurité et sans gêner.
-Silence et immobilité quand quelqu’un joue ; ne jouez jamais si un joueur est à portée de balle.
-Gardez le rythme et laissez passer la partie suivante si vous êtes plus lents.
-Réparez le terrain : relevez vos pitchs sur le green, replacez les mottes, ratissez le bunker.
-L’erreur classique Oublier de crier « Balle ! » quand un coup part vers d’autres joueurs.
-Demander plus de détails à Birdy
+Jouez ce trou : chaque coup est une étape de vos débuts.
+Vocabulaire
+Faites glisser pour tourner
+←              Coup suivant →
+L’initiation  : Une à deux heures avec un enseignant. Clubs prêtés, aucun niveau requis.
+Les bases du swing  : Quelques cours et un seau de balles au practice pour installer un geste régulier.
+Les règles et l’étiquette  : Compter ses coups, savoir quoi faire dans le sable ou dans l’eau, respecter les autres joueurs.
+La carte verte  : Un petit examen avec un enseignant : il valide que vous pouvez jouer en autonomie.
+Le premier parcours  : Commencez par un 9 trous, aux heures calmes. 302 golfs de France en proposent un.
+Le swing en 3D
+Le geste, image par image
+1 L’adresse   2 La montée   3 Le sommet   4 La descente   5 L’impact   6 Le finish
+Gros plan  Le grip  La posture  L’alignement
+Geste d’un droitier ; pour un gaucher, tout s’inverse. Rien ne remplace un cours avec un enseignant.
+Face  Profil
+Les clubs
+Un club, une trajectoire
+Bois  Hybride  Fer 7  Fer 9  Sand wedge  Putter
+Les portées sont comparées entre elles : la distance réelle dépend de chaque joueur.
+Le score
+Comptez vos coups
+Ce trou est un  par 4  : quatre coups prévus.
+−   4  coups   +
+Par
+Pile le score prévu.
+L’étiquette
+Les bons réflexes
+🤫  Silence   On ne parle pas et on ne bouge pas quand quelqu’un joue.       ⚠️  Sécurité   On ne joue jamais si un joueur est à portée. En cas de danger, on crie « Balle ! ».       ⏱️  Rythme   On avance sans traîner et on laisse passer les plus rapides.       🟢  Le green   On relève ses pitchs : la marque que la balle laisse en tombant.       🏖️  Le bunker   On ratisse le sable après son coup.       🌱  Le fairway   On replace la motte de gazon arrachée par le club.
+Touchez une carte pour la retourner.
+Le starter pack
+Le matériel, au bon moment
+Le premier jour  Quand vous êtes mordu  Plus tard
+0 sur 15
+Rien à acheter : venez comme vous êtes.
+👕  Tenue confortable  pantalon ou bermuda, polo     👟  Baskets  à semelle plate     💧  Bouteille d’eau  et une casquette     🏌️  Clubs prêtés  à confirmer avec le golf      L’essentiel pour jouer régulièrement.
+⛳  Demi-série  bois ou hybride, fers 7 et 9, sand wedge, putter     🎒  Sac léger  à bretelles ou trépied     ⚪  Balles  d’occasion : on en perd     📍  Tees  bois ou plastique     🧤  Gant  main gauche pour un droitier     🔧  Relève-pitch  et marque-balle     👞  Chaussures de golf  à crampons souples      Quand vous jouez sur le parcours.
+🪪  Licence  pour l’index et les compétitions     🏌️‍♂️  Série complète  14 clubs au maximum     🛒  Chariot  pour 18 trous     📐  Essai sur mesure  le fitting
+Pas tout de suite  driver haut de gamme · série complète neuve · balles de compétition · gadgets d’entraînement
+Cochez ce que vous avez : la liste est gardée sur cet appareil. Pas de prix affichés, ils varient selon la marque et l’état.
 Le lexique
-Les mots du golf, sans jargon
+Un mot vous échappe ?
 Chercher un mot
+Par  Birdie  Eagle  Bogey  Départ (tee)  Fairway  Rough  Green  Bunker  Practice  Putt  Approche  Drive  Fer  Bois  Hybride  Wedge  Loft  Index  Carte verte  Green-fee  Pitch  Divot  Mulligan  Stableford  Scramble
+Touchez un mot pour voir ce qu’il veut dire.
+Pas dans le lexique.  Demander à Birdy
 Par
 Le nombre de coups prévu pour finir un trou : 3, 4 ou 5.
 Birdie
@@ -290,42 +263,8 @@ Stableford
 Une formule de jeu où l’on marque des points par trou : idéale pour débuter, car un trou raté ne gâche pas la partie.
 Scramble
 Une formule par équipe : chacun joue, on garde la meilleure balle et tout le monde rejoue de là.
-Voir les 26 mots du lexique
-Ce mot n’est pas dans le lexique.  Demander à Birdy
-Le starter pack
-Le matériel, au bon moment
-Cochez ce que vous avez déjà : votre liste est gardée sur cet appareil.
-0 sur 15
-Le premier jour
-Rien à acheter : venez comme vous êtes.
-Une tenue confortable  pantalon ou bermuda, polo ou tee-shirt simple
-Des baskets à semelle plate  pas besoin de chaussures de golf pour une initiation
-Une bouteille d’eau  et une casquette s’il fait beau
-Les clubs et les balles prêtés  à confirmer avec le golf au moment de réserver
-Quand vous êtes mordu
-L’essentiel pour jouer régulièrement.
-Une demi-série  un bois ou un hybride, deux fers (7 et 9), un sand wedge et un putter
-Un sac léger  avec des bretelles ou un trépied
-Des balles  d’occasion ou recyclées : on en perd beaucoup au début
-Des tees  en bois ou en plastique
-Un gant  à la main gauche pour un droitier, à la droite pour un gaucher
-Un relève-pitch et un marque-balle  pour réparer le green et marquer sa balle
-Des chaussures de golf  à crampons souples, pour l’adhérence sur l’herbe humide
-Plus tard
-Quand vous jouez sur le parcours.
-La licence de golf  nécessaire pour avoir un index officiel et jouer en compétition
-La série complète  14 clubs au maximum dans le sac
-Un chariot  pour ne plus porter le sac sur 18 trous
-Un essai de clubs sur mesure (fitting)  quand votre swing est devenu régulier
-À ne pas acheter tout de suite
-Attendez d’avoir un swing régulier.
-Un driver haut de gamme
-Une série complète neuve
-Des balles de compétition
-Les gadgets d’entraînement
-Nous n’affichons pas de prix : ils varient selon les marques et l’état (neuf ou occasion). Le pro de votre golf saura vous conseiller.
 Prêt à taper vos premières balles ?
-Trouver une initiation près de chez moi  Voir les golfs 9 trous
+Trouver une initiation  Voir les golfs 9 trous
 Questions de débutant
 Combien de temps faut-il pour savoir jouer au golf ?
 Quelques séances suffisent pour taper la balle au practice et prendre du plaisir. Pour jouer un parcours avec aisance, comptez de quelques semaines à quelques mois selon la fréquence de vos cours et de vos entraînements.
@@ -340,6 +279,11 @@ Presque rien : il existe des clubs pour gauchers et les conseils s’inversent s
 Combien coûte le golf quand on débute ?
 Cela dépend du golf, de l’enseignant et du matériel choisi. Birdy Agent ne publie pas de prix : envoyez une demande gratuite, un conseiller vous donne les vrais tarifs près de chez vous.
 Cours avec un pro  ·  Réserver un parcours  ·  Voyages golf
+Birdy  Une question ?
+Birdy    Votre coach pour débuter   ×
+Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.
+Par où commencer ?  C’est quoi la carte verte ?  Je suis gaucher, ça change quoi ?  Quels clubs pour débuter ?
+Votre question à Birdy
 WhatsApp
 
 # Guides

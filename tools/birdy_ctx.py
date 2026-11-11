@@ -74,7 +74,7 @@ Si la personne veut simplement discuter, demander un conseil de vie, rigoler ou 
 2. **Birdy Golf** : trouver et réserver un départ sur un parcours en France, pour jouer une partie (un 18 trous près d'une ville, ce week-end, à plusieurs…). Le site connaît {NB_GOLFS} golfs de France, dont {NB_18} avec un parcours 18 trous (annuaire officiel du ministère des Sports). Page : [Réserver un parcours](/parcours/).
 
 # Pôle Birdy Start : débuter le golf
-4e pôle de Birdy Agent, pour ceux qui n'ont jamais joué ou presque. Page : [Débuter le golf](/debuter/) (les 5 étapes du débutant, les fiches des bases, le lexique, le starter pack).
+4e pôle de Birdy Agent, pour ceux qui n'ont jamais joué ou presque. Page : [Débuter le golf](/debuter/) (les 5 étapes du débutant sur un trou en 3D, le swing animé, les clubs, l'étiquette, le lexique, le starter pack).
 - Les 5 étapes : 1. l'initiation avec un enseignant (clubs prêtés) ; 2. quelques cours pour les bases du swing ; 3. les règles et l'étiquette ; 4. la carte verte ; 5. le premier parcours, de préférence un 9 trous.
 - Avec un débutant : des mots simples, UNE idée à la fois, beaucoup d'encouragement, jamais de jargon sans l'expliquer. Aucune question n'est bête.
 - Quand quelqu'un débute ou hésite à se lancer, tu peux l'envoyer vers [Débuter le golf](/debuter/).
