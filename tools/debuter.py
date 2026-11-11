@@ -335,6 +335,7 @@ def page():
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="/assets/parcours.js"></script>
 <script defer src="/assets/debuter.js"></script>
+<script defer src="/assets/golfeur3d.js"></script>
 <script defer src="/assets/debuter3d.js"></script>
 """
     out = out.replace('<html lang="fr">', '<html lang="fr" class="pro">', 1)

@@ -115,18 +115,18 @@ out += f"""<main class="gp home" id="accueil">
   <h2 class="ha-h2">Un seul assistant, tout votre golf</h2>
   <p class="ha-sub">Birdy comprend ce que vous cherchez et vous emmène au bon endroit. Vous pouvez aussi y aller directement.</p>
   <div class="h3" id="h3" hidden>
+    <div class="h3-halo" id="h3-halo" aria-hidden="true"></div>
     <div class="h3-lbls" id="h3-lbls"></div>
-    <div class="h3-card" id="h3-card" aria-live="polite"><small></small><b></b><p></p><a class="btn gold" href="#ha-chat"></a></div>
     <p class="h3-hint" aria-hidden="true">Survolez un pôle · faites glisser pour tourner</p>
   </div>
   <div class="ha-poles" id="ha-poles">
-    <a class="ha-pole t3d ha-ia" href="/debuter/" data-pole="debuter"><i>🌱</i><small>Débuter</small><b>Apprendre les bases</b>
+    <a class="ha-pole t3d ha-ia" href="/debuter/" data-pole="debuter"><i>🌱</i><u class="ha-stat">5 étapes</u><small>Débuter</small><b>Apprendre les bases</b>
       <span>Les 5 étapes du débutant, les bases du swing, le lexique et le starter pack pour bien commencer.</span><em>Débuter le golf →</em></a>
-    <a class="ha-pole t3d" href="/cours/" data-pole="cours"><i>🎓</i><small>Cours avec un Pro</small><b>Progresser avec un pro</b>
+    <a class="ha-pole t3d" href="/cours/" data-pole="cours"><i>🎓</i><u class="ha-stat">6 types de cours</u><small>Cours avec un Pro</small><b>Progresser avec un pro</b>
       <span>Initiation, cours individuels, stages ou analyse vidéo, dans le golf de votre choix.</span><em>Trouver un cours →</em></a>
-    <a class="ha-pole t3d" href="/parcours/" data-pole="parcours"><i>⛳</i><small>Réserver un parcours</small><b>Jouer près de chez vous</b>
+    <a class="ha-pole t3d" href="/parcours/" data-pole="parcours"><i>⛳</i><u class="ha-stat">{NB} golfs</u><small>Réserver un parcours</small><b>Jouer près de chez vous</b>
       <span>{NB} golfs de France, dont {N18} avec un parcours 18 trous. Choisissez, demandez votre départ.</span><em>Trouver un parcours →</em></a>
-    <a class="ha-pole t3d" href="/voyages/" data-pole="voyages"><i>✈️</i><small>Voyages</small><b>Partir jouer en groupe</b>
+    <a class="ha-pole t3d" href="/voyages/" data-pole="voyages"><i>✈️</i><u class="ha-stat">{ND} destinations</u><small>Voyages</small><b>Partir jouer en groupe</b>
       <span>{ND} destinations dans le monde, entre amis, en club ou en séminaire. Un conseiller obtient les vrais tarifs.</span><em>Organiser un séjour →</em></a>
   </div>
 </div></section>
@@ -162,6 +162,7 @@ out += f"""<main class="gp home" id="accueil">
 <script defer src="/assets/parcours.js"></script>
 <script defer src="/assets/accueil.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="/assets/golfeur3d.js"></script>
 <script defer src="/assets/accueil3d.js"></script>
 """
 open("index.html", "w", encoding="utf8").write(out + pages.foot())

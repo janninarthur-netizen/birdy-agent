@@ -64,37 +64,34 @@ html.pro .gm.ha-wrap{background:transparent;border:0;padding:0;max-width:100%}
 .ha-pole b{font:700 25px/1.08 var(--display);color:#fff;transform:translateZ(18px)}
 .ha-pole span{font-size:14.5px;line-height:1.5;color:rgba(232,241,236,.8)}
 .ha-pole em{font-style:normal;font:600 14px/1 var(--body);color:#fff;margin-top:auto;padding-top:10px}
-/* ----- La scène 3D des pôles (accueil3d.js) : pleine largeur, sur le fond photo ----- */
-.h3{position:relative;height:clamp(500px,72vh,680px);margin:8px calc(50% - 50vw) 0;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+/* ----- La scène 3D des pôles (accueil3d.js) : pleine largeur, sans cadre, sur le fond photo ----- */
+.h3{position:relative;isolation:isolate;height:clamp(440px,62vh,600px);margin:0 calc(50% - 50vw);touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .h3[hidden]{display:none}
 .h3.tourne{cursor:grabbing}
 .h3 canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block}
-.h3-lbls{position:absolute;inset:0;pointer-events:none}
+/* Le halo : un disque parfait, très doux, derrière la scène. Il n'est rogné par rien (ni la scène, ni l'en-tête). */
+.h3-halo{position:absolute;left:0;top:0;z-index:-1;width:min(1050px,94vw);aspect-ratio:1;translate:-50% -50%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(163,201,184,.34) 0%,rgba(163,201,184,.22) 22%,rgba(163,201,184,.11) 44%,rgba(163,201,184,.04) 64%,rgba(163,201,184,0) 82%)}
+.h3-lbls{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .h3-lbl{position:absolute;left:0;top:0;translate:-50% -100%;transform-origin:50% 100%;pointer-events:auto;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;
   font:600 14.5px/1 var(--body);color:#fff;padding:9px 15px 9px 9px;border-radius:99px;background:rgba(10,30,23,.62);border:1px solid rgba(208,228,220,.32);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  box-shadow:0 14px 30px -14px rgba(0,0,0,.8);transition:background .25s,color .25s,border-color .25s,box-shadow .25s;will-change:transform}
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.8);transition:background .25s,color .25s,border-color .25s,box-shadow .25s,opacity .3s;will-change:transform}
 .h3-lbl i{font-style:normal;font-size:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(163,201,184,.22)}
 .h3-lbl.on,.h3-lbl:hover{background:#fff;color:#0A1E17;border-color:#fff;box-shadow:0 0 0 6px rgba(163,201,184,.22),0 18px 40px -14px rgba(0,0,0,.9)}
 .h3-lbl.on i,.h3-lbl:hover i{background:rgba(10,30,23,.1)}
+.h3-lbl.on:not(.h3-birdy)::after{content:"→";font-weight:700}
 .h3-birdy{translate:-50% 0;padding:8px 14px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#D0E4DC;background:rgba(10,30,23,.5);border-color:rgba(233,201,138,.4)}
 .h3.choisi .h3-birdy{opacity:.35}
-.h3-card{position:absolute;left:max(24px,calc(50% - 544px));bottom:26px;width:min(400px,calc(100% - 48px));padding:20px 22px;border-radius:24px;text-align:left;cursor:default;
-  background:rgba(10,30,23,.78);border:1px solid rgba(208,228,220,.28);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 30px 70px -28px rgba(0,0,0,.95),0 0 0 6px rgba(163,201,184,.06)}
-.h3-card small{display:block;font:600 11.5px/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:#A3C9B8}
-.h3-card b{display:block;font:700 30px/1.05 var(--display);color:#fff;margin:5px 0 4px}
-.h3-card p{font-size:14.5px;line-height:1.5;color:rgba(232,241,236,.86);margin:0 0 12px}
-.h3-card .btn.gold{background:#fff;color:#0A1E17;border-color:#fff;padding:12px 20px;font-size:14.5px}
-.h3-card.flash>*{animation:h3Txt .4s ease both}.h3-card.flash>b{animation-delay:.04s}.h3-card.flash>p{animation-delay:.08s}.h3-card.flash>a{animation-delay:.12s}
-@keyframes h3Txt{from{opacity:0;transform:translateY(8px)}}
-.h3-hint{position:absolute;right:24px;top:10px;margin:0;font-size:12px;color:rgba(232,241,236,.5);pointer-events:none}
-/* Avec la 3D, les 4 cartes deviennent des raccourcis compacts sous la scène */
-.en3d .ha-poles{margin-top:6px;gap:12px}
-.en3d .ha-pole{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;align-items:center;padding:14px 16px;border-radius:18px}
-.en3d .ha-pole i{grid-row:1/3;width:44px;height:44px;font-size:22px;border-radius:14px}
-.en3d .ha-pole small{margin:0;align-self:end}
-.en3d .ha-pole b{font-size:20px;align-self:start}
-.en3d .ha-pole span,.en3d .ha-pole em{display:none}
-.en3d .ha-pole.actif{border-color:#fff;background:linear-gradient(160deg,rgba(163,201,184,.45),rgba(163,201,184,.14))}
+.h3-hint{position:absolute;right:24px;top:6px;margin:0;font-size:12px;color:rgba(232,241,236,.5);pointer-events:none}
+/* Les 4 cartes sous la scène : les vrais conteneurs d'information, reliés à la 3D */
+.ha-stat{position:absolute;right:16px;top:18px;text-decoration:none;font:600 12px/1 var(--body);color:#0A1E17;background:#A3C9B8;border-radius:99px;padding:7px 11px;white-space:nowrap}
+.en3d .ha-poles{margin-top:4px;position:relative;z-index:1}
+.en3d .ha-pole{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s,background .3s,opacity .3s}
+.en3d .ha-pole em{align-self:flex-start;border-radius:99px;padding:11px 16px;margin-top:auto;background:rgba(255,255,255,.08);border:1px solid rgba(208,228,220,.3);transition:background .25s,color .25s,border-color .25s}
+.en3d.choisi .ha-pole:not(.actif){opacity:.62}
+.en3d .ha-pole.actif{border-color:#fff;background:linear-gradient(160deg,rgba(163,201,184,.46),rgba(163,201,184,.14));box-shadow:0 0 0 5px rgba(163,201,184,.2),0 34px 70px -30px rgba(0,0,0,.95);translate:0 -8px}
+.en3d .ha-pole.actif em{background:#fff;color:#0A1E17;border-color:#fff}
+.en3d .ha-pole.actif .ha-stat{background:#fff}
 /* Pour qui */
 .ha-qui{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;text-align:left}
 .ha-qui>div{display:flex;flex-direction:column;gap:8px;padding:22px 20px;border-radius:22px;background:rgba(10,30,23,.5);border:1px solid rgba(208,228,220,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -122,7 +119,7 @@ html.pro main.gp.home .faq p{font-size:14.5px;line-height:1.6;color:rgba(232,241
 .ha-cta .btn.gold{background:#fff;color:#0A1E17;border-color:#fff;padding:16px 26px;font-size:16px}
 
 @media (max-width:1100px){.ha-poles{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:860px){.h3-card{position:relative;left:auto;bottom:auto;width:auto;margin:0 16px;text-align:center}.h3{height:auto}.h3 canvas{position:relative;height:min(60vh,440px)!important}.h3-lbls{bottom:auto;height:min(60vh,440px)}.h3.etroit{height:auto}.h3-hint{display:none}.h3-lbl{font-size:13.5px;padding:7px 13px 7px 7px}.h3-lbl i{width:26px;height:26px;font-size:15px}.h3.etroit .h3-lbl:not(.on):not(.h3-birdy){padding:6px}.h3.etroit .h3-lbl:not(.on):not(.h3-birdy) span{display:none}.h3.etroit .h3-birdy{display:none}}
+@media (max-width:860px){.h3{height:min(60vh,440px)}.h3-hint{display:none}.h3-lbl{font-size:13.5px;padding:7px 13px 7px 7px}.h3-lbl i{width:26px;height:26px;font-size:15px}.h3.etroit .h3-lbl:not(.on):not(.h3-birdy){padding:6px}.h3.etroit .h3-lbl:not(.on):not(.h3-birdy) span{display:none}.h3.etroit .h3-birdy{display:none}}
 @media (max-width:860px){
   .ha-hero{padding:28px 0 30px}
   .ha-logo{width:112px;height:112px;margin-bottom:14px}
@@ -133,7 +130,6 @@ html.pro main.gp.home .faq p{font-size:14.5px;line-height:1.6;color:rgba(232,241
 }
 @media (max-width:560px){
   .ha-poles{grid-template-columns:1fr}
-  .en3d .ha-poles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.en3d .ha-pole{padding:11px 12px;gap:1px 9px}.en3d .ha-pole i{width:36px;height:36px;font-size:18px}.en3d .ha-pole b{font-size:16px}.en3d .ha-pole small{font-size:10px;letter-spacing:.1em}
   html.pro .ha-chat{border-radius:22px;width:100%}
   html.pro .ha-chat .gp-chat-h{padding:13px 16px}
   html.pro .ha-chat .gp-chat-h img{width:50px;height:50px}
