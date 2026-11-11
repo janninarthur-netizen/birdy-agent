@@ -101,6 +101,11 @@ html.pro main.gp.db{color:#E8F1EC}
 .cl-info b{display:block;font:700 24px/1.05 var(--display);color:#fff}
 .cl-info p{font-size:13.5px;line-height:1.4;color:rgba(232,241,236,.86);margin:3px 0 2px}
 .cl-info small{font-size:12px;color:#A3C9B8}
+.cl-d{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 8px;margin:6px 0 3px!important}
+.cl-d span{font:600 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#A3C9B8}
+.cl-d b{font:700 20px/1 var(--body)!important;color:#fff;white-space:nowrap}
+.cl-d span{white-space:nowrap}
+#cl-lbl{paint-order:stroke;stroke:rgba(10,30,23,.75);stroke-width:5px}
 
 /* ===== 4. Score et étiquette ===== */
 .db-duo{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;align-items:stretch}

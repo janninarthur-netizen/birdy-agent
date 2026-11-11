@@ -64,14 +64,16 @@ ZOOMS = [
     ("alignement", "L’alignement", "Pieds et épaules parallèles à la ligne de jeu, comme deux rails de train."),
 ]
 
-# Les clubs : (identifiant, nom, rôle en quelques mots, inclinaison approximative de la face en degrés, portée relative, hauteur relative)
+# Les clubs : (identifiant, nom, rôle en quelques mots, inclinaison approximative de la face en degrés, distance moyenne, portée relative, hauteur relative)
+# Distances : ordres de grandeur couramment admis pour des joueurs amateurs adultes, de la moyenne des joueuses à celle des joueurs, coup complet.
+# La portée relative (dessin) suit le milieu de chaque fourchette.
 CLUBS = [
-    ("bois", "Bois", "Le plus long : pour le départ des grands trous.", 15, 1.0, 0.52),
-    ("hybride", "Hybride", "Long et facile : l’ami du débutant.", 22, 0.82, 0.62),
-    ("fer7", "Fer 7", "Le club à tout faire, celui des premiers cours.", 33, 0.62, 0.78),
-    ("fer9", "Fer 9", "Plus court et plus haut : pour viser le green.", 41, 0.47, 0.9),
-    ("wedge", "Sand wedge", "Très haut, très court : approches et sorties de bunker.", 56, 0.23, 0.84),
-    ("putter", "Putter", "Sur le green : la balle roule jusqu’au trou.", 3, 0.13, 0.0),
+    ("bois", "Bois", "Le plus long : pour le départ des grands trous.", 15, "140 à 190 m", 1.0, 0.52),
+    ("hybride", "Hybride", "Long et facile : l’ami du débutant.", 22, "120 à 170 m", 0.88, 0.62),
+    ("fer7", "Fer 7", "Le club à tout faire, celui des premiers cours.", 33, "90 à 135 m", 0.68, 0.78),
+    ("fer9", "Fer 9", "Plus court et plus haut : pour viser le green.", 41, "70 à 110 m", 0.55, 0.9),
+    ("wedge", "Sand wedge", "Très haut, très court : approches et sorties de bunker.", 56, "40 à 75 m", 0.35, 0.84),
+    ("putter", "Putter", "Sur le green : la balle roule jusqu’au trou.", 3, "quelques mètres", 0.1, 0.0),
 ]
 
 # L'étiquette : (pictogramme, titre, la règle en une phrase)
@@ -172,14 +174,14 @@ def page():
     data = {"etapes": [{"k": k, "t": t, "x": x, "lib": lib, "c": c} for k, t, x, lib, c in ETAPES],
             "terrain": [{"id": i, "n": n, "d": d} for i, n, d in TERRAIN],
             "swing": [{"n": n, "x": x} for n, x in SWING], "zooms": [{"id": i, "n": n, "x": x} for i, n, x in ZOOMS],
-            "clubs": [{"id": i, "n": n, "x": x, "loft": lo, "d": d, "h": h} for i, n, x, lo, d, h in CLUBS]}
+            "clubs": [{"id": i, "n": n, "x": x, "loft": lo, "m": m, "d": d, "h": h} for i, n, x, lo, m, d, h in CLUBS]}
 
     points = "".join(f'<button type="button" data-i="{i}" aria-label="Étape {i + 1} : {e(t)}"></button>' for i, (_, t, _, _, _) in enumerate(ETAPES))
     etapes_txt = "".join(f"<li><b>{e(t)}</b> : {e(x)}</li>" for _, t, x, _, _ in ETAPES)
     phases = "".join(f'<button type="button" role="tab" data-i="{i}" aria-selected="{"true" if i == 0 else "false"}"><i>{i + 1}</i>{e(n)}</button>'
                      for i, (n, _) in enumerate(SWING))
     zooms = "".join(f'<button type="button" data-z="{i}">{e(n)}</button>' for i, n, _ in ZOOMS)
-    clubs = "".join(f'<button type="button" role="tab" data-c="{i}" aria-selected="{"true" if i == "fer7" else "false"}">{e(n)}</button>' for i, n, _, _, _, _ in CLUBS)
+    clubs = "".join(f'<button type="button" role="tab" data-c="{i}" aria-selected="{"true" if i == "fer7" else "false"}">{e(n)}</button>' for i, n, _, _, _, _, _ in CLUBS)
     cartes = "".join(f'<button type="button" class="et-c" aria-pressed="false"><span class="et-in"><span class="et-f"><i>{ic}</i><b>{e(t)}</b></span>'
                      f'<span class="et-b">{e(x)}</span></span></button>' for ic, t, x in ETIQUETTE)
     onglets = "".join(f'<button type="button" role="tab" data-g="{g}" aria-selected="{"true" if n == 0 else "false"}">{e(t)}</button>'
@@ -264,15 +266,16 @@ def page():
         <path id="cl-arc" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 9"/>
         <ellipse id="cl-ombre" cx="60" cy="256" rx="7" ry="2.4" fill="rgba(0,0,0,.35)"/>
         <g id="cl-drap"><line x1="0" y1="0" x2="0" y2="-46" stroke="#E8F1EC" stroke-width="2"/><path d="M0 -46 L20 -39 L0 -32Z" fill="#E5484D"/></g>
+        <text id="cl-lbl" x="0" y="0" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="Instrument Sans,system-ui,sans-serif"></text>
         <circle id="cl-balle" cx="60" cy="250" r="6" fill="#fff"/>
       </svg>
       <div class="cl-info">
         <svg class="cl-face" viewBox="0 0 90 90" aria-hidden="true"><line x1="14" y1="76" x2="80" y2="76" stroke="rgba(232,241,236,.4)" stroke-width="2"/><line x1="30" y1="76" x2="30" y2="14" stroke="rgba(232,241,236,.25)" stroke-width="2" stroke-dasharray="3 5"/><line id="cl-loft" x1="30" y1="76" x2="30" y2="14" stroke="#A3C9B8" stroke-width="6" stroke-linecap="round"/></svg>
-        <div><b id="cl-n"></b><p id="cl-x"></p><small id="cl-l"></small></div>
+        <div><b id="cl-n"></b><p id="cl-x"></p><p class="cl-d"><span>Distance moyenne</span><b id="cl-d"></b></p><small id="cl-l"></small></div>
       </div>
     </div>
   </div>
-  <p class="db-note">Les portées sont comparées entre elles : la distance réelle dépend de chaque joueur.</p>
+  <p class="db-note">Distances moyennes de joueurs amateurs adultes, des joueuses aux joueurs, pour un coup complet. Quand on débute, on est souvent en dessous : c’est normal.</p>
 </div></section>
 
 <section class="db-sec" id="parcours"><div class="in db-duo">

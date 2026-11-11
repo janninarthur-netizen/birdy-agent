@@ -136,7 +136,8 @@
   (function () {
     var tabs = document.getElementById("cl-tabs"); if (!tabs) return;
     var arc = document.getElementById("cl-arc"), balle = document.getElementById("cl-balle"), ombre = document.getElementById("cl-ombre"), drap = document.getElementById("cl-drap"),
-      fant = document.getElementById("cl-fant"), loft = document.getElementById("cl-loft"), n = document.getElementById("cl-n"), x = document.getElementById("cl-x"), l = document.getElementById("cl-l");
+      fant = document.getElementById("cl-fant"), loft = document.getElementById("cl-loft"), n = document.getElementById("cl-n"), x = document.getElementById("cl-x"), l = document.getElementById("cl-l"),
+      dist = document.getElementById("cl-d"), lbl = document.getElementById("cl-lbl");
     var X0 = 60, Y0 = 250, LARG = 690, HMAX = 215, NS = "http://www.w3.org/2000/svg", anim = 0;
     function chemin(c) { var x1 = X0 + c.d * LARG, h = c.h * HMAX; return { d: "M" + X0 + " " + Y0 + " Q" + ((X0 + x1) / 2) + " " + (Y0 - 2 * h) + " " + x1 + " " + Y0, x1: x1, h: h }; }
     // toutes les trajectoires en filigrane, pour comparer d'un coup d'œil
@@ -145,7 +146,9 @@
       var c = D.clubs.filter(function (k) { return k.id === id; })[0], ch = chemin(c);
       chaque(tabs.children, function (b) { b.setAttribute("aria-selected", b.dataset.c === id ? "true" : "false"); });
       chaque(fant.children, function (p) { p.style.opacity = p.dataset.c === id ? 0 : 1; });
-      n.textContent = c.n; x.textContent = c.x; l.textContent = "Face inclinée d’environ " + c.loft + "°";
+      n.textContent = c.n; x.textContent = c.x; l.textContent = "Face inclinée d’environ " + c.loft + "°"; dist.textContent = c.m;
+      // la distance s'affiche aussi au sol, sous le drapeau, là où la balle retombe
+      lbl.textContent = c.m; lbl.setAttribute("x", Math.max(72, Math.min(728, ch.x1))); lbl.setAttribute("y", Y0 + 35);
       loft.setAttribute("transform", "rotate(" + c.loft + " 30 76)");
       arc.setAttribute("d", ch.d); drap.setAttribute("transform", "translate(" + ch.x1 + " " + Y0 + ")");
       cancelAnimationFrame(anim);
