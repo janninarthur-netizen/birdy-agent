@@ -93,7 +93,7 @@
     [/clubs?|materiel|acheter|equipement|starter/, 1], [/temps|longtemps|combien de (seances|cours|mois)/, 0]];
   function secours(txt) {
     var v = txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""), faq = document.querySelectorAll(".faq details p"), i;
-    for (i = 0; i < SECOURS.length; i++) if (SECOURS[i][0].test(v) && faq[SECOURS[i][1]]) return faq[SECOURS[i][1]].textContent;
+    for (i = 0; i < SECOURS.length; i++) if (SECOURS[i][0].test(v) && faq[SECOURS[i][1]]) return faq[SECOURS[i][1]].textContent.replace(/^(Non|Oui)\. /, "");
     if (/commencer|debuter|par ou|premier|initiation/.test(v)) { var e1 = document.querySelector(".db-step p"); if (e1) return "Commencez par une initiation. " + e1.textContent; }
     var mots = document.querySelectorAll(".db-mot");
     for (i = 0; i < mots.length; i++) {
