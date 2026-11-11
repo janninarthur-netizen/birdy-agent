@@ -132,7 +132,7 @@
 .gp-grid .gc .btn.gold{padding:10px 14px}
 
 /* En-tête épuré : slogan, carte plus grande et centrée */
-.gp-hin{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:8px!important;padding-block:36px 30px!important;position:relative}
+.gp-hin{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:40px!important;padding-block:36px 30px!important;position:relative}
 .gp-txt{gap:16px}
 .gp-txt .crumbs{display:none}
 .gp-slogan{font-size:clamp(38px,4.4vw,62px)!important;line-height:1.02!important;max-width:15ch!important;letter-spacing:-.01em}
