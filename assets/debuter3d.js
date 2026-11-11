@@ -18,8 +18,8 @@
     r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); r.outputEncoding = T.sRGBEncoding;
     box.insertBefore(r.domElement, box.firstChild);
     var o = { r: r, sc: new T.Scene(), cam: new T.PerspectiveCamera(fov, 1, 0.1, 200), w: 1, h: 1, vu: !window.IntersectionObserver, frame: function () {} };
-    o.sc.add(new T.HemisphereLight(0xd9f2e4, 0x10261d, 0.5));
-    var sol = new T.DirectionalLight(0xfff1d0, 0.72); sol.position.set(6, 12, 7); o.sc.add(sol);
+    o.sc.add(new T.HemisphereLight(0xe4f6ec, 0x2a4a3c, 0.85));
+    var sol = new T.DirectionalLight(0xfff3da, 1.05); sol.position.set(6, 12, 7); o.sc.add(sol); o.soleil = sol;
     function taille() {
       var b = box.getBoundingClientRect(); o.w = Math.max(1, b.width); o.h = Math.max(1, b.height);
       r.setSize(o.w, o.h, false); o.cam.aspect = o.w / o.h; o.cam.updateProjectionMatrix(); if (o.surTaille) o.surTaille();
@@ -47,7 +47,7 @@
     addEventListener("pointerup", function () { bas = null; box.classList.remove("tourne"); });
     addEventListener("pointercancel", function () { bas = null; box.classList.remove("tourne"); });
   }
-  function mat(c, o) { return new T.MeshStandardMaterial(Object.assign({ color: c, roughness: 0.85, metalness: 0, flatShading: true }, o || {})); }
+  function mat(c, o) { var x = new T.MeshStandardMaterial(Object.assign({ color: c, roughness: 0.85, metalness: 0, flatShading: true }, o || {})); x.color.convertSRGBToLinear(); return x; }
 
   /* =====================================================================
      1. LE TROU DE GOLF
@@ -103,7 +103,7 @@
     var noir = new T.Mesh(new T.CircleGeometry(0.13, 20), new T.MeshBasicMaterial({ color: 0x06140f })); noir.rotation.x = -Math.PI / 2; noir.position.set(tx, Y + 0.004, tz); sc.add(noir);
     var mt = new T.Mesh(new T.CylinderGeometry(0.025, 0.025, 2.0, 8), mat(0xf4f4ee, { flatShading: false })); mt.position.set(tx, Y + 1.0, tz); sc.add(mt);
     var fg = new T.PlaneGeometry(0.85, 0.5, 10, 1); fg.translate(0.425, 0, 0);
-    var drap = new T.Mesh(fg, new T.MeshStandardMaterial({ color: 0xe5484d, side: T.DoubleSide, roughness: 0.7 })); drap.position.set(tx, Y + 1.72, tz); sc.add(drap);
+    var drap = new T.Mesh(fg, mat(0xe5484d, { side: T.DoubleSide, roughness: 0.7, flatShading: false })); drap.position.set(tx, Y + 1.72, tz); sc.add(drap);
     var fp = fg.attributes.position, fz0 = []; for (var i = 0; i < fp.count; i++) fz0.push(fp.getX(i));
     [[-7.75, 0.65], [-7.75, -0.15]].forEach(function (p) { var b = new T.Mesh(new T.SphereGeometry(0.07, 10, 8), mat(0xffffff, { flatShading: false })); b.position.set(p[0], HAUT + 0.14, p[1]); sc.add(b); });
     // La balle, son ombre, la trajectoire projetée (pointillés) et l'anneau d'arrivée
@@ -232,10 +232,11 @@
      ===================================================================== */
   var boxS = document.getElementById("sw-scene");
   // Clés du mouvement, une par phase : instant, angle des mains sur le plan de swing, armé des poignets,
-  // rotation des épaules, rotation des hanches, déplacement du poids, inclinaison du buste (degrés)
+  // rotation des épaules, rotation des hanches, déplacement du poids, inclinaison du buste (degrés), talon droit, regard
   var KT = [0, 0.28, 0.5, 0.63, 0.72, 1],
     K = { th: [0, -88, -166, -84, 4, 162], po: [0, -74, -98, -96, -5, 95], ep: [0, 48, 92, 38, -20, -104], ha: [0, 18, 42, -4, -38, -88],
-      px: [0, -0.04, -0.06, 0.03, 0.07, 0.11], bu: [32, 32, 31, 32, 30, 9] };
+      px: [0, -0.04, -0.06, 0.03, 0.07, 0.11], bu: [32, 32, 31, 32, 30, 9],
+      tl: [0, 0, 0, 0.04, 0.3, 1], tt: [0, 0, 0, 0, 10, 72] };   // talon droit qui se lève, tête qui se tourne vers la cible
   function cle(v, t) {
     var n = KT.length, i = 0; while (i < n - 2 && t > KT[i + 1]) i++;
     var h = KT[i + 1] - KT[i], s = Math.max(0, Math.min(1, (t - KT[i]) / h));
@@ -246,74 +247,134 @@
 
   function construitSwing() {
     var o = monte(boxS, 30); if (!o) return null;
-    var sc = o.sc, RAD = Math.PI / 180, HAUT_Y = V(0, 1, 0);
-    var peau = mat(0xf2eee3, { flatShading: false, roughness: 0.6 }), polo = mat(0xa3c9b8, { flatShading: false, roughness: 0.7 }),
-      vert = mat(0x145c45, { flatShading: false, roughness: 0.7 }), blanc = mat(0xffffff, { flatShading: false, roughness: 0.4 }),
-      metal = mat(0xd5dedb, { flatShading: false, roughness: 0.3, metalness: 0.6 }), sombre = mat(0x1c2a25, { flatShading: false, roughness: 0.4, metalness: 0.4 });
-    // Sol : un disque d'herbe, la ligne de jeu et la ligne des pieds (« rails »), la balle
-    var disque = new T.Mesh(new T.CylinderGeometry(1.75, 1.75, 0.06, 64), mat(0x1f6a48, { flatShading: false })); disque.position.set(0.25, -0.03, 0.35); sc.add(disque);
-    var bord = new T.Mesh(new T.CylinderGeometry(1.8, 1.62, 0.2, 64), mat(0x123f31, { flatShading: false })); bord.position.set(0.25, -0.14, 0.35); sc.add(bord);
+    var sc = o.sc, RAD = Math.PI / 180, AXE_Y = V(0, 1, 0);
+    // Lumière : ombres portées douces, plus un contre-jour pour détacher le personnage du fond
+    o.r.shadowMap.enabled = true; o.r.shadowMap.type = T.PCFSoftShadowMap;
+    var sol = o.soleil; sol.position.set(3.0, 7.5, 4.8); sol.intensity = 1.15; sol.castShadow = true; sol.shadow.mapSize.set(1024, 1024);
+    var oc = sol.shadow.camera; oc.left = -2.4; oc.right = 2.4; oc.top = 2.4; oc.bottom = -2.4; oc.near = 1; oc.far = 22; oc.updateProjectionMatrix();
+    sol.shadow.bias = -0.0006; sol.shadow.radius = 5; sol.target.position.set(0.2, 0.5, 0.3); sc.add(sol.target);
+    var contre = new T.DirectionalLight(0xbfe8d6, 0.55); contre.position.set(-4, 3.5, -5); sc.add(contre);
+    function m(c, r, me) { var x = new T.MeshStandardMaterial({ color: c, roughness: r == null ? 0.7 : r, metalness: me || 0 }); x.color.convertSRGBToLinear(); return x; }
+    var PEAU = m(0xd9a47b, 0.6), POLO = m(0xf6f3ea, 0.82), MENTHE = m(0x8fc4ad, 0.75), PANT = m(0x1e4a3d, 0.88), CUIR = m(0x2b1e15, 0.5), BLANC = m(0xfbfbf7, 0.45),
+      SEMELLE = m(0x232c28, 0.85), CHEVEUX = m(0x3b2a1e, 0.95), ACIER = m(0xe2e8e5, 0.22, 0.9), GRIP = m(0x151a18, 0.92), FONCE = m(0x18201d, 0.3, 0.7), OEIL = m(0x1c1612, 0.4);
+
+    // Sol : un disque d'herbe tondue en bandes, qui reçoit l'ombre
+    var cv = document.createElement("canvas"); cv.width = cv.height = 512; var g2 = cv.getContext("2d");
+    g2.fillStyle = "#256b47"; g2.fillRect(0, 0, 512, 512);
+    for (var b = 0; b < 8; b++) { g2.fillStyle = b % 2 ? "rgba(255,255,255,.075)" : "rgba(0,0,0,.075)"; g2.fillRect(b * 64, 0, 64, 512); }
+    for (var n = 0; n < 5200; n++) { g2.fillStyle = n % 2 ? "rgba(255,255,255,.045)" : "rgba(0,45,22,.07)"; g2.fillRect(Math.random() * 512, Math.random() * 512, 1.5, 3 + Math.random() * 3); }
+    var herbe = new T.CanvasTexture(cv); herbe.encoding = T.sRGBEncoding; herbe.anisotropy = 4;
+    var cote = m(0x1a5a3e, 0.9);
+    var disque = new T.Mesh(new T.CylinderGeometry(1.75, 1.75, 0.06, 72), [cote, new T.MeshStandardMaterial({ map: herbe, roughness: 0.95 }), cote]);
+    disque.position.set(0.25, -0.03, 0.35); disque.rotation.y = 0.55; disque.receiveShadow = true; sc.add(disque);
+    var bord = new T.Mesh(new T.CylinderGeometry(1.8, 1.6, 0.22, 72), m(0x103a2c, 0.9)); bord.position.set(0.25, -0.15, 0.35); sc.add(bord);
     var BZ = 0.82, rails = [];
     [[BZ, 0xffffff], [0.0, 0xa3c9b8]].forEach(function (r) {
-      var m = new T.Mesh(new T.BoxGeometry(2.9, 0.012, 0.035), new T.MeshBasicMaterial({ color: r[1], transparent: true, opacity: 0 })); m.position.set(0.25, 0.008, r[0]); sc.add(m); rails.push(m);
+      var x = new T.Mesh(new T.BoxGeometry(2.9, 0.012, 0.035), new T.MeshBasicMaterial({ color: r[1], transparent: true, opacity: 0 })); x.position.set(0.25, 0.008, r[0]); sc.add(x); rails.push(x);
     });
-    var balle = new T.Mesh(new T.SphereGeometry(0.03, 16, 12), blanc); sc.add(balle);
+    var balle = new T.Mesh(new T.SphereGeometry(0.0235, 18, 14), BLANC); balle.castShadow = true; sc.add(balle);
     var trait = new T.Mesh(new T.BoxGeometry(1, 0.006, 0.012), new T.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 })); sc.add(trait);
-    // Le personnage : des membres (cylindres) et des articulations (sphères) replacés à chaque image
-    function membre(r1, r2, m) { var g = new T.CylinderGeometry(r1, r2, 1, 14); var x = new T.Mesh(g, m); sc.add(x); return x; }
-    function boule(r, m) { var x = new T.Mesh(new T.SphereGeometry(r, 18, 14), m); sc.add(x); return x; }
+
+    /* ----- Le personnage : un golfeur modélisé (buste, bassin, tête, membres articulés), replacé à chaque image ----- */
+    var perso = new T.Group(); sc.add(perso);
+    function ajoute(x, parent) { x.castShadow = true; (parent || perso).add(x); return x; }
+    function membre(rA, rB, mt) { return ajoute(new T.Mesh(new T.CylinderGeometry(rB, rA, 1, 22), mt)); }       // rA : rayon au départ, rB : à l'arrivée
+    function boule(r, mt, sx, sy, sz, parent) { var x = ajoute(new T.Mesh(new T.SphereGeometry(r, 24, 18), mt), parent); if (sx) x.scale.set(sx, sy, sz); return x; }
+    function tour(pts, mt) { return ajoute(new T.Mesh(new T.LatheGeometry(pts.map(function (p) { return new T.Vector2(p[0], p[1]); }), 36), mt)); }
     var tv = V(0, 0, 0);
-    function tige(x, A, B) { tv.copy(B).sub(A); var L = tv.length() || 0.0001; x.position.copy(A).addScaledVector(tv, 0.5); x.scale.set(1, L, 1); x.quaternion.setFromUnitVectors(HAUT_Y, tv.divideScalar(L)); }
-    function coude(A, C, l1, l2, pole) {       // articulation intermédiaire (coude, genou) entre deux points
+    function tige(x, A, B) { tv.copy(B).sub(A); var L = tv.length() || 0.0001; x.position.copy(A).addScaledVector(tv, 0.5); x.scale.set(1, L, 1); x.quaternion.setFromUnitVectors(AXE_Y, tv.divideScalar(L)); }
+    var mx = new T.Matrix4(), bx = V(0, 0, 0), by = V(0, 0, 0), bz = V(0, 0, 0);
+    function oriente(x, pos, droite, haut) {      // repère : « haut » exact, « droite » approximative, l'avant s'en déduit
+      by.copy(haut).normalize(); bz.crossVectors(droite, by).normalize(); bx.crossVectors(by, bz);
+      mx.makeBasis(bx, by, bz); x.quaternion.setFromRotationMatrix(mx); x.position.copy(pos);
+    }
+    function coude(A, C, l1, l2, pole) {          // articulation intermédiaire (coude, genou) entre deux points
       var d = C.clone().sub(A), L = Math.min(d.length(), l1 + l2 - 0.001), dir = d.normalize();
       var a = (l1 * l1 - l2 * l2 + L * L) / (2 * L), h = Math.sqrt(Math.max(0, l1 * l1 - a * a));
       var p = pole.clone().addScaledVector(dir, -pole.dot(dir)); if (p.lengthSq() < 1e-6) p.set(0, 0, 1); p.normalize();
       return A.clone().addScaledVector(dir, a).addScaledVector(p, h);
     }
-    var buste = membre(0.165, 0.125, polo), epaules = membre(0.07, 0.07, polo), bassin = boule(0.15, vert), tete = boule(0.115, peau), cou = membre(0.045, 0.05, peau),
-      casq = new T.Mesh(new T.SphereGeometry(0.122, 18, 10, 0, Math.PI * 2, 0, Math.PI * 0.5), vert), visiere = new T.Mesh(new T.BoxGeometry(0.15, 0.016, 0.11), vert);
-    sc.add(casq); sc.add(visiere);
-    var bras = [0, 1].map(function () { return { haut: membre(0.05, 0.043, polo), bas: membre(0.04, 0.034, peau), co: boule(0.046, peau), ep: boule(0.072, polo) }; });
-    var jambes = [0, 1].map(function () { return { haut: membre(0.078, 0.06, vert), bas: membre(0.055, 0.042, peau), ge: boule(0.062, vert), pied: boule(0.075, blanc) }; });
-    jambes.forEach(function (j) { j.pied.scale.set(0.9, 0.5, 1.7); });
-    var mains = boule(0.052, blanc), main2 = boule(0.05, peau), H2 = V(0, 0, 0), manche = membre(0.011, 0.008, metal), poignee = membre(0.016, 0.014, sombre), tetec = new T.Mesh(new T.BoxGeometry(0.09, 0.045, 0.03), sombre); sc.add(tetec);
+    // Buste (polo) : taille, poitrine, épaules, base du cou. Bassin (pantalon) avec ceinture.
+    var torse = tour([[0.0, -0.02], [0.112, 0], [0.124, 0.08], [0.148, 0.2], [0.17, 0.3], [0.186, 0.375], [0.182, 0.415], [0.14, 0.455], [0.075, 0.485], [0.05, 0.5], [0, 0.505]], POLO); torse.scale.z = 0.68;
+    var col = ajoute(new T.Mesh(new T.TorusGeometry(0.058, 0.02, 10, 28), MENTHE), torse); col.rotation.x = Math.PI / 2; col.position.y = 0.485; col.scale.set(1, 1.2, 1);
+    var bassin = tour([[0, -0.17], [0.09, -0.16], [0.146, -0.09], [0.152, -0.01], [0.136, 0.07], [0.116, 0.13], [0, 0.135]], PANT); bassin.scale.z = 0.8;
+    var ceinture = ajoute(new T.Mesh(new T.TorusGeometry(0.122, 0.015, 10, 36), CUIR), bassin); ceinture.rotation.x = Math.PI / 2; ceinture.position.y = 0.105;
+    ajoute(new T.Mesh(new T.BoxGeometry(0.04, 0.032, 0.012), ACIER), bassin).position.set(0, 0.105, 0.136);
+    // Tête : crâne, cheveux, oreilles, nez, yeux, casquette à visière
+    var tete = new T.Group(); perso.add(tete);
+    boule(0.1, PEAU, 0.9, 1.08, 1.0, tete);
+    boule(0.103, CHEVEUX, 0.93, 1.0, 1.0, tete).position.set(0, 0.012, -0.014);
+    [1, -1].forEach(function (s) { boule(0.024, PEAU, 0.45, 1, 0.75, tete).position.set(s * 0.09, -0.005, 0); boule(0.0105, OEIL, 1, 1, 1, tete).position.set(s * 0.034, 0.014, 0.089); });
+    boule(0.017, PEAU, 0.9, 1.1, 1.2, tete).position.set(0, -0.012, 0.097);
+    var calotte = ajoute(new T.Mesh(new T.SphereGeometry(0.109, 28, 14, 0, Math.PI * 2, 0, Math.PI * 0.5), MENTHE), tete); calotte.position.y = 0.024; calotte.scale.set(0.95, 0.98, 1.03);
+    var visiere = ajoute(new T.Mesh(new T.CylinderGeometry(0.1, 0.1, 0.012, 28, 1, false, -Math.PI / 2, Math.PI), MENTHE), tete); visiere.position.set(0, 0.03, 0.072); visiere.scale.set(0.9, 1, 1.2); visiere.rotation.x = 0.2;
+    boule(0.014, BLANC, 1, 0.6, 1, tete).position.set(0, 0.13, 0);
+    var cou = membre(0.05, 0.044, PEAU);
+    // Bras : épaule, manche du polo, bras, coude, avant-bras, main (gant blanc à la main gauche)
+    var bras = [0, 1].map(function (k) {
+      return { ep: boule(0.062, POLO), manche: membre(0.06, 0.054, POLO), lisere: membre(0.056, 0.056, MENTHE), haut: membre(0.046, 0.04, PEAU), co: boule(0.041, PEAU), bas: membre(0.039, 0.03, PEAU), main: boule(0.043, k ? PEAU : BLANC, 0.9, 1.15, 0.8) };
+    });
+    // Jambes : cuisse, genou, mollet (pantalon), chaussure (dessus blanc, semelle)
+    var jambes = [0, 1].map(function () {
+      var ch = new T.Group(); ch.rotation.order = "YXZ"; perso.add(ch);
+      boule(1, SEMELLE, 0.057, 0.017, 0.128, ch).position.set(0, 0.017, 0.045);
+      boule(1, BLANC, 0.052, 0.05, 0.118, ch).position.set(0, 0.048, 0.04);
+      boule(1, BLANC, 0.046, 0.05, 0.05, ch).position.set(0, 0.07, -0.02);
+      return { haut: membre(0.092, 0.066, PANT), ge: boule(0.066, PANT), bas: membre(0.064, 0.046, PANT), ch: ch };
+    });
+    // Club : grip, manche en acier, tête de fer avec sa face
+    var grip = membre(0.0145, 0.012, GRIP), manche = membre(0.0068, 0.0052, ACIER), tetec = ajoute(new T.Mesh(new T.BoxGeometry(0.08, 0.052, 0.02), FONCE));
+    ajoute(new T.Mesh(new T.BoxGeometry(0.07, 0.044, 0.004), ACIER), tetec).position.z = 0.0105;
+
     var U = V(1, 0, 0), Vp = V(0, -0.92, 0.39).normalize(), BRAS = 0.58, CLUB = 0.9;
-    var P = V(0, 0, 0), N = V(0, 0, 0), dos = V(0, 0, 0), av = V(0, 0, 0), H = V(0, 0, 0), bout = V(0, 0, 0), E = [V(0, 0, 0), V(0, 0, 0)], Hp = [V(0, 0, 0), V(0, 0, 0)], PIED = [V(0.22, 0.04, 0), V(-0.22, 0.04, 0)];
-    var tCourant = -1, balleT = -1;
+    var P = V(0, 0, 0), N = V(0, 0, 0), dos = V(0, 0, 0), av = V(0, 0, 0), H = V(0, 0, 0), H2 = V(0, 0, 0), bout = V(0, 0, 0), dc = V(0, 0, 0), nf = V(0, 0, 0), orteil = V(0, 0, 0),
+      E = [V(0, 0, 0), V(0, 0, 0)], Hp = [V(0, 0, 0), V(0, 0, 0)], CH = [V(0, 0, 0), V(0, 0, 0)], PX = [0.22, -0.22], a1 = V(0, 0, 0), a2 = V(0, 0, 0), a3 = V(0, 0, 0);
     o.pose = function (t) {
-      tCourant = t;
-      var th = cle(K.th, t) * RAD, po = cle(K.po, t) * RAD, ep = cle(K.ep, t) * RAD, ha = cle(K.ha, t) * RAD, px = cle(K.px, t), bu = cle(K.bu, t) * RAD;
-      P.set(px, 0.93, -0.07); dos.set(0, Math.cos(bu), Math.sin(bu)); av.set(0, -Math.sin(bu), Math.cos(bu));
-      N.copy(P).addScaledVector(dos, 0.54);
-      tige(buste, P, N); bassin.position.copy(P);
-      // épaules : elles tournent autour de la colonne
-      for (var k = 0; k < 2; k++) { var s = k ? -1 : 1; E[k].copy(N).addScaledVector(U, s * 0.2 * Math.cos(ep)).addScaledVector(av, s * 0.2 * Math.sin(ep)); Hp[k].set(P.x + s * 0.12 * Math.cos(ha), P.y - 0.04, P.z + s * 0.12 * Math.sin(ha)); }
-      tige(epaules, E[1], E[0]);
-      var Tt = N.clone().addScaledVector(dos, 0.2).addScaledVector(av, 0.03); tete.position.copy(Tt); tige(cou, N, Tt);
-      casq.position.copy(Tt).addScaledVector(dos, 0.01); casq.quaternion.setFromUnitVectors(HAUT_Y, dos);
-      visiere.position.copy(Tt).addScaledVector(dos, 0.03).addScaledVector(av, 0.14); visiere.quaternion.setFromUnitVectors(HAUT_Y, dos);
-      // mains sur le plan de swing, club dans le prolongement (plus l'armé des poignets)
-      H.copy(N).addScaledVector(U, Math.sin(th) * BRAS).addScaledVector(Vp, Math.cos(th) * BRAS);
-      var ph = th + po; bout.copy(H).addScaledVector(U, Math.sin(ph) * CLUB).addScaledVector(Vp, Math.cos(ph) * CLUB);
-      H2.copy(H).lerp(bout, 0.085); mains.position.copy(H); main2.position.copy(H2);
-      for (k = 0; k < 2; k++) {
-        var Hk = k ? H2 : H, c = coude(E[k], Hk, 0.33, 0.33, V(k ? -0.5 : 0.5, -1, -0.15));
-        tige(bras[k].haut, E[k], c); tige(bras[k].bas, c, Hk); bras[k].co.position.copy(c); bras[k].ep.position.copy(E[k]);
-        var g = coude(Hp[k], PIED[k], 0.47, 0.47, V(-Math.sin(ha) * 0.9, 0, Math.cos(ha) + 0.25));
-        tige(jambes[k].haut, Hp[k], g); tige(jambes[k].bas, g, PIED[k]); jambes[k].ge.position.copy(g); jambes[k].pied.position.set(PIED[k].x, 0.035, PIED[k].z + 0.06);
+      var th = cle(K.th, t) * RAD, po = cle(K.po, t) * RAD, ep = cle(K.ep, t) * RAD, ha = cle(K.ha, t) * RAD, px = cle(K.px, t), bu = cle(K.bu, t) * RAD,
+        tl = Math.max(0, cle(K.tl, t)), tt = cle(K.tt, t) * RAD;
+      P.set(px, 0.93, -0.07); dos.set(0, Math.cos(bu), Math.sin(bu)); av.set(0, -Math.sin(bu), Math.cos(bu)); N.copy(P).addScaledVector(dos, 0.54);
+      // épaules (elles tournent autour de la colonne) et hanches
+      for (var k = 0; k < 2; k++) {
+        var s = k ? -1 : 1;
+        E[k].copy(N).addScaledVector(U, s * 0.192 * Math.cos(ep)).addScaledVector(av, s * 0.192 * Math.sin(ep));
+        Hp[k].set(P.x + s * 0.105 * Math.cos(ha), P.y - 0.06, P.z + s * 0.105 * Math.sin(ha));
       }
-      tige(manche, H, bout); var pg = H.clone().lerp(bout, 0.2); tige(poignee, H.clone().lerp(bout, -0.06), pg);
-      tetec.position.copy(bout); tetec.quaternion.copy(manche.quaternion);
+      oriente(torse, a1.copy(P).addScaledVector(dos, 0.1), a2.copy(E[0]).sub(E[1]), dos);
+      oriente(bassin, P, a2.set(Math.cos(ha), 0, Math.sin(ha)), a3.set(0, 0.75, 0).addScaledVector(dos, 0.25));
+      // tête : elle regarde la balle jusqu'à l'impact, puis se tourne vers la cible
+      var Tt = a1.copy(N).addScaledVector(dos, 0.2).addScaledVector(av, 0.03);
+      a3.copy(dos).multiplyScalar(0.8).add(AXE_Y).normalize();
+      a2.copy(av).multiplyScalar(Math.cos(tt)).addScaledVector(U, Math.sin(tt)); a2.y -= 0.25 * Math.cos(tt);
+      bz.crossVectors(a3, a2); oriente(tete, Tt, bz.clone(), a3);
+      tige(cou, a2.copy(N).addScaledVector(dos, 0.02), a3.copy(Tt).addScaledVector(dos, -0.05));
+      // mains sur le plan de swing ; le club les prolonge, avec l'armé des poignets
+      H.copy(N).addScaledVector(U, Math.sin(th) * BRAS).addScaledVector(Vp, Math.cos(th) * BRAS);
+      var ph = th + po; dc.set(0, 0, 0).addScaledVector(U, Math.sin(ph)).addScaledVector(Vp, Math.cos(ph)); nf.set(0, 0, 0).addScaledVector(U, Math.cos(ph)).addScaledVector(Vp, -Math.sin(ph));
+      bout.copy(H).addScaledVector(dc, CLUB); H2.copy(H).addScaledVector(dc, 0.085);
+      for (k = 0; k < 2; k++) {
+        var Hk = k ? H2 : H, c = coude(E[k], Hk, 0.33, 0.33, a2.set(k ? -0.5 : 0.5, -1, -0.15)), b = bras[k];
+        b.ep.position.copy(E[k]); tige(b.manche, E[k], a2.copy(E[k]).lerp(c, 0.58)); tige(b.lisere, a2.copy(E[k]).lerp(c, 0.55), a3.copy(E[k]).lerp(c, 0.62));
+        tige(b.haut, a2.copy(E[k]).lerp(c, 0.5), c); b.co.position.copy(c); tige(b.bas, c, Hk);
+        b.main.position.copy(Hk); b.main.quaternion.setFromUnitVectors(AXE_Y, dc);
+        // pieds : le gauche reste à plat ; le droit se lève sur la pointe et pivote vers la cible en fin de geste
+        var lev = k ? tl : 0, ch = jambes[k].ch;
+        ch.position.set(PX[k] + (k ? lev * 0.03 : 0), lev * 0.035, lev * 0.02); ch.rotation.set(lev * 1.05, k ? -0.12 + lev * 0.95 : 0.3, 0);
+        CH[k].set(ch.position.x, 0.085 + lev * 0.13, ch.position.z - 0.015 + lev * 0.03);
+        var g = coude(Hp[k], CH[k], 0.45, 0.45, a2.set(-Math.sin(ha) * 0.9 + (k ? lev * 0.6 : 0), 0, Math.cos(ha) + 0.25));
+        tige(jambes[k].haut, Hp[k], g); jambes[k].ge.position.copy(g); tige(jambes[k].bas, g, CH[k]);
+      }
+      tige(grip, a2.copy(H).addScaledVector(dc, -0.08), a3.copy(H).addScaledVector(dc, 0.2)); tige(manche, a3, bout);
+      orteil.crossVectors(dc, nf).normalize(); oriente(tetec, a2.copy(bout).addScaledVector(orteil, 0.028).addScaledVector(dc, -0.012), orteil, dc);
       // la balle part à l'impact
       var imp = KT[4];
-      if (t < imp) { balle.position.set(0.02, 0.03, BZ); balle.visible = true; trait.material.opacity = 0; balleT = -1; }
-      else { var a = (t - imp) / (1 - imp), d = a * 5.5; balle.position.set(0.02 + d, 0.03 + Math.sin(Math.min(1, a) * 1.2) * 1.5, BZ); balle.visible = d < 4.6;
-        trait.scale.set(Math.min(d, 2.2), 1, 1); trait.position.set(0.02 + Math.min(d, 2.2) / 2, 0.012, BZ); trait.material.opacity = 0.75 * (1 - a * 0.6); }
+      if (t < imp) { balle.position.set(0.03, 0.0235, BZ); balle.visible = true; trait.material.opacity = 0; }
+      else { var a = (t - imp) / (1 - imp), d = a * 5.5; balle.position.set(0.03 + d, 0.0235 + Math.sin(Math.min(1, a) * 1.2) * 1.5, BZ); balle.visible = d < 4.6;
+        trait.scale.set(Math.min(d, 2.2), 1, 1); trait.position.set(0.03 + Math.min(d, 2.2) / 2, 0.012, BZ); trait.material.opacity = 0.75 * (1 - a * 0.6); }
     };
     // Caméra : face, profil, ou gros plans ; on peut tourner à la souris ou au doigt
     var VUES = { face: { c: [0.12, 0.68, 0.3], az: 0.05, el: 0.16, R: 5.2 }, profil: { c: [0.0, 0.68, 0.35], az: -1.5, el: 0.16, R: 5.2 },
-      grip: { c: [0, 0.83, 0.5], az: 0.5, el: 0.3, R: 1.55 }, posture: { c: [0, 0.82, 0.3], az: -1.5, el: 0.08, R: 4.4 }, alignement: { c: [0.3, 0.2, 0.42], az: -1.25, el: 0.85, R: 5.8 } };
-    var vue = "face", cam = { az: 0, el: 0 }, cur = { c: V(0.12, 0.8, 0.3), az: 0.05, el: 0.16, R: 5.2 }, echelle = 1;
+      grip: { c: [0, 0.83, 0.5], az: 0.5, el: 0.3, R: 1.5 }, posture: { c: [0, 0.82, 0.3], az: -1.5, el: 0.08, R: 4.4 }, alignement: { c: [0.3, 0.2, 0.42], az: -1.25, el: 0.85, R: 5.8 } };
+    var vue = "face", cam = { az: 0, el: 0 }, cur = { c: V(0.12, 0.68, 0.3), az: 0.05, el: 0.16, R: 5.2 }, echelle = 1;
     glisse(boxS, cam, 3.2);
     o.vue = function (n) { vue = n; cam.az = 0; cam.el = 0; };
     o.surTaille = function () { echelle = Math.max(1, 0.82 / (o.w / o.h)); };
