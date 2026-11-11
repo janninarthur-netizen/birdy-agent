@@ -8,7 +8,7 @@ Page visuelle, peu de texte : on apprend en manipulant.
   - le swing en 3D : un personnage exécute le geste phase par phase ;
   - les clubs : la trajectoire de la balle selon le club choisi ;
   - le score (compteur), l'étiquette (cartes qui se retournent), le starter pack (à cocher), le lexique ;
-  - Birdy en coach, dans un panneau flottant.
+  - Birdy en coach : un large cadre en haut de page, qui se détache et flotte quand on descend (même conversation).
 Aucun prix : le budget dépend du golf, de l'enseignant et du matériel.
 Comportement : assets/debuter.js (interface) et assets/debuter3d.js (scènes 3D, Three.js). Styles : debuter/debuter.css.
 """
@@ -202,8 +202,21 @@ def page():
   <div class="dh-head">
     <p class="db-k">Birdy Start · Débuter le golf</p>
     <h1 class="dh-h1">Débuter le golf, <em>du bon pied.</em></h1>
-    <p class="dh-lead">Jouez ce trou : chaque coup est une étape de vos débuts.</p>
+    <p class="dh-lead">Posez toutes vos questions à Birdy, votre coach.</p>
   </div>
+  <div class="bc-place" id="bc-place">
+    <div class="bc-pan" id="bc-pan" aria-label="Birdy, votre coach pour débuter">
+      <div class="gp-chat">
+        <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="48" height="48"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre coach pour débuter · répond tout de suite</span></div><button type="button" class="bc-x" id="bc-x" aria-label="Replacer Birdy en haut de la page">×</button></div>
+        <div class="gp-log" id="db-say" aria-live="polite"><div class="gm b">Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.</div></div>
+        <div class="gp-sugg" id="db-sugg"><button type="button">Par où commencer ?</button><button type="button">C’est quoi la carte verte ?</button><button type="button">Combien de temps pour savoir jouer ?</button><button type="button">Je suis gaucher, ça change quoi ?</button><button type="button">Quels clubs pour débuter ?</button></div>
+        <form class="gp-ask" id="db-form" autocomplete="off"><label class="sr" for="db-q">Votre question à Birdy</label>
+          <input id="db-q" maxlength="400" placeholder="Votre question de débutant…"><button class="btn gold" type="submit" aria-label="Envoyer">→</button></form>
+      </div>
+    </div>
+  </div>
+  <a class="dh-inv" href="#trou"><span>Puis faites défiler : un trou à jouer en 3D, le swing animé et votre starter pack vous attendent</span><i aria-hidden="true">↓</i></a>
+  <div class="dh-titre" id="trou"><p class="db-k">Le parcours du débutant</p><h2>Jouez ce trou : chaque coup est une étape</h2></div>
   <div class="dh-wrap">
     <div class="dh-scene" id="dh-scene">
       <div class="dh-pins" id="dh-pins"></div>
@@ -315,15 +328,6 @@ def page():
 </main>
 
 <button type="button" class="bc-btn" id="bc-btn" aria-expanded="false" aria-controls="bc-pan"><img src="/favicon-96.png" alt="" width="44" height="44"><span><b>Birdy</b><small>Une question ?</small></span></button>
-<div class="bc-pan" id="bc-pan" role="dialog" aria-label="Birdy, votre coach pour débuter" hidden>
-  <div class="gp-chat">
-    <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="44" height="44"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre coach pour débuter</span></div><button type="button" class="bc-x" id="bc-x" aria-label="Fermer">×</button></div>
-    <div class="gp-log" id="db-say" aria-live="polite"><div class="gm b">Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.</div></div>
-    <div class="gp-sugg" id="db-sugg"><button type="button">Par où commencer ?</button><button type="button">C’est quoi la carte verte ?</button><button type="button">Je suis gaucher, ça change quoi ?</button><button type="button">Quels clubs pour débuter ?</button></div>
-    <form class="gp-ask" id="db-form" autocomplete="off"><label class="sr" for="db-q">Votre question à Birdy</label>
-      <input id="db-q" maxlength="400" placeholder="Votre question de débutant…"><button class="btn gold" type="submit" aria-label="Envoyer">→</button></form>
-  </div>
-</div>
 <script id="db-data" type="application/json">{json.dumps(data, ensure_ascii=False).replace("</", "<\\/")}</script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="/assets/parcours.js"></script>

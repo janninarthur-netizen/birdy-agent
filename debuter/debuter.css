@@ -15,7 +15,7 @@ html.pro main.gp.db{color:#E8F1EC}
 .dh-head .db-k{flex-basis:100%}
 .dh-h1{font:700 clamp(40px,5.6vw,76px)/.98 var(--display);color:#fff;margin:0}
 .dh-h1 em{color:#A3C9B8;font-style:italic}
-.dh-lead{font-size:17px;color:rgba(232,241,236,.85);margin:0 0 8px;max-width:30ch}
+.dh-lead{font-size:17px;color:rgba(232,241,236,.85);margin:0 0 8px}
 .dh-wrap{position:relative}
 .dh-scene{position:relative;height:clamp(440px,64vh,640px);border-radius:32px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;
   background:radial-gradient(120% 90% at 50% 0%,rgba(163,201,184,.34),rgba(10,30,23,.5) 62%),rgba(10,30,23,.5);
@@ -175,20 +175,45 @@ html.pro main.gp.db{color:#E8F1EC}
 
 /* ===== Birdy, coach flottant ===== */
 .bc-btn{position:fixed;z-index:21;left:calc(18px + env(safe-area-inset-left,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;padding:6px 18px 6px 6px;border-radius:99px;cursor:pointer;
-  color:#fff;background:rgba(10,30,23,.86);border:1px solid rgba(208,228,220,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 40px -16px rgba(0,0,0,.85);animation:bcIn .6s 1.2s cubic-bezier(.2,1.4,.4,1) both}
-@keyframes bcIn{from{opacity:0;translate:0 30px}}
+  color:#fff;background:rgba(10,30,23,.86);border:1px solid rgba(208,228,220,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 40px -16px rgba(0,0,0,.85);}
 .bc-btn img{width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.85)}
 .bc-btn b{display:block;font:700 15px/1.1 var(--body);text-align:left}
 .bc-btn small{display:block;font-size:12px;color:#A3C9B8;text-align:left}
 .bc-btn::after{content:"";position:absolute;left:38px;top:6px;width:11px;height:11px;border-radius:50%;background:#5BC08A;border:2px solid #0A1E17}
-.bc-pan{position:fixed;z-index:22;left:calc(18px + env(safe-area-inset-left,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:min(390px,calc(100vw - 36px));height:min(560px,calc(100vh - 170px));height:min(560px,calc(100dvh - 170px));
-  opacity:0;translate:0 18px;scale:.97;transform-origin:left bottom;transition:opacity .25s,translate .25s,scale .25s}
-.bc-pan.on{opacity:1;translate:0 0;scale:1}
-.bc-pan[hidden]{display:none}
-html.pro .bc-pan .gp-chat{height:100%;max-width:none;background:rgba(10,30,23,.93);border-color:rgba(208,228,220,.3);box-shadow:0 30px 80px -24px rgba(0,0,0,.95)}
-html.pro .bc-pan .gp-log{flex:1;max-height:none;min-height:0}
-html.pro .bc-pan .gp-chat .gp-ask{display:flex;flex-direction:row}
-html.pro .bc-pan .gp-chat .gp-ask .btn{flex:none;background:#fff;color:#0A1E17;border-color:#fff}
+/* Le cadre Birdy : large, en haut de page. Quand on descend, le même chat se détache et flotte en bas à gauche. */
+.bc-place{position:relative}
+.bc-pan{width:100%}
+html.pro .bc-pan .gp-chat{max-width:none;border-radius:26px;background:rgba(10,30,23,.68);border-color:rgba(208,228,220,.28);box-shadow:0 34px 80px -40px rgba(0,0,0,.95),0 0 0 6px rgba(163,201,184,.06)}
+html.pro .bc-pan .gp-chat-h{padding:14px 20px}
+html.pro .bc-pan .gp-chat-h img{width:48px;height:48px}
+html.pro .bc-pan .gp-chat-h b{font-size:18px}
+html.pro .bc-pan .gp-log{min-height:132px;max-height:min(40vh,340px);padding:18px 20px;gap:10px}
+html.pro .bc-pan .gm{font-size:16px;line-height:1.55;max-width:80%;padding:12px 16px}
+html.pro .bc-pan .gp-sugg{padding:0 20px 14px;gap:8px}
+html.pro .bc-pan .gp-sugg button{font-size:14px;padding:10px 14px}
+html.pro .bc-pan .gp-chat .gp-ask{display:flex;flex-direction:row;padding:12px 14px;gap:10px}
+html.pro .bc-pan .gp-chat .gp-ask input{font-size:17px;padding:12px}
+html.pro .bc-pan .gp-chat .gp-ask .btn{flex:none;width:50px;height:50px;font-size:19px;background:#fff;color:#0A1E17;border-color:#fff}
+.bc-pan.flot{position:fixed;z-index:22;left:calc(18px + env(safe-area-inset-left,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:min(400px,calc(100vw - 36px));height:min(560px,calc(100vh - 170px));height:min(560px,calc(100dvh - 170px));animation:bcMonte .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes bcMonte{from{opacity:0;translate:0 18px;scale:.97}}
+html.pro .bc-pan.flot .gp-chat{height:100%;background:rgba(10,30,23,.95);box-shadow:0 30px 80px -24px rgba(0,0,0,.95)}
+html.pro .bc-pan.flot .gp-log{flex:1;min-height:0;max-height:none;padding:14px 16px}
+html.pro .bc-pan.flot .gm{font-size:14.5px;max-width:88%;padding:10px 13px}
+html.pro .bc-pan.flot .gp-sugg{padding:0 16px 10px}
+html.pro .bc-pan.flot .gp-sugg button{font-size:12.5px;padding:8px 11px}
+html.pro .bc-pan.flot .gp-chat .gp-ask{padding:8px}
+html.pro .bc-pan.flot .gp-chat .gp-ask input{font-size:15px}
+html.pro .bc-pan.flot .gp-chat .gp-ask .btn{width:44px;height:44px}
+.bc-pan:not(.flot) .bc-x{display:none}
+/* Le bouton flottant n'apparaît que lorsque le cadre du haut n'est plus à l'écran */
+.bc-btn{visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+body.bc-loin .bc-btn{visibility:visible;opacity:1}
+/* Invitation à descendre */
+.dh-inv{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px auto 6px;padding:8px 10px;font-size:15.5px;line-height:1.4;color:rgba(232,241,236,.82);text-decoration:none;text-align:center}
+.dh-inv:hover{color:#fff}
+.dh-inv i{flex:none;font-style:normal;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:18px;color:#0A1E17;background:#A3C9B8;animation:dhSaut 1.6s ease-in-out infinite}
+@keyframes dhSaut{50%{translate:0 7px}}
+.dh-titre{margin:26px 0 14px;scroll-margin-top:86px}
 .bc-x{margin-left:auto;width:36px;height:36px;border-radius:50%;border:1px solid rgba(208,228,220,.3);background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer}
 /* Réponses riches du chat : golfs et liens */
 .ha-res{display:grid;gap:8px;width:100%}
@@ -226,7 +251,18 @@ html.pro .gm.ha-wrap{background:transparent;border:0;padding:0;max-width:100%}
   .pk-items{grid-template-columns:repeat(2,minmax(0,1fr))}
   .db-fin-b{padding:20px;border-radius:22px}.db-cta .btn{width:100%;justify-content:center;text-align:center}
   .bc-btn span{display:none}.bc-btn{padding:5px}
-  .bc-pan{left:8px;right:8px;width:auto;bottom:calc(76px + env(safe-area-inset-bottom,0px));height:min(72vh,560px)}
+  .bc-pan.flot{left:8px;right:8px;width:auto;bottom:calc(76px + env(safe-area-inset-bottom,0px));height:min(72vh,560px)}
+  html.pro .bc-pan .gp-chat{border-radius:22px}
+  html.pro .bc-pan .gp-chat-h{padding:12px 14px}
+  html.pro .bc-pan .gp-log{padding:14px;min-height:120px;max-height:36vh}
+  html.pro .bc-pan .gm{font-size:15px;max-width:92%}
+  html.pro .bc-pan .gp-sugg{padding:0 14px 12px}
+  html.pro .bc-pan .gp-sugg button{font-size:13px;padding:9px 12px}
+  html.pro .bc-pan .gp-chat .gp-ask{padding:9px;border-radius:0}
+  html.pro .bc-pan .gp-chat .gp-ask input{font-size:16px}
+  html.pro .bc-pan .gp-chat .gp-ask .btn{width:46px;height:46px}
+  .dh-inv{flex-direction:column;gap:10px;font-size:14.5px;margin-top:16px;padding:6px 4px}
+  html.pro .bc-pan:not(.flot) .gp-sugg button:nth-child(n+4){display:none}
   body.bc-on a.wa{display:none}
 }
-@media (prefers-reduced-motion:reduce){.db-sec.att{opacity:1;transform:none}.et-in,.pk-i,.bc-btn{transition:none;animation:none}}
+@media (prefers-reduced-motion:reduce){.db-sec.att{opacity:1;transform:none}.et-in,.pk-i,.bc-btn,.dh-inv i,.bc-pan.flot{transition:none;animation:none}}

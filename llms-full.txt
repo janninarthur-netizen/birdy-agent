@@ -166,7 +166,14 @@ WhatsApp
 Débuter le golf : étapes, bases et starter pack | Birdy Agent
 Birdy Start · Débuter le golf
 Débuter le golf,  du bon pied.
-Jouez ce trou : chaque coup est une étape de vos débuts.
+Posez toutes vos questions à Birdy, votre coach.
+Birdy    Votre coach pour débuter · répond tout de suite   ×
+Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.
+Par où commencer ?  C’est quoi la carte verte ?  Combien de temps pour savoir jouer ?  Je suis gaucher, ça change quoi ?  Quels clubs pour débuter ?
+Votre question à Birdy
+Puis faites défiler : un trou à jouer en 3D, le swing animé et votre starter pack vous attendent  ↓
+Le parcours du débutant
+Jouez ce trou : chaque coup est une étape
 Vocabulaire
 Faites glisser pour tourner
 ←              Coup suivant →
@@ -202,8 +209,7 @@ Le premier jour  Quand vous êtes mordu  Plus tard
 Rien à acheter : venez comme vous êtes.
 👕  Tenue confortable  pantalon ou bermuda, polo     👟  Baskets  à semelle plate     💧  Bouteille d’eau  et une casquette     🏌️  Clubs prêtés  à confirmer avec le golf      L’essentiel pour jouer régulièrement.
 ⛳  Demi-série  bois ou hybride, fers 7 et 9, sand wedge, putter     🎒  Sac léger  à bretelles ou trépied     ⚪  Balles  d’occasion : on en perd     📍  Tees  bois ou plastique     🧤  Gant  main gauche pour un droitier     🔧  Relève-pitch  et marque-balle     👞  Chaussures de golf  à crampons souples      Quand vous jouez sur le parcours.
-🪪  Licence  pour l’index et les compétitions     🏌️‍♂️  Série complète  14 clubs au maximum     🛒  Chariot  pour 18 trous     📐  Essai sur mesure  le fitting
-Pas tout de suite  driver haut de gamme · série complète neuve · balles de compétition · gadgets d’entraînement
+🪪  Licence  pour l’index et les compétitions     🏌️‍♂️  Série complète  14 clubs au maximum     🛒  Chariot  pour 18 trous     📐  Essai sur mesure  le fitting     Inutile au début  driver haut de gamme, série complète neuve, balles de compétition, gadgets d’entraînement : attendez d’avoir un swing régulier.
 Cochez ce que vous avez : la liste est gardée sur cet appareil. Pas de prix affichés, ils varient selon la marque et l’état.
 Le lexique
 Un mot vous échappe ?
@@ -280,10 +286,6 @@ Combien coûte le golf quand on débute ?
 Cela dépend du golf, de l’enseignant et du matériel choisi. Birdy Agent ne publie pas de prix : envoyez une demande gratuite, un conseiller vous donne les vrais tarifs près de chez vous.
 Cours avec un pro  ·  Réserver un parcours  ·  Voyages golf
 Birdy  Une question ?
-Birdy    Votre coach pour débuter   ×
-Bonjour ! Je suis Birdy, votre coach pour débuter. Ici, aucune question n’est bête : posez la vôtre.
-Par où commencer ?  C’est quoi la carte verte ?  Je suis gaucher, ça change quoi ?  Quels clubs pour débuter ?
-Votre question à Birdy
 WhatsApp
 
 # Guides

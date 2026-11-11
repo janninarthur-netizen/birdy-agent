@@ -1,5 +1,5 @@
 /* Pôle « Débuter » : l'interface (hors scènes 3D, voir debuter3d.js).
-   Birdy en coach dans un panneau flottant, trajectoires des clubs, score, étiquette, starter pack, lexique. */
+   Birdy en coach (large cadre en haut, qui flotte quand on descend), trajectoires des clubs, score, étiquette, starter pack, lexique. */
 (function () {
   "use strict";
   var D = JSON.parse(document.getElementById("db-data").textContent);
@@ -12,15 +12,27 @@
   var btn = document.getElementById("bc-btn"), pan = document.getElementById("bc-pan"), say = document.getElementById("db-say"),
     sugg = document.getElementById("db-sugg"), form = document.getElementById("db-form"), q = document.getElementById("db-q");
   var BG = window.BirdyGolf, histo = [], occupe = false;
-  function ouvre(focus) {
-    pan.hidden = false; requestAnimationFrame(function () { pan.classList.add("on"); });
-    btn.setAttribute("aria-expanded", "true"); document.body.classList.add("bc-on");
+  // Un seul chat : il est en haut de la page ; quand on a défilé, il se détache et flotte (la conversation est gardée)
+  var place = document.getElementById("bc-place"), loin = false;
+  function flotte(focus) {
+    if (!pan.classList.contains("flot")) { place.style.minHeight = pan.offsetHeight + "px"; pan.classList.add("flot"); }
+    btn.setAttribute("aria-expanded", "true"); document.body.classList.add("bc-on"); bas();
     if (focus !== false) setTimeout(function () { q.focus({ preventScroll: true }); }, 250);
   }
-  function ferme() { pan.classList.remove("on"); btn.setAttribute("aria-expanded", "false"); document.body.classList.remove("bc-on"); setTimeout(function () { if (!pan.classList.contains("on")) pan.hidden = true; }, 260); }
-  btn.addEventListener("click", function () { if (pan.classList.contains("on")) ferme(); else ouvre(); });
-  document.getElementById("bc-x").addEventListener("click", ferme);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pan.classList.contains("on")) { ferme(); btn.focus(); } });
+  function range() { pan.classList.remove("flot"); place.style.minHeight = ""; btn.setAttribute("aria-expanded", "false"); document.body.classList.remove("bc-on"); bas(); }
+  function ouvre(focus) {
+    if (loin) { flotte(focus); return; }
+    var r = place.getBoundingClientRect();
+    if (r.top < 70 || r.bottom > innerHeight) place.scrollIntoView({ behavior: calme ? "auto" : "smooth", block: "center" });
+    if (focus !== false) setTimeout(function () { q.focus({ preventScroll: true }); }, 300);
+  }
+  if (window.IntersectionObserver) new IntersectionObserver(function (e) {
+    loin = !e[0].isIntersecting; document.body.classList.toggle("bc-loin", loin);
+    if (!loin && pan.classList.contains("flot")) range();          // revenu en haut : Birdy reprend sa place
+  }, { threshold: 0.05 }).observe(place);
+  btn.addEventListener("click", function () { if (pan.classList.contains("flot")) range(); else flotte(); });
+  document.getElementById("bc-x").addEventListener("click", range);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pan.classList.contains("flot")) { range(); btn.focus(); } });
   function bas() { say.scrollTop = say.scrollHeight; }
   function bulle(cls, contenu, texte) {
     var d = el("div", "gm " + cls);
