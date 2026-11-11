@@ -6,7 +6,7 @@
 //  - gratuit : l'IA de Cloudflare (liaison « Workers AI » nommée AI dans les réglages Cloudflare Pages) ;
 //  - payant : Claude, si le secret ANTHROPIC_API_KEY existe (prioritaire).
 // Sans aucun des deux, ou si le quota gratuit du jour est épuisé, le site garde l'agent simple.
-import { SYSTEM } from "../../lib/birdy-ctx.js";
+import { SYSTEM, BASE, REF, VOYAGE, COURT, NOMS } from "../../lib/birdy-ctx.js";
 
 // Date du jour (heure de Paris), pour que Birdy comprenne « samedi », « ce week-end »…
 function aujourdhui() {
@@ -158,6 +158,18 @@ const SANS_NOMS = "Pour les parcours français, je préfère ne pas vous citer d
   "Dites-moi plutôt la ville ou la région qui vous tente, et je vous affiche les vrais parcours de l’annuaire officiel, avec la distance et le nombre de trous.\n" +
   "<choix>Côte basque|Bretagne|Île-de-France|Côte d’Azur</choix>\n<fiche>{}</fiche>";
 
+// Consignes envoyées à l'IA gratuite : le socle, plus les blocs utiles à CETTE conversation.
+// Le quota gratuit du jour se compte à la longueur des consignes : on n'envoie les 55 destinations que si l'on parle voyage,
+// et la fiche de référence golf que si l'on parle règles, technique, matériel ou débuts.
+const RE_VOYAGE = /voyage|s[ée]jour|partir|destination|soleil|week-?end|vacances|\bevg\b|enterrement de vie|s[ée]minaire|[ée]tranger|h[ôo]tel|avion|\bvols?\b|resort|\blinks\b|\/golf\/|\/voyages\/|\/guides\//i;
+const RE_REF = /r[èe]gle|p[ée]nalit|hors.?limite|drop|injouable|provisoire|slice|hook|gratte|\btop|socket|swing|grip|posture|align|putt|bunker|approche|chip|drive|\bfers?\b|\bbois\b|hybride|wedge|\bclubs?\b|mat[ée]riel|[ée]quipement|\bsac\b|balle|index|handicap|carte verte|d[ée]but|apprendre|commencer|technique|conseil|score|stableford|birdie|bogey|eagle|\bpar\b|veut dire|c.est quoi|qu.est-ce|[ée]tiquette|mental|stress|\[Page d[ée]buter/i;
+function consignes(messages) {
+  const conv = messages.map((m) => m.content).join("\n");
+  const bas = conv.toLowerCase();
+  const voyage = RE_VOYAGE.test(conv) || NOMS.some((n) => bas.includes(n));
+  return BASE + (RE_REF.test(conv) ? "\n" + REF : "") + "\n" + (voyage ? VOYAGE : COURT);
+}
+
 // IA gratuite de Cloudflare. Génération en un bloc (le mode flux perd des espaces devant les nombres).
 // Si un modèle échoue (quota, indisponible), on essaie le suivant.
 async function cloudflareIA(env, messages) {
@@ -166,11 +178,12 @@ async function cloudflareIA(env, messages) {
   // Le visiteur écrit-il en français ? (dernier message)
   const dernier = messages[messages.length - 1].content;
   const francais = !/\b(the|and|you|what|where|how|please|golf course near)\b/i.test(dernier) || /[éèàçù]|\b(le|la|les|un|une|pour|près|vers)\b/i.test(dernier);
+  const sys = consignes(messages) + aujourdhui();
   for (const m of modeles) {
     try {
       const r = m.startsWith("@cf/openai/")
-        ? await env.AI.run(m, { instructions: SYSTEM + aujourdhui(), input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
-        : await env.AI.run(m, { messages: [{ role: "system", content: SYSTEM + aujourdhui() }, ...messages], max_tokens: 900, temperature: 0.3 });
+        ? await env.AI.run(m, { instructions: sys, input: messages, reasoning: { effort: "low" }, max_output_tokens: 3000 })
+        : await env.AI.run(m, { messages: [{ role: "system", content: sys }, ...messages], max_tokens: 900, temperature: 0.3 });
       texte = reponseFinale(texteDe(r).trim(), francais);
       if (texte && golfInvente(texte, messages)) { console.log("Workers AI : nom de golf inventé", m); texte = ""; invente = true; continue; }
       if (texte) break;

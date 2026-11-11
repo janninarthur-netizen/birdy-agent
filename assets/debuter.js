@@ -80,10 +80,27 @@
       })
       .catch(function () {
         histo.pop();
-        t.textContent = "Je n’arrive pas à répondre pour l’instant. Les fiches et le lexique de cette page restent à votre disposition, ou réessayez dans un instant.";
+        // Birdy indisponible (quota gratuit du jour atteint, panne) : on répond avec le guide de la page
+        var loc = secours(txt);
+        if (loc) { t.textContent = ""; t.appendChild(el("b", null, "Réponse du guide : ")); t.appendChild(document.createTextNode(loc)); }
+        else t.textContent = "Birdy est très demandé aujourd’hui et ne peut pas répondre tout de suite. Les fiches, le lexique et les questions fréquentes de cette page ont sûrement la réponse ; sinon, réessayez un peu plus tard.";
         rapides(["Par où commencer ?", "C’est quoi la carte verte ?", "Quels clubs pour débuter ?"]);
       })
       .then(function () { occupe = false; });
+  }
+  // Réponse de secours tirée de la page : questions fréquentes, première étape ou lexique
+  var SECOURS = [[/carte verte/, 2], [/gaucher/, 3], [/\b(age|enfants?|vieux|retraite|ans)\b/, 4], [/co[uû]te|prix|cher|tarif|budget/, 5],
+    [/clubs?|materiel|acheter|equipement|starter/, 1], [/temps|longtemps|combien de (seances|cours|mois)/, 0]];
+  function secours(txt) {
+    var v = txt.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""), faq = document.querySelectorAll(".faq details p"), i;
+    for (i = 0; i < SECOURS.length; i++) if (SECOURS[i][0].test(v) && faq[SECOURS[i][1]]) return faq[SECOURS[i][1]].textContent;
+    if (/commencer|debuter|par ou|premier|initiation/.test(v)) { var e1 = document.querySelector(".db-step p"); if (e1) return "Commencez par une initiation. " + e1.textContent; }
+    var mots = document.querySelectorAll(".db-mot");
+    for (i = 0; i < mots.length; i++) {
+      var m = mots[i].querySelector("dt").textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(" (")[0];
+      if (m.length > 2 && new RegExp("\\b" + m.replace(/[-.]/g, ".") + "s?\\b").test(v)) return mots[i].querySelector("dt").textContent + " : " + mots[i].querySelector("dd").textContent;
+    }
+    return "";
   }
   form.addEventListener("submit", function (ev) { ev.preventDefault(); envoie(q.value); q.value = ""; });
   sugg.addEventListener("click", function (ev) { var b = ev.target.closest && ev.target.closest("button"); if (b) envoie(b.textContent); });

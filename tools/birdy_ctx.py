@@ -181,7 +181,30 @@ Hébergement (de l'hôtel au resort sur le golf) et répartition des chambres, g
 {gds}
 """
 
+# L'IA gratuite est limitée par un quota quotidien, et chaque réponse « coûte » la longueur des consignes.
+# On découpe donc les consignes en blocs : le socle (toujours envoyé) et deux blocs envoyés seulement quand la
+# conversation en a besoin (functions/api/birdy.js) : la fiche de référence golf et les données de voyage.
+import re as _re
+
+blocs = _re.split(r"\n(?=# )", SYSTEM)
+titre = lambda b: b.split("\n", 1)[0]
+EST_REF = lambda b: titre(b).startswith("# Fiche de référence golf")
+EST_VOYAGE = lambda b: titre(b).startswith(("# Quand on parle séjour", "# Ce que Birdy Agent organise", "# Bon à savoir", "# Nos ", "# Pages par pays", "# Guides"))
+BASE = "\n".join(b for b in blocs if not EST_REF(b) and not EST_VOYAGE(b))
+REF = "\n".join(b for b in blocs if EST_REF(b))
+VOYAGE = "\n".join(b for b in blocs if EST_VOYAGE(b))
+# Version courte des destinations, envoyée quand on ne parle pas (encore) de voyage : Birdy peut quand même en citer une
+COURT = ("# Nos destinations de voyage (liste courte)\nSi la personne évoque un voyage, propose 1 à 3 destinations de cette liste, avec un lien vers sa page. "
+         + " ; ".join(f"{d['nom']} : /golf/{pages.slug(d['nom'])}" for d in D))
+# Mots qui signalent un voyage : noms des destinations et des pays
+NOMS = sorted({d["nom"].lower() for d in D} | {d["pays"].lower() for d in D})
+assert REF and VOYAGE and len(BASE) + len(REF) + len(VOYAGE) + 2 == len(SYSTEM), "découpage des consignes"
+
 os.makedirs("lib", exist_ok=True)
+J = lambda x: json.dumps(x, ensure_ascii=False)
 open("lib/birdy-ctx.js", "w", encoding="utf8").write(
-    "// Généré par tools/birdy_ctx.py - ne pas modifier à la main.\nexport const SYSTEM = " + json.dumps(SYSTEM, ensure_ascii=False) + ";\n")
-print("lib/birdy-ctx.js :", len(SYSTEM), "caractères")
+    "// Généré par tools/birdy_ctx.py - ne pas modifier à la main.\n"
+    "// SYSTEM : consignes complètes. BASE + REF + VOYAGE (ou COURT) : les mêmes, en blocs envoyés selon la conversation.\n"
+    f"export const SYSTEM = {J(SYSTEM)};\nexport const BASE = {J(BASE)};\nexport const REF = {J(REF)};\n"
+    f"export const VOYAGE = {J(VOYAGE)};\nexport const COURT = {J(COURT)};\nexport const NOMS = {J(NOMS)};\n")
+print("lib/birdy-ctx.js :", len(SYSTEM), "caractères (socle", len(BASE), "· référence golf", len(REF), "· voyage", len(VOYAGE), "· liste courte", len(COURT), ")")
