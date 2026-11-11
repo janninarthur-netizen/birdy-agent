@@ -191,7 +191,8 @@ Face  Profil
 Les clubs
 Un club, une trajectoire
 Bois  Hybride  Fer 7  Fer 9  Sand wedge  Putter
-Les portées sont comparées entre elles : la distance réelle dépend de chaque joueur.
+Distance moyenne
+Distances moyennes de joueurs amateurs adultes, des joueuses aux joueurs, pour un coup complet. Quand on débute, on est souvent en dessous : c’est normal.
 Le score
 Comptez vos coups
 Ce trou est un  par 4  : quatre coups prévus.

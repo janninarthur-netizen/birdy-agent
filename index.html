@@ -27,7 +27,7 @@
 <meta name="google-site-verification" content="9CmbDk2RYy_-zVtR54PaEHLoKOCGyIaTBsAj_KvGPvg">
 <link rel="stylesheet" href="/parcours/parcours.css?v=f628cdf9">
 <link rel="stylesheet" href="/parcours/pro.css?v=4cf41d5f">
-<link rel="stylesheet" href="/assets/accueil.css?v=2b7aafb5">
+<link rel="stylesheet" href="/assets/accueil.css?v=77b0989f">
 <link rel="preload" as="image" href="/assets/img/green-coucher-soleil.webp" fetchpriority="high">
 <script>if(location.hash==="#organiser"||/[?&]dest=/.test(location.search))location.replace("/voyages/"+location.search+location.hash)</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Birdy Agent", "alternateName": ["Birdy-Agent", "BirdyAgent", "Birdy Agent golf", "Birdy Agent – Le golf sur mesure"], "url": "https://birdy-agent.pages.dev/", "inLanguage": "fr-FR", "publisher": {"@type": "TravelAgency", "@id": "https://birdy-agent.pages.dev/#agence", "name": "Birdy Agent", "url": "https://birdy-agent.pages.dev/"}}</script>
@@ -61,14 +61,19 @@
   <p class="ha-k">À quoi sert Birdy Agent ?</p>
   <h2 class="ha-h2">Un seul assistant, tout votre golf</h2>
   <p class="ha-sub">Birdy comprend ce que vous cherchez et vous emmène au bon endroit. Vous pouvez aussi y aller directement.</p>
-  <div class="ha-poles">
-    <a class="ha-pole t3d ha-ia" href="/debuter/"><i>🌱</i><small>Débuter</small><b>Apprendre les bases</b>
+  <div class="h3" id="h3" hidden>
+    <div class="h3-lbls" id="h3-lbls"></div>
+    <div class="h3-card" id="h3-card" aria-live="polite"><small></small><b></b><p></p><a class="btn gold" href="#ha-chat"></a></div>
+    <p class="h3-hint" aria-hidden="true">Survolez un pôle · faites glisser pour tourner</p>
+  </div>
+  <div class="ha-poles" id="ha-poles">
+    <a class="ha-pole t3d ha-ia" href="/debuter/" data-pole="debuter"><i>🌱</i><small>Débuter</small><b>Apprendre les bases</b>
       <span>Les 5 étapes du débutant, les bases du swing, le lexique et le starter pack pour bien commencer.</span><em>Débuter le golf →</em></a>
-    <a class="ha-pole t3d" href="/cours/"><i>🎓</i><small>Cours avec un Pro</small><b>Progresser avec un pro</b>
+    <a class="ha-pole t3d" href="/cours/" data-pole="cours"><i>🎓</i><small>Cours avec un Pro</small><b>Progresser avec un pro</b>
       <span>Initiation, cours individuels, stages ou analyse vidéo, dans le golf de votre choix.</span><em>Trouver un cours →</em></a>
-    <a class="ha-pole t3d" href="/parcours/"><i>⛳</i><small>Réserver un parcours</small><b>Jouer près de chez vous</b>
+    <a class="ha-pole t3d" href="/parcours/" data-pole="parcours"><i>⛳</i><small>Réserver un parcours</small><b>Jouer près de chez vous</b>
       <span>621 golfs de France, dont 413 avec un parcours 18 trous. Choisissez, demandez votre départ.</span><em>Trouver un parcours →</em></a>
-    <a class="ha-pole t3d" href="/voyages/"><i>✈️</i><small>Voyages</small><b>Partir jouer en groupe</b>
+    <a class="ha-pole t3d" href="/voyages/" data-pole="voyages"><i>✈️</i><small>Voyages</small><b>Partir jouer en groupe</b>
       <span>55 destinations dans le monde, entre amis, en club ou en séminaire. Un conseiller obtient les vrais tarifs.</span><em>Organiser un séjour →</em></a>
   </div>
 </div></section>
@@ -103,6 +108,8 @@
 </main>
 <script defer src="/assets/parcours.js?v=102878b3"></script>
 <script defer src="/assets/accueil.js?v=65e8baf9"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="/assets/accueil3d.js?v=6804cd33"></script>
 <a class="wa" href="https://wa.me/33616213447?text=Bonjour%20Birdy%20Agent%2C%20je%20souhaite%20organiser%20un%20s%C3%A9jour%20golf." target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">WhatsApp</a>
 <footer><div class="in">
   <div><strong>BIRDY AGENT</strong><span>Le golf sur mesure · séjours golf de groupe</span></div>
