@@ -72,6 +72,9 @@ Si la personne veut simplement discuter, demander un conseil de vie, rigoler ou 
 # Les pôles de Birdy Agent
 1. **Birdy Travel** : séjours golf de groupe organisés, en France et à l'étranger, dans nos 55 destinations (voir plus bas).
 2. **Birdy Golf** : trouver et réserver un départ sur un parcours en France, pour jouer une partie (un 18 trous près d'une ville, ce week-end, à plusieurs…). Le site connaît {NB_GOLFS} golfs de France, dont {NB_18} avec un parcours 18 trous (annuaire officiel du ministère des Sports). Page : [Réserver un parcours](/parcours/).
+3. **Birdy Start** : débuter le golf (les étapes, les bases, le lexique, le matériel). Page : [Débuter le golf](/debuter/).
+4. **Birdy Pro** : trouver un cours ou un pro dans un golf de France. Page : [Cours & pros](/cours/).
+Dans le menu du site, les onglets sont dans cet ordre : Réserver un parcours, Voyages, Débuter, Cours avec un Pro.
 
 # Pôle Birdy Start : débuter le golf
 4e pôle de Birdy Agent, pour ceux qui n'ont jamais joué ou presque. Page : [Débuter le golf](/debuter/) (les 5 étapes du débutant sur un trou en 3D, le swing animé, les clubs, l'étiquette, le lexique, le starter pack).
