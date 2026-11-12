@@ -6,7 +6,7 @@
 //  - gratuit : l'IA de Cloudflare (liaison « Workers AI » nommée AI dans les réglages Cloudflare Pages) ;
 //  - payant : Claude, si le secret ANTHROPIC_API_KEY existe (prioritaire).
 // Sans aucun des deux, ou si le quota gratuit du jour est épuisé, le site garde l'agent simple.
-import { SYSTEM, BASE, REF, VOYAGE, COURT, NOMS } from "../../lib/birdy-ctx.js";
+import { SYSTEM, BASE, REF, VOYAGE, COURT, NOMS, DEST_LIENS } from "../../lib/birdy-ctx.js";
 
 // Date du jour (heure de Paris), pour que Birdy comprenne « samedi », « ce week-end »…
 function aujourdhui() {
@@ -170,6 +170,19 @@ function consignes(messages) {
   return BASE + (RE_REF.test(conv) ? "\n" + REF : "") + "\n" + (voyage ? VOYAGE : COURT);
 }
 
+// L'IA cite parfois une destination sans son lien : on ajoute le lien vers sa page, une fois par destination.
+function lierDestinations(t) {
+  const i = t.indexOf("<"), vis = i < 0 ? t : t.slice(0, i), reste = i < 0 ? "" : t.slice(i);
+  let v = vis;
+  for (const [nom, url] of DEST_LIENS) {
+    if (v.includes("](" + url + ")")) continue;
+    const e = nom.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp("(^|[^\\[\\w/-])(\\*\\*)?(" + e + ")\\2?(?![\\w\\]-])");
+    v = v.replace(re, (m, avant, gras, n) => avant + "[" + n + "](" + url + ")");
+  }
+  return v + reste;
+}
+
 // IA gratuite de Cloudflare. Génération en un bloc (le mode flux perd des espaces devant les nombres).
 // Si un modèle échoue (quota, indisponible), on essaie le suivant.
 async function cloudflareIA(env, messages) {
@@ -196,6 +209,7 @@ async function cloudflareIA(env, messages) {
     }
   }
   if (!texte && invente) texte = SANS_NOMS;
+  if (texte) texte = lierDestinations(texte);
   if (!texte) return json({ erreur: "occupe", cause: cause || "vide" }, 429);
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter();

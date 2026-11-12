@@ -201,6 +201,8 @@ COURT = ("# Nos destinations de voyage (liste courte)\nSi la personne évoque un
          + " ; ".join(f"{d['nom']} : /golf/{pages.slug(d['nom'])}" for d in D))
 # Mots qui signalent un voyage : noms des destinations et des pays
 NOMS = sorted({d["nom"].lower() for d in D} | {d["pays"].lower() for d in D})
+# Nom exact et page de chaque destination : le serveur ajoute le lien quand l'IA cite une destination sans lien
+DEST_LIENS = sorted([[d["nom"], "/golf/" + pages.slug(d["nom"])] for d in D], key=lambda x: -len(x[0]))
 assert REF and VOYAGE and len(BASE) + len(REF) + len(VOYAGE) + 2 == len(SYSTEM), "découpage des consignes"
 
 os.makedirs("lib", exist_ok=True)
@@ -209,5 +211,5 @@ open("lib/birdy-ctx.js", "w", encoding="utf8").write(
     "// Généré par tools/birdy_ctx.py - ne pas modifier à la main.\n"
     "// SYSTEM : consignes complètes. BASE + REF + VOYAGE (ou COURT) : les mêmes, en blocs envoyés selon la conversation.\n"
     f"export const SYSTEM = {J(SYSTEM)};\nexport const BASE = {J(BASE)};\nexport const REF = {J(REF)};\n"
-    f"export const VOYAGE = {J(VOYAGE)};\nexport const COURT = {J(COURT)};\nexport const NOMS = {J(NOMS)};\n")
+    f"export const VOYAGE = {J(VOYAGE)};\nexport const COURT = {J(COURT)};\nexport const NOMS = {J(NOMS)};\nexport const DEST_LIENS = {J(DEST_LIENS)};\n")
 print("lib/birdy-ctx.js :", len(SYSTEM), "caractères (socle", len(BASE), "· référence golf", len(REF), "· voyage", len(VOYAGE), "· liste courte", len(COURT), ")")
