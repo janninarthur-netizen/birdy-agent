@@ -99,7 +99,9 @@ def head(title, desc, path, image, extra=""):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/golf/style.css">
 <script defer src="/assets/menu.js"></script>
-{extra}</head>
+{extra}<link rel="stylesheet" href="/assets/mobile.css">
+<script defer src="/assets/mobile.js"></script>
+</head>
 <body>
 <header class="top"><div class="in">
   <a class="logo" href="/"><img src="/logo.webp" alt="Birdy Agent" width="48" height="48"><span>BIRDY AGENT</span></a>
