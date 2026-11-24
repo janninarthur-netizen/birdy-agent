@@ -200,7 +200,7 @@
     c.addEventListener("mouseenter", function () { active(i); }); c.addEventListener("focus", function () { active(i); }); c.addEventListener("mouseleave", relache); c.addEventListener("blur", relache);
     return p;
   });
-  var lblB = el("a", "h3-lbl h3-birdy"); lblB.href = "#ha-chat"; lblB.appendChild(el("span", null, "Birdy · votre assistant")); lbls.appendChild(lblB);
+  var lblB = el("a", "h3-lbl h3-birdy"); lblB.href = "#ha-chat"; lblB.appendChild(el("span", null, "Birdy")); lbls.appendChild(lblB);
   function parler(ev) { var b = document.getElementById("ha-parler2"); if (b) { if (ev) ev.preventDefault(); b.click(); } else location.hash = "#ha-chat"; }
   lblB.addEventListener("click", parler);
 

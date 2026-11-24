@@ -96,12 +96,11 @@ out += f"""<main class="gp home" id="accueil">
 
 <section class="ha-hero"><div class="in">
   <div class="ha-logo" id="ha-logo"><img src="/logo.webp" alt="Birdy Agent" width="118" height="118"></div>
-  <p class="ha-k"><i class="gp-dot"></i>L’assistant IA du golf</p>
   <h1 class="ha-h1">Le golf <em>sur mesure.</em></h1>
-  <p class="ha-lead">Apprendre, progresser, jouer, partir : un seul assistant pour tout votre golf.</p>
+  <p class="ha-lead">Apprendre, progresser, jouer, partir.</p>
 
   <div class="gp-chat ha-chat" id="ha-chat">
-    <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="52" height="52"><div><b>Birdy</b><span><i class="gp-dot"></i>Votre assistant golf · répond tout de suite</span></div></div>
+    <div class="gp-chat-h"><img src="/favicon-96.png" alt="" width="52" height="52"><div><b>Birdy</b><span><i class="gp-dot"></i>Répond tout de suite</span></div></div>
     <div class="gp-log" id="ha-say" aria-live="polite"><div class="gm b">Bonjour, je suis Birdy. Un voyage golf entre amis, un parcours près de chez vous, un cours pour débuter ou une simple question : dites-moi tout.</div></div>
     <div class="gp-sugg" id="ha-sugg"><button type="button">Je débute, par où commencer ?</button><button type="button">Un 18 trous près de Lyon samedi</button><button type="button">8 amis au soleil en mars</button><button type="button">Un cours près de Bordeaux</button><button type="button">C’est quoi un index ?</button></div>
     <form class="gp-ask" id="ha-ask" autocomplete="off"><label class="sr" for="ha-q">Votre message à Birdy</label>
@@ -112,7 +111,7 @@ out += f"""<main class="gp home" id="accueil">
 
 <section class="ha-sec" id="a-quoi-sert"><div class="in">
   <p class="ha-k">À quoi sert Birdy Agent ?</p>
-  <h2 class="ha-h2">Un seul assistant, tout votre golf</h2>
+  <h2 class="ha-h2">Tout votre golf, au même endroit</h2>
   <p class="ha-sub">Birdy comprend ce que vous cherchez et vous emmène au bon endroit. Vous pouvez aussi y aller directement.</p>
   <div class="h3" id="h3" hidden>
     <div class="h3-halo" id="h3-halo" aria-hidden="true"></div>
