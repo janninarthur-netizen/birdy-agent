@@ -7,6 +7,19 @@
 @media (max-width:767px){
   .m-only{display:revert!important}
 
+  /* ---------- 0. Fond des pages « pro » (accueil, Parcours, Cours, Débuter) ----------
+     Sur ordinateur, la photo est fixe derrière la page. Sur téléphone, elle s'étirait sur toute la hauteur
+     (et iPhone ne gère pas les fonds fixes) : on n'en voyait qu'un ciel gris très agrandi.
+     Ici, un calque fixé à l'écran, cadré sur le fairway, sous un fondu vert. */
+  html.pro body{background:#0A1E17}
+  html.pro main.gp{background:transparent!important}
+  html.pro body::before{content:"";position:fixed;left:0;right:0;top:0;height:100vh;height:100lvh;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(120% 55% at 50% 0%,rgba(91,192,138,.16),rgba(91,192,138,0) 70%),
+      linear-gradient(180deg,rgba(10,30,23,.88) 0%,rgba(13,46,34,.62) 34%,rgba(10,32,24,.72) 66%,rgba(8,24,18,.94) 100%),
+      url(/assets/img/green-coucher-soleil.webp) 58% 72%/cover no-repeat;
+    background-color:#0A1E17}
+
   /* ---------- 1. Carrousels horizontaux au pouce (au lieu des longues piles de cartes) ---------- */
   .mc-grid,.ha-poles,.ha-qui,.poles-grid,.who-grid,.cp-types,.gp-mosa,.et-grid{
     display:flex!important;flex-wrap:nowrap!important;gap:12px!important;overflow-x:auto;overflow-y:hidden;
