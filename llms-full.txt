@@ -3016,7 +3016,7 @@ Golf du Belvedere
 28 km   Bossey (74) · Haute-Savoie
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Club d'Esery
 28 km   Reignier-Ésery (74) · Haute-Savoie
-18 trous  9 trous  Golf associatif    Demander un départ  Site du golf       Golf de Mornex
+18 trous  9 trous  Green fee 130 €  Golf associatif    Demander un départ  Site du golf       Golf de Mornex
 29 km   Monnetier-Mornex (74) · Haute-Savoie
 9 trous  Golf privé    Demander un départ       Golf Club Aix-les-Bains 1895
 31 km   Aix-les-Bains (73) · Savoie
@@ -3026,13 +3026,13 @@ Golf du Belvedere
 38 km   Saint-Genis-Pouilly (01) · Ain
 9 trous  Golf privé    Demander un départ       Golf du Mont d'Arbois
 40 km   Megève (74) · Haute-Savoie
-18 trous  Golf privé    Demander un départ
+18 trous  Green fee 65 à 89 €  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Annecy ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Annecy, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Annecy ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf Club d'Esery : 130 € ; Golf du Mont d'Arbois : 65 à 89 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3049,11 +3049,11 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf du Grand Avignon
 5 km   Vedène (84) · Vaucluse
-18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Garden Golf Avignon
+18 trous  9 trous  Green fee 75 €  Golf privé    Demander un départ  Site du golf       Garden Golf Avignon
 6 km   Morières-lès-Avignon (84) · Vaucluse
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de Saumane
 21 km   Saumane-de-Vaucluse (84) · Vaucluse
-18 trous  Golf privé    Demander un départ  Site du golf       Golf d'Orange
+18 trous  Green fee 75 à 95 €  Golf privé    Demander un départ  Site du golf       Golf d'Orange
 23 km   Orange (84) · Vaucluse
 9 trous  Golf privé    Demander un départ       Golf du Domaine de Manville
 23 km   Les Baux-de-Provence (13) · Bouches-du-Rhône
@@ -3061,7 +3061,7 @@ Golf du Grand Avignon
 27 km   Mouriès (13) · Bouches-du-Rhône
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Club d'Uzes
 32 km   Uzès (30) · Gard
-18 trous  Golf privé    Demander un départ       Golf de Saint Martin de Crau
+18 trous  Green fee 60 à 70 €  Golf privé    Demander un départ  Site du golf       Golf de Saint Martin de Crau
 34 km   Saint-Martin-de-Crau (13) · Bouches-du-Rhône
 9 trous  Golf public    Demander un départ       Golf de Pont Royal en Provence
 40 km   Mallemort (13) · Bouches-du-Rhône
@@ -3071,7 +3071,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Avignon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Avignon, et 9 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Avignon ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf du Grand Avignon : 75 € ; Golf de Saumane : 75 à 95 € ; Golf Club d'Uzes : 60 à 70 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3777,7 +3777,7 @@ Golf Parislongchamp
 27 km   Feucherolles (78) · Yvelines
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Bussy-Guermantes
 27 km   Bussy-Saint-Georges (77) · Seine-et-Marne
-18 trous  9 trous  Golf privé    Demander un départ  Site du golf       UGOLF: Golf de Saint Germain lès Corbeil
+18 trous  9 trous  Green fee 66 à 80 €  Golf privé    Demander un départ  Site du golf       UGOLF: Golf de Saint Germain lès Corbeil
 27 km   Saint-Germain-lès-Corbeil (91) · Essonne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Bellefontaine
 27 km   Bellefontaine (95) · Val-d'Oise
@@ -3807,7 +3807,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Paris ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf Blue Green Marolles : 35 à 79 € ; Golf Blue Green Saint-Aubin : 59 à 79 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; UGOLF Gif-Chevry : 45 à 49 € ; Ile de Loisirs de Saint Quentin en Yvelines : 44 à 79 € ; Golf de Villennes sur Seine : 44 à 79 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf Blue Green Marolles : 35 à 79 € ; Golf Blue Green Saint-Aubin : 59 à 79 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; UGOLF Gif-Chevry : 45 à 49 € ; Golf de Bussy-Guermantes : 66 à 80 € ; Ile de Loisirs de Saint Quentin en Yvelines : 44 à 79 € ; Golf de Villennes sur Seine : 44 à 79 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3830,7 +3830,7 @@ Golf de Reims Champagne
 25 km   Mourmelon-le-Grand (51) · Marne
 18 trous    Demander un départ       Golf de Champagne
 28 km   Villers-Agron-Aiguizy (02) · Aisne
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Ailette
+18 trous  Green fee 58 à 70 €  Golf privé    Demander un départ  Site du golf       Golf de l'Ailette
 36 km   Cerny-en-Laonnois (02) · Aisne
 18 trous  9 trous  Green fee 30 à 78 €  Golf public    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
@@ -3838,7 +3838,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Reims ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Reims, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Reims ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de l'Ailette : 30 à 78 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Champagne : 58 à 70 € ; Golf de l'Ailette : 30 à 78 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3894,7 +3894,7 @@ Golf de Rouen Mont-Saint-Aignan
 18 km   Jumièges (76) · Seine-Maritime
 18 trous  Golf public    Demander un départ       Golf du Vaudreuil
 22 km   Le Vaudreuil (27) · Eure
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Yerville
+18 trous  Green fee 65 à 110 €  Golf privé    Demander un départ  Site du golf       Golf de Yerville
 29 km   Yerville (76) · Seine-Maritime
 9 trous  Golf associatif    Demander un départ       Golf Hôtel de Saint-Saëns
 30 km   Saint-Saëns (76) · Seine-Maritime
@@ -3912,7 +3912,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rouen ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Rouen, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Rouen ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Rouen La Forêt Verte : 56 à 66 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Rouen La Forêt Verte : 56 à 66 € ; Golf du Vaudreuil : 65 à 110 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3933,7 +3933,7 @@ Golf du Fort
 8 km   Illkirch-Graffenstaden (67) · Bas-Rhin
 18 trous  9 trous  Golf associatif    Demander un départ       Golf de la Wantzenau
 12 km   La Wantzenau (67) · Bas-Rhin
-18 trous  Golf privé    Demander un départ  Site du golf       Golf du Kempferhof
+18 trous  Green fee 85 à 100 €  Golf privé    Demander un départ  Site du golf       Golf du Kempferhof
 12 km   Plobsheim (67) · Bas-Rhin
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Soufflenheim-Baden-baden
 30 km   Soufflenheim (67) · Bas-Rhin
@@ -3943,7 +3943,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Strasbourg ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Strasbourg, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Strasbourg ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de la Wantzenau : 85 à 100 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes

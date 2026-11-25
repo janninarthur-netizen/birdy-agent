@@ -2496,6 +2496,764 @@
    "source": "https://jouer.golf/golf/ugolf-foret-de-chantilly/",
    "site": "https://jouer.golf/golf/ugolf-foret-de-chantilly/",
    "releve": "2026-11-25"
+  },
+  "I740560031": {
+   "nom": "Golf Club de Chamonix",
+   "resume": "70 à 100 €",
+   "lignes": [
+    [
+     "18 trous, basse saison, semaine",
+     "70 €"
+    ],
+    [
+     "18 trous, basse saison, week-end",
+     "85 €"
+    ],
+    [
+     "18 trous, haute saison (16 juin – 15 septembre)",
+     "100 €"
+    ]
+   ],
+   "note": "Basse saison de l’ouverture au 15 mai et du 16 octobre à la fermeture.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdechamonix.com/fr/tarifs-publics",
+   "site": "https://golfdechamonix.com/",
+   "releve": "2026-11-25"
+  },
+  "I742200005": {
+   "nom": "Golf Club d’Esery",
+   "resume": "130 €",
+   "lignes": [
+    [
+     "18 trous, visiteur",
+     "130 €"
+    ],
+    [
+     "18 trous, invité d’un membre",
+     "90 €"
+    ],
+    [
+     "Twilight",
+     "75 €"
+    ],
+    [
+     "Junior (jusqu’à 18 ans)",
+     "60 €"
+    ],
+    [
+     "19 à 21 ans",
+     "80 €"
+    ]
+   ],
+   "note": "Index 36 maximum.",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-club-esery.com/fr/tarifs",
+   "site": "https://golf-club-esery.com/",
+   "releve": "2026-11-25"
+  },
+  "I254620019": {
+   "nom": "Golf Club de Pontarlier",
+   "resume": "48 à 58 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "48 €"
+    ],
+    [
+     "18 trous, week-end et haute saison",
+     "58 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "37 € / 45 €"
+    ]
+   ],
+   "note": "Haute saison du 1er juin au 30 septembre : tarif week-end tous les jours.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdepontarlier.fr/le-golf#tarifs",
+   "site": "https://www.golfdepontarlier.fr/",
+   "releve": "2026-11-25"
+  },
+  "I710760061": {
+   "nom": "Golf public de Chalon-sur-Saône",
+   "resume": "35 à 45 €",
+   "lignes": [
+    [
+     "18 trous, haute saison",
+     "45 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "35 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfchalon.com/presentation/tarifs.html",
+   "site": "https://www.golfchalon.com/",
+   "releve": "2026-11-25"
+  },
+  "I394700003": {
+   "nom": "Golf Club du Rochat",
+   "resume": "67 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (8 mai – 11 octobre)",
+     "67 €"
+    ],
+    [
+     "Junior ou étudiant",
+     "43 €"
+    ],
+    [
+     "Fin de journée",
+     "43 €"
+    ],
+    [
+     "Green fee + repas",
+     "86 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdurochat.com/tarifs-2/",
+   "site": "https://golfdurochat.com/",
+   "releve": "2026-11-25"
+  },
+  "I713100006": {
+   "nom": "Golf du Château d’Avoise",
+   "resume": "60 à 80 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (13 novembre – 11 mars)",
+     "60 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "80 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "40 €"
+    ],
+    [
+     "9 trous",
+     "40 € / 50 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-avoise.com/tarifs/",
+   "site": "https://golf-avoise.com/",
+   "releve": "2026-11-25"
+  },
+  "I290570009": {
+   "nom": "Golf de Cornouaille",
+   "resume": "55 à 79 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (1er avril – 15 octobre)",
+     "79 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "55 €"
+    ],
+    [
+     "Couple, 18 trous, haute saison",
+     "138 €"
+    ],
+    [
+     "9 trous, haute saison",
+     "55 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdecornouaille.com/les-tarifs/",
+   "site": "https://www.golfdecornouaille.com/",
+   "releve": "2026-11-25"
+  },
+  "I741730023": {
+   "nom": "Golf du Mont d’Arbois (Megève)",
+   "resume": "65 à 89 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "65 €"
+    ],
+    [
+     "18 trous, saison",
+     "89 €"
+    ],
+    [
+     "9 trous, basse saison / saison",
+     "45 € / 60 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-megeve.fr/fr/nos-tarifs/",
+   "site": "https://golf-megeve.fr/",
+   "releve": "2026-11-25"
+  },
+  "I451460003": {
+   "nom": "Golf des Aisses",
+   "resume": "60 à 150 €",
+   "lignes": [
+    [
+     "Parcours « Les Aisses », 18 trous, basse / haute saison",
+     "125 € / 150 €"
+    ],
+    [
+     "Parcours « La Canne », 18 trous, basse / haute saison",
+     "60 € / 75 €"
+    ],
+    [
+     "9 trous « Les Aisses »",
+     "65 € / 80 €"
+    ]
+   ],
+   "note": "Haute saison du 1er avril au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://aissesgolf.com/",
+   "site": "https://aissesgolf.com/",
+   "releve": "2026-11-25"
+  },
+  "I570890016": {
+   "nom": "Golf de Bitche",
+   "resume": "55 à 85 €",
+   "lignes": [
+    [
+     "18 trous, haute saison, semaine / week-end",
+     "75 € / 85 €"
+    ],
+    [
+     "18 trous, basse saison, semaine / week-end",
+     "55 € / 65 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "40 €"
+    ],
+    [
+     "Fin de journée (dès 16 h)",
+     "40 €"
+    ]
+   ],
+   "note": "Haute saison du 1er mars au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-bitche.com/tarifs/",
+   "site": "https://www.golf-bitche.com/",
+   "releve": "2026-11-25"
+  },
+  "I675190009": {
+   "nom": "Golf de la Wantzenau",
+   "resume": "85 à 100 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "85 €"
+    ],
+    [
+     "18 trous, week-end",
+     "100 €"
+    ],
+    [
+     "Fin de journée",
+     "60 € / 75 €"
+    ],
+    [
+     "Étudiant et junior",
+     "42,50 € / 50 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-wantzenau.fr/fr/tarifs-greenfee",
+   "site": "https://golf-wantzenau.fr/",
+   "releve": "2026-11-25"
+  },
+  "I683750025": {
+   "nom": "Golf des Bouleaux",
+   "resume": "75 à 85 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "75 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "85 €"
+    ],
+    [
+     "9 trous",
+     "44 € / 48 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-bouleaux.fr/fr/green-fee",
+   "site": "https://golf-bouleaux.fr/",
+   "releve": "2026-11-25"
+  },
+  "I575740002": {
+   "nom": "Golf du Château de Preisch",
+   "resume": "75 à 120 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "75 €"
+    ],
+    [
+     "18 trous, haute saison (28 mars – 9 novembre)",
+     "120 €"
+    ],
+    [
+     "9 trous",
+     "50 € / 65 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-de-preisch.com/fr/tarifs",
+   "site": "https://golf-de-preisch.com/",
+   "releve": "2026-11-25"
+  },
+  "I028090001": {
+   "nom": "Golf de Champagne",
+   "resume": "58 à 70 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "58 €"
+    ],
+    [
+     "18 trous, week-end",
+     "70 €"
+    ],
+    [
+     "Étudiant",
+     "20 € / 30 €"
+    ],
+    [
+     "11 trous",
+     "39 € / 49 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-de-champagne.com/tarifs-et-promotions/",
+   "site": "https://www.golf-de-champagne.com/",
+   "releve": "2026-11-25"
+  },
+  "I145150006": {
+   "nom": "Golf d’Omaha Beach",
+   "resume": "80 à 110 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "80 €"
+    ],
+    [
+     "18 trous, haute saison (1er avril – 15 octobre)",
+     "110 €"
+    ],
+    [
+     "Couple",
+     "120 € / 160 €"
+    ],
+    [
+     "9 trous",
+     "49 € / 55 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfomahabeach.fr/fr/tarifs",
+   "site": "https://golfomahabeach.fr/",
+   "releve": "2026-11-25"
+  },
+  "I500810008": {
+   "nom": "Golf de Granville – Baie du Mont-Saint-Michel",
+   "resume": "65 à 105 €",
+   "lignes": [
+    [
+     "Le Links, 18 trous, haute saison (16 mars – 15 novembre)",
+     "105 €"
+    ],
+    [
+     "Le Links, 18 trous, basse saison",
+     "65 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "32 € / 50 €"
+    ],
+    [
+     "Mardi",
+     "46 € / 74 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdegranville.com/fr/green-fees-2025",
+   "site": "https://golfdegranville.com/",
+   "releve": "2026-11-25"
+  },
+  "I275280005": {
+   "nom": "Golf du Vaudreuil",
+   "resume": "65 à 110 €",
+   "lignes": [
+    [
+     "18 trous, haute saison, licencié FFG",
+     "93 €"
+    ],
+    [
+     "18 trous, joueurs étrangers",
+     "110 €"
+    ],
+    [
+     "Fin de journée (après 17 h)",
+     "65 €"
+    ]
+   ],
+   "note": "Licence FFG obligatoire. Tarifs d’avril à octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfduvaudreuil.com/tarifs-abonnements/",
+   "site": "https://golfduvaudreuil.com/",
+   "releve": "2026-11-25"
+  },
+  "I242560003": {
+   "nom": "Golf Club de Périgueux",
+   "resume": "56 à 70 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (octobre à mars)",
+     "56 €"
+    ],
+    [
+     "18 trous, haute saison (avril à septembre)",
+     "70 €"
+    ],
+    [
+     "Licencié FFG, basse saison",
+     "48 €"
+    ],
+    [
+     "9 trous, basse saison",
+     "35 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdeperigueux.com/fr/golf-de-perigueux-tarifs.html",
+   "site": "https://www.golfdeperigueux.com/",
+   "releve": "2026-11-25"
+  },
+  "I862190003": {
+   "nom": "Golf du Haut-Poitou",
+   "resume": "51 à 69 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (décembre à mars)",
+     "51 €"
+    ],
+    [
+     "18 trous, avril et novembre",
+     "60 €"
+    ],
+    [
+     "18 trous, haute saison (mai à octobre)",
+     "69 €"
+    ],
+    [
+     "Moins de 18 ans",
+     "25 à 35 €"
+    ]
+   ],
+   "note": "Tarifs adulte licencié.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfduhautpoitou.fr/",
+   "site": "https://www.golfduhautpoitou.fr/",
+   "releve": "2026-11-25"
+  },
+  "I303340009": {
+   "nom": "Golf Club d’Uzès",
+   "resume": "60 à 70 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (1er avril – 31 octobre)",
+     "70 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "60 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 42 €"
+    ]
+   ],
+   "note": "Licence FFG et niveau de jeu demandés.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfuzes.fr/tarifs-acces/",
+   "site": "https://www.golfuzes.fr/",
+   "releve": "2026-11-25"
+  },
+  "I652510004": {
+   "nom": "Golf Club des Tumulus",
+   "resume": "72 €",
+   "lignes": [
+    [
+     "18 trous, individuel",
+     "72 €"
+    ],
+    [
+     "Couple",
+     "99 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-tumulus.com/",
+   "site": "https://www.golf-tumulus.com/",
+   "releve": "2026-11-25"
+  },
+  "I490650004": {
+   "nom": "Anjou Golf & Country Club",
+   "resume": "42 à 63 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "42 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "63 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "31 €"
+    ],
+    [
+     "9 trous",
+     "30 € / 42 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.anjou-golf.com/les-tarifs",
+   "site": "https://www.anjou-golf.com/",
+   "releve": "2026-11-25"
+  },
+  "I440690011": {
+   "nom": "Golf de Guérande",
+   "resume": "68 à 89 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (novembre à mars)",
+     "68 €"
+    ],
+    [
+     "18 trous, avril et octobre",
+     "78 €"
+    ],
+    [
+     "18 trous, haute saison (mai à septembre)",
+     "89 €"
+    ],
+    [
+     "Licencié FFG",
+     "61 € / 71 € / 82 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdeguerande.com/tarifs/green-fees",
+   "site": "https://www.golfdeguerande.com/",
+   "releve": "2026-11-25"
+  },
+  "I530540011": {
+   "nom": "Laval Golf Club",
+   "resume": "45 à 75 €",
+   "lignes": [
+    [
+     "18 trous, haute saison, non licencié",
+     "75 €"
+    ],
+    [
+     "18 trous, haute saison, licencié",
+     "65 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "45 € / 52 €"
+    ],
+    [
+     "Moins de 26 ans",
+     "25 € / 36 €"
+    ]
+   ],
+   "note": "Haute saison du 1er avril au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdelaval.fr/les-tarifs/",
+   "site": "https://www.golfdelaval.fr/",
+   "releve": "2026-11-25"
+  },
+  "I130630015": {
+   "nom": "Golf Ouest Provence Miramas",
+   "resume": "68 €",
+   "lignes": [
+    [
+     "18 trous",
+     "68 €"
+    ],
+    [
+     "Moins de 21 ans",
+     "34 €"
+    ],
+    [
+     "9 trous",
+     "50 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfouestprovencemiramas.fr/fr/green-fees",
+   "site": "https://golfouestprovencemiramas.fr/",
+   "releve": "2026-11-25"
+  },
+  "I841240001": {
+   "nom": "Golf de Saumane",
+   "resume": "75 à 95 €",
+   "lignes": [
+    [
+     "18 trous, hiver (novembre à mars)",
+     "75 €"
+    ],
+    [
+     "18 trous, été (avril à octobre)",
+     "95 €"
+    ],
+    [
+     "9 trous",
+     "55 € / 75 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "50 € / 65 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdesaumane.fr/tarifs",
+   "site": "https://golfdesaumane.fr/",
+   "releve": "2026-11-25"
+  },
+  "I841410011": {
+   "nom": "Golf du Grand Avignon",
+   "resume": "75 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "75 €"
+    ],
+    [
+     "Couple",
+     "130 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "48 €"
+    ],
+    [
+     "9 trous",
+     "48 €"
+    ]
+   ],
+   "note": "Tarifs de basse saison (janvier – mars, novembre – décembre).",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdugrandavignon.com/green-fees/",
+   "site": "https://golfdugrandavignon.com/",
+   "releve": "2026-11-25"
+  },
+  "I770580004": {
+   "nom": "Golf de Bussy-Guermantes",
+   "resume": "66 à 80 €",
+   "lignes": [
+    [
+     "18 trous, lundi au jeudi",
+     "66 €"
+    ],
+    [
+     "18 trous, vendredi au dimanche et jours fériés",
+     "80 €"
+    ],
+    [
+     "Étudiant (moins de 26 ans)",
+     "40 € / 50 €"
+    ],
+    [
+     "Fin de journée",
+     "40 € / 55 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfbussyguermantes.com/tarifs/",
+   "site": "https://www.golfbussyguermantes.com/",
+   "releve": "2026-11-25"
+  },
+  "I912490004": {
+   "nom": "Golf de Forges-les-Bains",
+   "resume": "58 à 77 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "58 €"
+    ],
+    [
+     "18 trous, week-end",
+     "77 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 46 €"
+    ]
+   ],
+   "note": "Tarifs de haute saison (à partir du 16 mars).",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-forgeslesbains.com/fr/tarifs-haute-saison",
+   "site": "https://golf-forgeslesbains.com/",
+   "releve": "2026-11-25"
+  },
+  "I951500003": {
+   "nom": "Golf de Villarceaux",
+   "resume": "64 à 89 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "64 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "89 €"
+    ],
+    [
+     "Fin de journée",
+     "50 € / 69 €"
+    ],
+    [
+     "Moins de 18 ans et étudiants",
+     "41 € / 49 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.villarceaux.com/",
+   "site": "https://www.villarceaux.com/",
+   "releve": "2026-11-25"
   }
  }
 }
