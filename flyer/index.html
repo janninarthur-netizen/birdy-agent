@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Birdy Agent · Le golf sur mesure</title>
+<meta name="description" content="Réserver un parcours parmi 621 golfs de France, partir en voyage golf, débuter ou prendre un cours avec un pro. Demande gratuite et sans engagement.">
+<link rel="canonical" href="https://birdy-agent.pages.dev/flyer/">
+<meta name="theme-color" content="#0A1E17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Birdy Agent">
+<meta property="og:title" content="Birdy Agent · Le golf sur mesure">
+<meta property="og:description" content="Apprendre, progresser, jouer, partir. Parcours, voyages golf, débuter et cours avec un pro.">
+<meta property="og:url" content="https://birdy-agent.pages.dev/flyer/">
+<meta property="og:image" content="https://birdy-agent.pages.dev/flyer/apercu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#0A1E17;--sage:#A3C9B8;--ink:#E8F1EC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(80% 50% at 50% 0%,rgba(91,192,138,.14),transparent 70%),var(--bg);color:var(--ink);font:16px/1.5 "Instrument Sans",system-ui,sans-serif;min-height:100vh}
+.in{max-width:520px;margin:0 auto;padding:28px 16px calc(40px + env(safe-area-inset-bottom));text-align:center}
+.marque{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.marque img{width:42px;height:42px;border-radius:50%}
+.marque b{font:700 13px/1 "Cinzel",serif;letter-spacing:.24em}
+h1{font:700 34px/1.05 "Cormorant Garamond",serif;margin:18px 0 6px}
+h1 em{color:var(--sage)}
+.sub{color:rgba(232,241,236,.7);font-size:15px}
+.flyer{display:block;width:100%;height:auto;border-radius:14px;margin:20px 0 20px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);border:1px solid rgba(208,228,220,.14)}
+.acts{display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:99px;font:600 15.5px/1 "Instrument Sans",sans-serif;text-decoration:none;border:1px solid rgba(208,228,220,.22);color:#fff;background:transparent;cursor:pointer}
+.btn.plein{background:var(--sage);border-color:var(--sage);color:var(--bg)}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.note{color:rgba(232,241,236,.55);font-size:13px;margin-top:16px}
+.note a{color:var(--sage);white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<main class="in">
+  <a class="marque" href="/"><img src="/favicon-96.png" alt=""><b>BIRDY AGENT</b></a>
+  <h1 class="sr">Birdy Agent · Le golf sur mesure</h1>
+  <img class="flyer" src="/flyer/flyer-birdy-agent.jpg" width="1200" height="1704" alt="Flyer Birdy Agent : réserver un parcours, voyages golf, débuter le golf, cours avec un pro. QR code vers birdy-agent.pages.dev">
+  <div class="acts">
+    <a class="btn plein" href="/">Découvrir le site
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="btn" type="button" id="partager"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Partager</button>
+    <a class="btn" href="/flyer/flyer-birdy-agent-A5.pdf" download><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Télécharger le flyer (PDF A5)</a>
+  </div>
+  <p class="note">Une question ? Appelez ou écrivez sur WhatsApp au <a href="tel:+33616213447">06 16 21 34 47</a></p>
+</main>
+<script>
+(function () {
+  var b = document.getElementById("partager"), url = "https://birdy-agent.pages.dev/flyer/";
+  b.addEventListener("click", function () {
+    var d = { title: "Birdy Agent · Le golf sur mesure", text: "Parcours, voyages golf, débuter, cours avec un pro :", url: url };
+    if (navigator.share) { navigator.share(d).catch(function () {}); return; }
+    var fin = function () { b.lastChild.textContent = "Lien copié ✓"; setTimeout(function () { b.lastChild.textContent = "Partager"; }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(fin, function () { prompt("Copiez le lien :", url); });
+    else prompt("Copiez le lien :", url);
+  });
+})();
+</script>
+</body>
+</html>
