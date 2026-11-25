@@ -74,7 +74,7 @@
 
     /* ---------- Textes longs : repliés avec « Lire la suite » ---------- */
     chaque(main.querySelectorAll(".txt"), function (t) {
-      if (t.offsetHeight < 560 || t.closest(".m-repli")) return;
+      if (t.offsetHeight < 560 || t.closest(".m-repli") || t.querySelector(".gtf")) return; // les tarifs d'un golf restent visibles
       t.classList.add("m-repli");
       var b = el("button", "m-plus m-only", "Lire la suite"); b.type = "button"; b.setAttribute("aria-expanded", "false");
       b.addEventListener("click", function () {

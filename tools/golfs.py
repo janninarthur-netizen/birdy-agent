@@ -28,6 +28,7 @@ import pages  # noqa: E402
 SITE, TEL = pages.SITE, pages.TEL
 e = html.escape
 SRC = "data/sources/data-es-golfs.json"
+TARIFS = "data/tarifs.json"  # tarifs publics relevés sur les sites officiels des golfs
 SOURCE_TXT = "Recensement des équipements sportifs (ministère des Sports), licence ouverte"
 GESTION = {"Etablissement privé commercial": "Golf privé", "Association(s)": "Golf associatif", "Commune": "Golf public",
            "EPCI": "Golf public", "Etablissement Public": "Golf public", "Privé non commercial": "Golf privé"}
@@ -120,6 +121,15 @@ def construire():
             "dn": x["dep_nom"], "r": x["reg_nom"], "la": round(float(x["equip_y"]), 5), "lo": round(float(x["equip_x"]), 5),
             "t18": g["t18"], "t9": g["t9"], "u": url or None, "a": joli(x.get("inst_adresse") or ""),
             "g": GESTION.get(x.get("equip_gest_type"), "")})
+    tarifs = json.load(open(TARIFS, encoding="utf8"))["golfs"]
+    for g in golfs:
+        t = tarifs.get(g["i"])
+        if not t:
+            continue
+        g["tf"] = {k: v for k, v in {"p": t.get("resume"), "t": t.get("type"), "l": t.get("lignes"), "n": t.get("note"),
+                                     "a": t.get("saison"), "s": t.get("source"), "m": t.get("releve")}.items() if v}
+        if t.get("site"):
+            g["u"] = t["site"]  # adresse officielle vérifiée (celle du recensement est parfois périmée)
     golfs.sort(key=lambda g: (g["r"], g["n"]))
     jour = date.today().isoformat()
     json.dump({"maj": jour, "source": SOURCE_TXT, "golfs": golfs}, open("data/golfs.json", "w", encoding="utf8"),
@@ -138,8 +148,51 @@ def trous(g):
     return out
 
 
+def releve(tf):
+    """« 2026-11-25 » -> « novembre 2026 »"""
+    m = (tf or {}).get("m", "")
+    mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+    return f"{mois[int(m[5:7]) - 1]} {m[:4]}" if len(m) >= 7 else ""
+
+
+def badge_tarif(g):
+    tf = g.get("tf") or {}
+    if tf.get("p"):
+        return f'<span class="gt">Green fee {e(tf["p"])}</span>'
+    return ""
+
+
+def bloc_tarif(g):
+    """Encadré « Tarifs green fee » de la fiche golf : prix publics relevés sur le site officiel, ou explication."""
+    tf = g.get("tf") or {}
+    src = (f' <a href="{e(tf["s"])}" target="_blank" rel="noopener nofollow">Source : site officiel du golf</a>, relevé en {releve(tf)}.'
+           if tf.get("s") else "")
+    if tf.get("l"):
+        lignes = "".join(f"<tr><th>{e(a)}</th><td>{e(b)}</td></tr>" for a, b in tf["l"])
+        return (f'<div class="gtf"><h2>Tarifs green fee{(" · " + e(tf["a"])) if tf.get("a") else ""}</h2>'
+                f'<table class="gtf-t"><tbody>{lignes}</tbody></table>'
+                f'<p class="gtf-n">{e(tf.get("n", ""))} Prix publics par joueur, à titre indicatif : le conseiller vous confirme le tarif du jour '
+                f'avant toute réservation.{src}</p></div>')
+    if tf.get("n"):
+        return (f'<div class="gtf"><h2>Tarifs green fee</h2><p class="gtf-n">{e(tf["n"])} Le conseiller vous communique le prix '
+                f'exact pour votre date avant toute réservation.{src}</p></div>')
+    return ""
+
+
+def faq_prix(g):
+    tf = g.get("tf") or {}
+    if tf.get("l"):
+        det = " ; ".join(f"{a} : {b}" for a, b in tf["l"][:3])
+        return (f"D’après le site officiel du golf ({tf.get('a', 'tarifs publics')}, relevé en {releve(tf)}) : {det}. "
+                "Le conseiller vous confirme le tarif du jour avant toute réservation.")
+    if tf.get("n"):
+        return tf["n"] + " Le conseiller vous communique le prix exact pour votre date avant toute réservation."
+    return ("Le tarif dépend du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme "
+            "le prix exact avant toute réservation.")
+
+
 def fiche(g, dist=None):
-    badges = "".join(f'<span class="gb">{e(t)}</span>' for t in trous(g))
+    badges = "".join(f'<span class="gb">{e(t)}</span>' for t in trous(g)) + badge_tarif(g)
     lien = (f'<a class="btn ghost sm" href="{e(g["u"])}" target="_blank" rel="noopener nofollow">Site du golf</a>' if g["u"] else "")
     loin = f'<span class="gd">{dist:.0f} km</span>' if dist is not None else ""
     return (f'<article class="gc"><div class="gc-h"><h3><a href="/parcours/golf/{g["s"]}.html">{e(g["n"])}</a></h3>{loin}</div>'
@@ -170,8 +223,9 @@ def page_app(golfs, maj):
             "Pas encore : vous envoyez une demande de départ gratuite. Rien n’est réservé tant que le conseiller ne vous a pas confirmé "
             "l’horaire et le tarif auprès du golf. La réservation en temps réel arrivera avec nos futurs partenaires."),
            ("Combien coûte un green fee en France ?",
-            "Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget maximum par joueur dans la demande : "
-            "le conseiller vous confirme le tarif exact avant toute réservation. La demande est gratuite."),
+            "Le prix dépend du golf, du jour, de l’heure et de la saison. Quand le golf publie ses tarifs, nous les affichons sur sa fiche "
+            "et dans la demande de départ ; sinon le conseiller se renseigne. Dans tous les cas, il vous confirme le tarif exact avant "
+            "toute réservation. La demande est gratuite."),
            (f"Combien de golfs 18 trous y a-t-il en France ?",
             f"Notre annuaire, issu du recensement officiel des équipements sportifs, compte {len(golfs)} golfs, dont {n18} avec au moins un parcours 18 trous."),
            ("Peut-on réserver pour un groupe ?",
@@ -261,13 +315,14 @@ def page_app(golfs, maj):
   <form method="dialog" class="gp-x"><button aria-label="Fermer">×</button></form>
   <p class="tag">Demande de départ</p>
   <h2 id="d-nom"></h2><p class="gc-v" id="d-lieu"></p>
+  <div class="gp-tarif" id="d-tarif" aria-live="polite"></div>
   <div class="gp-slots" id="d-slots" hidden></div>
   <form id="gp-dep" class="gp-dep">
     <input type="hidden" name="golf">
     <div class="gp-row"><label>Date<input type="date" name="date" required></label>
       <label>Créneau<select name="creneau"><option value="">Indifférent</option><option>Matin</option><option>Midi</option><option>Après-midi</option></select></label>
       <label>Joueurs<select name="joueurs"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></div>
-    <div class="gp-row"><label>Green fee max. / joueur (facultatif)<input name="budget" inputmode="numeric" maxlength="6" placeholder="ex. 80 €"></label>
+    <div class="gp-row"><label id="d-budget">Budget max. / joueur (facultatif)<input name="budget" inputmode="numeric" maxlength="6" placeholder="ex. 80 €"></label>
       <label>Niveau ou index (facultatif)<input name="niveau" maxlength="40" placeholder="ex. index 24"></label></div>
     <div class="gp-row"><label>Prénom<input name="prenom" required maxlength="60" autocomplete="given-name"></label>
       <label>Téléphone<input name="tel" required maxlength="20" inputmode="tel" autocomplete="tel"></label></div>
@@ -287,6 +342,16 @@ def page_app(golfs, maj):
 """
     out = out.replace('<html lang="fr">', '<html lang="fr" class="pro">', 1)  # thème « pro » (parcours/pro.css)
     return "parcours/index.html", out + pages.foot()
+
+
+def prix_ville(proches):
+    connus = [g for _, g in proches if (g.get("tf") or {}).get("p")]
+    if not connus:
+        return ("Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf "
+                "et vous confirme le tarif exact avant toute réservation.")
+    det = " ; ".join(f"{g['n']} : {g['tf']['p']}" for g in connus)
+    return (f"Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs ({releve(connus[0]['tf'])}) : {det}. "
+            "Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.")
 
 
 def page_ville(nom, rayon, golfs, villes, maj):
@@ -309,9 +374,7 @@ def page_ville(nom, rayon, golfs, villes, maj):
     faq = [(f"Combien y a-t-il de golfs 18 trous autour de {nom} ?",
             f"Nous recensons {n18} golfs avec au moins un parcours 18 trous à moins de {rayon} km de {nom}, "
             f"et {len(proches)} golfs en comptant les parcours 9 trous (source : {SOURCE_TXT})."),
-           ("Combien coûte un green fee ?",
-            "Le prix dépend du golf, du jour, de l’heure et de la saison. Indiquez votre budget dans votre demande : "
-            "le conseiller vous confirme le tarif exact avant toute réservation."),
+           (f"Combien coûte un green fee autour de {nom} ?", prix_ville(proches)),
            ("Comment réserver un départ ?",
             f"Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve "
             f"auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le {TEL}.")]
@@ -405,9 +468,7 @@ def page_golf(g, golfs, villes, maj):
     faq = [(f"Comment réserver un départ au {g['n']} ?",
             "Indiquez la date, le créneau et le nombre de joueurs dans votre demande de départ. Un conseiller Birdy Agent réserve "
             f"auprès du golf et vous rappelle pour confirmer l’horaire. Vous pouvez aussi appeler le {TEL}."),
-           (f"Combien coûte un green fee au {g['n']} ?",
-            "Le tarif dépend du jour, de l’heure et de la saison. Indiquez votre budget dans la demande : le conseiller vous confirme "
-            "le prix exact avant toute réservation."),
+           (f"Combien coûte un green fee au {g['n']} ?", faq_prix(g)),
            (f"Combien de trous compte le {g['n']} ?",
             f"D’après le recensement officiel des équipements sportifs, le {g['n']} propose : {trtxt}.")]
     gc = {"@context": "https://schema.org", "@type": "GolfCourse", "name": g["n"], "url": SITE + path,
@@ -421,6 +482,8 @@ def page_golf(g, golfs, villes, maj):
     itin = f"https://www.google.com/maps/dir/?api=1&destination={g['la']},{g['lo']}"
     infos = [("Adresse", ", ".join(x for x in [g["a"], f"{g['cp']} {g['v']}".strip()] if x)), ("Parcours", trtxt),
              ("Type", g["g"] or "Golf"), ("Situation", f"{g['v']}, {situ}, {g['dn']} ({g['d']}), {g['r']}")]
+    if (g.get("tf") or {}).get("p"):
+        infos.insert(2, ("Green fee 18 trous", g["tf"]["p"] + " (tarif public)"))
     lignes = "".join(f"<dt>{e(a)}</dt><dd>{e(b)}</dd>" for a, b in infos if b)
     site = f'<a class="btn ghost sm" href="{e(g["u"])}" target="_blank" rel="noopener nofollow">Site du golf</a>' if g["u"] else ""
     voisins = "".join(fiche(x, d) for d, x in proches)
@@ -438,6 +501,7 @@ def page_golf(g, golfs, villes, maj):
     <h2>Informations pratiques</h2>
     <dl class="gi">{lignes}</dl>
     <div class="gc-cta"><a class="btn ghost sm" href="{itin}" target="_blank" rel="noopener nofollow">Itinéraire</a>{site}</div>
+    {bloc_tarif(g)}
     <p class="gp-src">Source : {e(SOURCE_TXT)}, mise à jour le {maj}. Une information est fausse ? Appelez le {TEL}.</p>
   </div>
   <aside class="box">

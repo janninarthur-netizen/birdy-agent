@@ -153,6 +153,7 @@
     var v = document.createElement("p"); v.className = "gc-v"; v.textContent = g.v + " (" + g.d + ") · " + g.dn;
     var b = document.createElement("div"); b.className = "gc-b";
     trousTxt(g).concat(g.g ? [g.g] : []).forEach(function (x, k, arr) { var s = document.createElement("span"); s.className = g.g && k === arr.length - 1 ? "gg" : "gb"; s.textContent = x; b.appendChild(s); });
+    if (g.tf && g.tf.p) { var pt = document.createElement("span"); pt.className = "gt"; pt.textContent = "Green fee " + g.tf.p; b.appendChild(pt); }
     var c = document.createElement("div"); c.className = "gc-cta";
     var go = document.createElement("button"); go.type = "button"; go.className = "btn gold sm"; go.textContent = "Demander un départ";
     go.addEventListener("click", function () { ouvrir(g); });
@@ -249,6 +250,34 @@
     carte.fitBounds([[42.2, -4.9], [51.1, 8.3]], { padding: [8, 8] });
   }
 
+  // Tarifs publics du golf (data/tarifs.json, relevés sur son site officiel) : affichés pour prévenir le client
+  var MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  function tarif(g) {
+    var z = document.getElementById("d-tarif"), bud = document.getElementById("d-budget"), tf = g.tf || {};
+    z.textContent = ""; z.className = "gp-tarif";
+    var h = document.createElement("p"); h.className = "gp-tarif-h";
+    var n = document.createElement("p"); n.className = "gp-tarif-n";
+    var quand = tf.m ? " (relevé en " + MOIS[+tf.m.slice(5, 7) - 1] + " " + tf.m.slice(0, 4) + ")" : "";
+    if (tf.l && tf.l.length) {
+      h.textContent = "Tarifs green fee" + (tf.a ? " · " + tf.a : "");
+      z.appendChild(h);
+      var t = document.createElement("table"), tb = document.createElement("tbody");
+      tf.l.forEach(function (l) { var tr = document.createElement("tr"), th = document.createElement("th"), td = document.createElement("td"); th.textContent = l[0]; td.textContent = l[1]; tr.appendChild(th); tr.appendChild(td); tb.appendChild(tr); });
+      t.appendChild(tb); z.appendChild(t);
+      n.textContent = (tf.n ? tf.n + " " : "") + "Prix publics par joueur, d’après le site officiel du golf" + quand + ". Le conseiller vous confirme le tarif du jour avant de réserver.";
+    } else {
+      h.textContent = "Tarif du green fee";
+      z.appendChild(h);
+      n.textContent = (tf.n ? tf.n + " " : "Ce golf ne publie pas ses tarifs en ligne. ") + "Le conseiller vous communique le prix exact pour votre date avant de réserver.";
+      z.classList.add("inconnu");
+    }
+    z.appendChild(n);
+    if (tf.s) { var a = document.createElement("a"); a.href = tf.s; a.target = "_blank"; a.rel = "noopener nofollow"; a.textContent = "Voir sur le site du golf"; n.appendChild(document.createTextNode(" ")); n.appendChild(a); }
+    // Prix connu : plus besoin de demander un budget
+    var connu = !!(tf.l && tf.l.length);
+    bud.hidden = connu; bud.querySelector("input").disabled = connu;
+  }
+
   // Demande de départ
   function ouvrir(g) {
     var c = crit();
@@ -257,7 +286,8 @@
     dep.golf.value = g.i;
     if (c.date) dep.date.value = c.date;
     dep.creneau.value = c.creneau; dep.joueurs.value = c.joueurs || "2";
-    if (F.dataset.budget && !dep.budget.value) dep.budget.value = F.dataset.budget;
+    tarif(g);
+    if (F.dataset.budget && !dep.budget.value && !dep.budget.disabled) dep.budget.value = F.dataset.budget;
     document.getElementById("d-msg").textContent = "";
     dep.hidden = false; document.getElementById("d-merci").hidden = true;
     var sl = document.getElementById("d-slots"); sl.hidden = true; sl.textContent = "";

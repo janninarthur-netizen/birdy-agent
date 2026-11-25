@@ -198,3 +198,18 @@
 .gp-map .leaflet-control-attribution{background:rgba(10,30,23,.75)!important;color:rgba(232,241,236,.6)!important}
 .gp-map .leaflet-control-attribution a{color:#A3C9B8}
 .gp-map .leaflet-bar a{background:#11291F;color:#E8F1EC;border-color:rgba(208,228,220,.2)}
+/* Tarifs green fee (data/tarifs.json) : badge sur les fiches, encadré dans la demande et sur la page du golf */
+.gt{font:700 12px/1 var(--body);border-radius:99px;padding:6px 10px;background:#F3E7C9;color:#6B4E12}
+.gp-dep label[hidden]{display:none!important}
+.gp-tarif{margin:14px 0 4px;padding:14px 16px;border-radius:14px;background:#F4F7F3;border:1px solid rgba(14,58,49,.08)}
+.gp-tarif:empty{display:none}
+.gp-tarif-h,.gtf h2{font:700 14px/1.2 var(--body);letter-spacing:.02em;text-transform:uppercase;color:#2F7A55;margin:0 0 8px}
+.gp-tarif table,.gtf-t{width:100%;border-collapse:collapse;font-size:14.5px}
+.gp-tarif th,.gtf-t th{text-align:left;font-weight:500;color:#33524A;padding:6px 10px 6px 0;border-bottom:1px solid rgba(14,58,49,.08)}
+.gp-tarif td,.gtf-t td{text-align:right;font-weight:700;color:#0E3A31;white-space:nowrap;padding:6px 0;border-bottom:1px solid rgba(14,58,49,.08)}
+.gp-tarif tr:last-child>*,.gtf-t tr:last-child>*{border-bottom:0}
+.gp-tarif-n,.gtf-n{font-size:12.5px;line-height:1.45;color:#5D7A6F;margin:8px 0 0}
+.gp-tarif-n a,.gtf-n a{color:#2F7A55}
+.gp-tarif.inconnu .gp-tarif-n{font-size:13.5px;color:#33524A}
+.gtf{margin:18px 0 6px;padding:16px 18px;border-radius:16px;background:#F4F7F3}
+.gtf h2{font-size:15px}

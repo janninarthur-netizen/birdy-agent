@@ -37,7 +37,8 @@ export async function onRequestPost({ request, env }) {
   const texte = [
     golf.n + " · " + golf.v + " (" + golf.d + ")",
     quand + " · " + d.creneau + " · " + d.joueurs + " joueur" + (d.joueurs > 1 ? "s" : ""),
-    [d.budget ? "green fee max " + d.budget + (/€/.test(d.budget) ? "" : " €") : "", d.niveau].filter(Boolean).join(" · "),
+    golf.tf && golf.tf.p ? "Tarif public : " + golf.tf.p + (golf.tf.a ? " (" + golf.tf.a + ")" : "") : "Tarif : à demander au golf",
+    [d.budget ? "budget max " + d.budget + (/€/.test(d.budget) ? "" : " €") : "", d.niveau].filter(Boolean).join(" · "),
     d.prenom + " · " + d.tel + (d.email ? " · " + d.email : ""),
     d.note ? "Note : " + d.note : "",
   ].filter(Boolean).join("\n");
