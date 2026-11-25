@@ -12,6 +12,8 @@ html.pro main.gp.home{color:#E8F1EC;min-height:calc(100vh - 69px)}
 .ha-logo.pense::before{animation-duration:1.1s}
 @keyframes haHalo{0%,100%{transform:scale(.9);opacity:.5}50%{transform:scale(1.1);opacity:1}}
 .ha-h1{font:700 clamp(42px,6.2vw,82px)/.98 var(--display);color:#fff;margin:10px 0 0}
+/* nom de la marque au-dessus du titre (aussi pour Google : « Birdy Agent » dans le titre principal) */
+.ha-h1 .ha-marque{display:block;font:600 clamp(12px,1.3vw,15px)/1 "Cinzel",var(--display),serif;letter-spacing:.34em;text-transform:uppercase;color:#A3C9B8;margin:0 0 14px}
 .ha-h1 em{display:block;color:#A3C9B8;font-style:italic}
 .ha-lead{font-size:18px;line-height:1.5;max-width:92ch;color:rgba(232,241,236,.88);margin:10px auto 18px}
 

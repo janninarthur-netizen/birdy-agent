@@ -96,7 +96,7 @@ out += f"""<main class="gp home" id="accueil">
 
 <section class="ha-hero"><div class="in">
   <div class="ha-logo" id="ha-logo"><img src="/logo.webp" alt="Birdy Agent" width="118" height="118"></div>
-  <h1 class="ha-h1">Le golf <em>sur mesure.</em></h1>
+  <h1 class="ha-h1"><span class="ha-marque">Birdy Agent</span> Le golf <em>sur mesure.</em></h1>
   <p class="ha-lead">Apprendre, progresser, jouer, partir.</p>
 
   <div class="gp-chat ha-chat" id="ha-chat">
