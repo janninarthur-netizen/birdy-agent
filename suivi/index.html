@@ -79,17 +79,18 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
     <input type="password" id="code" autocomplete="current-password" placeholder="Code d’accès" required>
     <button class="btn plein" type="submit">Entrer</button>
     <p class="msg" id="lmsg"></p>
+    <button class="btn" type="button" id="oubli">Code oublié ? Recevoir un lien sur mon téléphone</button>
   </form>
 </main>
 <script>
 (function () {
   "use strict";
-  var app = document.getElementById("app"), CODE = "";
-  try { CODE = sessionStorage.getItem("birdy-suivi") || ""; } catch (e) {}
+  var app = document.getElementById("app"), CODE = "", SESSION = "";
+  try { CODE = sessionStorage.getItem("birdy-suivi") || ""; SESSION = localStorage.getItem("birdy-suivi-session") || ""; } catch (e) {}
   var LIB = { nouveau: "Nouveau", a_rappeler: "À rappeler", en_cours: "En cours", confirme: "Confirmé", annule: "Annulé" };
   var data = [], filtre = "actives", type = "tous", sel = null;
   function api(meth, url, corps) {
-    return fetch(url, { method: meth, headers: { "x-suivi-code": CODE, "content-type": "application/json" }, body: corps ? JSON.stringify(corps) : undefined })
+    return fetch(url, { method: meth, headers: { "x-suivi-code": CODE, "x-suivi-session": SESSION, "content-type": "application/json" }, body: corps ? JSON.stringify(corps) : undefined })
       .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); });
   }
   function el(t, cls, txt) { var x = document.createElement(t); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; }
@@ -111,10 +112,31 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
     c.appendChild(ol); app.appendChild(c);
   }
   function connexion(msg) {
-    app.innerHTML = '<form class="carte login" id="login"><h1>Espace conseiller</h1><p class="sub">Entrez votre code d’accès pour voir les demandes.</p><input type="password" id="code" autocomplete="current-password" placeholder="Code d’accès" required><button class="btn plein" type="submit">Entrer</button><p class="msg" id="lmsg"></p></form>';
+    app.innerHTML = '<form class="carte login" id="login"><h1>Espace conseiller</h1><p class="sub">Entrez votre code d’accès pour voir les demandes.</p><input type="password" id="code" autocomplete="current-password" placeholder="Code d’accès" required><button class="btn plein" type="submit">Entrer</button><p class="msg" id="lmsg"></p><button class="btn" type="button" id="oubli">Code oublié ? Recevoir un lien sur mon téléphone</button></form>';
     document.getElementById("lmsg").textContent = msg || "";
     document.getElementById("login").addEventListener("submit", entrer);
+    document.getElementById("oubli").addEventListener("click", oubli);
     document.getElementById("sortir").hidden = true;
+  }
+  // Code oublié : un lien de connexion part sur le téléphone du conseiller (notification habituelle)
+  function oubli() {
+    var m = document.getElementById("lmsg"), b = document.getElementById("oubli"); b.disabled = true;
+    fetch("/api/acces", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ action: "oubli" }) })
+      .then(function () { m.style.color = "#A3C9B8"; m.textContent = "C’est envoyé : ouvrez la notification « Connexion au suivi Birdy » sur votre téléphone (valable 15 minutes)."; })
+      .catch(function () { m.textContent = "Envoi impossible, réessayez."; b.disabled = false; });
+  }
+  // Arrivée par le lien reçu sur le téléphone : on l'échange contre une session de 30 jours
+  function lienTelephone() {
+    var j = (location.hash.match(/jeton=([0-9a-f]{64})/) || [])[1];
+    if (!j) return false;
+    history.replaceState(null, "", location.pathname + location.search);
+    fetch("/api/acces", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jeton: j }) })
+      .then(function (r) { return r.json(); })
+      .then(function (x) {
+        if (x.session) { SESSION = x.session; try { localStorage.setItem("birdy-suivi-session", SESSION); } catch (e) {} charger(); }
+        else connexion("Ce lien a expiré ou a déjà servi. Demandez-en un nouveau ci-dessous.");
+      }).catch(function () { connexion("Connexion impossible."); });
+    return true;
   }
   function entrer(ev) {
     ev.preventDefault();
@@ -124,9 +146,9 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
   function charger() {
     api("GET", "/api/suivi").then(function (r) {
       if (r.s === 503) return nonConfigure(r.j);
-      if (r.s === 401) { CODE = ""; try { sessionStorage.removeItem("birdy-suivi"); } catch (e) {} return connexion(document.getElementById("code") ? "Code incorrect." : ""); }
+      if (r.s === 401) { CODE = ""; SESSION = ""; try { sessionStorage.removeItem("birdy-suivi"); localStorage.removeItem("birdy-suivi-session"); } catch (e) {} return connexion(document.getElementById("code") ? "Code incorrect." : ""); }
       if (r.s !== 200) return connexion("Erreur, réessayez.");
-      try { sessionStorage.setItem("birdy-suivi", CODE); } catch (e) {}
+      try { if (CODE) sessionStorage.setItem("birdy-suivi", CODE); } catch (e) {}
       document.getElementById("sortir").hidden = false;
       data = r.j.demandes; tableau();
       var id = new URLSearchParams(location.search).get("id");
@@ -252,9 +274,10 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
       if (ch.statut) tableau();
     });
   }
-  document.getElementById("sortir").addEventListener("click", function () { try { sessionStorage.removeItem("birdy-suivi"); } catch (e) {} CODE = ""; sel = null; connexion(); });
+  document.getElementById("sortir").addEventListener("click", function () { try { sessionStorage.removeItem("birdy-suivi"); localStorage.removeItem("birdy-suivi-session"); } catch (e) {} CODE = ""; SESSION = ""; sel = null; connexion(); });
   document.getElementById("login").addEventListener("submit", entrer);
-  if (CODE) charger(); else api("GET", "/api/suivi").then(function (r) { if (r.s === 503) nonConfigure(r.j); }).catch(function () {});
+  document.getElementById("oubli").addEventListener("click", oubli);
+  if (lienTelephone()) {} else if (CODE || SESSION) charger(); else api("GET", "/api/suivi").then(function (r) { if (r.s === 503) nonConfigure(r.j); }).catch(function () {});
 })();
 </script>
 </body>

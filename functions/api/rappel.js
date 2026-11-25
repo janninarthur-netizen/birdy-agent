@@ -16,7 +16,7 @@ export async function onRequestGet({ request, env }) {
   if (!env.DEMANDES || !env.NTFY_TOPIC) return json(503, { erreur: "non_configure" });
   const aujourdhui = jourParis(), demain = jourParis(1);
   // Test manuel : ?force=1 avec le code de suivi en en-tête
-  const force = new URL(request.url).searchParams.get("force") === "1" && autorise(request, env);
+  const force = new URL(request.url).searchParams.get("force") === "1" && (await autorise(request, env));
   const cleJour = "rappel:" + aujourdhui;
   if (!force && (await env.DEMANDES.get(cleJour))) return json(200, { ok: true, deja: true });
 
