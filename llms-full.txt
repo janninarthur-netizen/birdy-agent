@@ -3715,7 +3715,7 @@ Golf Parislongchamp
 11 km   Champigny-sur-Marne (94) · Val-de-Marne
 9 trous  Golf privé    Demander un départ  Site du golf       Golf de Saint-Cloud
 12 km   Garches (92) · Hauts-de-Seine
-2 × 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Ile Fleurie
+2 × 18 trous  Réservé aux membres  Golf privé    Demander un départ  Site du golf       Golf de l'Ile Fleurie
 13 km   Carrières-sur-Seine (78) · Yvelines
 9 trous  Golf privé    Demander un départ  Site du golf       Stade Francais
 14 km   Vaucresson (92) · Hauts-de-Seine
@@ -3739,7 +3739,7 @@ Golf Parislongchamp
 18 km   Domont (95) · Val-d'Oise
 2 × 18 trous  Golf associatif    Demander un départ       Golf de Saint Marc
 19 km   Jouy-en-Josas (78) · Yvelines
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Buc
+18 trous  Green fee 56 à 76 €  Golf privé    Demander un départ  Site du golf       Golf de Buc
 19 km   Buc (78) · Yvelines
 9 trous  Golf privé    Demander un départ  Site du golf       Golf Blue Green Marolles
 21 km   Marolles-en-Brie (94) · Val-de-Marne
@@ -3755,19 +3755,19 @@ Golf Parislongchamp
 22 km   Saint-Germain-en-Laye (78) · Yvelines
 18 trous  9 trous  Golf associatif    Demander un départ  Site du golf       Golf de Saint Nom la Breteche
 23 km   Saint-Nom-la-Bretèche (78) · Yvelines
-2 × 18 trous  Golf associatif    Demander un départ  Site du golf       Golf National
+2 × 18 trous  Réservé aux membres  Golf associatif    Demander un départ  Site du golf       Golf National
 23 km   Guyancourt (78) · Yvelines
-2 × 18 trous  9 trous  Golf associatif    Demander un départ  Site du golf       Golf de Joyenval
+2 × 18 trous  9 trous  Green fee 60 à 290 €  Golf associatif    Demander un départ  Site du golf       Golf de Joyenval
 23 km   Chambourcy (78) · Yvelines
-2 × 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Torcy
+2 × 18 trous  Réservé aux membres  Golf privé    Demander un départ  Site du golf       Golf de Torcy
 23 km   Torcy (77) · Seine-et-Marne
 9 trous  Golf associatif    Demander un départ  Site du golf       ASPTT Paris Golf des Corbuches
 24 km   Lésigny (77) · Seine-et-Marne
 9 trous  Golf associatif    Demander un départ  Site du golf       Golf de Lésigny-Réveillon
 24 km   Lésigny (77) · Seine-et-Marne
-18 trous  Golf privé    Demander un départ  Site du golf       GOLF Ozoir-la-Ferrière
+18 trous  Green fee 41 à 68 €  Golf privé    Demander un départ  Site du golf       GOLF Ozoir-la-Ferrière
 24 km   Ozoir-la-Ferrière (77) · Seine-et-Marne
-18 trous  9 trous  Golf associatif    Demander un départ  Site du golf       Golf d'Etiolles
+18 trous  9 trous  Green fee 70 à 89 €  Golf associatif    Demander un départ  Site du golf       Golf d'Etiolles
 25 km   Étiolles (91) · Essonne
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       UGOLF Gif-Chevry
 26 km   Gif-sur-Yvette (91) · Essonne
@@ -3789,11 +3789,11 @@ Golf Parislongchamp
 28 km   Villennes-sur-Seine (78) · Yvelines
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Val Grand
 28 km   Bondoufle (91) · Essonne
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de la Marsaudiere
+18 trous  Green fee 80 €  Golf privé    Demander un départ  Site du golf       Golf de la Marsaudiere
 29 km   Chevry-Cossigny (77) · Seine-et-Marne
 9 trous  Golf privé    Demander un départ  Site du golf       Golf de Marivaux
 29 km   Janvry (91) · Essonne
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Mont Griffon
+18 trous  Green fee 49 à 75 €  Golf privé    Demander un départ  Site du golf       Golf de Mont Griffon
 29 km   Luzarches (95) · Val-d'Oise
 18 trous  2 × 9 trous  Golf privé    Demander un départ  Site du golf       UGOLF Golf de Sénart
 29 km   Saint-Pierre-du-Perray (91) · Essonne
@@ -3801,13 +3801,13 @@ Golf Parislongchamp
 29 km   Gretz-Armainvilliers (77) · Seine-et-Marne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Isle d'Adam
 30 km   L'Isle-Adam (95) · Val-d'Oise
-18 trous  Golf privé    Demander un départ  Site du golf
+18 trous  Green fee 95 à 140 €  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Paris ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes

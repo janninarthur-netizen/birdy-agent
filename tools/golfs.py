@@ -159,7 +159,16 @@ def badge_tarif(g):
     tf = g.get("tf") or {}
     if tf.get("p"):
         return f'<span class="gt">Green fee {e(tf["p"])}</span>'
+    if tf.get("t") == "membres":
+        return '<span class="gt gt-m">Réservé aux membres</span>'
     return ""
+
+
+def suite(tf):
+    """Fin de phrase quand le golf ne publie pas de prix."""
+    if tf.get("t") == "membres":
+        return "Le conseiller vérifie avec le club si un départ est possible, et à quel prix."
+    return "Le conseiller vous communique le prix exact pour votre date avant toute réservation."
 
 
 def bloc_tarif(g):
@@ -174,8 +183,8 @@ def bloc_tarif(g):
                 f'<p class="gtf-n">{e(tf.get("n", ""))} Prix publics par joueur, à titre indicatif : le conseiller vous confirme le tarif du jour '
                 f'avant toute réservation.{src}</p></div>')
     if tf.get("n"):
-        return (f'<div class="gtf"><h2>Tarifs green fee</h2><p class="gtf-n">{e(tf["n"])} Le conseiller vous communique le prix '
-                f'exact pour votre date avant toute réservation.{src}</p></div>')
+        return (f'<div class="gtf"><h2>{"Accès au parcours" if tf.get("t") == "membres" else "Tarifs green fee"}</h2>'
+                f'<p class="gtf-n">{e(tf["n"])} {suite(tf)}{src}</p></div>')
     return ""
 
 
@@ -186,7 +195,7 @@ def faq_prix(g):
         return (f"D’après le site officiel du golf ({tf.get('a', 'tarifs publics')}, relevé en {releve(tf)}) : {det}. "
                 "Le conseiller vous confirme le tarif du jour avant toute réservation.")
     if tf.get("n"):
-        return tf["n"] + " Le conseiller vous communique le prix exact pour votre date avant toute réservation."
+        return tf["n"] + " " + suite(tf)
     return ("Le tarif dépend du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme "
             "le prix exact avant toute réservation.")
 

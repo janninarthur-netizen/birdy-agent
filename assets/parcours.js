@@ -153,7 +153,7 @@
     var v = document.createElement("p"); v.className = "gc-v"; v.textContent = g.v + " (" + g.d + ") · " + g.dn;
     var b = document.createElement("div"); b.className = "gc-b";
     trousTxt(g).concat(g.g ? [g.g] : []).forEach(function (x, k, arr) { var s = document.createElement("span"); s.className = g.g && k === arr.length - 1 ? "gg" : "gb"; s.textContent = x; b.appendChild(s); });
-    if (g.tf && g.tf.p) { var pt = document.createElement("span"); pt.className = "gt"; pt.textContent = "Green fee " + g.tf.p; b.appendChild(pt); }
+    if (g.tf && (g.tf.p || g.tf.t === "membres")) { var pt = document.createElement("span"); pt.className = g.tf.p ? "gt" : "gt gt-m"; pt.textContent = g.tf.p ? "Green fee " + g.tf.p : "Réservé aux membres"; b.appendChild(pt); }
     var c = document.createElement("div"); c.className = "gc-cta";
     var go = document.createElement("button"); go.type = "button"; go.className = "btn gold sm"; go.textContent = "Demander un départ";
     go.addEventListener("click", function () { ouvrir(g); });
@@ -266,9 +266,10 @@
       t.appendChild(tb); z.appendChild(t);
       n.textContent = (tf.n ? tf.n + " " : "") + "Prix publics par joueur, d’après le site officiel du golf" + quand + ". Le conseiller vous confirme le tarif du jour avant de réserver.";
     } else {
-      h.textContent = "Tarif du green fee";
+      var mb = tf.t === "membres";
+      h.textContent = mb ? "Accès au parcours" : "Tarif du green fee";
       z.appendChild(h);
-      n.textContent = (tf.n ? tf.n + " " : "Ce golf ne publie pas ses tarifs en ligne. ") + "Le conseiller vous communique le prix exact pour votre date avant de réserver.";
+      n.textContent = (tf.n ? tf.n + " " : "Ce golf ne publie pas ses tarifs en ligne. ") + (mb ? "Le conseiller vérifie avec le club si un départ est possible, et à quel prix." : "Le conseiller vous communique le prix exact pour votre date avant de réserver.");
       z.classList.add("inconnu");
     }
     z.appendChild(n);

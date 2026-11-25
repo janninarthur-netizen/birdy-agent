@@ -1,72 +1,441 @@
 {
-  "_lisezmoi": "Tarifs publics des green fees, relevés à la main sur le site officiel de chaque golf (jamais sur un comparateur). Chaque golf : 'resume' (affiché sur les fiches), 'lignes' [libellé, prix], 'note', 'source' (page officielle), 'releve' (date du relevé), 'site' (adresse officielle à jour). 'type': 'variable' = le golf ne publie pas de grille (prix selon le jour et l'heure), 'tel' = tarif uniquement à l'accueil.",
-  "golfs": {
-    "I692500001": {
-      "nom": "Golf de la Tour Salvagny (Lyon Salvagny Golf Club)",
-      "resume": "110 €",
-      "lignes": [["18 trous, parcours des Étangs", "110 €"], ["9 trous, parcours des Étangs", "62 €"], ["Fin de journée l’été (dès 17 h)", "75 €"],
-                 ["Étudiant, 18 trous", "62 €"], ["9 trous du Château (la journée)", "49 €"]],
-      "note": "Même tarif du lundi au dimanche. Chariot manuel offert selon disponibilité.",
-      "saison": "Tarifs 2026",
-      "source": "https://lyon-salvagny-golf-club.com/wp-content/uploads/2026/01/Tarifs-web-green-fees-20264.pdf6_.pdf",
-      "site": "https://lyon-salvagny-golf-club.com/",
-      "releve": "2026-11-25"
-    },
-    "I691220003": {
-      "nom": "Golf du Beaujolais",
-      "resume": "45 à 68 €",
-      "lignes": [["18 trous, haute saison", "68 €"], ["18 trous, basse saison", "45 €"], ["9 trous, haute saison", "52 €"],
-                 ["Moins de 25 ans ou étudiant, 18 trous (haute saison)", "41 €"], ["18 trous + repas (lundi et mercredi)", "85 €"]],
-      "note": "Tarifs valables jusqu’au 31 décembre 2026.",
-      "saison": "Tarifs 2026",
-      "source": "https://golfdubeaujolais.com/nos-tarifs/",
-      "site": "https://golfdubeaujolais.com/",
-      "releve": "2026-11-25"
-    },
-    "I014430001": {
-      "nom": "Golf du Clou",
-      "resume": "63 €",
-      "lignes": [["18 trous", "63 €"], ["12 trous", "49 €"], ["Fin de journée (après 14 h 30)", "49 €"],
-                 ["Moins de 25 ans et étudiant", "20 €"], ["Green fee + repas", "74 €"]],
-      "note": "Accès libre au parcours, sans réservation.",
-      "saison": "Tarifs 2026",
-      "source": "https://golfduclou.fr/tarifs/",
-      "site": "https://golfduclou.fr/",
-      "releve": "2026-11-25"
-    },
-    "I012610002": {
-      "nom": "Golf du Gouverneur (Domaine du Gouverneur)",
-      "resume": "70 à 105 €",
-      "lignes": [["18 trous, basse saison", "70 €"], ["18 trous, haute saison", "105 €"], ["9 trous (avant 9 h, départ du 10), basse / haute saison", "40 € / 62 €"],
-                 ["Fin de journée (dès 16 h), haute saison", "62 €"], ["Junior 18-25 ans, basse / haute saison", "35 € / 65 €"]],
-      "note": "Deux parcours 18 trous : Le Breuil et Montaplan.",
-      "saison": "Tarifs 2026",
-      "source": "https://domainedugouverneur.fr/fr/golf/",
-      "site": "https://domainedugouverneur.fr/fr/golf/",
-      "releve": "2026-11-25"
-    },
-    "I012480007": {
-      "nom": "UGOLF Mionnay",
-      "type": "variable",
-      "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-      "source": "https://jouer.golf/golf/ugolf-mionnay/",
-      "site": "https://jouer.golf/golf/ugolf-mionnay/",
-      "releve": "2026-11-25"
-    },
-    "I692710002": {
-      "nom": "Golf de Lyon Chassieu (UGOLF)",
-      "type": "variable",
-      "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-      "source": "https://jouer.golf/",
-      "releve": "2026-11-25"
-    },
-    "I692910011": {
-      "nom": "Golf de Lyon Verger",
-      "type": "tel",
-      "note": "Le golf ne publie pas ses tarifs en ligne : réservation obligatoire, par téléphone ou sur place.",
-      "source": "https://www.golf-lyonverger.com/pages/fr/parcours-et-entrainement/modalites-d-acces.php",
-      "site": "https://www.golf-lyonverger.com/",
-      "releve": "2026-11-25"
-    }
+ "_lisezmoi": "Tarifs publics des green fees, relevés à la main sur le site officiel de chaque golf (jamais sur un comparateur). Chaque golf : 'resume' (affiché sur les fiches), 'lignes' [libellé, prix], 'note', 'source' (page officielle), 'releve' (date du relevé), 'site' (adresse officielle à jour). 'type': 'variable' = le golf ne publie pas de grille (prix selon le jour et l'heure), 'tel' = tarif uniquement à l'accueil, 'membres' = club privé (membres et invités).",
+ "golfs": {
+  "I692500001": {
+   "nom": "Golf de la Tour Salvagny (Lyon Salvagny Golf Club)",
+   "resume": "110 €",
+   "lignes": [
+    [
+     "18 trous, parcours des Étangs",
+     "110 €"
+    ],
+    [
+     "9 trous, parcours des Étangs",
+     "62 €"
+    ],
+    [
+     "Fin de journée l’été (dès 17 h)",
+     "75 €"
+    ],
+    [
+     "Étudiant, 18 trous",
+     "62 €"
+    ],
+    [
+     "9 trous du Château (la journée)",
+     "49 €"
+    ]
+   ],
+   "note": "Même tarif du lundi au dimanche. Chariot manuel offert selon disponibilité.",
+   "saison": "Tarifs 2026",
+   "source": "https://lyon-salvagny-golf-club.com/wp-content/uploads/2026/01/Tarifs-web-green-fees-20264.pdf6_.pdf",
+   "site": "https://lyon-salvagny-golf-club.com/",
+   "releve": "2026-11-25"
+  },
+  "I691220003": {
+   "nom": "Golf du Beaujolais",
+   "resume": "45 à 68 €",
+   "lignes": [
+    [
+     "18 trous, haute saison",
+     "68 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "45 €"
+    ],
+    [
+     "9 trous, haute saison",
+     "52 €"
+    ],
+    [
+     "Moins de 25 ans ou étudiant, 18 trous (haute saison)",
+     "41 €"
+    ],
+    [
+     "18 trous + repas (lundi et mercredi)",
+     "85 €"
+    ]
+   ],
+   "note": "Tarifs valables jusqu’au 31 décembre 2026.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdubeaujolais.com/nos-tarifs/",
+   "site": "https://golfdubeaujolais.com/",
+   "releve": "2026-11-25"
+  },
+  "I014430001": {
+   "nom": "Golf du Clou",
+   "resume": "63 €",
+   "lignes": [
+    [
+     "18 trous",
+     "63 €"
+    ],
+    [
+     "12 trous",
+     "49 €"
+    ],
+    [
+     "Fin de journée (après 14 h 30)",
+     "49 €"
+    ],
+    [
+     "Moins de 25 ans et étudiant",
+     "20 €"
+    ],
+    [
+     "Green fee + repas",
+     "74 €"
+    ]
+   ],
+   "note": "Accès libre au parcours, sans réservation.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfduclou.fr/tarifs/",
+   "site": "https://golfduclou.fr/",
+   "releve": "2026-11-25"
+  },
+  "I012610002": {
+   "nom": "Golf du Gouverneur (Domaine du Gouverneur)",
+   "resume": "70 à 105 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "70 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "105 €"
+    ],
+    [
+     "9 trous (avant 9 h, départ du 10), basse / haute saison",
+     "40 € / 62 €"
+    ],
+    [
+     "Fin de journée (dès 16 h), haute saison",
+     "62 €"
+    ],
+    [
+     "Junior 18-25 ans, basse / haute saison",
+     "35 € / 65 €"
+    ]
+   ],
+   "note": "Deux parcours 18 trous : Le Breuil et Montaplan.",
+   "saison": "Tarifs 2026",
+   "source": "https://domainedugouverneur.fr/fr/golf/",
+   "site": "https://domainedugouverneur.fr/fr/golf/",
+   "releve": "2026-11-25"
+  },
+  "I012480007": {
+   "nom": "UGOLF Mionnay",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-mionnay/",
+   "site": "https://jouer.golf/golf/ugolf-mionnay/",
+   "releve": "2026-11-25"
+  },
+  "I692710002": {
+   "nom": "Golf de Lyon Chassieu (UGOLF)",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/",
+   "releve": "2026-11-25"
+  },
+  "I692910011": {
+   "nom": "Golf de Lyon Verger",
+   "type": "tel",
+   "note": "Le golf ne publie pas ses tarifs en ligne : réservation obligatoire, par téléphone ou sur place.",
+   "source": "https://www.golf-lyonverger.com/pages/fr/parcours-et-entrainement/modalites-d-acces.php",
+   "site": "https://www.golf-lyonverger.com/",
+   "releve": "2026-11-25"
+  },
+  "I783220005": {
+   "nom": "Golf de Saint-Marc",
+   "resume": "56 à 76 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "56 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "76 €"
+    ],
+    [
+     "Fin de journée, semaine / week-end",
+     "42 € / 52 €"
+    ],
+    [
+     "Moins de 18 ans ou étudiant, semaine / week-end",
+     "29 € / 36 €"
+    ],
+    [
+     "Sans licence FFG, semaine / week-end",
+     "66 € / 86 €"
+    ]
+   ],
+   "note": "Tarifs de haute saison (30 mars – 30 novembre 2026), pour les licenciés FFG. Fermeture annuelle du 23 décembre au 3 janvier.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfsaintmarc.com/fr/green-fee",
+   "site": "https://golfsaintmarc.com/",
+   "releve": "2026-11-25"
+  },
+  "I782970015": {
+   "nom": "Golf National",
+   "resume": "60 à 290 €",
+   "lignes": [
+    [
+     "Albatros, licencié FFG, basse / haute saison",
+     "100 € / 145 €"
+    ],
+    [
+     "Albatros, non licencié, basse / haute saison",
+     "160 € / 290 €"
+    ],
+    [
+     "Aigle, licencié FFG, semaine, basse / haute saison",
+     "60 € / 69 €"
+    ],
+    [
+     "Aigle, licencié FFG, week-end, basse / haute saison",
+     "60 € / 79 €"
+    ],
+    [
+     "Aigle, non licencié, basse / haute saison",
+     "80 € / 95 €"
+    ]
+   ],
+   "note": "Basse saison du 1er novembre au 31 mars, haute saison du 1er avril au 31 octobre. Deux parcours 18 trous : l’Albatros et l’Aigle.",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-national.com/fr/tarifs",
+   "site": "https://golf-national.com/",
+   "releve": "2026-11-25"
+  },
+  "I772490009": {
+   "nom": "Golf de Lésigny-Réveillon",
+   "resume": "41 à 68 €",
+   "lignes": [
+    [
+     "18 trous, semaine, basse / haute saison",
+     "41 € / 53 €"
+    ],
+    [
+     "18 trous, week-end, basse / haute saison",
+     "51 € / 68 €"
+    ],
+    [
+     "9 trous, semaine, basse / haute saison",
+     "30 € / 35 €"
+    ],
+    [
+     "Lundi seniors, mercredi dames",
+     "38 €"
+    ],
+    [
+     "Sans licence FFG",
+     "+ 8 €"
+    ]
+   ],
+   "note": "Junior -50 %, étudiant -20 %.",
+   "saison": "Tarifs 2026",
+   "source": "https://golflesigny.com/fr/tarifs",
+   "site": "https://golflesigny.com/",
+   "releve": "2026-11-25"
+  },
+  "I773500003": {
+   "nom": "Golf d’Ozoir-la-Ferrière (UGOLF)",
+   "resume": "70 à 89 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "70 €"
+    ],
+    [
+     "18 trous, week-end",
+     "89 €"
+    ],
+    [
+     "Moins de 18 ans, semaine / week-end",
+     "39,50 € / 44,50 €"
+    ],
+    [
+     "9 trous, semaine et week-end",
+     "49 €"
+    ]
+   ],
+   "note": "Grille publiée par UGOLF.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2020/01/tarifs2026-OZOIR.pdf",
+   "site": "https://jouer.golf/golf/ugolf-ozoir-la-ferriere/",
+   "releve": "2026-11-25"
+  },
+  "I910860002": {
+   "nom": "Golf de Val Grand",
+   "resume": "80 €",
+   "lignes": [
+    [
+     "18 trous",
+     "80 €"
+    ],
+    [
+     "9 trous",
+     "50 €"
+    ],
+    [
+     "Étudiant, moins de 18 ans",
+     "30 €"
+    ],
+    [
+     "Enfant de moins de 12 ans accompagnant un adulte",
+     "5 €"
+    ]
+   ],
+   "note": "Tarif unique toute l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-de-val-grand.com/le-golf/tarifs",
+   "site": "https://golf-de-val-grand.com/",
+   "releve": "2026-11-25"
+  },
+  "I913190001": {
+   "nom": "Golf de Marivaux",
+   "resume": "49 à 75 €",
+   "lignes": [
+    [
+     "18 trous, semaine (basse / demi / haute saison)",
+     "49 € / 55 € / 62 €"
+    ],
+    [
+     "18 trous, week-end (basse / demi / haute saison)",
+     "61 € / 69 € / 75 €"
+    ],
+    [
+     "9 trous, semaine (basse / haute saison)",
+     "31 € / 39 €"
+    ]
+   ],
+   "note": "Basse saison : novembre à février ; haute saison : mai, juin et septembre ; demi-saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfmarivaux.com/tarifs-marivaux/",
+   "site": "https://golfmarivaux.com/",
+   "releve": "2026-11-25"
+  },
+  "I953130009": {
+   "nom": "Golf de l’Isle-Adam",
+   "resume": "95 à 140 €",
+   "lignes": [
+    [
+     "18 trous, semaine / week-end",
+     "110 € / 140 €"
+    ],
+    [
+     "18 trous, licencié FFG, semaine / week-end",
+     "95 € / 120 €"
+    ],
+    [
+     "Moins de 18 ans, semaine / week-end",
+     "45 € / 55 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "66 € / 80 €"
+    ]
+   ],
+   "note": "Réservation en ligne sur le site du golf.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfisleadam.com/golf-de-l-isle-adam/tarifs",
+   "site": "https://www.golfisleadam.com/",
+   "releve": "2026-11-25"
+  },
+  "I920330012": {
+   "nom": "Golf de Saint-Cloud",
+   "type": "membres",
+   "note": "Club privé : les parcours sont réservés aux membres et à leurs invités. Les visiteurs extérieurs sont accueillis du 21 juillet au 21 août, sur réservation une semaine à l’avance.",
+   "source": "https://golfdesaintcloud.com/fr/visiteurs",
+   "site": "https://golfdesaintcloud.com/",
+   "releve": "2026-11-25"
+  },
+  "I785710006": {
+   "nom": "Golf de Saint-Nom-la-Bretèche",
+   "type": "membres",
+   "note": "Club privé : accessible aux membres et à leurs invités. Visiteurs extérieurs l’été, en semaine uniquement, sur réservation une semaine à l’avance.",
+   "source": "https://www.golfdesaintnomlabreteche.com/public/infos-visiteurs",
+   "site": "https://www.golfdesaintnomlabreteche.com/",
+   "releve": "2026-11-25"
+  },
+  "I781330005": {
+   "nom": "Golf de Joyenval",
+   "type": "membres",
+   "note": "Club privé réservé à ses membres et à leurs invités.",
+   "source": "https://golfdejoyenval.com/fr/le-club-ses-services",
+   "site": "https://golfdejoyenval.com/",
+   "releve": "2026-11-25"
+  },
+  "I940550003": {
+   "nom": "UGOLF Ormesson",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-ormesson/",
+   "site": "https://jouer.golf/golf/ugolf-ormesson/",
+   "releve": "2026-11-25"
+  },
+  "I784980013": {
+   "nom": "UGOLF Béthemont",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-bethemont/",
+   "site": "https://jouer.golf/golf/ugolf-bethemont/",
+   "releve": "2026-11-25"
+  },
+  "I782330003": {
+   "nom": "UGOLF Feucherolles",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-feucherolles/",
+   "site": "https://jouer.golf/golf/ugolf-feucherolles/",
+   "releve": "2026-11-25"
+  },
+  "I915530007": {
+   "nom": "UGOLF Saint-Germain-lès-Corbeil",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-saint-germain-les-corbeil/",
+   "site": "https://jouer.golf/golf/ugolf-saint-germain-les-corbeil/",
+   "releve": "2026-11-25"
+  },
+  "I915730009": {
+   "nom": "UGOLF Sénart",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-senart/",
+   "site": "https://jouer.golf/golf/ugolf-senart/",
+   "releve": "2026-11-25"
+  },
+  "I940480002": {
+   "nom": "Bluegreen Marolles-en-Brie",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-25"
+  },
+  "I915380003": {
+   "nom": "Bluegreen Saint-Aubin",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-25"
+  },
+  "I786210014": {
+   "nom": "Bluegreen Saint-Quentin-en-Yvelines",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-25"
+  },
+  "I786720002": {
+   "nom": "Bluegreen Villennes-sur-Seine",
+   "type": "variable",
+   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-25"
   }
+ }
 }
