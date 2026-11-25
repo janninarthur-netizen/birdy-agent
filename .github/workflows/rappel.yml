@@ -1,0 +1,14 @@
+# Rappel du matin : chaque jour vers 9 h (heure de Paris), le site envoie au conseiller le récapitulatif
+# des demandes encore ouvertes (voir functions/api/rappel.js). Une seule notification par jour.
+name: Rappel du matin
+on:
+  schedule:
+    - cron: "4 8 * * *"   # 8 h 04 UTC = 9 h 04 l’hiver, 10 h 04 l’été (heure de Paris)
+  workflow_dispatch: {}
+permissions: {}
+jobs:
+  rappel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: curl -fsS -m 30 https://birdy-agent.pages.dev/api/rappel

@@ -3,6 +3,7 @@
 // Réglages dans Cloudflare : Workers & Pages → birdy-agent → Settings → Variables and Secrets.
 
 import { enregistrer } from "../../lib/demandes.js";
+import { messages, lienWhatsApp } from "../../lib/messages.js";
 
 function propre(v, max) {
   return String(v == null ? "" : v).replace(/[\u0000-\u001f]+/g, " ").trim().slice(0, max);
@@ -63,7 +64,8 @@ export async function onRequestPost({ request, env }) {
     message: texte,
     tags: ["golf"],
     priority: 4,
-    actions: [{ action: "view", label: "Appeler " + d.prenom, url: "tel:+" + tel }],
+    actions: [{ action: "view", label: "WhatsApp " + d.prenom, url: lienWhatsApp(tel, messages({ type: "voyage", ...d }).client) },
+      { action: "view", label: "Appeler", url: "tel:+" + tel }],
   };
   if (id) msg.actions.push({ action: "view", label: "Suivi", url: new URL("/suivi/?id=" + id, request.url).href });
   if (env.NTFY_EMAIL) msg.email = env.NTFY_EMAIL;

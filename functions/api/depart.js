@@ -4,6 +4,7 @@
 import { normaliserTel } from "./demande.js";
 import { golfs } from "../../lib/golf-providers.js";
 import { enregistrer } from "../../lib/demandes.js";
+import { messages, lienWhatsApp } from "../../lib/messages.js";
 
 const propre = (v, max) => String(v == null ? "" : v).replace(/[\u0000-\u001f]+/g, " ").trim().slice(0, max);
 const json = (status, body) => Response.json(body, { status });
@@ -44,16 +45,18 @@ export async function onRequestPost({ request, env }) {
   ].filter(Boolean).join("\n");
 
   const id = await enregistrer(env, {
-    type: "depart", titre: golf.n + " · " + quand, golf: { i: golf.i, n: golf.n, v: golf.v, d: golf.d, u: golf.u, s: golf.s },
+    type: "depart", titre: golf.n + " · " + quand, golf: { i: golf.i, n: golf.n, v: golf.v, d: golf.d, u: golf.u, s: golf.s, tf: golf.tf ? { p: golf.tf.p, a: golf.tf.a, t: golf.tf.t } : undefined },
     date, ...d, tel_e164: tel,
   });
   if (!env.NTFY_TOPIC) {
     console.error("NTFY_TOPIC manquant");
     return id ? json(200, { ok: true }) : json(500, { erreur: "Service indisponible" });
   }
-  const actions = [{ action: "view", label: "Appeler " + d.prenom, url: "tel:+" + tel }];
+  // Boutons de la notification : WhatsApp avec le message déjà écrit, appel, fiche de suivi
+  const m = messages({ type: "depart", date, ...d, golf: { n: golf.n, v: golf.v, tf: golf.tf } });
+  const actions = [{ action: "view", label: "WhatsApp " + d.prenom, url: lienWhatsApp(tel, m.client) },
+    { action: "view", label: "Appeler", url: "tel:+" + tel }];
   if (id) actions.push({ action: "view", label: "Suivi", url: new URL("/suivi/?id=" + id, request.url).href });
-  if (golf.u && actions.length < 3) actions.push({ action: "view", label: "Site du golf", url: golf.u });
   const msg = { topic: env.NTFY_TOPIC, title: "Demande de départ : " + golf.n, message: texte, tags: ["golf", "calendar"], priority: 4, actions };
   if (env.NTFY_EMAIL) msg.email = env.NTFY_EMAIL;
   const r = await fetch("https://ntfy.sh/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(msg) });

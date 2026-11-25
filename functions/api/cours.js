@@ -4,6 +4,7 @@
 import { normaliserTel } from "./demande.js";
 import { golfs } from "../../lib/golf-providers.js";
 import { enregistrer } from "../../lib/demandes.js";
+import { messages, lienWhatsApp } from "../../lib/messages.js";
 
 const propre = (v, max) => String(v == null ? "" : v).replace(/[\u0000-\u001f]+/g, " ").trim().slice(0, max);
 const json = (status, body) => Response.json(body, { status });
@@ -46,7 +47,8 @@ export async function onRequestPost({ request, env }) {
     d.prenom + " · " + d.tel + (d.email ? " · " + d.email : ""), d.note ? "Note : " + d.note : "",
   ].filter(Boolean).join("\n");
   if (!env.NTFY_TOPIC) return id ? json(200, { ok: true }) : json(500, { erreur: "Service indisponible" });
-  const actions = [{ action: "view", label: "Appeler " + d.prenom, url: "tel:+" + tel }];
+  const actions = [{ action: "view", label: "WhatsApp " + d.prenom, url: lienWhatsApp(tel, messages({ type: "cours", ...d, golf: golf ? { n: golf.n, v: golf.v } : null }).client) },
+    { action: "view", label: "Appeler", url: "tel:+" + tel }];
   if (id) actions.push({ action: "view", label: "Suivi", url: new URL("/suivi/?id=" + id, request.url).href });
   const msg = { topic: env.NTFY_TOPIC, title: "Demande de cours : " + d.prenom, message: texte, tags: ["golf", "mortar_board"], priority: 4, actions };
   if (env.NTFY_EMAIL) msg.email = env.NTFY_EMAIL;

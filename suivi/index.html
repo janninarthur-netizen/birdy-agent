@@ -59,6 +59,12 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
 .hist{color:var(--muted);font-size:12.5px;margin-top:12px}
 .vide{color:var(--muted);text-align:center;padding:30px}
 .conf ol{text-align:left;line-height:1.7}
+.msgs{margin:18px 0 6px;display:grid;gap:12px}
+.mbloc{border:1px solid var(--line);border-radius:14px;padding:12px;background:#0C231B}
+.mbloc h3{margin:0 0 6px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--sage)}
+.mbloc textarea{min-height:110px;background:#0A1E17;font-size:14px}
+.mbloc .acts{margin:8px 0 0}
+.age{font-size:11px;color:#F2C76E;margin-left:6px;font-weight:600}
 .conf code{background:#0C231B;padding:2px 6px;border-radius:6px}
 @media (max-width:860px){.grille{grid-template-columns:1fr}.det{position:static}}
 </style>
@@ -154,7 +160,10 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
     vis.forEach(function (d) {
       var b = el("button", "it" + (sel === d.id ? " on" : "")); b.type = "button";
       b.appendChild(el("span", "ty", { depart: "⛳", cours: "🎓", pro: "★" }[d.type] || "✈"));
-      var t = el("span"); t.appendChild(el("b", null, d.prenom + " · " + (d.titre || ""))); t.appendChild(el("small", null, ({ depart: "Départ", cours: "Cours", pro: "Pro" }[d.type] || "Voyage") + " · reçue " + date(d.cree)));
+      var t = el("span"); t.appendChild(el("b", null, d.prenom + " · " + (d.titre || ""))); var sm = el("small", null, ({ depart: "Départ", cours: "Cours", pro: "Pro" }[d.type] || "Voyage") + " · reçue " + date(d.cree));
+      var h = (Date.now() - Date.parse(d.cree)) / 36e5;
+      if (d.statut === "nouveau" && h > 24) sm.appendChild(el("span", "age", "⏱ en attente depuis " + (h > 48 ? Math.floor(h / 24) + " jours" : "hier")));
+      t.appendChild(sm);
       b.appendChild(t); b.appendChild(el("span", "st " + d.statut, LIB[d.statut] || d.statut));
       b.addEventListener("click", function () { ouvrir(d.id); });
       l.appendChild(b);
@@ -190,6 +199,7 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
       if (d.golf && d.golf.u) lien("", "Site du golf", d.golf.u);
       if (d.golf && d.golf.s) lien("", "Fiche golf", "/parcours/golf/" + d.golf.s);
       c.appendChild(a);
+      if (d.messages) c.appendChild(blocMessages(d));
       c.appendChild(el("p", "sub", "Statut"));
       var st = el("div", "stats");
       Object.keys(LIB).forEach(function (k) {
@@ -206,6 +216,34 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
       det.appendChild(c);
       if (!silencieux && innerWidth < 860) det.scrollIntoView({ behavior: "smooth" });
     });
+  }
+  // Messages prêts : à relire, modifier si besoin, puis envoyer en un clic (rien ne part tout seul)
+  function blocMessages(d) {
+    var box = el("div", "msgs"), M = d.messages;
+    box.appendChild(el("p", "sub", "Messages prêts à envoyer"));
+    [["client", "Au client"], ["golf", d.type === "cours" ? "Au golf (trouver un pro)" : "Au golf (réservation)"], ["relance", "Relance du client"]].forEach(function (x) {
+      if (!M[x[0]]) return;
+      var b = el("div", "mbloc"); b.appendChild(el("h3", null, x[1]));
+      var ta = el("textarea"); ta.value = M[x[0]]; b.appendChild(ta);
+      var a = el("div", "acts");
+      function bouton(cls, txt, fn) { var y = el("button", "btn " + cls, txt); y.type = "button"; y.addEventListener("click", function () { fn(y); }); a.appendChild(y); }
+      if (x[0] !== "golf" && d.tel_e164) {
+        bouton("wa", "WhatsApp", function () { open("https://wa.me/" + d.tel_e164 + "?text=" + encodeURIComponent(ta.value), "_blank", "noopener"); });
+        bouton("", "SMS", function () { location.href = "sms:+" + d.tel_e164 + "?&body=" + encodeURIComponent(ta.value); });
+      }
+      if (x[0] === "golf") {
+        bouton("", "E-mail", function () { location.href = "mailto:?subject=" + encodeURIComponent((d.type === "cours" ? "Demande de cours · " : "Réservation départ · ") + (d.golf ? d.golf.n : "")) + "&body=" + encodeURIComponent(ta.value); });
+        if (d.golf && d.golf.u) bouton("", "Site du golf", function () { open(d.golf.u, "_blank", "noopener"); });
+      }
+      bouton("", "Copier", function (y) {
+        var fin = function () { y.textContent = "Copié ✓"; setTimeout(function () { y.textContent = "Copier"; }, 1500); };
+        if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(fin, function () { ta.select(); document.execCommand("copy"); fin(); });
+        else { ta.select(); document.execCommand("copy"); fin(); }
+      });
+      if (x[0] === "client" && d.statut === "nouveau") bouton("", "Envoyé → En cours", function () { maj(d.id, { statut: "en_cours" }); });
+      b.appendChild(a); box.appendChild(b);
+    });
+    return box;
   }
   function maj(id, ch) {
     return api("POST", "/api/suivi", Object.assign({ id: id }, ch)).then(function (r) {

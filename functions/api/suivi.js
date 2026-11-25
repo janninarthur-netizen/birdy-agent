@@ -1,6 +1,7 @@
 // API de la page privée /suivi/ : liste, détail et mise à jour des demandes.
 // Accès : en-tête « x-suivi-code » égal au secret SUIVI_CODE. Stockage : liaison KV « DEMANDES ».
 import { autorise, lister, lire, modifier, STATUTS } from "../../lib/demandes.js";
+import { messages } from "../../lib/messages.js";
 
 const json = (status, body) => Response.json(body, { status, headers: { "cache-control": "no-store", "x-robots-tag": "noindex" } });
 
@@ -14,7 +15,7 @@ function verifie(request, env) {
 export async function onRequestGet({ request, env }) {
   const refus = verifie(request, env); if (refus) return refus;
   const id = new URL(request.url).searchParams.get("id");
-  if (id) { const d = await lire(env, id); return d ? json(200, d) : json(404, { erreur: "introuvable" }); }
+  if (id) { const d = await lire(env, id); return d ? json(200, { ...d, messages: messages(d) }) : json(404, { erreur: "introuvable" }); }
   return json(200, { demandes: await lister(env), statuts: STATUTS });
 }
 
