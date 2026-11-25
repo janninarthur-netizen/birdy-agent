@@ -3254,6 +3254,218 @@
    "source": "https://www.villarceaux.com/",
    "site": "https://www.villarceaux.com/",
    "releve": "2026-11-25"
+  },
+  "I682870009": {
+   "nom": "Alsace Golf Club (Alsace Golf Links)",
+   "resume": "80 à 90 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "80 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "90 €"
+    ],
+    [
+     "9 trous",
+     "50 € / 55 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://alsacegolflinks.com/fr/visiteurs/tarifs-greenfee",
+   "site": "https://alsacegolflinks.com/",
+   "releve": "2026-11-25"
+  },
+  "I500030002": {
+   "nom": "Golf de Coutainville",
+   "resume": "55 à 74 €",
+   "lignes": [
+    [
+     "18 trous, haute saison",
+     "74 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "55 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-coutainville.com/tarifs",
+   "site": "https://golf-coutainville.com/",
+   "releve": "2026-11-25"
+  },
+  "I021140005": {
+   "nom": "Golf du Val Secret",
+   "resume": "57 à 72 €",
+   "lignes": [
+    [
+     "18 trous, haute saison, semaine",
+     "57 €"
+    ],
+    [
+     "18 trous, haute saison, week-end",
+     "72 €"
+    ],
+    [
+     "9 trous ou après 18 h",
+     "33 € / 40 €"
+    ]
+   ],
+   "note": "Haute saison du 1er avril au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfvalsecret.com/?page_id=698",
+   "site": "https://golfvalsecret.com/",
+   "releve": "2026-11-25"
+  },
+  "I641290013": {
+   "nom": "Pau Golf Club 1856",
+   "resume": "100 €",
+   "lignes": [
+    [
+     "Journée, haute saison (1er avril – 31 octobre)",
+     "100 €"
+    ],
+    [
+     "Couple, journée",
+     "180 €"
+    ],
+    [
+     "9 trous",
+     "65 €"
+    ],
+    [
+     "Étudiant",
+     "70 €"
+    ],
+    [
+     "Moins de 18 ans",
+     "30 €"
+    ]
+   ],
+   "note": "Réservation jusqu’à 48 h à l’avance.",
+   "saison": "Tarifs 2026",
+   "source": "https://paugolfclub.com/green-fees/",
+   "site": "https://paugolfclub.com/",
+   "releve": "2026-11-25"
+  },
+  "I594730001": {
+   "nom": "Golf de Mormal",
+   "resume": "40 à 79 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (1er avril – 18 octobre)",
+     "79 €"
+    ],
+    [
+     "18 trous, mi-saison",
+     "55 €"
+    ],
+    [
+     "18 trous, basse saison (décembre à février)",
+     "40 €"
+    ],
+    [
+     "Twilight (dès 18 h)",
+     "49 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdemormal.com/fr/greenfees",
+   "site": "https://golfdemormal.com/",
+   "releve": "2026-11-25"
+  },
+  "I112620052": {
+   "nom": "Golf Sainte-Rose (Narbonne)",
+   "resume": "27 à 31 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (novembre à mars)",
+     "27 €"
+    ],
+    [
+     "18 trous, haute saison, week-end et jours fériés",
+     "31 €"
+    ],
+    [
+     "Couple",
+     "49 € / 55 €"
+    ],
+    [
+     "Étudiant",
+     "21 € / 23 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfsterosenarbonne.com/tarifs",
+   "site": "https://www.golfsterosenarbonne.com/",
+   "releve": "2026-11-25"
+  },
+  "I831070009": {
+   "nom": "Golf de Roquebrune",
+   "resume": "86 à 110 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (avril – juin, septembre – octobre)",
+     "110 €"
+    ],
+    [
+     "18 trous, moyenne saison",
+     "98 €"
+    ],
+    [
+     "18 trous, basse saison (décembre à février)",
+     "86 €"
+    ],
+    [
+     "Fin de journée",
+     "75 €"
+    ]
+   ],
+   "note": "Tarif du jour affiché sur la plateforme de réservation.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfderoquebrune.com/fr/jouer/nos-tarifs/",
+   "site": "https://golfderoquebrune.com/",
+   "releve": "2026-11-25"
+  },
+  "I762540001": {
+   "nom": "Golf d’Étretat",
+   "resume": "68 à 105 €",
+   "lignes": [
+    [
+     "18 trous, basse saison, visiteur",
+     "75 €"
+    ],
+    [
+     "18 trous, haute saison (16 mars – 31 octobre), visiteur",
+     "105 €"
+    ],
+    [
+     "Licencié FFG, basse / haute saison",
+     "68 € / 95 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "50 €"
+    ]
+   ],
+   "note": "Licence française ou étrangère obligatoire.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfetretat.com/nos-tarifs/je-suis-de-passage-visiteur/",
+   "site": "https://golfetretat.com/",
+   "releve": "2026-11-25"
+  },
+  "I060890002": {
+   "nom": "Golf de la Grande Bastide (Opio)",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.golfgrandebastide.com/fr/jouer/tarifs/",
+   "site": "https://www.golfgrandebastide.com/fr/",
+   "releve": "2026-11-25"
   }
  }
 }

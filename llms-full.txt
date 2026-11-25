@@ -3180,7 +3180,7 @@ Royal Mougins Golf Club
 12 km   Opio (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de la Grande Bastide
 13 km   Opio (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Golf de la Grande Bastide
+18 trous  Golf privé    Demander un départ  Site du golf       Golf de la Grande Bastide
 13 km   Châteauneuf-Grasse (06) · Alpes-Maritimes
 18 trous  Golf public    Demander un départ  Site du golf       Golf De La Vanade
 15 km   Villeneuve-Loubet (06) · Alpes-Maritimes
@@ -3272,13 +3272,13 @@ Golf Hôtel Barrière de Deauville
 40 km   Le Castelet (14) · Calvados
 18 trous  Golf privé    Demander un départ       Golf d'Etretat
 40 km   Étretat (76) · Seine-Maritime
-18 trous  Golf associatif    Demander un départ
+18 trous  Green fee 68 à 105 €  Golf associatif    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Deauville ?
 Nous recensons 10 golfs avec au moins un parcours 18 trous à moins de 40 km de Deauville, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Deauville ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf : 45 à 70 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf : 45 à 70 € ; Golf d'Etretat : 68 à 105 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3676,7 +3676,7 @@ Golf De La Vanade
 22 km   Châteauneuf-Grasse (06) · Alpes-Maritimes
 18 trous  Golf public    Demander un départ  Site du golf       Golf de la Grande Bastide
 22 km   Opio (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Royal Mougins Golf Club
+18 trous  Golf privé    Demander un départ  Site du golf       Royal Mougins Golf Club
 25 km   Mougins (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Golf "Saint Donat"
 25 km   Grasse (06) · Alpes-Maritimes
