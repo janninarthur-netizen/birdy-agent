@@ -1589,6 +1589,913 @@
    "source": "https://cabot.com/fr/bordeaux/golf-rates/",
    "site": "https://cabot.com/fr/bordeaux/",
    "releve": "2026-11-25"
+  },
+  "I021500001": {
+   "nom": "Golf Bluegreen l’Ailette",
+   "resume": "30 à 78 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 30 à 78 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "40 €"
+    ],
+    [
+     "9 trous",
+     "48 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/ailette/tarifs",
+   "site": "https://bluegreen.fr/ailette/",
+   "releve": "2026-11-25"
+  },
+  "I490150015": {
+   "nom": "Golf Bluegreen Angers – La Perrière",
+   "resume": "34 à 70 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 34 à 70 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "35 €"
+    ],
+    [
+     "9 trous",
+     "46 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/angerslaperriere/tarifs",
+   "site": "https://bluegreen.fr/angerslaperriere/",
+   "releve": "2026-11-25"
+  },
+  "I560080025": {
+   "nom": "Golf Bluegreen Baden",
+   "resume": "47 à 82 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "47 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "82 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "23 € / 39 €"
+    ],
+    [
+     "9 trous",
+     "34 € / 47 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/baden/tarifs",
+   "site": "https://bluegreen.fr/baden/",
+   "releve": "2026-11-25"
+  },
+  "I380570004": {
+   "nom": "Golf Bluegreen Grenoble-Bresson",
+   "resume": "85 €",
+   "lignes": [
+    [
+     "18 trous",
+     "85 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "42 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/bresson/tarifs",
+   "site": "https://bluegreen.fr/bresson/",
+   "releve": "2026-11-25"
+  },
+  "I440490014": {
+   "nom": "Golf Bluegreen Le Croisic",
+   "resume": "43 à 62 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "43 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "62 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "22 € / 30 €"
+    ],
+    [
+     "9 trous",
+     "33 € / 44 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année. Non licencié : + 6 €.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/croisic/tarifs",
+   "site": "https://bluegreen.fr/croisic/",
+   "releve": "2026-11-25"
+  },
+  "I851600003": {
+   "nom": "Golf Bluegreen La Domangère",
+   "resume": "48 à 72 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "48 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "72 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "24 € / 36 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 49 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/domangere/tarifs",
+   "site": "https://bluegreen.fr/domangere/",
+   "releve": "2026-11-25"
+  },
+  "I782910004": {
+   "nom": "Golf Bluegreen Guerville",
+   "resume": "35 à 79 €",
+   "lignes": [
+    [
+     "18 trous en ligne, semaine",
+     "de 35 à 59 €"
+    ],
+    [
+     "18 trous en ligne, week-end",
+     "de 48 à 79 €"
+    ],
+    [
+     "18 trous à l’accueil, semaine / week-end",
+     "59 € / 79 €"
+    ],
+    [
+     "Moins de 26 ans",
+     "18 à 40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/guerville/tarifs",
+   "site": "https://bluegreen.fr/guerville/",
+   "releve": "2026-11-25"
+  },
+  "I143380003": {
+   "nom": "Golf Bluegreen Houlgate",
+   "resume": "45 à 70 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "45 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "70 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "25 € / 36 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 49 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/houlgate/tarifs",
+   "site": "https://bluegreen.fr/houlgate/",
+   "releve": "2026-11-25"
+  },
+  "I561650014": {
+   "nom": "Golf Bluegreen Lac au Duc (Ploërmel)",
+   "resume": "46 à 53 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "46 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "53 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "23 € / 27 €"
+    ],
+    [
+     "9 trous",
+     "34 € / 39 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/lac-au-duc/tarifs",
+   "site": "https://bluegreen.fr/lac-au-duc/",
+   "releve": "2026-11-25"
+  },
+  "I441090187": {
+   "nom": "Golf Bluegreen Nantes-Erdre",
+   "resume": "32 à 66 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 32 à 66 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "36 €"
+    ],
+    [
+     "9 trous",
+     "43 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/nantes-erdre/tarifs",
+   "site": "https://bluegreen.fr/nantes-erdre/",
+   "releve": "2026-11-25"
+  },
+  "I290320005": {
+   "nom": "Golf Bluegreen de l’Odet",
+   "resume": "30 à 80 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 30 à 80 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "40 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 49 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/odet/tarifs",
+   "site": "https://bluegreen.fr/odet/",
+   "releve": "2026-11-25"
+  },
+  "I221860019": {
+   "nom": "Golf Bluegreen Pléneuf-Val-André",
+   "resume": "36 à 87 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 36 à 87 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "44 €"
+    ],
+    [
+     "9 trous",
+     "41 € / 58 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/pleneuf/tarifs",
+   "site": "https://bluegreen.fr/pleneuf/",
+   "releve": "2026-11-25"
+  },
+  "I561620022": {
+   "nom": "Golf Bluegreen Ploemeur Océan",
+   "resume": "50 à 73 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "50 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "73 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "24 € / 36 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 50 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/ploemeur/tarifs",
+   "site": "https://bluegreen.fr/ploemeur/",
+   "releve": "2026-11-25"
+  },
+  "I215150011": {
+   "nom": "Golf Bluegreen Quetigny – Grand Dijon",
+   "resume": "24 à 64 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 24 à 64 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "32 €"
+    ],
+    [
+     "9 trous",
+     "44 €"
+    ]
+   ],
+   "note": "Tarif fixe à l’accueil, dynamique en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/quetigny/tarifs",
+   "site": "https://bluegreen.fr/quetigny/",
+   "releve": "2026-11-25"
+  },
+  "I352810001": {
+   "nom": "Golf Bluegreen Rennes Saint-Jacques",
+   "resume": "49 à 76 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "49 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "76 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "26 € / 36 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 48 €"
+    ]
+   ],
+   "note": "Basse saison : novembre à mars ; haute saison : avril à octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/rennes/tarifs",
+   "site": "https://bluegreen.fr/rennes/",
+   "releve": "2026-11-25"
+  },
+  "I562140004": {
+   "nom": "Golf Bluegreen Rhuys-Kerver",
+   "resume": "30 à 77 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 30 à 77 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "39 €"
+    ],
+    [
+     "9 trous",
+     "33 € / 47 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/rhuys/tarifs",
+   "site": "https://bluegreen.fr/rhuys/",
+   "releve": "2026-11-25"
+  },
+  "I173530005": {
+   "nom": "Golf Bluegreen Rochefort Océan",
+   "resume": "45 à 74 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 45 à 74 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "37 €"
+    ],
+    [
+     "9 trous",
+     "37 € / 49 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/rochefort/tarifs",
+   "site": "https://bluegreen.fr/rochefort/",
+   "releve": "2026-11-25"
+  },
+  "I422180128": {
+   "nom": "Golf Bluegreen Saint-Étienne",
+   "resume": "45 à 59 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "45 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "59 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "20 à 35 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 46 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/saint-etienne/tarifs",
+   "site": "https://bluegreen.fr/saint-etienne/",
+   "releve": "2026-11-25"
+  },
+  "I850020004": {
+   "nom": "Golf Bluegreen du Pays de Saint-Gilles-Croix-de-Vie",
+   "resume": "28 à 77 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 28 à 77 €"
+    ],
+    [
+     "9 trous, basse / haute saison",
+     "42 € / 49 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/saint-gilles/tarifs",
+   "site": "https://bluegreen.fr/saint-gilles/",
+   "releve": "2026-11-25"
+  },
+  "I561610005": {
+   "nom": "Golf Bluegreen Saint-Laurent",
+   "resume": "47 à 82 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "47 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "82 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "24 € / 40 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 47 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/saint-laurent/tarifs",
+   "site": "https://bluegreen.fr/saint-laurent/",
+   "releve": "2026-11-25"
+  },
+  "I441950008": {
+   "nom": "Golf Bluegreen Savenay",
+   "resume": "46 à 68 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "46 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "68 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "36 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 51 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/savenay/tarifs",
+   "site": "https://bluegreen.fr/savenay/",
+   "releve": "2026-11-25"
+  },
+  "I384860011": {
+   "nom": "Golf Bluegreen Grenoble-Seyssins",
+   "resume": "30 à 60 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 30 à 60 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "30 €"
+    ],
+    [
+     "9 trous",
+     "40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/seyssins/tarifs",
+   "site": "https://bluegreen.fr/seyssins/",
+   "releve": "2026-11-25"
+  },
+  "I372060004": {
+   "nom": "Golf Bluegreen Tours Ardrée",
+   "resume": "28 à 85 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 28 à 85 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "41 €"
+    ],
+    [
+     "9 trous",
+     "50 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/tours-ardree/tarifs",
+   "site": "https://bluegreen.fr/tours-ardree/",
+   "releve": "2026-11-25"
+  },
+  "I394050004": {
+   "nom": "Golf Bluegreen Val d’Amour",
+   "resume": "55 €",
+   "lignes": [
+    [
+     "18 trous",
+     "55 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "21 € / 25 €"
+    ],
+    [
+     "9 trous",
+     "42 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/val-damour/tarifs",
+   "site": "https://bluegreen.fr/val-damour/",
+   "releve": "2026-11-25"
+  },
+  "I561850005": {
+   "nom": "Golf Bluegreen Val Quéven",
+   "resume": "50 à 76 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "50 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "76 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "25 € / 37 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 51 €"
+    ]
+   ],
+   "note": "Basse saison : 1er janvier – 29 mars et 13 novembre – 31 décembre ; haute saison le reste de l’année.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/val-queven/tarifs",
+   "site": "https://bluegreen.fr/val-queven/",
+   "releve": "2026-11-25"
+  },
+  "I772680001": {
+   "nom": "Golf Paris Val d'Europe",
+   "resume": "79 à 89 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "79 €"
+    ],
+    [
+     "18 trous, week-end",
+     "89 €"
+    ],
+    [
+     "Moins de 18 ans",
+     "39,50 € / 44,50 €"
+    ],
+    [
+     "9 trous",
+     "49 €"
+    ]
+   ],
+   "note": "Grille publiée par UGOLF ; meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2022/01/Tarifs-2026-PVE-1.pdf",
+   "site": "https://jouer.golf/golf/golf-paris-val-deurope/",
+   "releve": "2026-11-25"
+  },
+  "I680050005": {
+   "nom": "UGolf d'Ammerschwihr",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-ammerschwihr/",
+   "site": "https://jouer.golf/golf/ugolf-ammerschwihr/",
+   "releve": "2026-11-25"
+  },
+  "I180330037": {
+   "nom": "UGOLF - Golf de Bourges",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-bourges/",
+   "site": "https://jouer.golf/golf/ugolf-bourges/",
+   "releve": "2026-11-25"
+  },
+  "I956370021": {
+   "nom": "Cergy Golf Club",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-cergy-vaureal/",
+   "site": "https://jouer.golf/golf/ugolf-cergy-vaureal/",
+   "releve": "2026-11-25"
+  },
+  "I770650003": {
+   "nom": "Cely Golf et Country Club",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-chateau-de-cely/",
+   "site": "https://jouer.golf/golf/ugolf-chateau-de-cely/",
+   "releve": "2026-11-25"
+  },
+  "I571390002": {
+   "nom": "Golf de Cherisey",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-chateau-de-metz-cherisey/",
+   "site": "https://jouer.golf/golf/ugolf-chateau-de-metz-cherisey/",
+   "releve": "2026-11-25"
+  },
+  "I605250003": {
+   "nom": "Golf-Club du Château de Raray",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-chateau-de-raray/",
+   "site": "https://jouer.golf/golf/ugolf-chateau-de-raray/",
+   "releve": "2026-11-25"
+  },
+  "I785220003": {
+   "nom": "UGOLF : Golf de Rochefort",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-chateau-de-rochefort/",
+   "site": "https://jouer.golf/golf/ugolf-chateau-de-rochefort/",
+   "releve": "2026-11-25"
+  },
+  "I911790005": {
+   "nom": "Ugolf Golf du Coudray-Montceaux",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-coudray-montceaux/",
+   "site": "https://jouer.golf/golf/ugolf-coudray-montceaux/",
+   "releve": "2026-11-25"
+  },
+  "I911860002": {
+   "nom": "UGOLF : Golf du Stade Français Courson",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-courson/",
+   "site": "https://jouer.golf/golf/ugolf-courson/",
+   "releve": "2026-11-25"
+  },
+  "I350470010": {
+   "nom": "UGOLF: Golf de Cicé-Blossac",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-domaine-de-cice-blossac/",
+   "site": "https://jouer.golf/golf/ugolf-domaine-de-cice-blossac/",
+   "releve": "2026-11-25"
+  },
+  "I952590001": {
+   "nom": "Golf de Gadancourt",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-gadancourt/",
+   "site": "https://jouer.golf/golf/ugolf-gadancourt/",
+   "releve": "2026-11-25"
+  },
+  "I912720013": {
+   "nom": "UGOLF Gif-Chevry",
+   "resume": "45 à 49 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "45 €"
+    ],
+    [
+     "18 trous, week-end",
+     "49 €"
+    ]
+   ],
+   "note": "Grille publiée par UGOLF ; meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2026/02/TARIFS-GF-PRAC-LOC-2026-GIF.pdf",
+   "site": "https://jouer.golf/golf/ugolf-gif-chevry/",
+   "releve": "2026-11-25"
+  },
+  "I952770012": {
+   "nom": "Golf de Gonesse",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-gonesse/",
+   "site": "https://jouer.golf/golf/ugolf-gonesse/",
+   "releve": "2026-11-25"
+  },
+  "I544390002": {
+   "nom": "Golf",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-grand-nancy-pulnoy/",
+   "site": "https://jouer.golf/golf/ugolf-grand-nancy-pulnoy/",
+   "releve": "2026-11-25"
+  },
+  "I920470001": {
+   "nom": "Golf&tennis des Haras de Jardy",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-haras-de-jardy/",
+   "site": "https://jouer.golf/golf/ugolf-haras-de-jardy/",
+   "releve": "2026-11-25"
+  },
+  "I381930020": {
+   "nom": "Golf des Trois Vallons Ugolf",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-les-trois-vallons/",
+   "site": "https://jouer.golf/golf/ugolf-les-trois-vallons/",
+   "releve": "2026-11-25"
+  },
+  "I543230002": {
+   "nom": "Golf International de Longwy",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-longwy/",
+   "site": "https://jouer.golf/golf/ugolf-longwy/",
+   "releve": "2026-11-25"
+  },
+  "I911590002": {
+   "nom": "Golf de Chevannes - Mennecy",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-mennecy-chevannes/",
+   "site": "https://jouer.golf/golf/ugolf-mennecy-chevannes/",
+   "releve": "2026-11-25"
+  },
+  "I574630060": {
+   "nom": "Golf de Metz-Technopôle",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-metz/",
+   "site": "https://jouer.golf/golf/ugolf-metz/",
+   "releve": "2026-11-25"
+  },
+  "I540070001": {
+   "nom": "UGOLF: Golf de Nancy",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-nancy-aingeray/",
+   "site": "https://jouer.golf/golf/ugolf-nancy-aingeray/",
+   "releve": "2026-11-25"
+  },
+  "I440260011": {
+   "nom": "Golf de Carquefou",
+   "resume": "66 €",
+   "lignes": [
+    [
+     "18 trous (tarif accueil)",
+     "66 €"
+    ],
+    [
+     "Moins de 18 ans, 18 trous",
+     "25 €"
+    ]
+   ],
+   "note": "Grille publiée par UGOLF ; meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2026/04/Tarif-accueil-Nantes-.pdf",
+   "site": "https://jouer.golf/golf/ugolf-nantes-carquefou/",
+   "releve": "2026-11-25"
+  },
+  "I930640011": {
+   "nom": "Golf de Rosny",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-rosny-sous-bois/",
+   "site": "https://jouer.golf/golf/ugolf-rosny-sous-bois/",
+   "releve": "2026-11-25"
+  },
+  "I761230001": {
+   "nom": "Golf de Rouen La Forêt Verte",
+   "resume": "56 à 66 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "56 €"
+    ],
+    [
+     "18 trous, week-end",
+     "66 €"
+    ],
+    [
+     "Étudiant, semaine / week-end",
+     "27 € / 31 €"
+    ],
+    [
+     "Non licencié FFG",
+     "+ 15 €"
+    ]
+   ],
+   "note": "Grille publiée par UGOLF ; meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2020/01/A5-tarifs2026-ROUEN-v2.pdf",
+   "site": "https://jouer.golf/golf/ugolf-rouen-la-foret-verte/",
+   "releve": "2026-11-25"
+  },
+  "I955720003": {
+   "nom": "UGOLF: Daily Golf de St Ouen l'Aumône",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-saint-ouen-laumone/",
+   "site": "https://jouer.golf/golf/ugolf-saint-ouen-laumone/",
+   "releve": "2026-11-25"
+  },
+  "I603210005": {
+   "nom": "UGOLF des Templiers",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-templiers/",
+   "site": "https://jouer.golf/golf/ugolf-templiers/",
+   "releve": "2026-11-25"
+  },
+  "I314580007": {
+   "nom": "Golf de Lou Verdai - UGOLF",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-toulouse-lou-verdai/",
+   "site": "https://jouer.golf/golf/ugolf-toulouse-lou-verdai/",
+   "releve": "2026-11-25"
+  },
+  "I916450015": {
+   "nom": "UGolf Verrières-le-Buisson",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-verriere-le-buisson/",
+   "site": "https://jouer.golf/golf/ugolf-verriere-le-buisson/",
+   "releve": "2026-11-25"
+  },
+  "I606950005": {
+   "nom": "Garden Golf de Chantilly",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-foret-de-chantilly/",
+   "site": "https://jouer.golf/golf/ugolf-foret-de-chantilly/",
+   "releve": "2026-11-25"
   }
  }
 }

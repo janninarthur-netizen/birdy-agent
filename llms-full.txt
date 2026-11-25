@@ -3256,7 +3256,7 @@ Golf Hôtel Barrière de Deauville
 9 km   Saint-Gatien-des-Bois (14) · Calvados
 18 trous  9 trous  Golf privé    Demander un départ       Golf
 11 km   Houlgate (14) · Calvados
-18 trous  Golf privé    Demander un départ       Golf Barrière de Saint-Julien
+18 trous  Green fee 45 à 70 €  Golf privé    Demander un départ  Site du golf       Golf Barrière de Saint-Julien
 13 km   Saint-Julien-sur-Calonne (14) · Calvados
 18 trous  9 trous  Golf privé    Demander un départ       Golf public
 17 km   Cabourg (14) · Calvados
@@ -3278,7 +3278,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Deauville ?
 Nous recensons 10 golfs avec au moins un parcours 18 trous à moins de 40 km de Deauville, et 12 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Deauville ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf : 45 à 70 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3295,7 +3295,7 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf de Quetigny - Grand Dijon
 5 km   Quetigny (21) · Côte-d'Or
-18 trous  Golf privé    Demander un départ  Site du golf       Golf Dijon Bourgogne Jacques Laffite
+18 trous  Green fee 24 à 64 €  Golf privé    Demander un départ  Site du golf       Golf Dijon Bourgogne Jacques Laffite
 9 km   Norges-la-Ville (21) · Côte-d'Or
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de la chassagne
 17 km   Mâlain (21) · Côte-d'Or
@@ -3309,7 +3309,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Dijon ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Dijon, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Dijon ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Quetigny - Grand Dijon : 24 à 64 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3326,9 +3326,9 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf Bluegreen Grenoble Seyssins
 3 km   Seyssins (38) · Isère
-9 trous  Golf privé    Demander un départ  Site du golf       Golf Bresson
+9 trous  Green fee 30 à 60 €  Golf privé    Demander un départ  Site du golf       Golf Bresson
 7 km   Bresson (38) · Isère
-18 trous  Golf privé    Demander un départ  Site du golf       Hôtel golf de Grenoble Charmeil
+18 trous  Green fee 85 €  Golf privé    Demander un départ  Site du golf       Hôtel golf de Grenoble Charmeil
 17 km   Saint-Quentin-sur-Isère (38) · Isère
 18 trous  Golf privé    Demander un départ       Golf de Correncon en Vercors
 24 km   Corrençon-en-Vercors (38) · Isère
@@ -3344,7 +3344,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Grenoble ?
 Nous recensons 3 golfs avec au moins un parcours 18 trous à moins de 40 km de Grenoble, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Grenoble ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf Bluegreen Grenoble Seyssins : 30 à 60 € ; Golf Bresson : 85 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3407,7 +3407,7 @@ Golf de la Prée de la Rochelle
 7 km   Marsilly (17) · Charente-Maritime
 18 trous  Golf privé    Demander un départ       Bluegreen Rochefort Océan
 23 km   Saint-Laurent-de-la-Prée (17) · Charente-Maritime
-9 trous  Golf privé    Demander un départ       Golf Club d'Oléron
+9 trous  Green fee 45 à 74 €  Golf privé    Demander un départ  Site du golf       Golf Club d'Oléron
 24 km   Saint-Pierre-d'Oléron (17) · Charente-Maritime
 9 trous  Golf public    Demander un départ       Golf de Trousse Chemise
 25 km   Les Portes-en-Ré (17) · Charente-Maritime
@@ -3419,7 +3419,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de La Rochelle ?
 Nous recensons 2 golfs avec au moins un parcours 18 trous à moins de 50 km de La Rochelle, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de La Rochelle ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Bluegreen Rochefort Océan : 45 à 74 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3528,7 +3528,7 @@ Golf de Lyon Chassieu
 28 km   Villars-les-Dombes (01) · Ain
 18 trous  Green fee 63 €  Golf privé    Demander un départ  Site du golf       Golf des Trois Vallons Ugolf
 34 km   L'Isle-d'Abeau (38) · Isère
-9 trous  Golf public    Demander un départ
+9 trous  Golf public    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lyon ?
@@ -3623,25 +3623,25 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf Nantes Erdre
 4 km   Nantes (44) · Loire-Atlantique
-18 trous  Golf privé    Demander un départ       Ile Pinette et ile forget
+18 trous  Green fee 32 à 66 €  Golf privé    Demander un départ  Site du golf       Ile Pinette et ile forget
 6 km   Saint-Sébastien-sur-Loire (44) · Loire-Atlantique
 9 trous  Golf public    Demander un départ       Neogolf
 6 km   Saint-Herblain (44) · Loire-Atlantique
 2 × 9 trous  Golf privé    Demander un départ       Golf de Carquefou
 8 km   Carquefou (44) · Loire-Atlantique
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Nantes
+18 trous  Green fee 66 €  Golf privé    Demander un départ  Site du golf       Golf de Nantes
 12 km   Vigneux-de-Bretagne (44) · Loire-Atlantique
 18 trous  Golf privé    Demander un départ       Golf de l'Ile d'Or
 20 km   Le Cellier (44) · Loire-Atlantique
 18 trous  9 trous  Golf privé    Demander un départ       Golf de Savenay
 30 km   Savenay (44) · Loire-Atlantique
-18 trous  9 trous  Golf privé    Demander un départ  Site du golf
+18 trous  9 trous  Green fee 46 à 68 €  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nantes ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Nantes, et 7 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Nantes ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf Nantes Erdre : 32 à 66 € ; Golf de Carquefou : 66 € ; Golf de Savenay : 46 à 68 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3771,7 +3771,7 @@ Golf Parislongchamp
 25 km   Étiolles (91) · Essonne
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       UGOLF Gif-Chevry
 26 km   Gif-sur-Yvette (91) · Essonne
-9 trous  Golf privé    Demander un départ  Site du golf       UGOLF Golf de Béthemont
+9 trous  Green fee 45 à 49 €  Golf privé    Demander un départ  Site du golf       UGOLF Golf de Béthemont
 26 km   Poissy (78) · Yvelines
 18 trous  Golf privé    Demander un départ  Site du golf       Exclusive Golf de Feucherolles
 27 km   Feucherolles (78) · Yvelines
@@ -3807,7 +3807,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Paris ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf Blue Green Marolles : 35 à 79 € ; Golf Blue Green Saint-Aubin : 59 à 79 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; Ile de Loisirs de Saint Quentin en Yvelines : 44 à 79 € ; Golf de Villennes sur Seine : 44 à 79 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf Blue Green Marolles : 35 à 79 € ; Golf Blue Green Saint-Aubin : 59 à 79 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; UGOLF Gif-Chevry : 45 à 49 € ; Ile de Loisirs de Saint Quentin en Yvelines : 44 à 79 € ; Golf de Villennes sur Seine : 44 à 79 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3832,13 +3832,13 @@ Golf de Reims Champagne
 28 km   Villers-Agron-Aiguizy (02) · Aisne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de l'Ailette
 36 km   Cerny-en-Laonnois (02) · Aisne
-18 trous  9 trous  Golf public    Demander un départ
+18 trous  9 trous  Green fee 30 à 78 €  Golf public    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Reims ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Reims, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Reims ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de l'Ailette : 30 à 78 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3857,11 +3857,11 @@ Golf de la Freslonnière
 6 km   Le Rheu (35) · Ille-et-Vilaine
 18 trous  9 trous  Golf privé    Demander un départ       Golf de Rennes Saint Jacques
 7 km   Saint-Jacques-de-la-Lande (35) · Ille-et-Vilaine
-18 trous  2 × 9 trous  Golf privé    Demander un départ       Golf municipal de Cesson-Sévigné
+18 trous  2 × 9 trous  Green fee 49 à 76 €  Golf privé    Demander un départ  Site du golf       Golf municipal de Cesson-Sévigné
 8 km   Cesson-Sévigné (35) · Ille-et-Vilaine
 9 trous  Golf privé    Demander un départ       UGOLF: Golf de Cicé-Blossac
 11 km   Bruz (35) · Ille-et-Vilaine
-18 trous  Golf privé    Demander un départ       Golf des Rochers Sévigné
+18 trous  Golf privé    Demander un départ  Site du golf       Golf des Rochers Sévigné
 39 km   Vitré (35) · Ille-et-Vilaine
 18 trous  Golf privé    Demander un départ
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
@@ -3869,7 +3869,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rennes ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Rennes, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Rennes ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Rennes Saint Jacques : 49 à 76 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3888,7 +3888,7 @@ Golf de Rouen Mont-Saint-Aignan
 4 km   Mont-Saint-Aignan (76) · Seine-Maritime
 18 trous  Golf associatif    Demander un départ       Golf de Rouen La Forêt Verte
 12 km   Bosc-Guérard-Saint-Adrien (76) · Seine-Maritime
-18 trous  Golf privé    Demander un départ  Site du golf       Base de loisirs de Léry-Poses
+18 trous  Green fee 56 à 66 €  Golf privé    Demander un départ  Site du golf       Base de loisirs de Léry-Poses
 17 km   Poses (27) · Eure
 18 trous  9 trous  Golf public    Demander un départ       Golf de Jumièges
 18 km   Jumièges (76) · Seine-Maritime
@@ -3912,7 +3912,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Rouen ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Rouen, et 11 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Rouen ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Rouen La Forêt Verte : 56 à 66 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3966,7 +3966,7 @@ Golf de Garonne
 7 km   Vieille-Toulouse (31) · Haute-Garonne
 18 trous  Golf associatif    Demander un départ  Site du golf       Golf de Lou Verdai - UGOLF
 10 km   Roques (31) · Haute-Garonne
-9 trous  Golf privé    Demander un départ       Golf Saint Gabriel
+9 trous  Golf privé    Demander un départ  Site du golf       Golf Saint Gabriel
 10 km   Montrabé (31) · Haute-Garonne
 9 trous  Golf privé    Demander un départ       Latitudes Golf de Toulouse-Seilh
 11 km   Seilh (31) · Haute-Garonne
@@ -4005,7 +4005,7 @@ Golf de la Gloriette
 10 km   Ballan-Miré (37) · Indre-et-Loire
 18 trous  Golf associatif    Demander un départ       Golf BLUEGREEN Tours Ardree
 11 km   Saint-Antoine-du-Rocher (37) · Indre-et-Loire
-2 × 18 trous  Golf privé    Demander un départ       Golf des 7 Tours
+2 × 18 trous  Green fee 28 à 85 €  Golf privé    Demander un départ  Site du golf       Golf des 7 Tours
 27 km   Courcelles-de-Touraine (37) · Indre-et-Loire
 18 trous  Golf privé    Demander un départ       Golf de Fleuray - Amboise
 30 km   Cangey (37) · Indre-et-Loire
@@ -4015,7 +4015,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Tours ?
 Nous recensons 4 golfs avec au moins un parcours 18 trous à moins de 40 km de Tours, et 5 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Tours ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf BLUEGREEN Tours Ardree : 28 à 85 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
