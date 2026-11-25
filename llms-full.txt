@@ -3051,7 +3051,7 @@ Golf du Grand Avignon
 5 km   Vedène (84) · Vaucluse
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Garden Golf Avignon
 6 km   Morières-lès-Avignon (84) · Vaucluse
-18 trous  9 trous  Golf privé    Demander un départ       Golf de Saumane
+18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de Saumane
 21 km   Saumane-de-Vaucluse (84) · Vaucluse
 18 trous  Golf privé    Demander un départ  Site du golf       Golf d'Orange
 23 km   Orange (84) · Vaucluse
@@ -3059,7 +3059,7 @@ Golf du Grand Avignon
 23 km   Les Baux-de-Provence (13) · Bouches-du-Rhône
 18 trous  Golf privé    Demander un départ       Golf Club de Servannes
 27 km   Mouriès (13) · Bouches-du-Rhône
-18 trous  Golf privé    Demander un départ       Golf Club d'Uzes
+18 trous  Golf privé    Demander un départ  Site du golf       Golf Club d'Uzes
 32 km   Uzès (30) · Gard
 18 trous  Golf privé    Demander un départ       Golf de Saint Martin de Crau
 34 km   Saint-Martin-de-Crau (13) · Bouches-du-Rhône
@@ -3090,29 +3090,29 @@ Golf d'Ilbarritz
 2 km   Bidart (64) · Pyrénées-Atlantiques
 9 trous  Golf privé    Demander un départ  Site du golf       Golf de Biarritz Le Phare
 3 km   Biarritz (64) · Pyrénées-Atlantiques
-18 trous  Golf privé    Demander un départ  Site du golf       Golf d'Arcangues
+18 trous  Green fee 80 à 110 €  Golf privé    Demander un départ  Site du golf       Golf d'Arcangues
 4 km   Arcangues (64) · Pyrénées-Atlantiques
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Chiberta
+18 trous  Green fee 65 à 95 €  Golf privé    Demander un départ  Site du golf       Golf de Chiberta
 5 km   Anglet (64) · Pyrénées-Atlantiques
 18 trous  9 trous  Golf associatif    Demander un départ  Site du golf       Makila Golf Club
 6 km   Bassussarry (64) · Pyrénées-Atlantiques
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Chantaco
+18 trous  Green fee 65 à 85 €  Golf privé    Demander un départ  Site du golf       Golf de Chantaco
 12 km   Saint-Jean-de-Luz (64) · Pyrénées-Atlantiques
 18 trous  Golf associatif    Demander un départ  Site du golf       Golf de la Nivelle
 13 km   Ciboure (64) · Pyrénées-Atlantiques
-18 trous  Golf associatif    Demander un départ  Site du golf       Golf Epherra
+18 trous  Green fee 70 à 88 €  Golf associatif    Demander un départ  Site du golf       Golf Epherra
 13 km   Souraïde (64) · Pyrénées-Atlantiques
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Club Hossegor
 23 km   Soorts-Hossegor (40) · Landes
-18 trous  Golf associatif    Demander un départ       Golf de Seignosse
+18 trous  Green fee 88 à 114 €  Golf associatif    Demander un départ  Site du golf       Golf de Seignosse
 27 km   Seignosse (40) · Landes
-18 trous  Golf privé    Demander un départ
+18 trous  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Biarritz ?
 Nous recensons 9 golfs avec au moins un parcours 18 trous à moins de 30 km de Biarritz, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Biarritz ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Biarritz Le Phare : 80 à 110 € ; Golf d'Arcangues : 65 à 95 € ; Makila Golf Club : 65 à 85 € ; Golf de la Nivelle : 70 à 88 € ; Golf Club Hossegor : 88 à 114 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3137,7 +3137,7 @@ Golf International de Bordeaux Lac
 16 km   Saint-Sulpice-et-Cameyrac (33) · Gironde
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de Teynac
 17 km   Beychac-et-Caillau (33) · Gironde
-18 trous  Golf associatif    Demander un départ       Golf des Aiguilles Vertes
+18 trous  Green fee 30 à 44 €  Golf associatif    Demander un départ  Site du golf       Golf des Aiguilles Vertes
 39 km   Lanton (33) · Gironde
 9 trous  Golf privé    Demander un départ
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
@@ -3145,7 +3145,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Bordeaux ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Bordeaux, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Bordeaux ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Teynac : 30 à 44 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3164,7 +3164,7 @@ Royal Mougins Golf Club
 6 km   Mougins (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Golf Old Course - CANNES MANDELIEU
 6 km   Mandelieu-la-Napoule (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Golf country club Cannes-Mougins
+18 trous  Green fee 150 €  Golf privé    Demander un départ  Site du golf       Golf country club Cannes-Mougins
 7 km   Mougins (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Victoria Golf club
 9 km   Valbonne (06) · Alpes-Maritimes
@@ -3172,17 +3172,17 @@ Royal Mougins Golf Club
 9 km   Biot (06) · Alpes-Maritimes
 9 trous  Golf privé    Demander un départ       Golf "Saint Donat"
 10 km   Grasse (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Golf de Biot
+18 trous  Green fee 110 à 125 €  Golf privé    Demander un départ  Site du golf       Golf de Biot
 11 km   Biot (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Club Méditerranée
 12 km   Opio (06) · Alpes-Maritimes
 9 trous  Golf privé    Demander un départ       Golf Opio Valbonne
 12 km   Opio (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Golf de la Grande Bastide
+18 trous  Golf privé    Demander un départ  Site du golf       Golf de la Grande Bastide
 13 km   Opio (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Golf de la Grande Bastide
 13 km   Châteauneuf-Grasse (06) · Alpes-Maritimes
-18 trous  Golf public    Demander un départ       Golf De La Vanade
+18 trous  Golf public    Demander un départ  Site du golf       Golf De La Vanade
 15 km   Villeneuve-Loubet (06) · Alpes-Maritimes
 9 trous    Demander un départ       Golf du Claux Amic
 17 km   Grasse (06) · Alpes-Maritimes
@@ -3192,17 +3192,17 @@ Royal Mougins Golf Club
 19 km   Saint-Raphaël (83) · Var
 9 trous  Golf privé    Demander un départ  Site du golf       Golf et Tennis Club de Valescure
 20 km   Saint-Raphaël (83) · Var
-18 trous  Golf associatif    Demander un départ       Golf de l'Esterel
+18 trous  Golf associatif    Demander un départ  Site du golf       Golf de l'Esterel
 21 km   Saint-Raphaël (83) · Var
-18 trous  9 trous  Golf privé    Demander un départ       Domaine Golf de Terre Blanche
+18 trous  9 trous  Green fee 100 €  Golf privé    Demander un départ  Site du golf       Domaine Golf de Terre Blanche
 23 km   Tourrettes (83) · Var
-2 × 18 trous  Golf privé    Demander un départ  Site du golf
+2 × 18 trous  Green fee 190 €  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Cannes ?
 Nous recensons 14 golfs avec au moins un parcours 18 trous à moins de 30 km de Cannes, et 18 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Cannes ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf Old Course - CANNES MANDELIEU : 150 € ; Golf "Saint Donat" : 110 à 125 € ; Golf de l'Esterel : 100 € ; Domaine Golf de Terre Blanche : 190 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3666,7 +3666,7 @@ Golf De La Vanade
 17 km   Biot (06) · Alpes-Maritimes
 9 trous  Golf privé    Demander un départ       Golf Opio Valbonne
 19 km   Opio (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Victoria Golf club
+18 trous  Golf privé    Demander un départ  Site du golf       Victoria Golf club
 20 km   Valbonne (06) · Alpes-Maritimes
 18 trous    Demander un départ       Golf country club Cannes-Mougins
 21 km   Mougins (06) · Alpes-Maritimes
@@ -3674,25 +3674,25 @@ Golf De La Vanade
 21 km   Opio (06) · Alpes-Maritimes
 9 trous  Golf privé    Demander un départ       Golf de la Grande Bastide
 22 km   Châteauneuf-Grasse (06) · Alpes-Maritimes
-18 trous  Golf public    Demander un départ       Golf de la Grande Bastide
+18 trous  Golf public    Demander un départ  Site du golf       Golf de la Grande Bastide
 22 km   Opio (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Royal Mougins Golf Club
 25 km   Mougins (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Golf "Saint Donat"
 25 km   Grasse (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ       Golf Grasse Country Club
+18 trous  Green fee 110 à 125 €  Golf privé    Demander un départ  Site du golf       Golf Grasse Country Club
 29 km   Grasse (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ       Golf du Claux Amic
 30 km   Grasse (06) · Alpes-Maritimes
 18 trous  Golf privé    Demander un départ  Site du golf       Golf Old Course - CANNES MANDELIEU
 32 km   Mandelieu-la-Napoule (06) · Alpes-Maritimes
-18 trous  Golf privé    Demander un départ
+18 trous  Green fee 150 €  Golf privé    Demander un départ  Site du golf
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
 Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Nice ?
 Nous recensons 12 golfs avec au moins un parcours 18 trous à moins de 40 km de Nice, et 15 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Nice ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf "Saint Donat" : 110 à 125 € ; Golf Old Course - CANNES MANDELIEU : 150 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3970,13 +3970,13 @@ Golf de Garonne
 10 km   Montrabé (31) · Haute-Garonne
 9 trous  Golf privé    Demander un départ       Latitudes Golf de Toulouse-Seilh
 11 km   Seilh (31) · Haute-Garonne
-2 × 18 trous  Golf privé    Demander un départ       Parcours de Golf "Domaine Estolosa"
+2 × 18 trous  Golf privé    Demander un départ  Site du golf       Parcours de Golf "Domaine Estolosa"
 14 km   Drémil-Lafage (31) · Haute-Garonne
 9 trous  Golf privé    Demander un départ       Golf de Téoula
 15 km   Plaisance-du-Touch (31) · Haute-Garonne
 18 trous  Golf privé    Demander un départ  Site du golf       Golf club de Palmola
 21 km   Buzet-sur-Tarn (31) · Haute-Garonne
-18 trous  Golf associatif    Demander un départ       Ugolf - Las Martines
+18 trous  Green fee 50 à 85 €  Golf associatif    Demander un départ  Site du golf       Ugolf - Las Martines
 27 km   L'Isle-Jourdain (32) · Gers
 9 trous  Golf privé    Demander un départ
 Source : Recensement des équipements sportifs (ministère des Sports), licence ouverte, mise à jour le 25/11/2026.
@@ -3984,7 +3984,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Toulouse ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Toulouse, et 10 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Toulouse ?
-Le prix dépend du golf, du jour, de l’heure et de la saison. Le conseiller se renseigne auprès du golf et vous confirme le tarif exact avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf club de Palmola : 50 à 85 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes

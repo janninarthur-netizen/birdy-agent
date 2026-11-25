@@ -436,6 +436,832 @@
    "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
    "source": "https://jouer.golf/golf-liste/",
    "releve": "2026-11-25"
+  },
+  "I334830002": {
+   "nom": "UGOLF Bordeaux-Cameyrac",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-bordeaux-cameyrac/",
+   "site": "https://jouer.golf/golf/ugolf-bordeaux-cameyrac/",
+   "releve": "2026-11-25"
+  },
+  "I400460006": {
+   "nom": "UGOLF Biscarrosse",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-biscarosse/",
+   "site": "https://jouer.golf/golf/ugolf-biscarosse/",
+   "releve": "2026-11-25"
+  },
+  "I315570022": {
+   "nom": "UGOLF Toulouse La Ramée",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-toulouse-la-ramee/",
+   "site": "https://jouer.golf/golf/ugolf-toulouse-la-ramee/",
+   "releve": "2026-11-25"
+  },
+  "I314240020": {
+   "nom": "UGOLF Toulouse Téoula",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-toulouse-teoula/",
+   "site": "https://jouer.golf/golf/ugolf-toulouse-teoula/",
+   "releve": "2026-11-25"
+  },
+  "I315410003": {
+   "nom": "UGOLF Toulouse Seilh",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-toulouse-seilh/",
+   "site": "https://jouer.golf/golf/ugolf-toulouse-seilh/",
+   "releve": "2026-11-25"
+  },
+  "I810920004": {
+   "nom": "UGOLF Étangs de Fiac",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-etangs-de-fiac/",
+   "site": "https://jouer.golf/golf/ugolf-etangs-de-fiac/",
+   "releve": "2026-11-25"
+  },
+  "I810040017": {
+   "nom": "UGOLF Albi",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-albi/",
+   "site": "https://jouer.golf/golf/ugolf-albi/",
+   "releve": "2026-11-25"
+  },
+  "I840810005": {
+   "nom": "UGOLF Avignon Châteaublanc",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/ugolf-avignon-chateaublanc/",
+   "site": "https://jouer.golf/golf/ugolf-avignon-chateaublanc/",
+   "releve": "2026-11-25"
+  },
+  "I831180026": {
+   "nom": "Golf et Tennis de Valescure (UGOLF)",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/golf/golf-et-tennis-de-valescure/",
+   "site": "https://jouer.golf/golf/golf-et-tennis-de-valescure/",
+   "releve": "2026-11-25"
+  },
+  "I641000003": {
+   "nom": "UGOLF Makila",
+   "resume": "65 à 85 €",
+   "lignes": [
+    [
+     "18 trous, haute saison",
+     "85 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "65 €"
+    ],
+    [
+     "9 trous, haute / basse saison",
+     "56 € / 45 €"
+    ],
+    [
+     "Moins de 25 ans, 18 trous",
+     "45 €"
+    ]
+   ],
+   "note": "Basse saison : janvier, février, mars, novembre et décembre.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2026/01/Tarifs-Makila-2026.pdf",
+   "site": "https://jouer.golf/golf/golf-de-makila/",
+   "releve": "2026-11-25"
+  },
+  "I332140008": {
+   "nom": "UGOLF Lacanau l’Ardilouse",
+   "resume": "65 à 95 €",
+   "lignes": [
+    [
+     "18 trous",
+     "65 à 95 €"
+    ],
+    [
+     "9 trous",
+     "55 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours.",
+   "saison": "Tarifs 2026",
+   "source": "https://jouer.golf/content/uploads/2020/01/UG-LACANAU-TARIFS-GF.pdf",
+   "site": "https://jouer.golf/golf/ugolf-lacanau/",
+   "releve": "2026-11-25"
+  },
+  "I403040006": {
+   "nom": "Golf d’Hossegor",
+   "resume": "88 à 114 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "88 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "114 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "demi-tarif (44 € / 57 €)"
+    ]
+   ],
+   "note": "Basse saison du 1er janvier au 3 avril et du 16 novembre au 31 décembre. Licence obligatoire, index 36 maximum.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfhossegor.com/fr/tarifs-2025",
+   "site": "https://golfhossegor.com/",
+   "releve": "2026-11-25"
+  },
+  "I402500002": {
+   "nom": "Golf de Mont-de-Marsan",
+   "resume": "57 à 79 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "57 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "79 €"
+    ],
+    [
+     "Fin de journée (dès 16 h, haute saison)",
+     "50 €"
+    ],
+    [
+     "Étudiant de moins de 25 ans",
+     "25 €"
+    ]
+   ],
+   "note": "Basse saison : janvier à mars, novembre et décembre. Fermé le mercredi à partir du 1er novembre.",
+   "saison": "Tarifs 2027",
+   "source": "https://golfmontdemarsan.com/fr/green-fees-et-divers",
+   "site": "https://golfmontdemarsan.com/",
+   "releve": "2026-11-25"
+  },
+  "I640380008": {
+   "nom": "Golf d’Arcangues",
+   "resume": "65 à 95 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "65 €"
+    ],
+    [
+     "18 trous, moyenne saison",
+     "85 €"
+    ],
+    [
+     "18 trous, haute saison (juillet-août)",
+     "95 €"
+    ],
+    [
+     "Junior ou étudiant, 18 trous",
+     "35 à 50 €"
+    ],
+    [
+     "9 trous",
+     "45 à 60 €"
+    ]
+   ],
+   "note": "Basse saison : janvier à mars, novembre et décembre ; moyenne saison : avril à juin, septembre et octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdarcangues.com/fr/tarifs",
+   "site": "https://golfdarcangues.com/",
+   "releve": "2026-11-25"
+  },
+  "I335290013": {
+   "nom": "Golf International d’Arcachon",
+   "resume": "57 à 92 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "57 €"
+    ],
+    [
+     "18 trous, moyenne saison",
+     "75 €"
+    ],
+    [
+     "18 trous, haute saison (1er juin – 14 septembre)",
+     "92 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "23 à 37 €"
+    ],
+    [
+     "9 trous",
+     "38 à 63 €"
+    ]
+   ],
+   "note": "Licence obligatoire.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfarcachon.org/fr/tarifs",
+   "site": "https://golfarcachon.org/",
+   "releve": "2026-11-25"
+  },
+  "I330490002": {
+   "nom": "Golf de Teynac",
+   "resume": "30 à 44 €",
+   "lignes": [
+    [
+     "18 trous, 1er avril – 31 octobre",
+     "44 €"
+    ],
+    [
+     "18 trous, 1er novembre – 31 mars",
+     "30 €"
+    ],
+    [
+     "Moins de 25 ans, 18 trous",
+     "22 € / 26 €"
+    ],
+    [
+     "9 trous, hiver",
+     "20 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-teynac.com/tarifs/",
+   "site": "https://golf-teynac.com/",
+   "releve": "2026-11-25"
+  },
+  "I641220015": {
+   "nom": "Golf de Biarritz Le Phare",
+   "resume": "80 à 110 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "80 €"
+    ],
+    [
+     "18 trous, moyenne saison",
+     "95 €"
+    ],
+    [
+     "18 trous, haute saison (juillet-août)",
+     "110 €"
+    ],
+    [
+     "Junior, 18 trous",
+     "40 à 55 €"
+    ],
+    [
+     "Fin de journée, 9 trous",
+     "50 à 66 €"
+    ]
+   ],
+   "note": "Grille valable du 3 décembre 2025 au 30 novembre 2026. Licence et index 36 maximum.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfbiarritz.com/fr/tarifs",
+   "site": "https://golfbiarritz.com/",
+   "releve": "2026-11-25"
+  },
+  "I340320033": {
+   "nom": "Golf de Béziers Saint-Thomas",
+   "resume": "64 à 69 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (1er mars – 31 octobre)",
+     "69 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "64 €"
+    ],
+    [
+     "9 trous, haute / basse saison",
+     "52 € / 47 €"
+    ],
+    [
+     "Moins de 18 ans et étudiant, 18 trous",
+     "40 €"
+    ]
+   ],
+   "note": "Dernière grille publiée par le golf (2024) : le tarif actuel peut avoir changé.",
+   "saison": "Grille 2024",
+   "source": "https://www.golfsaintthomas.com/tarifs/",
+   "site": "https://www.golfsaintthomas.com/",
+   "releve": "2026-11-25"
+  },
+  "I301890162": {
+   "nom": "Golf de Nîmes Vacquerolles",
+   "resume": "70 à 88 €",
+   "lignes": [
+    [
+     "18 trous, haute saison",
+     "88 €"
+    ],
+    [
+     "18 trous, basse saison (décembre à février)",
+     "70 €"
+    ],
+    [
+     "9 trous, haute / basse saison",
+     "60 € / 50 €"
+    ],
+    [
+     "Moins de 25 ans, 18 trous",
+     "35 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-nimes.com/fr/tarifs",
+   "site": "https://www.golf-nimes.com/",
+   "releve": "2026-11-25"
+  },
+  "I320130060": {
+   "nom": "Golf d’Auch-Embats",
+   "resume": "52 à 56 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "52 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "56 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "38 € / 40 €"
+    ],
+    [
+     "Étudiant, 18 trous",
+     "26 € / 28 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-auch-embats.com/tarifs/",
+   "site": "https://www.golf-auch-embats.com/",
+   "releve": "2026-11-25"
+  },
+  "I652580006": {
+   "nom": "Golf Club de Lannemezan",
+   "resume": "48 à 60 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (octobre à avril)",
+     "48 €"
+    ],
+    [
+     "18 trous, haute saison (mai à septembre)",
+     "60 €"
+    ],
+    [
+     "Couple, 18 trous",
+     "80 € / 90 €"
+    ],
+    [
+     "9 trous",
+     "37 € / 47 €"
+    ],
+    [
+     "16 à 25 ans",
+     "25 €"
+    ]
+   ],
+   "note": "Le mercredi : -35 % pour tous.",
+   "saison": "Tarifs 2026",
+   "source": "https://golflannemezan.com/tarifs/",
+   "site": "https://golflannemezan.com/",
+   "releve": "2026-11-25"
+  },
+  "I060690051": {
+   "nom": "Golf de Saint-Donat",
+   "resume": "110 à 125 €",
+   "lignes": [
+    [
+     "18 trous",
+     "125 €"
+    ],
+    [
+     "18 trous, licencié FFG",
+     "110 €"
+    ],
+    [
+     "9 trous (fin de journée ou tôt le matin)",
+     "60 €"
+    ],
+    [
+     "Étudiant, 18 trous",
+     "70 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfsaintdonat.com/fr/tarifs",
+   "site": "https://golfsaintdonat.com/",
+   "releve": "2026-11-25"
+  },
+  "I060890003": {
+   "nom": "Opio Valbonne Golf Resort",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.opiovalbonnegolfresort.com/fr/",
+   "site": "https://www.opiovalbonnegolfresort.com/fr/",
+   "releve": "2026-11-25"
+  },
+  "I060380008": {
+   "nom": "Golf de la Grande Bastide",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.golfgrandebastide.com/fr/",
+   "site": "https://www.golfgrandebastide.com/fr/",
+   "releve": "2026-11-25"
+  },
+  "I830870010": {
+   "nom": "Golf de la Sainte-Baume",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.golfsaintebaume.com/fr/",
+   "site": "https://www.golfsaintebaume.com/fr/",
+   "releve": "2026-11-25"
+  },
+  "I401870004": {
+   "nom": "Golf de Moliets",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.golfmoliets.com/",
+   "site": "https://www.golfmoliets.com/",
+   "releve": "2026-11-25"
+  },
+  "I060790036": {
+   "nom": "Golf Old Course Cannes-Mandelieu",
+   "resume": "150 €",
+   "lignes": [
+    [
+     "18 trous, semaine et week-end (la journée)",
+     "150 €"
+    ],
+    [
+     "Fin de journée",
+     "99 €"
+    ],
+    [
+     "Junior et étudiant",
+     "85 €"
+    ],
+    [
+     "Groupe (dès 12 personnes)",
+     "130 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfoldcourse.com/les-tarifs.php",
+   "site": "https://www.golfoldcourse.com/",
+   "releve": "2026-11-25"
+  },
+  "I831380006": {
+   "nom": "Golf de Terre Blanche",
+   "resume": "190 €",
+   "lignes": [
+    [
+     "18 trous, licencié FFG",
+     "190 €"
+    ]
+   ],
+   "note": "Tarif réservé aux joueurs licenciés FFG. Deux parcours 18 trous.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.terre-blanche.com/",
+   "site": "https://www.terre-blanche.com/",
+   "releve": "2026-11-25"
+  },
+  "I831180053": {
+   "nom": "Golf de l’Estérel",
+   "resume": "100 €",
+   "lignes": [
+    [
+     "18 trous",
+     "100 €"
+    ],
+    [
+     "9 trous",
+     "60 €"
+    ],
+    [
+     "Étudiant de moins de 25 ans, 18 trous",
+     "50 €"
+    ],
+    [
+     "« Heures chaudes » (été, 11 h 30 – 15 h 30)",
+     "65 €"
+    ]
+   ],
+   "note": "Grille du 1er janvier au 31 décembre 2027.",
+   "saison": "Tarifs 2027",
+   "source": "https://golfdelesterel.com/fr/tarifs-golfs-esterel-et-academie-2027",
+   "site": "https://golfdelesterel.com/",
+   "releve": "2026-11-25"
+  },
+  "I830850007": {
+   "nom": "Golf de Saint-Endréol",
+   "resume": "92 €",
+   "lignes": [
+    [
+     "18 trous",
+     "92 €"
+    ],
+    [
+     "Junior (moins de 18 ans, étudiant de moins de 25 ans)",
+     "46 €"
+    ],
+    [
+     "9 trous (le matin)",
+     "55 €"
+    ],
+    [
+     "Fin de journée",
+     "69 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://st-endreol.com/fr/page/tarifs-golf-var.20007.html",
+   "site": "https://st-endreol.com/",
+   "releve": "2026-11-25"
+  },
+  "I830230024": {
+   "nom": "Golf de Barbaroux",
+   "resume": "88 à 106 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (4 avril – 1er novembre)",
+     "106 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "88 €"
+    ],
+    [
+     "Journée, haute / basse saison",
+     "120 € / 100 €"
+    ],
+    [
+     "Junior, 18 trous, haute / basse saison",
+     "60 € / 52 €"
+    ],
+    [
+     "9 trous, haute / basse saison",
+     "70 € / 58 €"
+    ]
+   ],
+   "note": "Parcours signé Pete Dye.",
+   "saison": "Tarifs 2026",
+   "source": "https://barbaroux.com/fr/tarifs",
+   "site": "https://barbaroux.com/",
+   "releve": "2026-11-25"
+  },
+  "I173800020": {
+   "nom": "Golf de Royan",
+   "resume": "56 à 91 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "56 €"
+    ],
+    [
+     "18 trous, saison",
+     "66 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "86 €"
+    ],
+    [
+     "18 trous, juillet-août",
+     "91 €"
+    ],
+    [
+     "9 trous",
+     "35 à 65 €"
+    ]
+   ],
+   "note": "Moins de 21 ans : -50 % sur le 18 trous. Licence FFG obligatoire.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfderoyan.com/tarifs",
+   "site": "https://www.golfderoyan.com/",
+   "releve": "2026-11-25"
+  },
+  "I334570002": {
+   "nom": "Golf des Graves et du Sauternais",
+   "resume": "53 à 69 €",
+   "lignes": [
+    [
+     "18 trous, basse saison, semaine / week-end",
+     "53 € / 58 €"
+    ],
+    [
+     "18 trous, haute saison, semaine / week-end",
+     "66 € / 69 €"
+    ],
+    [
+     "9 trous",
+     "32 à 42 €"
+    ]
+   ],
+   "note": "Basse saison du 1er novembre au 14 avril, haute saison du 15 avril au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdusauternais.com/le-golf-des-graves-et-du-sauternais/tarifs-golf/",
+   "site": "https://www.golfdusauternais.com/",
+   "releve": "2026-11-25"
+  },
+  "I821210102": {
+   "nom": "Golf de Montauban l’Estang",
+   "resume": "55 à 75 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (1er avril – 31 octobre)",
+     "75 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "55 €"
+    ],
+    [
+     "9 trous, haute / basse saison",
+     "45 € / 35 €"
+    ],
+    [
+     "18 trous sur 2 jours consécutifs",
+     "130 € / 90 €"
+    ]
+   ],
+   "note": "Licence FFG et carte verte requises.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdemontauban.fr/le-golf/les-tarifs/",
+   "site": "https://www.golfdemontauban.fr/",
+   "releve": "2026-11-25"
+  },
+  "I310940004": {
+   "nom": "Golf de Palmola",
+   "resume": "50 à 85 €",
+   "lignes": [
+    [
+     "18 trous, basse saison, semaine / week-end",
+     "50 € / 65 €"
+    ],
+    [
+     "18 trous, haute saison, semaine / week-end",
+     "65 € / 85 €"
+    ],
+    [
+     "Étudiant de moins de 25 ans",
+     "25 à 45 €"
+    ],
+    [
+     "Couple, 18 trous",
+     "80 à 155 €"
+    ]
+   ],
+   "note": "Basse saison du 1er novembre au 31 mars. Licence FFG obligatoire.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdepalmola.com/tarifs",
+   "site": "https://www.golfdepalmola.com/",
+   "releve": "2026-11-25"
+  },
+  "I110690079": {
+   "nom": "Golf de Carcassonne",
+   "resume": "71 à 84 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (1er novembre – 31 mars)",
+     "71 €"
+    ],
+    [
+     "18 trous, haute saison (1er avril – 31 octobre)",
+     "84 €"
+    ],
+    [
+     "Couple, basse / haute saison",
+     "114 € / 134 €"
+    ],
+    [
+     "9 trous, basse / haute saison",
+     "50 € / 54 €"
+    ],
+    [
+     "Jeunes",
+     "36 € / 42 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golf-de-carcassonne.com/tarifs/",
+   "site": "https://golf-de-carcassonne.com/",
+   "releve": "2026-11-25"
+  },
+  "I340030050": {
+   "nom": "Golf international du Cap d’Agde",
+   "resume": "80 à 90 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "80 €"
+    ],
+    [
+     "18 trous, haute saison (1er avril – 31 octobre)",
+     "90 €"
+    ],
+    [
+     "Étudiant ou junior",
+     "61 € / 72 €"
+    ],
+    [
+     "9 trous",
+     "60 € / 65 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfcapdagde.com/tarifs",
+   "site": "https://www.golfcapdagde.com/",
+   "releve": "2026-11-25"
+  },
+  "I171640005": {
+   "nom": "Golf de Saintes Louis-Rouyer-Guillet",
+   "resume": "51 à 66 €",
+   "lignes": [
+    [
+     "18 trous, haute saison (avril à octobre)",
+     "66 €"
+    ],
+    [
+     "18 trous, basse saison",
+     "51 €"
+    ],
+    [
+     "Moins de 26 ans, haute saison",
+     "46 €"
+    ],
+    [
+     "8 à 14 ans",
+     "16 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://saintes.flyovergreen.fr/wp-content/uploads/2026/04/GOLF-Tarifs-2026.pdf",
+   "site": "https://www.golf-saintes.fr/",
+   "releve": "2026-11-25"
+  },
+  "I641890016": {
+   "nom": "Golf de la Nivelle",
+   "resume": "70 à 88 €",
+   "lignes": [
+    [
+     "18 trous, hors saison (novembre à mars)",
+     "70 €"
+    ],
+    [
+     "18 trous, saison (1er avril – 31 octobre)",
+     "88 €"
+    ],
+    [
+     "Couple, 18 trous",
+     "112 € / 141 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "35 € / 44 €"
+    ],
+    [
+     "9 trous en fin de journée",
+     "35 € / 50 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://golfdelanivelle.com/tarifs",
+   "site": "https://golfdelanivelle.com/",
+   "releve": "2026-11-25"
+  },
+  "I402960004": {
+   "nom": "Golf de Seignosse",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.resonance.golf/fr/jouer/france/cote-landaise/golf-de-seignosse/",
+   "site": "https://www.resonance.golf/fr/jouer/france/cote-landaise/golf-de-seignosse/",
+   "releve": "2026-11-25"
+  },
+  "I130650003": {
+   "nom": "Golf de Servanes",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.resonance.golf/en/play/france/provence-french-riviera/servanes/parcours/",
+   "site": "https://www.resonance.golf/en/play/france/provence-french-riviera/servanes/parcours/",
+   "releve": "2026-11-25"
   }
  }
 }
