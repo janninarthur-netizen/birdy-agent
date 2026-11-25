@@ -3129,11 +3129,11 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf International de Bordeaux Lac
 5 km   Bordeaux (33) · Gironde
-2 × 18 trous  9 trous  Golf privé    Demander un départ       Golf de Pessac
+2 × 18 trous  9 trous  Green fee 70 €  Golf privé    Demander un départ  Site du golf       Golf de Pessac
 13 km   Pessac (33) · Gironde
-18 trous  9 trous  Golf privé    Demander un départ       Golf Cabot
+18 trous  9 trous  Green fee 50 à 70 €  Golf privé    Demander un départ  Site du golf       Golf Cabot
 14 km   Le Pian-Médoc (33) · Gironde
-2 × 18 trous  Golf privé    Demander un départ       Golf de Cameyrac
+2 × 18 trous  Green fee 75 à 160 €  Golf privé    Demander un départ  Site du golf       Golf de Cameyrac
 16 km   Saint-Sulpice-et-Cameyrac (33) · Gironde
 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de Teynac
 17 km   Beychac-et-Caillau (33) · Gironde
@@ -3145,7 +3145,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Bordeaux ?
 Nous recensons 5 golfs avec au moins un parcours 18 trous à moins de 40 km de Bordeaux, et 6 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Bordeaux ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Teynac : 30 à 44 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf International de Bordeaux Lac : 70 € ; Golf de Pessac : 50 à 70 € ; Golf Cabot : 75 à 160 € ; Golf de Teynac : 30 à 44 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3514,7 +3514,7 @@ Voir sur la carte et réserver
 Pas encore de réservation instantanée : vous envoyez une  demande de départ  gratuite, un conseiller réserve auprès du golf et vous confirme l’horaire et le prix.
 Golf de Lyon Chassieu
 9 km   Chassieu (69) · Rhône
-18 trous  9 trous  Golf privé    Demander un départ       Golf de la Tour Salvagny
+18 trous  9 trous  Green fee 65 €  Golf privé    Demander un départ  Site du golf       Golf de la Tour Salvagny
 12 km   La Tour-de-Salvagny (69) · Rhône
 18 trous  Green fee 110 €  Golf privé    Demander un départ  Site du golf       Golf de Lyon Verger
 13 km   Saint-Symphorien-d'Ozon (69) · Rhône
@@ -3534,7 +3534,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Lyon ?
 Nous recensons 7 golfs avec au moins un parcours 18 trous à moins de 40 km de Lyon, et 8 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Lyon ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de la Tour Salvagny : 110 € ; Golf du Beaujolais : 45 à 68 € ; Golf du Gouverneur : 70 à 105 € ; Golf du Clou : 63 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Lyon Chassieu : 65 € ; Golf de la Tour Salvagny : 110 € ; Golf du Beaujolais : 45 à 68 € ; Golf du Gouverneur : 70 à 105 € ; Golf du Clou : 63 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes
@@ -3743,11 +3743,11 @@ Golf Parislongchamp
 19 km   Buc (78) · Yvelines
 9 trous  Golf privé    Demander un départ  Site du golf       Golf Blue Green Marolles
 21 km   Marolles-en-Brie (94) · Val-de-Marne
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Fourqueux
+18 trous  Green fee 35 à 79 €  Golf privé    Demander un départ  Site du golf       Golf de Fourqueux
 21 km   Saint-Germain-en-Laye (78) · Yvelines
 3 × 9 trous  Golf associatif    Demander un départ  Site du golf       Golf Blue Green Saint-Aubin
 22 km   Saint-Aubin (91) · Essonne
-18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Paris International Golf Club
+18 trous  9 trous  Green fee 59 à 79 €  Golf privé    Demander un départ  Site du golf       Paris International Golf Club
 22 km   Baillet-en-France (95) · Val-d'Oise
 18 trous  Golf privé    Demander un départ  Site du golf       Golf de Noisy-le-Roi
 22 km   Noisy-le-Roi (78) · Yvelines
@@ -3785,9 +3785,9 @@ Golf Parislongchamp
 27 km   Saint-Ouen-l'Aumône (95) · Val-d'Oise
 9 trous  Golf privé    Demander un départ  Site du golf       Ile de Loisirs de Saint Quentin en Yvelines
 27 km   Trappes (78) · Yvelines
-2 × 18 trous  9 trous  Golf privé    Demander un départ  Site du golf       Golf de Villennes sur Seine
+2 × 18 trous  9 trous  Green fee 44 à 79 €  Golf privé    Demander un départ  Site du golf       Golf de Villennes sur Seine
 28 km   Villennes-sur-Seine (78) · Yvelines
-18 trous  Golf privé    Demander un départ  Site du golf       Golf de Val Grand
+18 trous  Green fee 44 à 79 €  Golf privé    Demander un départ  Site du golf       Golf de Val Grand
 28 km   Bondoufle (91) · Essonne
 18 trous  Green fee 80 €  Golf privé    Demander un départ  Site du golf       Golf de la Marsaudiere
 29 km   Chevry-Cossigny (77) · Seine-et-Marne
@@ -3807,7 +3807,7 @@ Questions fréquentes
 Combien y a-t-il de golfs 18 trous autour de Paris ?
 Nous recensons 28 golfs avec au moins un parcours 18 trous à moins de 30 km de Paris, et 47 golfs en comptant les parcours 9 trous (source : Recensement des équipements sportifs (ministère des Sports), licence ouverte).
 Combien coûte un green fee autour de Paris ?
-Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
+Tarifs publics d’un 18 trous, relevés sur les sites officiels des golfs (novembre 2026) : Golf de Saint Marc : 56 à 76 € ; Golf Blue Green Marolles : 35 à 79 € ; Golf Blue Green Saint-Aubin : 59 à 79 € ; Golf National : 60 à 290 € ; Golf de Lésigny-Réveillon : 41 à 68 € ; GOLF Ozoir-la-Ferrière : 70 à 89 € ; Ile de Loisirs de Saint Quentin en Yvelines : 44 à 79 € ; Golf de Villennes sur Seine : 44 à 79 € ; Golf de Val Grand : 80 € ; Golf de Marivaux : 49 à 75 € ; Golf de l'Isle d'Adam : 95 à 140 €. Pour les autres golfs, et pour le tarif du jour, le conseiller vous confirme le prix avant toute réservation.
 Comment réserver un départ ?
 Choisissez un golf, la date, le créneau et le nombre de joueurs, puis envoyez votre demande. Un conseiller réserve auprès du golf et vous rappelle pour confirmer. Vous pouvez aussi appeler le 06 16 21 34 47.
 Golfs autour d’autres villes

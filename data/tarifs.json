@@ -134,10 +134,26 @@
    "releve": "2026-11-25"
   },
   "I692710002": {
-   "nom": "Golf de Lyon Chassieu (UGOLF)",
-   "type": "variable",
-   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-   "source": "https://jouer.golf/",
+   "nom": "Golf Bluegreen Grand Lyon Chassieu",
+   "resume": "65 €",
+   "lignes": [
+    [
+     "18 trous",
+     "65 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "28 €"
+    ],
+    [
+     "9 trous",
+     "40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/chassieu/tarifs",
+   "site": "https://bluegreen.fr/chassieu/",
    "releve": "2026-11-25"
   },
   "I692910011": {
@@ -410,31 +426,111 @@
    "releve": "2026-11-25"
   },
   "I940480002": {
-   "nom": "Bluegreen Marolles-en-Brie",
-   "type": "variable",
-   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-   "source": "https://jouer.golf/golf-liste/",
+   "nom": "Golf Bluegreen Marolles-en-Brie",
+   "resume": "35 à 79 €",
+   "lignes": [
+    [
+     "18 trous en ligne, semaine",
+     "de 35 à 59 €"
+    ],
+    [
+     "18 trous en ligne, week-end",
+     "de 48 à 79 €"
+    ],
+    [
+     "18 trous à l’accueil, semaine / week-end",
+     "59 € / 79 €"
+    ],
+    [
+     "Moins de 26 ans",
+     "18 à 40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/marolles/tarifs",
+   "site": "https://bluegreen.fr/marolles/",
    "releve": "2026-11-25"
   },
   "I915380003": {
-   "nom": "Bluegreen Saint-Aubin",
-   "type": "variable",
-   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-   "source": "https://jouer.golf/golf-liste/",
+   "nom": "Golf Bluegreen Saint-Aubin",
+   "resume": "59 à 79 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "59 €"
+    ],
+    [
+     "18 trous, week-end",
+     "79 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "29 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "35 € / 40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/saint-aubin/tarifs",
+   "site": "https://bluegreen.fr/saint-aubin/",
    "releve": "2026-11-25"
   },
   "I786210014": {
-   "nom": "Bluegreen Saint-Quentin-en-Yvelines",
-   "type": "variable",
-   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-   "source": "https://jouer.golf/golf-liste/",
+   "nom": "Golf Bluegreen Saint-Quentin-en-Yvelines",
+   "resume": "44 à 79 €",
+   "lignes": [
+    [
+     "18 trous en ligne, semaine",
+     "de 44 à 60 €"
+    ],
+    [
+     "18 trous en ligne, week-end",
+     "de 56 à 79 €"
+    ],
+    [
+     "18 trous à l’accueil, semaine / week-end",
+     "59 € / 79 €"
+    ],
+    [
+     "9 trous",
+     "35 à 40 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/saint-quentin/tarifs",
+   "site": "https://bluegreen.fr/saint-quentin/",
    "releve": "2026-11-25"
   },
   "I786720002": {
-   "nom": "Bluegreen Villennes-sur-Seine",
-   "type": "variable",
-   "note": "Ce golf UGOLF/Bluegreen ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
-   "source": "https://jouer.golf/golf-liste/",
+   "nom": "Golf Bluegreen Villennes-sur-Seine",
+   "resume": "44 à 79 €",
+   "lignes": [
+    [
+     "18 trous en ligne, semaine",
+     "de 44 à 59 €"
+    ],
+    [
+     "18 trous en ligne, week-end",
+     "de 56 à 79 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "22 à 40 €"
+    ],
+    [
+     "9 trous",
+     "49 à 61 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/villennes/tarifs",
+   "site": "https://bluegreen.fr/villennes/",
    "releve": "2026-11-25"
   },
   "I334830002": {
@@ -1261,6 +1357,237 @@
    "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
    "source": "https://www.resonance.golf/en/play/france/provence-french-riviera/servanes/parcours/",
    "site": "https://www.resonance.golf/en/play/france/provence-french-riviera/servanes/parcours/",
+   "releve": "2026-11-25"
+  },
+  "I330630017": {
+   "nom": "Golf Bluegreen Bordeaux-Lac",
+   "resume": "70 €",
+   "lignes": [
+    [
+     "18 trous",
+     "70 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "35 €"
+    ],
+    [
+     "9 trous",
+     "55 €"
+    ],
+    [
+     "Compact",
+     "12 €"
+    ]
+   ],
+   "note": "Deux parcours 18 trous. Meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/bordeaux-lac/tarifs",
+   "site": "https://bluegreen.fr/bordeaux-lac/",
+   "releve": "2026-11-25"
+  },
+  "I333180002": {
+   "nom": "Golf Bluegreen Bordeaux-Pessac",
+   "resume": "50 à 70 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "50 €"
+    ],
+    [
+     "18 trous, haute saison (30 mars – 12 novembre)",
+     "70 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "28 € / 40 €"
+    ],
+    [
+     "9 trous",
+     "36 € / 47 €"
+    ]
+   ],
+   "note": "Pâques, l’Ascension et la Pentecôte comptent en haute saison. Meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/pessac/tarifs",
+   "site": "https://bluegreen.fr/pessac/",
+   "releve": "2026-11-25"
+  },
+  "I331990012": {
+   "nom": "Golf Bluegreen Gujan-Mestras",
+   "resume": "28 à 82 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 28 à 82 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "40 €"
+    ],
+    [
+     "9 trous",
+     "45 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/gujan/tarifs",
+   "site": "https://bluegreen.fr/gujan/",
+   "releve": "2026-11-25"
+  },
+  "I640600005": {
+   "nom": "Golf Bluegreen Pau-Artiguelouve",
+   "resume": "66 €",
+   "lignes": [
+    [
+     "18 trous",
+     "66 €"
+    ],
+    [
+     "Moins de 26 ans / moins de 18 ans",
+     "46,20 € / 33 €"
+    ],
+    [
+     "9 trous",
+     "42 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/pau/tarifs",
+   "site": "https://bluegreen.fr/pau/",
+   "releve": "2026-11-25"
+  },
+  "I791910075": {
+   "nom": "Golf Bluegreen Niort-Romagné",
+   "resume": "26 à 68 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 26 à 68 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "34 €"
+    ],
+    [
+     "9 trous",
+     "50 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/niort/tarifs",
+   "site": "https://bluegreen.fr/niort/",
+   "releve": "2026-11-25"
+  },
+  "I791720003": {
+   "nom": "Golf Bluegreen Mazières-en-Gâtine",
+   "resume": "26 à 70 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 26 à 70 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "35 €"
+    ],
+    [
+     "9 trous",
+     "50 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/mazieres/tarifs",
+   "site": "https://bluegreen.fr/mazieres/",
+   "releve": "2026-11-25"
+  },
+  "I121760015": {
+   "nom": "Golf Bluegreen Rodez Agglomération",
+   "resume": "24 à 66 €",
+   "lignes": [
+    [
+     "18 trous",
+     "de 24 à 66 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "32 €"
+    ],
+    [
+     "9 trous",
+     "46 €"
+    ]
+   ],
+   "note": "Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/rodez/tarifs",
+   "site": "https://bluegreen.fr/rodez/",
+   "releve": "2026-11-25"
+  },
+  "I831150002": {
+   "nom": "Golf Bluegreen Sainte-Maxime",
+   "resume": "85 €",
+   "lignes": [
+    [
+     "18 trous",
+     "85 €"
+    ],
+    [
+     "Moins de 26 ans, 18 trous",
+     "46 €"
+    ],
+    [
+     "9 trous",
+     "57 €"
+    ],
+    [
+     "Voiturette obligatoire, 18 trous",
+     "+ 20 € par personne"
+    ]
+   ],
+   "note": "Voiturette obligatoire. Tarification dynamique selon l’occupation du parcours : meilleurs prix en réservant en ligne.",
+   "saison": "Tarifs 2026",
+   "source": "https://bluegreen.fr/sainte-maxime/tarifs",
+   "site": "https://bluegreen.fr/sainte-maxime/",
+   "releve": "2026-11-25"
+  },
+  "I333220001": {
+   "nom": "Cabot Bordeaux (ex-Golf du Médoc)",
+   "resume": "75 à 160 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (novembre à mars)",
+     "75 €"
+    ],
+    [
+     "18 trous, avril",
+     "118 €"
+    ],
+    [
+     "18 trous, haute saison (mai à octobre)",
+     "160 €"
+    ],
+    [
+     "Licencié FFG, basse / moyenne / haute saison",
+     "55 € / 77 € / 99 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "38 à 68 €"
+    ],
+    [
+     "Crépuscule (après 16 h)",
+     "42 à 80 €"
+    ]
+   ],
+   "note": "Même tarif du lundi au dimanche.",
+   "saison": "Tarifs 2026",
+   "source": "https://cabot.com/fr/bordeaux/golf-rates/",
+   "site": "https://cabot.com/fr/bordeaux/",
    "releve": "2026-11-25"
   }
  }
