@@ -9,6 +9,7 @@ permissions: {}
 jobs:
   rappel:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 25
     steps:
-      - run: curl -fsS -m 30 https://birdy-agent.pages.dev/api/rappel
+      # En cas de refus passager de ntfy : 3 nouvelles tentatives, espacées de 5 minutes
+      - run: curl -fsS -m 60 --retry 3 --retry-delay 300 --retry-all-errors https://birdy-agent.pages.dev/api/rappel

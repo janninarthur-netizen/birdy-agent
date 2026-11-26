@@ -22,8 +22,7 @@ export async function onRequestGet({ request, env }) {
 
   const toutes = await lister(env, 500);
   const ouvertes = toutes.filter((d) => OUVERTS.includes(d.statut));
-  await env.DEMANDES.put(cleJour, "1", { expirationTtl: 3 * 864e2 });
-  if (!ouvertes.length) return json(200, { ok: true, ouvertes: 0 });
+  if (!ouvertes.length) { await env.DEMANDES.put(cleJour, "1", { expirationTtl: 3 * 864e2 }); return json(200, { ok: true, ouvertes: 0 }); }
 
   // Détail : ancienneté et départs imminents (lecture des fiches ouvertes uniquement)
   const fiches = (await Promise.all(ouvertes.slice(0, 40).map((d) => lire(env, d.id)))).filter(Boolean);
@@ -44,6 +43,17 @@ export async function onRequestGet({ request, env }) {
     message: lignes.join("\n"), tags: ["sunrise", "golf"], priority: urgents.length ? 4 : 3,
     actions: [{ action: "view", label: "Ouvrir le suivi", url: new URL("/suivi/", request.url).href }],
   };
-  const r = await fetch("https://ntfy.sh/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(msg) });
-  return json(r.ok ? 200 : 502, { ok: r.ok, ouvertes: ouvertes.length });
+  // ntfy limite les envois par serveur (et ceux de Cloudflare sont partagés) : on réessaie,
+  // et la journée n'est marquée « faite » qu'une fois la notification vraiment partie.
+  let statut = 0;
+  for (let essai = 0; essai < 4; essai++) {
+    if (essai) await new Promise((ok) => setTimeout(ok, 2500 * essai));
+    try {
+      const r = await fetch("https://ntfy.sh/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(msg) });
+      statut = r.status;
+      if (r.ok) { await env.DEMANDES.put(cleJour, "1", { expirationTtl: 3 * 864e2 }); return json(200, { ok: true, ouvertes: ouvertes.length, essais: essai + 1 }); }
+      console.error("ntfy rappel " + r.status + " " + (await r.text()).slice(0, 160));
+    } catch (e) { statut = -1; console.error("ntfy rappel " + String(e).slice(0, 160)); }
+  }
+  return json(502, { ok: false, ouvertes: ouvertes.length, ntfy: statut });
 }
