@@ -92,6 +92,24 @@
   .gs-step .gs-who{display:none}
   .gs-step p{font-size:14.5px;line-height:1.5}
 
+  /* ---------- Page « Réserver un parcours » ---------- */
+  /* la carte 3D de France prenait tout un écran sans rien apprendre : masquée sur téléphone */
+  html.pro .gp-viz,html.pro .gp-cap{display:none!important}
+  html.pro .gp-hin{padding-block:22px 40px!important}
+  /* outil de recherche sur une seule colonne : la liste prend toute la largeur */
+  html.pro .gp-res{grid-template-columns:1fr!important;gap:14px!important}
+  /* avant la recherche : seulement la liste des villes (la carte de France y était écrasée) */
+  html.pro .gp-res:has(.gp-start) .gp-map{display:none!important}
+  /* après la recherche : petite carte au-dessus des résultats */
+  html.pro .gp-band .gp-map{position:relative!important;top:0!important;height:260px!important;order:-1;border-radius:16px!important}
+  html.pro .gp-band .gp-start-h{align-items:center;gap:14px}
+  html.pro .gp-band .gp-start-h b{font-size:26px}
+  html.pro .gp-band .gp-start-h span{font-size:14.5px;line-height:1.4}
+  html.pro .gp-villes{grid-template-columns:1fr!important}
+  html.pro .gp-band .gp-villes button{padding:15px 4px;font-size:16px}
+  html.pro .gp-app-h{flex-direction:column;align-items:flex-start;gap:6px}
+  html.pro .gp-count{font-size:15px;line-height:1.4}
+
   /* ---------- 5. Cibles tactiles et boutons d'action ---------- */
   .btn{min-height:44px}
   .faq summary{min-height:44px;display:flex;align-items:center}

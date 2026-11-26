@@ -157,7 +157,7 @@ La réservation d’un parcours est-elle immédiate ?
 Pas encore. Vous envoyez une demande de départ ; un conseiller réserve auprès du golf et vous rappelle pour confirmer l’horaire et le tarif. Rien n’est réservé avant sa confirmation.
 Birdy est-il une vraie intelligence artificielle ?
 Oui. Birdy comprend vos messages, conseille des destinations et des parcours, et prépare votre demande. Comme toute IA, il peut se tromper : un conseiller vérifie chaque proposition avant de vous l’envoyer.
-Page mise à jour le 25/11/2026.
+Page mise à jour le 26/11/2026.
 WhatsApp
 
 # Débuter le golf
