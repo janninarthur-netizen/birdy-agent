@@ -93,9 +93,16 @@
   .gs-step p{font-size:14.5px;line-height:1.5}
 
   /* ---------- Page « Réserver un parcours » ---------- */
-  /* la carte 3D de France prenait tout un écran sans rien apprendre : masquée sur téléphone */
-  html.pro .gp-viz,html.pro .gp-cap{display:none!important}
-  html.pro .gp-hin{padding-block:22px 40px!important}
+  /* carte 3D de France : gardée (animée et interactive), mais compacte au lieu d'occuper tout l'écran */
+  html.pro .gp-viz{height:330px!important;min-height:0!important;margin:4px -16px 0!important}
+  html.pro .gp-cap{position:static!important;transform:none!important;justify-self:center;margin:2px auto 0!important;display:inline-flex!important}
+  html.pro .gp-hin{padding-block:22px 34px!important;gap:18px!important}
+  /* formulaire : champs de même hauteur ; le champ date d'iPhone ne déborde plus sur la colonne voisine */
+  .gp-f label,.gp-dep label{min-width:0}
+  .gp-f input,.gp-f select,.gp-dep input,.gp-dep select{height:48px;box-sizing:border-box}
+  .gp-f input[type=date],.gp-dep input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;text-align:left;line-height:24px}
+  .gp-f input[type=date]::-webkit-date-and-time-value,.gp-dep input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+  .gp-f input[type=date]::-webkit-calendar-picker-indicator,.gp-dep input[type=date]::-webkit-calendar-picker-indicator{margin-left:auto}
   /* outil de recherche sur une seule colonne : la liste prend toute la largeur */
   html.pro .gp-res{grid-template-columns:1fr!important;gap:14px!important}
   /* avant la recherche : seulement la liste des villes (la carte de France y était écrasée) */

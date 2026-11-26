@@ -8,8 +8,6 @@
   "use strict";
   var cv = document.getElementById("gp-3d");
   if (!cv || !window.THREE || !window.BirdyGolf) return;
-  // Sur téléphone, la carte 3D n'est pas affichée (assets/mobile.css) : on ne la calcule pas, ça économise la batterie
-  if (matchMedia("(max-width: 767px)").matches) return;
   var calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // Thème clair (classe « clair » sur <html>) : points vert foncé sur fond clair, sans effet lumineux additif
   var CLAIR = document.documentElement.classList.contains("clair");
