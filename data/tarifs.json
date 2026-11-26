@@ -3466,6 +3466,312 @@
    "source": "https://www.golfgrandebastide.com/fr/jouer/tarifs/",
    "site": "https://www.golfgrandebastide.com/fr/",
    "releve": "2026-11-25"
+  },
+  "I251910002": {
+   "nom": "Golf de Prunevelle",
+   "resume": "63 à 79 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "63 €"
+    ],
+    [
+     "18 trous, haute saison",
+     "79 €"
+    ],
+    [
+     "9 trous, basse / haute saison",
+     "47 € / 58 €"
+    ]
+   ],
+   "note": "Basse saison à partir du 16 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-prunevelle.com/visiteurs",
+   "site": "https://www.golf-prunevelle.com/",
+   "releve": "2026-11-25"
+  },
+  "I774650001": {
+   "nom": "Golf de Montereau La Forteresse",
+   "resume": "54 à 64 €",
+   "lignes": [
+    [
+     "18 trous, semaine (licencié)",
+     "54 €"
+    ],
+    [
+     "18 trous, week-end (licencié)",
+     "64 €"
+    ],
+    [
+     "19 à 25 ans",
+     "38 €"
+    ],
+    [
+     "13 à 18 ans",
+     "25 €"
+    ]
+   ],
+   "note": "Tarifs avec licence FFG 2026. Le mardi : 43 €.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-forteresse.com/",
+   "site": "https://www.golf-forteresse.com/",
+   "releve": "2026-11-25"
+  },
+  "I513880005": {
+   "nom": "Golf de Mourmelon",
+   "resume": "30 à 40 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "30 €"
+    ],
+    [
+     "18 trous, week-end et jours fériés",
+     "40 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "20 € / 30 €"
+    ],
+    [
+     "Moins de 18 ans",
+     "5 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdemourmelon.com/infos-pratiques/",
+   "site": "https://www.golfdemourmelon.com/",
+   "releve": "2026-11-25"
+  },
+  "I242760002": {
+   "nom": "Golf des Vigiers",
+   "resume": "60 à 95 €",
+   "lignes": [
+    [
+     "18 trous, novembre à avril",
+     "60 €"
+    ],
+    [
+     "18 trous, mai à octobre",
+     "95 €"
+    ],
+    [
+     "Étudiant",
+     "35 € / 55 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 52 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://vigiers.com/fr/hotel-dordogne/tarif-fr.php",
+   "site": "https://vigiers.com/",
+   "releve": "2026-11-25"
+  },
+  "I955920002": {
+   "nom": "Golf de Seraincourt",
+   "resume": "64 à 84 €",
+   "lignes": [
+    [
+     "18 trous, semaine",
+     "64 €"
+    ],
+    [
+     "18 trous, week-end",
+     "84 €"
+    ],
+    [
+     "9 trous, semaine / week-end",
+     "44 € / 54 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfdeseraincourt.com/",
+   "site": "https://www.golfdeseraincourt.com/",
+   "releve": "2026-11-25"
+  },
+  "I885160014": {
+   "nom": "Golf Club Vittel Hazeau",
+   "resume": "40 €",
+   "lignes": [
+    [
+     "18 trous, semaine et week-end",
+     "40 €"
+    ],
+    [
+     "Fin de journée",
+     "30 €"
+    ],
+    [
+     "Étudiant (19 à 25 ans)",
+     "25 €"
+    ],
+    [
+     "Carnet de 5 green fees",
+     "190 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-vittel-hazeau.com/tarifs-parcours.html",
+   "site": "https://www.golf-vittel-hazeau.com/",
+   "releve": "2026-11-25"
+  },
+  "I628930001": {
+   "nom": "Golf de Wimereux",
+   "resume": "50 à 95 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (novembre à mars)",
+     "50 €"
+    ],
+    [
+     "18 trous, saison, semaine",
+     "85 €"
+    ],
+    [
+     "18 trous, saison, week-end",
+     "95 €"
+    ],
+    [
+     "9 trous",
+     "35 à 55 €"
+    ]
+   ],
+   "note": "Saison du 1er avril au 31 octobre.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golf-wimereux.com/",
+   "site": "https://www.golf-wimereux.com/",
+   "releve": "2026-11-25"
+  },
+  "I590090039": {
+   "nom": "Golf de Brigode",
+   "resume": "80 €",
+   "lignes": [
+    [
+     "18 trous, extérieur, semaine",
+     "80 €"
+    ],
+    [
+     "9 trous, extérieur, semaine",
+     "50 €"
+    ],
+    [
+     "Étudiant",
+     "30 €"
+    ]
+   ],
+   "note": "Club accessible aux extérieurs en semaine ; le week-end, avec un membre.",
+   "saison": "Tarifs 2026",
+   "source": "https://golfbrigode.com/fr/jouer-a-brigode",
+   "site": "https://golfbrigode.com/",
+   "releve": "2026-11-25"
+  },
+  "I244160001": {
+   "nom": "Golf de Lolivarie",
+   "resume": "45 à 60 €",
+   "lignes": [
+    [
+     "18 trous, basse saison (novembre à mars)",
+     "45 €"
+    ],
+    [
+     "18 trous, haute saison (avril à octobre)",
+     "60 €"
+    ],
+    [
+     "9 trous",
+     "35 € / 45 €"
+    ],
+    [
+     "Moins de 25 ans",
+     "25 à 35 €"
+    ]
+   ],
+   "note": "",
+   "saison": "Tarifs 2027",
+   "source": "https://www.lolivariegolfclub.com/fr/jouer/tarifs-green-fees",
+   "site": "https://www.lolivariegolfclub.com/",
+   "releve": "2026-11-25"
+  },
+  "I221980022": {
+   "nom": "Golf de Saint-Samson",
+   "resume": "52 €",
+   "lignes": [
+    [
+     "18 trous, basse saison",
+     "52 €"
+    ],
+    [
+     "12 trous, basse saison",
+     "30 €"
+    ],
+    [
+     "Junior (moins de 18 ans)",
+     "25 €"
+    ],
+    [
+     "Étudiant",
+     "32 €"
+    ]
+   ],
+   "note": "Tarifs de basse saison (janvier à mars, novembre et décembre) ; saison d’avril à octobre sur le site.",
+   "saison": "Tarifs 2026",
+   "source": "https://www.golfhotel-saint-samson.com/parcours-de-golf/parcours-acces/greenfee/",
+   "site": "https://www.golfhotel-saint-samson.com/",
+   "releve": "2026-11-25"
+  },
+  "I714940001": {
+   "nom": "UGOLF Mâcon La Salle",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/content/uploads/2020/01/tarifs2026-MIONNAY-v2.pdf",
+   "site": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-26"
+  },
+  "I260580030": {
+   "nom": "UGOLF Les Chanalets",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/content/uploads/2020/01/tarifs2026-MIONNAY-v2.pdf",
+   "site": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-26"
+  },
+  "I260580019": {
+   "nom": "UGOLF Les Chanalets",
+   "type": "variable",
+   "note": "Ce golf UGOLF ne publie pas de grille : le prix du green fee varie selon le jour et l’heure.",
+   "source": "https://jouer.golf/content/uploads/2020/01/tarifs2026-MIONNAY-v2.pdf",
+   "site": "https://jouer.golf/golf-liste/",
+   "releve": "2026-11-26"
+  },
+  "I628260009": {
+   "nom": "Le Touquet Golf Resort",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.resonance.golf/en/play/france/opal-coast/le-touquet-golf-resort/parcours/",
+   "site": "https://www.resonance.golf/en/play/france/opal-coast/le-touquet-golf-resort/parcours/",
+   "releve": "2026-11-26"
+  },
+  "I626040002": {
+   "nom": "Golf d’Hardelot",
+   "type": "variable",
+   "note": "Ce golf du réseau Resonance ne publie pas de grille : le prix du green fee varie selon la date (réservation en ligne).",
+   "source": "https://www.resonance.golf/en/play/france/opal-coast/hardelot-golf-courses/parcours/",
+   "site": "https://www.resonance.golf/en/play/france/opal-coast/hardelot-golf-courses/parcours/",
+   "releve": "2026-11-26"
+  },
+  "I785510013": {
+   "nom": "Golf de Saint-Germain",
+   "type": "membres",
+   "note": "Club privé : réservé le week-end aux membres et à leurs invités. Les extérieurs sont accueillis en semaine sur réservation, et le week-end du 14 juillet au 31 août.",
+   "source": "https://golfstg.org/fr/jouer-a-saint-germain",
+   "site": "https://golfstg.org/",
+   "releve": "2026-11-26"
   }
  }
 }
