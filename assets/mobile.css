@@ -94,9 +94,15 @@
 
   /* ---------- Page « Réserver un parcours » ---------- */
   /* carte 3D de France : gardée (animée et interactive), mais compacte au lieu d'occuper tout l'écran */
-  html.pro .gp-viz{height:330px!important;min-height:0!important;margin:4px -16px 0!important}
-  html.pro .gp-cap{position:static!important;transform:none!important;justify-self:center;margin:2px auto 0!important;display:inline-flex!important}
-  html.pro .gp-hin{padding-block:22px 34px!important;gap:18px!important}
+  html.pro .gp-viz{order:2;height:300px!important;min-height:0!important;margin:0!important;border-radius:24px;overflow:hidden;
+    background:radial-gradient(90% 80% at 50% 45%,rgba(28,70,56,.55),rgba(10,30,23,.78));border:1px solid rgba(208,228,220,.18);
+    box-shadow:0 24px 50px -28px rgba(0,0,0,.8)}
+  html.pro .gp-viz::before{content:"La France du golf";position:absolute;left:18px;top:16px;z-index:2;font:600 11.5px/1 var(--body,system-ui);
+    letter-spacing:.16em;text-transform:uppercase;color:#A3C9B8;pointer-events:none}
+  /* l'indication passe en bas, à l'intérieur de la carte */
+  html.pro .gp-cap{order:3;position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;transform:none!important;
+    justify-self:center;margin:-52px auto 0!important;z-index:3;display:inline-flex!important}
+  html.pro .gp-hin{padding-block:22px 6px!important;gap:16px!important}
   /* formulaire : champs de même hauteur ; le champ date d'iPhone ne déborde plus sur la colonne voisine */
   .gp-f label,.gp-dep label{min-width:0}
   .gp-f input,.gp-f select,.gp-dep input,.gp-dep select{height:48px;box-sizing:border-box}
