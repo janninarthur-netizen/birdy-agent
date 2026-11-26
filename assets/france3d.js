@@ -139,9 +139,8 @@
     var r = cv.getBoundingClientRect(); if (!r.width || !r.height) return;
     renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height;
     // Cadrage : la France remplit la zone, centrée (un peu plus loin sur écran étroit)
-    // écran étroit (téléphone) : caméra un peu plus loin pour que toute la France tienne dans la carte, même quand elle pivote
-    var loin = r.width < 520 ? 13.4 : r.width / r.height < 0.9 ? 10.8 : 9.9;
-    cam.position.set(0, -4.4, loin); cam.lookAt(0, 0.05, 0); pivot.position.x = r.width > 520 ? 0.18 : -0.22;   // la carte respire : un peu à droite, à distance du chat cam.updateProjectionMatrix();
+    var loin = r.width / r.height < 0.9 ? 10.8 : 9.9;
+    cam.position.set(0, -4.4, loin); cam.lookAt(0, 0.05, 0); pivot.position.x = r.width > 520 ? 0.18 : 0;   // la carte respire : un peu à droite, à distance du chat cam.updateProjectionMatrix();
   }
   addEventListener("resize", taille);
   if (window.IntersectionObserver) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);
